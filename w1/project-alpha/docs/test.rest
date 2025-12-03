@@ -1,0 +1,89 @@
+### Base config
+@baseUrl = http://localhost:8000/api
+
+###
+# 健康检查
+GET {{baseUrl}}/health
+Accept: application/json
+
+###
+# 获取标签列表
+GET {{baseUrl}}/tags
+Accept: application/json
+
+###
+# 按名称搜索标签（可选）
+GET {{baseUrl}}/tags?search=onboard
+Accept: application/json
+
+###
+# 创建新标签
+POST {{baseUrl}}/tags
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "demo-tag"
+}
+
+###
+# 获取 Ticket 列表（不带筛选）
+GET {{baseUrl}}/tickets
+Accept: application/json
+
+###
+# 获取 Ticket 列表（按标签筛选：例如标签 1 和 3）
+GET {{baseUrl}}/tickets?tag_ids=1,3
+Accept: application/json
+
+###
+# 获取 Ticket 列表（标题搜索 + 标签筛选组合）
+GET {{baseUrl}}/tickets?tag_ids=3&search=autocomplete
+Accept: application/json
+
+###
+# 创建 Ticket（带标签）
+POST {{baseUrl}}/tickets
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "API created ticket",
+  "description": "Created from REST client script.",
+  "tag_ids": [1, 3]
+}
+
+###
+# 获取单个 Ticket 详情
+# 请先将 {id} 替换为实际的 Ticket ID
+GET {{baseUrl}}/tickets/1
+Accept: application/json
+
+###
+# 更新 Ticket（部分字段）
+PATCH {{baseUrl}}/tickets/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Updated ticket title from REST client",
+  "description": "Updated description.",
+  "status": "done",
+  "tag_ids": [3]
+}
+
+###
+# 仅切换 Ticket 状态（示例）
+PATCH {{baseUrl}}/tickets/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "status": "open"
+}
+
+###
+# 删除 Ticket
+DELETE {{baseUrl}}/tickets/1
+Accept: application/json
+

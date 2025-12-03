@@ -1,0 +1,18 @@
+# Backend virtual environments
+backend/.venv/
+
+# Python cache
+**/__pycache__/
+*.pyc
+
+# Environment files
+.env
+backend/.env
+
+# Frontend artifacts
+frontend/node_modules/
+frontend/dist/
+
+# OS files
+.DS_Store
+
