@@ -1,6 +1,6 @@
 # Instructions
 
-![](/Users/buoge/Library/Application%20Support/marktext/images/2025-12-03-19-30-53-image.png)
+![演示图片](project_alpha_screenshot.png)
 
 ## 准备环境
 
