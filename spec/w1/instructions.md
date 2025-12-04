@@ -8,6 +8,7 @@
 2. 安装 postgrey 确保能运行
 3. 安装 cursor 确保可以试用或购买试用账号，这一步搞了半天购买账号然后激活
 4. 创建项目文件目录
+5. 基于cursor的 agent模式，使用 composer1 模型完成对话
 
 ## project-alpha 需求和设计文档（cursor中我使用的是 composer1 模型）
 
