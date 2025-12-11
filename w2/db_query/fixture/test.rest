@@ -1,0 +1,52 @@
+### Base
+@baseUrl = http://127.0.0.1:8000
+
+###
+# Health
+GET {{baseUrl}}/health
+Accept: application/json
+
+###
+# 创建/测试连接并拉取元数据
+POST {{baseUrl}}/metadata/sync
+Content-Type: application/json
+Accept: application/json
+
+{
+  "connectionUrl": "postgresql://postgres:@localhost:5432/projectalpha",
+  "refresh": true
+}
+
+###
+# 获取已保存的连接与元数据摘要
+GET {{baseUrl}}/metadata
+Accept: application/json
+
+###
+# 手写 SQL 受控执行（仅 SELECT，自动追加 LIMIT 1000）
+POST {{baseUrl}}/query
+Content-Type: application/json
+Accept: application/json
+
+{
+  "connectionId": 1,
+  "sql": "select * from public.my_table"
+}
+
+###
+# 自然语言生成 SQL 并执行
+POST {{baseUrl}}/nl-query
+Content-Type: application/json
+Accept: application/json
+
+{
+  "connectionId": 1,
+  "prompt": "统计最近 7 天订单数，按日期分组"
+}
+
+###
+# 查看最近一次元数据（按连接）
+GET {{baseUrl}}/metadata/1
+Accept: application/json
+
+

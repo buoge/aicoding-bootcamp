@@ -9,6 +9,10 @@
 
 - [ ] T001 Prepare backend env with uv/venv and install deps (`w2/db_query/backend/requirements.txt`)
 - [ ] T002 Prepare frontend env and install deps (Vue3 + element-ui + monaco) (`w2/db_query/frontend/package.json`)
+element-plus：2.12.0
+vue3： vue3.5.25
+monaco： 0.55.1
+
 - [ ] T003 [P] Create sample env file with `DEEPSEEK_API_KEY`, sqlite path `~/.db_query/db_query.db`, and default API base (`w2/db_query/.env.example`)
 - [ ] T004 [P] Scaffold backend FastAPI app layout (`w2/db_query/backend/app/{api,core,models,services,db}`)
 - [ ] T005 [P] Scaffold frontend project layout with axios client and global error handler (`w2/db_query/frontend/src`)
