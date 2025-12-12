@@ -7,4 +7,5 @@ httpx
 SQLAlchemy
 psycopg[binary,pool]
 psycopg2-binary
+openai
 
