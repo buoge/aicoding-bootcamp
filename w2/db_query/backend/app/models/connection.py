@@ -21,6 +21,16 @@ class ConnectionCreate(BaseModel):
     refresh: bool = False
     name: Optional[str] = None
 
+    class Config:
+        populate_by_name = True
+
+
+class ConnectionUpdate(BaseModel):
+    name: Optional[str] = None
+
+    class Config:
+        populate_by_name = True
+
 
 class ConnectionOut(BaseModel):
     id: int

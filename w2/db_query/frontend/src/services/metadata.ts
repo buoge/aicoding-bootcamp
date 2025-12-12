@@ -45,3 +45,8 @@ export async function getMetadataApi(connectionId: number): Promise<MetadataResp
   return data
 }
 
+export async function updateConnectionNameApi(connectionId: number, payload: { name?: string }) {
+  const { data } = await apiClient.put(`/metadata/${connectionId}`, payload)
+  return data as ConnectionOut
+}
+

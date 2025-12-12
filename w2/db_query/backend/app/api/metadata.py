@@ -4,7 +4,7 @@ import json
 
 from app.db.session import get_db
 from app.services import metadata_service
-from app.models.connection import ConnectionCreate, ConnectionOut, MetadataResponse, TableInfo
+from app.models.connection import ConnectionCreate, ConnectionOut, MetadataResponse, TableInfo, ConnectionUpdate
 from app.models.schemas import ErrorResponse
 
 router = APIRouter(prefix="/metadata", tags=["metadata"])
@@ -56,5 +56,18 @@ def get_connection_metadata(connection_id: int, db: Session = Depends(get_db)):
             lastSynced=conn.last_synced,
         ),
         tables=parsed_tables,
+    )
+
+
+@router.put("/{connection_id}", response_model=ConnectionOut, responses={404: {"model": ErrorResponse}})
+def update_connection(connection_id: int, payload: ConnectionUpdate, db: Session = Depends(get_db)):
+    updated = metadata_service.update_connection_name(db, connection_id, payload.name)
+    if not updated:
+        raise HTTPException(status_code=404, detail="Connection not found")
+    return ConnectionOut(
+        id=updated.id,
+        name=updated.name,
+        connectionUrl=updated.connection_url,
+        lastSynced=updated.last_synced,
     )
 

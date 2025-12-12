@@ -77,3 +77,8 @@ def get_metadata(db: Session, connection_id: int):
     metadata_store.init_db()
     return metadata_store.get_metadata(db, connection_id)
 
+
+def update_connection_name(db: Session, connection_id: int, name: str | None):
+    metadata_store.init_db()
+    return metadata_store.update_connection_name(db, connection_id, name)
+

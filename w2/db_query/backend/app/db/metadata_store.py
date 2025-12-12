@@ -85,3 +85,14 @@ def get_metadata(db: Session, connection_id: int) -> tuple[Connection, List[Tabl
     tables = db.execute(select(TableMetadata).where(TableMetadata.connection_id == connection_id)).scalars().all()
     return conn, tables
 
+
+def update_connection_name(db: Session, connection_id: int, name: str | None):
+    conn = db.execute(select(Connection).where(Connection.id == connection_id)).scalar_one_or_none()
+    if not conn:
+        return None
+    conn.name = name
+    db.add(conn)
+    db.commit()
+    db.refresh(conn)
+    return conn
+

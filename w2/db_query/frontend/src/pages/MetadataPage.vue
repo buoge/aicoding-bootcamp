@@ -25,9 +25,10 @@
         <el-table-column prop="name" label="Name" />
         <el-table-column prop="connectionUrl" label="Connection URL" />
         <el-table-column prop="lastSynced" label="Last Synced" />
-        <el-table-column width="160" label="操作">
+        <el-table-column width="200" label="操作">
           <template #default="scope">
             <el-button size="small" @click="loadMetadata(scope.row.id)">查看元数据</el-button>
+            <el-button size="small" type="primary" @click="editName(scope.row)">编辑名称</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -65,8 +66,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElMessage } from 'element-plus'
-import { fetchConnectionsApi, syncMetadataApi, getMetadataApi } from '../services/metadata'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { fetchConnectionsApi, syncMetadataApi, getMetadataApi, updateConnectionNameApi } from '../services/metadata'
 
 interface Connection {
   id: number
@@ -141,6 +142,22 @@ const loadMetadata = async (connectionId: number) => {
     metadataTables.value = res.tables
   } catch (e: any) {
     error.value = e?.response?.data?.detail || e?.message || '加载元数据失败'
+  }
+}
+
+const editName = async (row: Connection) => {
+  try {
+    const { value } = await ElMessageBox.prompt('请输入新的名称', '编辑名称', {
+      confirmButtonText: '保存',
+      cancelButtonText: '取消',
+      inputValue: row.name || '',
+    })
+    await updateConnectionNameApi(row.id, { name: value || undefined })
+    ElMessage.success('更新成功')
+    await fetchConnections()
+  } catch (e: any) {
+    if (e === 'cancel' || e === 'close') return
+    error.value = e?.response?.data?.detail || e?.message || '更新失败'
   }
 }
 
