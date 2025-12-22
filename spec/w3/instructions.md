@@ -1,6 +1,12 @@
 # Instructions
 
-## code review command
+## 确认在工程根目录初始化了 claude code 和 speckit
+我之前都是用 cursor 的 agent 还没有初始化，开始之前进入到项目的根目录然后 运行 specify init --here --ai claude 
+
+## 演练一：实现一个 agent ，实现架构设计
+你是一个 Python 开发的资深系统级工程师，可以进行优雅的架构设计，遵循Python哲学，并对并发异步web/grpc/数据库/大数据处理有深刻的理解
+
+## 演练二：实现一个 slashcommand 的定义，code review command
 
 帮我参照 @.claude/commands/speckit.specify.md 的结构，think ultra hard，构建一个对 Python 和 Typescript 代码进行深度代码审查的命令，放在 @.claude/commands/ 下。主要考虑几个方面：
 
@@ -9,10 +15,10 @@
 - 代码质量：DRY, YAGNI, SOLID, etc. 函数原则上不超过 150 行，参数原则上不超过 7 个。
 - 使用 builder 模式
 
-## review 代码
+## 演练三：review 代码
 
-@agent-py-arch 帮我仔细查看 ./w2/db_query/backend
-的架构，目前因为添加了新的数据库，需要重新考虑整体的设计，最好设计一套 interface，为以后添加更多数据库留有余地，不至于到处修改已有代码。设计要符合 Open-Close 和 SOLID 原则。
+@agent-py-arch 仔细查看 ./w2/db_query/backend
+的架构，重新考虑整体的设计，最好设计一套 interface，为以后添加更多数据库留有余地，不至于到处修改已有代码。设计要符合 Open-Close 和 SOLID 原则。
 
 ## Raflow spec format
 
