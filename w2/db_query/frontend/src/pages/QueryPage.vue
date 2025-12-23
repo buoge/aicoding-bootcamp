@@ -37,6 +37,17 @@
       <div class="panel-header">
         <h2>结果</h2>
         <span v-if="result?.limitAdded" class="hint">已自动追加 LIMIT 1000</span>
+        <el-dropdown v-if="result?.rows?.length" @command="exportData">
+          <el-button type="primary" :disabled="!result?.rows?.length">
+            导出数据<el-icon class="el-icon--right"><arrow-down /></el-icon>
+          </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="csv">导出 CSV</el-dropdown-item>
+              <el-dropdown-item command="json">导出 JSON</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
       <el-alert v-if="error" type="error" :closable="false" show-icon class="alert">{{ error }}</el-alert>
       <el-table v-if="result?.rows?.length" :data="tableData" stripe style="width: 100%">
@@ -55,6 +66,7 @@
 <script setup lang="ts">
 import { reactive, ref, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
+import { ArrowDown } from '@element-plus/icons-vue'
 import { runQuery } from '../services/query'
 import { fetchConnectionsApi, type ConnectionOut } from '../services/metadata'
 
@@ -124,6 +136,64 @@ const loadConnections = async () => {
   }
 }
 
+const convertToCSV = (data: Record<string, any>[]): string => {
+  if (!data.length) return ''
+  const headers = Object.keys(data[0])
+  const csvHeaders = headers.join(',')
+  const csvRows = data.map(row => {
+    return headers.map(header => {
+      const val = row[header]
+      if (val === null || val === undefined) return ''
+      const str = String(val)
+      if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+        return `"${str.replace(/"/g, '""')}"`
+      }
+      return str
+    }).join(',')
+  })
+  return [csvHeaders, ...csvRows].join('\n')
+}
+
+const convertToJSON = (data: Record<string, any>[]): string => {
+  return JSON.stringify(data, null, 2)
+}
+
+const downloadFile = (content: string, filename: string, mimeType: string) => {
+  const blob = new Blob([content], { type: mimeType })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = filename
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+  URL.revokeObjectURL(url)
+}
+
+const exportData = (format: 'csv' | 'json') => {
+  if (!result.value?.rows?.length) {
+    ElMessage.warning('没有可导出的数据')
+    return
+  }
+  try {
+    const data = tableData.value
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5)
+    let content = ''
+    let filename = ''
+    if (format === 'csv') {
+      content = convertToCSV(data)
+      filename = `query-result-${timestamp}.csv`
+    } else {
+      content = convertToJSON(data)
+      filename = `query-result-${timestamp}.json`
+    }
+    downloadFile(content, filename, format === 'csv' ? 'text/csv;charset=utf-8;' : 'application/json;charset=utf-8;')
+    ElMessage.success('数据导出成功')
+  } catch (e) {
+    ElMessage.error('数据导出失败')
+  }
+}
+
 onMounted(() => {
   loadConnections()
 })
@@ -146,7 +216,12 @@ onMounted(() => {
 .panel-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.panel-header h2 {
+  margin: 0;
 }
 .form {
   max-width: 720px;
