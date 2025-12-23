@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(xargs -I {} basename {} .md:*)",
+      "WebSearch",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

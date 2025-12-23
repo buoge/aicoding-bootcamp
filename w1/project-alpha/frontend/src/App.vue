@@ -163,7 +163,7 @@ onMounted(async () => {
 <template>
   <main class="page">
     <header class="header">
-      <div>
+  <div>
         <p class="eyebrow">Project Alpha</p>
         <h1>基于标签的 Ticket 管理工具</h1>
         <p class="subtitle">可以按标题关键字搜索 Ticket，数据来自后端 API（/api/tickets）。</p>
@@ -349,7 +349,7 @@ onMounted(async () => {
           </div>
         </form>
       </div>
-    </div>
+  </div>
   </main>
 </template>
 
