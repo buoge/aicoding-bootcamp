@@ -4,7 +4,10 @@
       "Bash(ls:*)",
       "Bash(xargs -I {} basename {} .md:*)",
       "WebSearch",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(git clone:*)",
+      "Bash(curl:*)"
     ]
   }
 }
