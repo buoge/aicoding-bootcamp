@@ -12,6 +12,8 @@ __pycache__/
 .venv/
 node_modules/
 
+vendors/
+
 # PID files
 .pids.*
 w1/project-alpha/.pids.*

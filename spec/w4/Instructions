@@ -1,2 +1,0 @@
-# Instructions for week4
-仔细阅读 https://github.com/openai/codex 的代码，撰写一个详细的架构分析文档，如需图表，使用 mermaid chart。文档放在: ./specs/w4/codex-arch-by-codex.md
