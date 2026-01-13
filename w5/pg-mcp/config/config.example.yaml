@@ -1,0 +1,57 @@
+# PostgreSQL MCP 服务器配置模板
+
+# 数据库配置
+databases:
+  # 生产数据库
+  production:
+    host: "${DB_PROD_HOST}"
+    port: 5432
+    database: "${DB_PROD_NAME}"
+    user: "${DB_PROD_USER}"
+    password: "${DB_PROD_PASSWORD}"
+    min_pool_size: 1
+    max_pool_size: 10
+
+  # 开发数据库
+  development:
+    host: "localhost"
+    port: 5432
+    database: "dev_db"
+    user: "postgres"
+    password: "${DB_DEV_PASSWORD}"
+    min_pool_size: 1
+    max_pool_size: 5
+
+  # 分析数据库
+  analytics:
+    host: "${DB_ANALYTICS_HOST}"
+    port: 5432
+    database: "analytics"
+    user: "${DB_ANALYTICS_USER}"
+    password: "${DB_ANALYTICS_PASSWORD}"
+    min_pool_size: 1
+    max_pool_size: 20
+
+# LLM 配置
+llm:
+  api_key: "sk-u34rEyVFk2H3YRnd7bVN9Ew5vYQNrk4C3NNUMYJ2lbbC56Cn"
+  base_url: "https://api.moonshot.cn/v1"
+  model: "kimi-k2-thinking-turbo"
+  temperature: 0.1
+  max_tokens: 4000
+  timeout: 60
+  max_retries: 3
+
+# 查询配置
+query:
+  max_rows: 1000
+  timeout: 30
+  enable_explain: false
+
+# 模式配置
+schema:
+  cache_ttl: 3600  # 1 小时
+  max_tables: 20
+  max_columns_per_table: 50
+  include_schemas: []  # 空数组表示包含所有模式，或者指定模式如 ["public", "analytics"]
+  exclude_schemas: ["pg_catalog", "information_schema"]
