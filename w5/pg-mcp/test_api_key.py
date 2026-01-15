@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = "sk-u34rEyVFk2H3YRnd7bVN9Ew5vYQNrk4C3NNUMYJ2lbbC56Cn"
+API_KEY = "sk-"
 BASE_URL = "https://api.moonshot.cn/v1"
 
 print("测试 Moonshot API 连接...")

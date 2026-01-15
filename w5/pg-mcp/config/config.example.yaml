@@ -34,7 +34,7 @@ databases:
 
 # LLM 配置
 llm:
-  api_key: "sk-u34rEyVFk2H3YRnd7bVN9Ew5vYQNrk4C3NNUMYJ2lbbC56Cn"
+  api_key: "sk-"
   base_url: "https://api.moonshot.cn/v1"
   model: "kimi-k2-thinking-turbo"
   temperature: 0.1
