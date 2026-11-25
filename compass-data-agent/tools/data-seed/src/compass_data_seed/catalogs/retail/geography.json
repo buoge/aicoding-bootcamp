@@ -1,0 +1,377 @@
+{
+  "hierarchy_snapshot": "MCA 2023 administrative names; frozen teaching geography, boundary changes not simulated",
+  "cities": [
+    {
+      "region": 1,
+      "province": "上海市",
+      "city": "上海市",
+      "districts": [
+        "浦东新区",
+        "徐汇区"
+      ],
+      "province_code": "310000",
+      "city_code": "310000",
+      "district_codes": {
+        "浦东新区": "310115",
+        "徐汇区": "310104"
+      }
+    },
+    {
+      "region": 1,
+      "province": "江苏省",
+      "city": "南京市",
+      "districts": [
+        "建邺区",
+        "玄武区"
+      ],
+      "province_code": "320000",
+      "city_code": "320100",
+      "district_codes": {
+        "建邺区": "320105",
+        "玄武区": "320102"
+      }
+    },
+    {
+      "region": 1,
+      "province": "浙江省",
+      "city": "杭州市",
+      "districts": [
+        "余杭区",
+        "西湖区"
+      ],
+      "province_code": "330000",
+      "city_code": "330100",
+      "district_codes": {
+        "余杭区": "330110",
+        "西湖区": "330106"
+      }
+    },
+    {
+      "region": 1,
+      "province": "江苏省",
+      "city": "苏州市",
+      "districts": [
+        "吴中区",
+        "姑苏区"
+      ],
+      "province_code": "320000",
+      "city_code": "320500",
+      "district_codes": {
+        "吴中区": "320506",
+        "姑苏区": "320508"
+      }
+    },
+    {
+      "region": 2,
+      "province": "广东省",
+      "city": "广州市",
+      "districts": [
+        "天河区",
+        "番禺区"
+      ],
+      "province_code": "440000",
+      "city_code": "440100",
+      "district_codes": {
+        "天河区": "440106",
+        "番禺区": "440113"
+      }
+    },
+    {
+      "region": 2,
+      "province": "广东省",
+      "city": "深圳市",
+      "districts": [
+        "南山区",
+        "福田区"
+      ],
+      "province_code": "440000",
+      "city_code": "440300",
+      "district_codes": {
+        "南山区": "440305",
+        "福田区": "440304"
+      }
+    },
+    {
+      "region": 2,
+      "province": "广西壮族自治区",
+      "city": "南宁市",
+      "districts": [
+        "青秀区",
+        "西乡塘区"
+      ],
+      "province_code": "450000",
+      "city_code": "450100",
+      "district_codes": {
+        "青秀区": "450103",
+        "西乡塘区": "450107"
+      }
+    },
+    {
+      "region": 3,
+      "province": "北京市",
+      "city": "北京市",
+      "districts": [
+        "朝阳区",
+        "海淀区"
+      ],
+      "province_code": "110000",
+      "city_code": "110000",
+      "district_codes": {
+        "朝阳区": "110105",
+        "海淀区": "110108"
+      }
+    },
+    {
+      "region": 3,
+      "province": "天津市",
+      "city": "天津市",
+      "districts": [
+        "南开区",
+        "河西区"
+      ],
+      "province_code": "120000",
+      "city_code": "120000",
+      "district_codes": {
+        "南开区": "120104",
+        "河西区": "120103"
+      }
+    },
+    {
+      "region": 3,
+      "province": "河北省",
+      "city": "石家庄市",
+      "districts": [
+        "长安区",
+        "裕华区"
+      ],
+      "province_code": "130000",
+      "city_code": "130100",
+      "district_codes": {
+        "长安区": "130102",
+        "裕华区": "130108"
+      }
+    },
+    {
+      "region": 4,
+      "province": "湖北省",
+      "city": "武汉市",
+      "districts": [
+        "洪山区",
+        "江汉区"
+      ],
+      "province_code": "420000",
+      "city_code": "420100",
+      "district_codes": {
+        "洪山区": "420111",
+        "江汉区": "420103"
+      }
+    },
+    {
+      "region": 4,
+      "province": "湖南省",
+      "city": "长沙市",
+      "districts": [
+        "岳麓区",
+        "芙蓉区"
+      ],
+      "province_code": "430000",
+      "city_code": "430100",
+      "district_codes": {
+        "岳麓区": "430104",
+        "芙蓉区": "430102"
+      }
+    },
+    {
+      "region": 4,
+      "province": "河南省",
+      "city": "郑州市",
+      "districts": [
+        "金水区",
+        "中原区"
+      ],
+      "province_code": "410000",
+      "city_code": "410100",
+      "district_codes": {
+        "金水区": "410105",
+        "中原区": "410102"
+      }
+    },
+    {
+      "region": 5,
+      "province": "辽宁省",
+      "city": "沈阳市",
+      "districts": [
+        "浑南区",
+        "沈河区"
+      ],
+      "province_code": "210000",
+      "city_code": "210100",
+      "district_codes": {
+        "浑南区": "210112",
+        "沈河区": "210103"
+      }
+    },
+    {
+      "region": 5,
+      "province": "吉林省",
+      "city": "长春市",
+      "districts": [
+        "南关区",
+        "朝阳区"
+      ],
+      "province_code": "220000",
+      "city_code": "220100",
+      "district_codes": {
+        "南关区": "220102",
+        "朝阳区": "220104"
+      }
+    },
+    {
+      "region": 5,
+      "province": "黑龙江省",
+      "city": "哈尔滨市",
+      "districts": [
+        "南岗区",
+        "道里区"
+      ],
+      "province_code": "230000",
+      "city_code": "230100",
+      "district_codes": {
+        "南岗区": "230103",
+        "道里区": "230102"
+      }
+    },
+    {
+      "region": 6,
+      "province": "四川省",
+      "city": "成都市",
+      "districts": [
+        "武侯区",
+        "金牛区"
+      ],
+      "province_code": "510000",
+      "city_code": "510100",
+      "district_codes": {
+        "武侯区": "510107",
+        "金牛区": "510106"
+      }
+    },
+    {
+      "region": 6,
+      "province": "重庆市",
+      "city": "重庆市",
+      "districts": [
+        "渝北区",
+        "南岸区"
+      ],
+      "province_code": "500000",
+      "city_code": "500000",
+      "district_codes": {
+        "渝北区": "500112",
+        "南岸区": "500108"
+      }
+    },
+    {
+      "region": 6,
+      "province": "云南省",
+      "city": "昆明市",
+      "districts": [
+        "五华区",
+        "盘龙区"
+      ],
+      "province_code": "530000",
+      "city_code": "530100",
+      "district_codes": {
+        "五华区": "530102",
+        "盘龙区": "530103"
+      }
+    },
+    {
+      "region": 7,
+      "province": "陕西省",
+      "city": "西安市",
+      "districts": [
+        "雁塔区",
+        "碑林区"
+      ],
+      "province_code": "610000",
+      "city_code": "610100",
+      "district_codes": {
+        "雁塔区": "610113",
+        "碑林区": "610103"
+      }
+    },
+    {
+      "region": 7,
+      "province": "甘肃省",
+      "city": "兰州市",
+      "districts": [
+        "城关区",
+        "七里河区"
+      ],
+      "province_code": "620000",
+      "city_code": "620100",
+      "district_codes": {
+        "城关区": "620102",
+        "七里河区": "620103"
+      }
+    },
+    {
+      "region": 7,
+      "province": "宁夏回族自治区",
+      "city": "银川市",
+      "districts": [
+        "金凤区",
+        "兴庆区"
+      ],
+      "province_code": "640000",
+      "city_code": "640100",
+      "district_codes": {
+        "金凤区": "640106",
+        "兴庆区": "640104"
+      }
+    }
+  ],
+  "synthetic_streets": [
+    "青禾路",
+    "望山路",
+    "云栖街",
+    "听雨路",
+    "星河街",
+    "晨光路",
+    "林荫街",
+    "澄溪路",
+    "新松路",
+    "栖月街",
+    "晴岚路",
+    "远川街"
+  ],
+  "synthetic_communities": [
+    "晴川雅苑",
+    "春山里",
+    "云杉花园",
+    "星河公寓",
+    "青禾家园",
+    "望川府",
+    "溪畔新居",
+    "晨曦小筑",
+    "松风苑",
+    "花语里",
+    "林间居",
+    "知行社区"
+  ],
+  "address_kinds": [
+    "HOME",
+    "OFFICE",
+    "TEMPORARY"
+  ],
+  "synthetic_notice": "门牌与社区为合成示例地址，不对应真实收件人。",
+  "source": {
+    "title": "2023年中华人民共和国县以上行政区划代码",
+    "publisher": "中华人民共和国民政部",
+    "url": "https://www.mca.gov.cn/mzsj/xzqh/2023/202301xzqh.html",
+    "accessed_on": "2026-10-22",
+    "source_sha256": "4909c8bc2384429a5da76c954c13bc3c7dec4bf2153b4a6dabaf0d1ce332771f",
+    "verified_selected_cities": 22
+  }
+}

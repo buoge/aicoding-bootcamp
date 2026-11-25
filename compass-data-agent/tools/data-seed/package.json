@@ -1,0 +1,12 @@
+{
+  "name": "@compass/data-seed",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "uv build --package compass-data-seed --out-dir dist",
+    "lint": "uv run --locked ruff check . && uv run --locked ruff format --check .",
+    "typecheck": "uv run --locked pyright --project ../../pyproject.toml src tests",
+    "test": "uv run --locked pytest tests --ignore=tests/integration",
+    "test:integration": "uv run --locked pytest tests/integration"
+  }
+}

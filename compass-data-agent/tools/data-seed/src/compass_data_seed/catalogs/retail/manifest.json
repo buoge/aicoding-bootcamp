@@ -1,0 +1,35 @@
+{
+  "schema_version": "retail-semantic-1",
+  "state": "FROZEN",
+  "provenance": {
+    "source": "codex_conversation",
+    "author": "Codex conversation model",
+    "authored_on": "2026-10-22",
+    "instruction": "用户授权按 TECH_DESIGN.md §10，以具体运动户外商品、人群、真实地理与合成地址重建可分析数据，保留旧版。",
+    "api_call_performed": false,
+    "review": "Domain review: explicit bag capacities, ball size grids and per-unit/pack weights; all amounts remain synthetic course assumptions.",
+    "parent_hash": "18fea909b566475c2c085b7c560ec5f4455e4551007271a133a05dbb04a8ad5e",
+    "reference_urls": [
+      "https://www.itftennis.com/media/7221/2026-rules-of-tennis-english.pdf",
+      "https://system.bwfbadminton.com/documents/folder_1_81/Regulations/Laws/Part%20II%20Section%201A%20-%20Laws%20of%20Badminton%20-%20May%202017.pdf"
+    ]
+  },
+  "files": {
+    "products.jsonl": "14aee16d0770b8a0bae21aaa871f1279b710e3c0d0b9b743509da9acd79be286",
+    "families.json": "89769a57a6df3ba029c9485d6d627b62c9bcbceba00ddf5b09fdbe623746360f",
+    "business.json": "28cb78a3cd7c9dcd8c68725fcc03597eb9632d8293caad71900c9473b998c519",
+    "customers.json": "5ed14bc365129e223ff2cf6769134c26d22c8fa70788b6806a7e9d931f0e9588",
+    "geography.json": "6dc73404989839be4bffbf92e8a616b79074419bc0513d8af6c9c255cc902c35",
+    "commerce.json": "d6c6a4b550bdf16cfb161db6d76616954d3ada60e392c389f8e66169f3fb89d5",
+    "language.json": "b6dcf6daa7464b7088f9c973fa29ed9cbf771ad1da3d91a5ae45159c4eae42d2"
+  },
+  "validation": {
+    "products": 160,
+    "skus": 1280,
+    "families": 70,
+    "personas": 16,
+    "cities": 22,
+    "violations": 0
+  },
+  "content_hash": "18e2b120e4e65a342851bbe07ae8c283179c327eed475a29a52a42c9e41a817d"
+}

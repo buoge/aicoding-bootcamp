@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "currency": {
+      "const": "CNY",
+      "default": "CNY",
+      "title": "Currency",
+      "type": "string"
+    },
+    "days": {
+      "minimum": 1,
+      "title": "Days",
+      "type": "integer"
+    },
+    "end_date": {
+      "format": "date",
+      "title": "End Date",
+      "type": "string"
+    },
+    "orders": {
+      "minimum": 0,
+      "title": "Orders",
+      "type": "integer"
+    },
+    "revenue_minor": {
+      "minimum": 0,
+      "title": "Revenue Minor",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source": {
+      "const": "synthetic-fixture",
+      "default": "synthetic-fixture",
+      "title": "Source",
+      "type": "string"
+    },
+    "start_date": {
+      "format": "date",
+      "title": "Start Date",
+      "type": "string"
+    }
+  },
+  "required": [
+    "start_date",
+    "end_date",
+    "revenue_minor",
+    "orders",
+    "days"
+  ],
+  "title": "DemoOverview",
+  "type": "object"
+}

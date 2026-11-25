@@ -1,0 +1,92 @@
+erDiagram
+    direction TB
+    core_customer {
+        smallint tenant_id PK
+        bigint customer_id PK
+        bigint home_geo_id FK
+        bigint load_batch_id FK
+    }
+    core_customer_identity {
+        smallint tenant_id PK
+        bigint identity_id PK
+        bigint channel_id FK
+        bigint load_batch_id FK
+    }
+    core_customer_identity_link {
+        smallint tenant_id PK
+        bigint identity_link_id PK
+        bigint identity_id FK
+        bigint customer_id FK
+        bigint load_batch_id FK
+    }
+    core_order_header {
+        smallint tenant_id PK
+        bigint order_id PK
+        bigint channel_id FK
+        bigint org_unit_id FK
+        bigint region_id FK
+        bigint demand_geo_id FK
+        bigint selling_site_id FK
+        bigint identity_id FK
+        bigint customer_id FK
+        bigint load_batch_id FK
+    }
+    core_order_line {
+        smallint tenant_id PK
+        bigint order_line_id PK
+        bigint order_id FK
+        bigint region_id FK
+        bigint channel_id FK
+        bigint sku_id FK
+        bigint listing_id FK
+        bigint price_id FK
+        bigint load_batch_id FK
+    }
+    core_order_unit {
+        smallint tenant_id PK
+        bigint order_unit_id PK
+        bigint order_line_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint load_batch_id FK
+    }
+    core_order_status_event {
+        smallint tenant_id PK
+        bigint status_event_id PK
+        bigint order_id FK
+        bigint region_id FK
+        bigint load_batch_id FK
+    }
+    core_order_unit_event {
+        smallint tenant_id PK
+        bigint unit_event_id PK
+        bigint order_unit_id FK
+        bigint region_id FK
+        bigint load_batch_id FK
+    }
+    core_discount_allocation {
+        smallint tenant_id PK
+        bigint allocation_id PK
+        bigint order_unit_id FK
+        bigint region_id FK
+        bigint promotion_id FK
+        bigint load_batch_id FK
+    }
+    core_promotion {
+        smallint tenant_id PK
+        bigint promotion_id PK
+        bigint channel_id FK
+        bigint campaign_id FK
+        bigint load_batch_id FK
+    }
+    core_customer_identity ||--o{ core_customer_identity_link : "identity_id"
+    core_customer ||--o{ core_customer_identity_link : "customer_id"
+    core_customer |o--o{ core_order_header : "customer_id"
+    core_customer_identity ||--o{ core_order_header : "identity_id,channel_id"
+    core_order_header ||--o{ core_order_line : "order_id,region_id,channel_id"
+    core_order_line ||--o{ core_order_unit : "order_line_id,order_id,region_id,sku_id"
+    core_order_header ||--o{ core_order_status_event : "order_id,region_id"
+    core_order_unit ||--o{ core_order_unit_event : "order_unit_id,region_id"
+    core_order_unit ||--o{ core_discount_allocation : "order_unit_id,region_id"
+    core_promotion ||--o{ core_discount_allocation : "promotion_id"

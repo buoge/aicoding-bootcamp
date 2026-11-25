@@ -1,0 +1,22 @@
+digraph ER {
+graph [rankdir=TB, bgcolor="white", nodesep=0.28, ranksep=0.62, pad=0.28, splines=polyline, concentrate=false, fontname="DejaVu Sans"];
+node [shape=plain, fontname="DejaVu Sans"];
+edge [color="#688099", penwidth=1.1, arrowsize=0.55, fontsize=9, fontname="DejaVu Sans"];
+"core.tenant" [label=<<TABLE BORDER="1" COLOR="#c4d2df" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7"><TR><TD BGCOLOR="#173c56"><FONT COLOR="white"><B>core.tenant</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  tenant_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#435c72">FK  release_id</FONT></TD></TR></TABLE>>];
+"core.geo_area" [label=<<TABLE BORDER="1" COLOR="#c4d2df" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7"><TR><TD BGCOLOR="#173c56"><FONT COLOR="white"><B>core.geo_area</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  tenant_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  geo_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#435c72">FK  parent_geo_id ?</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#435c72">FK  region_id</FONT></TD></TR></TABLE>>];
+"core.org_unit" [label=<<TABLE BORDER="1" COLOR="#c4d2df" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7"><TR><TD BGCOLOR="#173c56"><FONT COLOR="white"><B>core.org_unit</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  tenant_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  org_unit_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#435c72">FK  parent_org_unit_id ?</FONT></TD></TR></TABLE>>];
+"core.site" [label=<<TABLE BORDER="1" COLOR="#c4d2df" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7"><TR><TD BGCOLOR="#173c56"><FONT COLOR="white"><B>core.site</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  tenant_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  site_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#435c72">FK  org_unit_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#435c72">FK  geo_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#435c72">FK  region_id</FONT></TD></TR></TABLE>>];
+"core.channel" [label=<<TABLE BORDER="1" COLOR="#c4d2df" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7"><TR><TD BGCOLOR="#173c56"><FONT COLOR="white"><B>core.channel</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  tenant_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  channel_id</FONT></TD></TR></TABLE>>];
+"sec.principal" [label=<<TABLE BORDER="1" COLOR="#c4d2df" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7"><TR><TD BGCOLOR="#173c56"><FONT COLOR="white"><B>sec.principal</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  db_role</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#435c72">FK  tenant_id</FONT></TD></TR></TABLE>>];
+"sec.principal_region" [label=<<TABLE BORDER="1" COLOR="#c4d2df" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7"><TR><TD BGCOLOR="#173c56"><FONT COLOR="white"><B>sec.principal_region</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  db_role</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  tenant_id</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="#164a69">PK  region_id</FONT></TD></TR></TABLE>>];
+"core.tenant" -> "core.geo_area" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+"core.tenant" -> "core.org_unit" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+"core.org_unit" -> "core.site" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+"core.geo_area" -> "core.site" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+"core.tenant" -> "core.site" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+"core.tenant" -> "core.channel" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+"core.tenant" -> "sec.principal" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+"core.geo_area" -> "sec.principal_region" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+"core.tenant" -> "sec.principal_region" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+"sec.principal" -> "sec.principal_region" [taillabel="1", headlabel="0..N", labeldistance=1.5];
+}

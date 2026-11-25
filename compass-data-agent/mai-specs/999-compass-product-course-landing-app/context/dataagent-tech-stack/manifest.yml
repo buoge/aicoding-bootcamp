@@ -1,0 +1,70 @@
+id: dataagent-tech-stack-page
+title: DataAgent 技术栈与工程架构
+scope: course-v5-marketing
+status: review
+owner: guomeiqing
+updated: 2026-09-16
+depends_on:
+  curriculum: course/curriculum/v5/course_outline.md
+  product_requirements: learner-kit/code/dataagent/PRD.md
+  technology_review: research/shared/dataagent-technology-selection/reports/technology-review.md
+  architecture: learner-kit/code/dataagent/technical-architecture.md
+  scaffold_design: learner-kit/code/dataagent/scaffold-design.md
+canonical:
+  control_page: marketing/copy/dataagent-tech-stack/README.md
+  page_source: marketing/copy/dataagent-tech-stack/index.html
+  stylesheet: marketing/copy/dataagent-tech-stack/styles.css
+design:
+  reference: 用户于 2026-09-16 提供的绿色课程页截图，仅作风格参考
+  direction: 深绿主视觉、白色与浅绿分区、橙色主按钮；具体场景与工程内容优先
+  copy_review: 按 de-ai-taste-studio 去除泛化口号、虚构承诺和重复卖点
+visuals:
+- path: marketing/copy/dataagent-tech-stack/visuals/project-hero.png
+  source: generated
+  tool: built-in-image_gen
+  generated_at: 2026-09-16
+  generation_prompt: marketing/copy/dataagent-tech-stack/visuals/green-generation-prompt.md
+  width: 1536
+  height: 1024
+  bytes: 2032134
+  sha256: 1d5971eaf4e9bef3b327c1edd58aa9d30730e9928d1bfa6d26e519e9a2d7021c
+  storage: git-eligible-under-5mb
+  rights: generated-project-visual
+  status: review
+  qa: 主视觉标签清晰，作为装饰性插图，无部署含义。
+- path: marketing/copy/dataagent-tech-stack/visuals/system-architecture.png
+  source: generated
+  tool: built-in-image_gen
+  generated_at: 2026-09-16
+  generation_prompt: marketing/copy/dataagent-tech-stack/visuals/layered-generation-prompt.md
+  width: 1402
+  height: 1122
+  bytes: 1646205
+  sha256: 325caa80b223b0c8cb4b9c6598be1118376291c0833711cd2136a06128aed3e1
+  storage: git-eligible-under-5mb
+  rights: generated-project-visual
+  status: review
+  qa: 八层职责、独立数据层与跨层治理；图片语义检查见生成记录。
+deliverables:
+- type: static-html-page
+  path: marketing/copy/dataagent-tech-stack/index.html
+  status: review
+- type: generated-system-architecture
+  path: marketing/copy/dataagent-tech-stack/visuals/system-architecture.png
+  status: review
+- type: generated-hero-illustration
+  path: marketing/copy/dataagent-tech-stack/visuals/project-hero.png
+  status: review
+distribution:
+  entrypoint: index.html
+  required_files:
+  - index.html
+  - styles.css
+  - visuals/system-architecture.png
+  - visuals/project-hero.png
+  network_required_for_render: false
+  external_deployment: false
+validation:
+  runtime_stack_integration: not_performed
+  browser_visual_qa: not_performed
+  scope: 静态结构、资源、锚点、内部链接、YAML 引用、CSS、图片语义与校验值

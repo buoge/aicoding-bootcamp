@@ -1,0 +1,2822 @@
+{
+  "schema_version": "compass-evidence-documents-1",
+  "release_id": "rag-documents-996-20261024",
+  "source_release_id": "diagnostic-v3-20261019",
+  "source_content_hash": "84c208fb7c246eac482f831f647378b1f16d290714bed673a34d84cc3b5ff8cf",
+  "authored_at": "2026-10-24T11:30:12Z",
+  "documents": [
+    {
+      "document_id": "D01",
+      "version_id": "D01@1.0",
+      "version": "1.0",
+      "path": "documents/D01.md",
+      "title": "逐风·晨跑 R100 缓震跑鞋商品与规格档案",
+      "family": "KB-03",
+      "production_mode": "new",
+      "semantic_type": "current_catalog",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": null,
+      "business_time_basis": "undated_reference",
+      "historical_use": "current_reference_only_no_historical_publication_claim",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "spu-37",
+        "skus-37",
+        "definition-channel_listing"
+      ],
+      "derived_from": [
+        "spu-37",
+        "skus-37",
+        "definition-channel_listing"
+      ],
+      "origin_group": "KB-03:D01",
+      "story_ids": [
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "supports": [
+        "商品款式与颜色尺码边界"
+      ],
+      "does_not_prove": [
+        "不证明历史属性版本、销量或当时库存"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、商品信息",
+          "source_ids": [
+            "spu-37",
+            "skus-37",
+            "definition-channel_listing"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、颜色与尺码",
+          "source_ids": [
+            "spu-37",
+            "skus-37",
+            "definition-channel_listing"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、上架与供给核查",
+          "source_ids": [
+            "spu-37",
+            "skus-37",
+            "definition-channel_listing"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、采购与替代沟通",
+          "source_ids": [
+            "spu-37",
+            "skus-37",
+            "definition-channel_listing"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "498df8de5736f7e55c4640a75335bf184b9e2e60a5dde7dbcb9ffd2244ccd944"
+    },
+    {
+      "document_id": "D02",
+      "version_id": "D02@1.0",
+      "version": "1.0",
+      "path": "documents/D02.md",
+      "title": "山野·岚行轻量软壳夹克商品与规格档案",
+      "family": "KB-03",
+      "production_mode": "new",
+      "semantic_type": "current_catalog",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": null,
+      "business_time_basis": "undated_reference",
+      "historical_use": "current_reference_only_no_historical_publication_claim",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "spu-1",
+        "skus-1"
+      ],
+      "derived_from": [
+        "spu-1",
+        "skus-1"
+      ],
+      "origin_group": "KB-03:D02",
+      "story_ids": [
+        "S05",
+        "S06",
+        "S09"
+      ],
+      "supports": [
+        "调价商品与比较规格的范围"
+      ],
+      "does_not_prove": [
+        "不证明人群可交换或调价效果"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、商品定位",
+          "source_ids": [
+            "spu-1",
+            "skus-1"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、规格清单",
+          "source_ids": [
+            "spu-1",
+            "skus-1"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、比较与价格核查",
+          "source_ids": [
+            "spu-1",
+            "skus-1"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、业务使用要求",
+          "source_ids": [
+            "spu-1",
+            "skus-1"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "1c87c7536fcc65df64cd35acbd1f133cecdac14d8be5d00d8f42d7dad11ef5b0"
+    },
+    {
+      "document_id": "D03",
+      "version_id": "D03@1.0",
+      "version": "1.0",
+      "path": "documents/D03.md",
+      "title": "晨露与晨跑二代短袖的产品生命周期及替代关系说明",
+      "family": "KB-03",
+      "production_mode": "new",
+      "semantic_type": "catalog_record",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2026-03-31T21:00:00+08:00",
+      "business_time_basis": "source_document",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "spu-2",
+        "spu-35",
+        "original-training-top-catalog-note"
+      ],
+      "derived_from": [
+        "spu-2",
+        "spu-35",
+        "original-training-top-catalog-note"
+      ],
+      "origin_group": "KB-03:D03",
+      "story_ids": [
+        "S02",
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "supports": [
+        "生命周期及并行销售背景"
+      ],
+      "does_not_prove": [
+        "不能用于2025年事前已知计划；不证明转购"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s02",
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、关联商品",
+          "source_ids": [
+            "spu-2",
+            "spu-35",
+            "original-training-top-catalog-note"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、生命周期与并行期",
+          "source_ids": [
+            "spu-2",
+            "spu-35",
+            "original-training-top-catalog-note"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、替代关系的表达",
+          "source_ids": [
+            "spu-2",
+            "spu-35",
+            "original-training-top-catalog-note"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、历史使用边界",
+          "source_ids": [
+            "spu-2",
+            "spu-35",
+            "original-training-top-catalog-note"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "9f468c2692b86e36a0067b933db544e3e2f8cb10ed79fb01eaeeb5a96105a3f7"
+    },
+    {
+      "document_id": "D04",
+      "version_id": "D04@1.0",
+      "version": "1.0",
+      "path": "documents/D04.md",
+      "title": "DOC13392 采购交付安排登记",
+      "family": "KB-04",
+      "production_mode": "new",
+      "semantic_type": "event_record",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-09-01T00:15:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [
+          1
+        ],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "procurement",
+        "procurement-line",
+        "transit",
+        "spu-37",
+        "skus-37",
+        "sites"
+      ],
+      "derived_from": [
+        "procurement",
+        "procurement-line",
+        "transit",
+        "spu-37",
+        "skus-37",
+        "sites"
+      ],
+      "origin_group": "procurement-DOC13392",
+      "story_ids": [
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "supports": [
+        "原预计交期、在途对象和数量"
+      ],
+      "does_not_prove": [
+        "不证明已收货或签署合同"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、采购对象与接收地点",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "transit",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、原交付安排",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "transit",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、仓配衔接",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "transit",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、登记范围与存档",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "transit",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "183962c8dd0704649f48ec6191a5c100cc453c3fb2732819499d1656e4c28b8d"
+    },
+    {
+      "document_id": "D05",
+      "version_id": "D05@1.0",
+      "version": "1.0",
+      "path": "documents/D05.md",
+      "title": "DOC13392 到货时间修订通知",
+      "family": "KB-04",
+      "production_mode": "new",
+      "semantic_type": "event_record",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-09-04T00:15:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [
+          1
+        ],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "procurement",
+        "procurement-line",
+        "procurement-revision",
+        "spu-37",
+        "skus-37",
+        "sites"
+      ],
+      "derived_from": [
+        "procurement",
+        "procurement-line",
+        "procurement-revision",
+        "spu-37",
+        "skus-37",
+        "sites"
+      ],
+      "origin_group": "procurement-DOC13392",
+      "story_ids": [
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "supports": [
+        "已通知延期及原文原因"
+      ],
+      "does_not_prove": [
+        "不证明更具体事故或全部销售损失"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、关联采购",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "procurement-revision",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、修订内容",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "procurement-revision",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、受影响安排",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "procurement-revision",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、后续登记",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "procurement-revision",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "562c62b1bb38531d67fdaabe61bbc36c50ed70b04e398c4483f327230c683c73"
+    },
+    {
+      "document_id": "D06",
+      "version_id": "D06@1.0",
+      "version": "1.0",
+      "path": "documents/D06.md",
+      "title": "DOC13392 到货登记",
+      "family": "KB-04",
+      "production_mode": "new",
+      "semantic_type": "event_record",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-09-16T00:15:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [
+          1
+        ],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "procurement",
+        "procurement-line",
+        "procurement-revision",
+        "receipt",
+        "spu-37",
+        "skus-37",
+        "sites"
+      ],
+      "derived_from": [
+        "procurement",
+        "procurement-line",
+        "procurement-revision",
+        "receipt",
+        "spu-37",
+        "skus-37",
+        "sites"
+      ],
+      "origin_group": "procurement-DOC13392",
+      "story_ids": [
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "supports": [
+        "实际收货入账及履约时间线"
+      ],
+      "does_not_prove": [
+        "不证明后续实时库存或未来供货"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、收货对象",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "procurement-revision",
+            "receipt",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、入账记录",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "procurement-revision",
+            "receipt",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、与交付安排的关系",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "procurement-revision",
+            "receipt",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、后续使用",
+          "source_ids": [
+            "procurement",
+            "procurement-line",
+            "procurement-revision",
+            "receipt",
+            "spu-37",
+            "skus-37",
+            "sites"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "576297b11a470b9e160293b28db333075e24b543e470014eb996c09404a9033e"
+    },
+    {
+      "document_id": "D07",
+      "version_id": "D07@1.0",
+      "version": "1.0",
+      "path": "documents/D07.md",
+      "title": "补货与跨仓调拨作业规则",
+      "family": "KB-04",
+      "production_mode": "expanded",
+      "semantic_type": "rule",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": null,
+      "business_time_basis": "undated_reference",
+      "historical_use": "current_reference_only_no_historical_publication_claim",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "original-inventory-policy",
+        "assortment-435",
+        "definition-inventory_movement",
+        "definition-assortment",
+        "stock-case-constraint"
+      ],
+      "derived_from": [
+        "original-inventory-policy",
+        "assortment-435",
+        "definition-inventory_movement",
+        "definition-assortment",
+        "stock-case-constraint"
+      ],
+      "origin_group": "KB-04:D07",
+      "story_ids": [
+        "S05",
+        "S07"
+      ],
+      "supports": [
+        "补货与调拨核查约束"
+      ],
+      "does_not_prove": [
+        "专项50件保留量为明确模拟约束，签发时间未知；原35/21天规则另有2023原件，不把整篇倒签"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s02",
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、备货基准",
+          "source_ids": [
+            "original-inventory-policy",
+            "assortment-435",
+            "definition-inventory_movement",
+            "definition-assortment",
+            "stock-case-constraint"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、检查对象与可用量",
+          "source_ids": [
+            "original-inventory-policy",
+            "assortment-435",
+            "definition-inventory_movement",
+            "definition-assortment",
+            "stock-case-constraint"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、补货与调拨次序",
+          "source_ids": [
+            "original-inventory-policy",
+            "assortment-435",
+            "definition-inventory_movement",
+            "definition-assortment",
+            "stock-case-constraint"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、异常处理与留档",
+          "source_ids": [
+            "original-inventory-policy",
+            "assortment-435",
+            "definition-inventory_movement",
+            "definition-assortment",
+            "stock-case-constraint"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "23b248bd43d4d6242f452ac9ff084abf162073d0bfe30af5010b68fa03cb6cae"
+    },
+    {
+      "document_id": "D08",
+      "version_id": "D08@1.0",
+      "version": "1.0",
+      "path": "documents/D08.md",
+      "title": "2025 年 11 月促销活动方案",
+      "family": "KB-05",
+      "production_mode": "expanded",
+      "semantic_type": "plan",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-10-30T00:00:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "original-promotion-plan",
+        "campaign-35",
+        "promotion-25",
+        "channels"
+      ],
+      "derived_from": [
+        "original-promotion-plan",
+        "campaign-35",
+        "promotion-25",
+        "channels"
+      ],
+      "origin_group": "KB-05:D08",
+      "story_ids": [
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "supports": [
+        "11月活动与优惠可用规则"
+      ],
+      "does_not_prove": [
+        "活动与25%优惠未逐商品绑定；无预算金额"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s02",
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、活动安排",
+          "source_ids": [
+            "original-promotion-plan",
+            "campaign-35",
+            "promotion-25",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、优惠口径",
+          "source_ids": [
+            "original-promotion-plan",
+            "campaign-35",
+            "promotion-25",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、费用与收益复核",
+          "source_ids": [
+            "original-promotion-plan",
+            "campaign-35",
+            "promotion-25",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、售后和执行边界",
+          "source_ids": [
+            "original-promotion-plan",
+            "campaign-35",
+            "promotion-25",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "b7cc4e3c44bd1e7c763325111197b0ae119f9058aaca7c9c273f436705ba6080"
+    },
+    {
+      "document_id": "D09",
+      "version_id": "D09@1.0",
+      "version": "1.0",
+      "path": "documents/D09.md",
+      "title": "2025·夏日轻汗训练节活动与渠道投放安排",
+      "family": "KB-05",
+      "production_mode": "new",
+      "semantic_type": "plan",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-05-26T00:00:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "campaign-30",
+        "channels",
+        "definition-campaign_attribution_daily"
+      ],
+      "derived_from": [
+        "campaign-30",
+        "channels",
+        "definition-campaign_attribution_daily"
+      ],
+      "origin_group": "KB-05:D09",
+      "story_ids": [
+        "S05",
+        "S06",
+        "S09"
+      ],
+      "supports": [
+        "抖音同期活动范围、时间与目标"
+      ],
+      "does_not_prove": [
+        "不证明小程序调价组的流失原因或活动增量"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s02",
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、活动范围",
+          "source_ids": [
+            "campaign-30",
+            "channels",
+            "definition-campaign_attribution_daily"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、投放和承接核对",
+          "source_ids": [
+            "campaign-30",
+            "channels",
+            "definition-campaign_attribution_daily"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、获客与退款观察",
+          "source_ids": [
+            "campaign-30",
+            "channels",
+            "definition-campaign_attribution_daily"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、复核材料",
+          "source_ids": [
+            "campaign-30",
+            "channels",
+            "definition-campaign_attribution_daily"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "b179bb1f6e7e6ff58fb241ea212810edcb86afb8a95b7580c88395c51020df11"
+    },
+    {
+      "document_id": "D10",
+      "version_id": "D10@1.0",
+      "version": "1.0",
+      "path": "documents/D10.md",
+      "title": "岚行软壳夹克调价范围与生效通知",
+      "family": "KB-06",
+      "production_mode": "new",
+      "semantic_type": "plan",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-05-27T00:00:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "prices",
+        "price-study",
+        "spu-1",
+        "skus-1",
+        "channels"
+      ],
+      "derived_from": [
+        "prices",
+        "price-study",
+        "spu-1",
+        "skus-1",
+        "channels"
+      ],
+      "origin_group": "KB-06:D10",
+      "story_ids": [
+        "S05",
+        "S06",
+        "S09"
+      ],
+      "supports": [
+        "规格1小程序调价与观察边界"
+      ],
+      "does_not_prove": [
+        "不证明全部人实际曝光或永久流失"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s02",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、价格变更范围",
+          "source_ids": [
+            "prices",
+            "price-study",
+            "spu-1",
+            "skus-1",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、展示与成交核对",
+          "source_ids": [
+            "prices",
+            "price-study",
+            "spu-1",
+            "skus-1",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、经营观察安排",
+          "source_ids": [
+            "prices",
+            "price-study",
+            "spu-1",
+            "skus-1",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、结案与边界",
+          "source_ids": [
+            "prices",
+            "price-study",
+            "spu-1",
+            "skus-1",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "94aef8df3a27dc48f2df6b54e86ee0506b7c5419edd8828b12ff13d551a072e0"
+    },
+    {
+      "document_id": "D11",
+      "version_id": "D11@1.0",
+      "version": "1.0",
+      "path": "documents/D11.md",
+      "title": "区域同店比较规则与门店纳入说明",
+      "family": "KB-07",
+      "production_mode": "expanded",
+      "semantic_type": "rule",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2024-01-01T21:00:00+08:00",
+      "business_time_basis": "source_document",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [
+          1
+        ],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "original-store-opening",
+        "sites",
+        "definition-revenue_entry"
+      ],
+      "derived_from": [
+        "original-store-opening",
+        "sites",
+        "definition-revenue_entry"
+      ],
+      "origin_group": "KB-07:D11",
+      "story_ids": [
+        "S02",
+        "S05",
+        "S06"
+      ],
+      "supports": [
+        "同店与全部门店集合区别"
+      ],
+      "does_not_prove": [
+        "不证明新店造成老店下降"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s01",
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、两类比较口径",
+          "source_ids": [
+            "original-store-opening",
+            "sites",
+            "definition-revenue_entry"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、华东门店范围示例",
+          "source_ids": [
+            "original-store-opening",
+            "sites",
+            "definition-revenue_entry"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、营业时间与金额归属",
+          "source_ids": [
+            "original-store-opening",
+            "sites",
+            "definition-revenue_entry"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、报告留档",
+          "source_ids": [
+            "original-store-opening",
+            "sites",
+            "definition-revenue_entry"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "c7ffdf561b3b7f682331ae39c88e75ecd7ec147fa35da72955d257c837597c55"
+    },
+    {
+      "document_id": "D12",
+      "version_id": "D12@1.0",
+      "version": "1.0",
+      "path": "documents/D12.md",
+      "title": "杭州城西体验店开业与营业安排通知",
+      "family": "KB-07",
+      "production_mode": "new",
+      "semantic_type": "event_record",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2023-12-25T01:00:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [
+          1
+        ],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "sites",
+        "store-day"
+      ],
+      "derived_from": [
+        "sites",
+        "store-day"
+      ],
+      "origin_group": "KB-07:D12",
+      "story_ids": [
+        "S02",
+        "S05",
+        "S06"
+      ],
+      "supports": [
+        "开业地点与首日营业安排"
+      ],
+      "does_not_prove": [
+        "无原始通知签发；不证明首日成交或顾客迁移"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、门店信息",
+          "source_ids": [
+            "sites",
+            "store-day"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、首日营业安排",
+          "source_ids": [
+            "sites",
+            "store-day"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、商品和订单衔接",
+          "source_ids": [
+            "sites",
+            "store-day"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、经营比较说明",
+          "source_ids": [
+            "sites",
+            "store-day"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "b13d9311a8f3064d6f4869b6112ba74b7dd7f6972513b1d20f095465470c139c"
+    },
+    {
+      "document_id": "D13",
+      "version_id": "D13@1.0",
+      "version": "1.0",
+      "path": "documents/D13.md",
+      "title": "经营数据源覆盖与报告就绪说明",
+      "family": "KB-09",
+      "production_mode": "new",
+      "semantic_type": "reference_rule",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": null,
+      "business_time_basis": "undated_reference",
+      "historical_use": "current_reference_only_no_historical_publication_claim",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "definition-source_watermark",
+        "definition-asset_period_status",
+        "definition-channel_product_daily",
+        "channels"
+      ],
+      "derived_from": [
+        "definition-source_watermark",
+        "definition-asset_period_status",
+        "definition-channel_product_daily",
+        "channels"
+      ],
+      "origin_group": "KB-09:D13",
+      "story_ids": [
+        "S04",
+        "S05",
+        "S06",
+        "S10",
+        "S12"
+      ],
+      "supports": [
+        "来源与资产就绪及零值边界"
+      ],
+      "does_not_prove": [
+        "不代替当期状态查询"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04",
+          "s05"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、来源与覆盖",
+          "source_ids": [
+            "definition-source_watermark",
+            "definition-asset_period_status",
+            "definition-channel_product_daily",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、采集状态与资产就绪",
+          "source_ids": [
+            "definition-source_watermark",
+            "definition-asset_period_status",
+            "definition-channel_product_daily",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、零值、未知与空集合",
+          "source_ids": [
+            "definition-source_watermark",
+            "definition-asset_period_status",
+            "definition-channel_product_daily",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、出报和修订",
+          "source_ids": [
+            "definition-source_watermark",
+            "definition-asset_period_status",
+            "definition-channel_product_daily",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s05",
+          "heading": "五、责任与留档",
+          "source_ids": [
+            "definition-source_watermark",
+            "definition-asset_period_status",
+            "definition-channel_product_daily",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "e5a623b354e1fb0c722457e04b443586eba63c5cd0b2ee8065005122f683e766"
+    },
+    {
+      "document_id": "D14",
+      "version_id": "D14@1.0",
+      "version": "1.0",
+      "path": "documents/D14.md",
+      "title": "9 月 28 日业务期数据延迟通知",
+      "family": "KB-09",
+      "production_mode": "expanded",
+      "semantic_type": "event_record",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-09-29T00:00:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "original-source-delay",
+        "oms-delayed",
+        "asset-pending"
+      ],
+      "derived_from": [
+        "original-source-delay",
+        "oms-delayed",
+        "asset-pending"
+      ],
+      "origin_group": "data-period-20250928",
+      "story_ids": [
+        "S04",
+        "S05",
+        "S06",
+        "S10",
+        "S12"
+      ],
+      "supports": [
+        "当时OMS和平台报告未齐"
+      ],
+      "does_not_prove": [
+        "不能提前采用补齐结果"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、订单来源情况",
+          "source_ids": [
+            "original-source-delay",
+            "oms-delayed",
+            "asset-pending"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、平台商品报告情况",
+          "source_ids": [
+            "original-source-delay",
+            "oms-delayed",
+            "asset-pending"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、报告使用要求",
+          "source_ids": [
+            "original-source-delay",
+            "oms-delayed",
+            "asset-pending"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、后续更新",
+          "source_ids": [
+            "original-source-delay",
+            "oms-delayed",
+            "asset-pending"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "adf830ae118db2c119ebd3b99c7c3965e1b82ff3e9a0daef71ea61e563cb5bd3"
+    },
+    {
+      "document_id": "D15",
+      "version_id": "D15@1.0",
+      "version": "1.0",
+      "path": "documents/D15.md",
+      "title": "9 月 28 日业务期数据补齐与修订通知",
+      "family": "KB-09",
+      "production_mode": "expanded",
+      "semantic_type": "event_record",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-10-02T00:00:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "original-source-recovery",
+        "oms-complete",
+        "asset-pending",
+        "asset-partial",
+        "asset-complete"
+      ],
+      "derived_from": [
+        "original-source-recovery",
+        "oms-complete",
+        "asset-pending",
+        "asset-partial",
+        "asset-complete"
+      ],
+      "origin_group": "data-period-20250928",
+      "story_ids": [
+        "S04",
+        "S05",
+        "S06",
+        "S10",
+        "S12"
+      ],
+      "supports": [
+        "分源恢复与补齐先后"
+      ],
+      "does_not_prove": [
+        "不能回填到较早知识截止或其他资产"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、订单来源恢复记录",
+          "source_ids": [
+            "original-source-recovery",
+            "oms-complete",
+            "asset-pending",
+            "asset-partial",
+            "asset-complete"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、平台商品报告补齐时间线",
+          "source_ids": [
+            "original-source-recovery",
+            "oms-complete",
+            "asset-pending",
+            "asset-partial",
+            "asset-complete"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、报告修订要求",
+          "source_ids": [
+            "original-source-recovery",
+            "oms-complete",
+            "asset-pending",
+            "asset-partial",
+            "asset-complete"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、归档与引用",
+          "source_ids": [
+            "original-source-recovery",
+            "oms-complete",
+            "asset-pending",
+            "asset-partial",
+            "asset-complete"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "6e32fc73523a9021a5cc154c7002454dce2957db6a3b03e82e18d519846b86f4"
+    },
+    {
+      "document_id": "D16",
+      "version_id": "D16@1.0",
+      "version": "1.0",
+      "path": "documents/D16.md",
+      "title": "EXP1 推荐方案实验预案",
+      "family": "KB-10",
+      "production_mode": "new",
+      "semantic_type": "preregistered_plan",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-08-26T00:00:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "experiment-1",
+        "channels"
+      ],
+      "derived_from": [
+        "experiment-1",
+        "channels"
+      ],
+      "origin_group": "KB-10:D16",
+      "story_ids": [
+        "S08",
+        "S06"
+      ],
+      "supports": [
+        "EXP1事前随机比例、指标和护栏"
+      ],
+      "does_not_prove": [
+        "不含实验结果或上线授权"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s05"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、试验目的与方案范围",
+          "source_ids": [
+            "experiment-1",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、主指标与观察窗",
+          "source_ids": [
+            "experiment-1",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、退款金额护栏",
+          "source_ids": [
+            "experiment-1",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、质量检查与采纳条件",
+          "source_ids": [
+            "experiment-1",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s05",
+          "heading": "五、结案材料与边界",
+          "source_ids": [
+            "experiment-1",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "3c8c507a4f9cb7ca20af67e02591120d9977ffdeaa8986c1f7a153f3514b2b33"
+    },
+    {
+      "document_id": "D17",
+      "version_id": "D17@1.0",
+      "version": "1.0",
+      "path": "documents/D17.md",
+      "title": "EXP2 推荐方案实验预案",
+      "family": "KB-10",
+      "production_mode": "new",
+      "semantic_type": "preregistered_plan",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2025-09-09T00:00:00+08:00",
+      "business_time_basis": "source_record_reconstruction",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "experiment-2",
+        "channels"
+      ],
+      "derived_from": [
+        "experiment-2",
+        "channels"
+      ],
+      "origin_group": "KB-10:D17",
+      "story_ids": [
+        "S08",
+        "S06"
+      ],
+      "supports": [
+        "EXP2独立事前标准"
+      ],
+      "does_not_prove": [
+        "不含实际分流比例和效果答案"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s05"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、本期安排",
+          "source_ids": [
+            "experiment-2",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、数据登记与质量核对",
+          "source_ids": [
+            "experiment-2",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、指标与成熟度",
+          "source_ids": [
+            "experiment-2",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、决策规则",
+          "source_ids": [
+            "experiment-2",
+            "channels"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s05",
+          "heading": "五、归档要求",
+          "source_ids": [
+            "experiment-2",
+            "channels"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "753615102a188e5037f56e8f4818ef1a699e0a697625115a4eecfbfce18c3f53"
+    },
+    {
+      "document_id": "D18",
+      "version_id": "D18@1.0",
+      "version": "1.0",
+      "path": "documents/D18.md",
+      "title": "销售、收入与渠道费用对账口径说明",
+      "family": "KB-01",
+      "production_mode": "new",
+      "semantic_type": "reference_rule",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": null,
+      "business_time_basis": "undated_reference",
+      "historical_use": "current_reference_only_no_historical_publication_claim",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "definition-revenue_entry",
+        "definition-cost_entry",
+        "definition-order_fee",
+        "definition-refund",
+        "definition-refund_allocation",
+        "definition-order_header"
+      ],
+      "derived_from": [
+        "definition-revenue_entry",
+        "definition-cost_entry",
+        "definition-order_fee",
+        "definition-refund",
+        "definition-refund_allocation",
+        "definition-order_header"
+      ],
+      "origin_group": "KB-01:D18",
+      "story_ids": [
+        "S01",
+        "S04",
+        "S05",
+        "S08",
+        "S10"
+      ],
+      "supports": [
+        "交付收入、现金、成本费用差异"
+      ],
+      "does_not_prove": [
+        "不等同法定总账或完整企业净利润"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s01",
+          "s04",
+          "s05"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、先确定比较对象",
+          "source_ids": [
+            "definition-revenue_entry",
+            "definition-cost_entry",
+            "definition-order_fee",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、收入与现金的区别",
+          "source_ids": [
+            "definition-revenue_entry",
+            "definition-cost_entry",
+            "definition-order_fee",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、成本与费用",
+          "source_ids": [
+            "definition-revenue_entry",
+            "definition-cost_entry",
+            "definition-order_fee",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、窗口与版本",
+          "source_ids": [
+            "definition-revenue_entry",
+            "definition-cost_entry",
+            "definition-order_fee",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s05",
+          "heading": "五、差异留档",
+          "source_ids": [
+            "definition-revenue_entry",
+            "definition-cost_entry",
+            "definition-order_fee",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "e81de34415b554817137427d568c34a5777ea6eedd045f3dd9515457bd3be243"
+    },
+    {
+      "document_id": "D19",
+      "version_id": "D19@1.0",
+      "version": "1.0",
+      "path": "documents/D19.md",
+      "title": "售后验收、退款与回库确认规则",
+      "family": "KB-02",
+      "production_mode": "expanded",
+      "semantic_type": "rule",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2023-01-01T21:00:00+08:00",
+      "business_time_basis": "source_document",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "original-returns-sop",
+        "definition-return_event",
+        "definition-refund",
+        "definition-refund_allocation",
+        "definition-cost_entry"
+      ],
+      "derived_from": [
+        "original-returns-sop",
+        "definition-return_event",
+        "definition-refund",
+        "definition-refund_allocation",
+        "definition-cost_entry"
+      ],
+      "origin_group": "KB-02:D19",
+      "story_ids": [
+        "S01",
+        "S04",
+        "S05",
+        "S08",
+        "S10"
+      ],
+      "supports": [
+        "接受、退款、可售回库与成本处理"
+      ],
+      "does_not_prove": [
+        "退货数量不证明商品质量事故"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s04",
+          "s05"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、申请与验收",
+          "source_ids": [
+            "original-returns-sop",
+            "definition-return_event",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-cost_entry"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、接受退货与收入",
+          "source_ids": [
+            "original-returns-sop",
+            "definition-return_event",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-cost_entry"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、实物回库与成本",
+          "source_ids": [
+            "original-returns-sop",
+            "definition-return_event",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-cost_entry"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、经营分析使用",
+          "source_ids": [
+            "original-returns-sop",
+            "definition-return_event",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-cost_entry"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s05",
+          "heading": "五、记录要求",
+          "source_ids": [
+            "original-returns-sop",
+            "definition-return_event",
+            "definition-refund",
+            "definition-refund_allocation",
+            "definition-cost_entry"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "cb88cdee4e1a2f57a2b3caa9acf9acb7ec6a5b17a1501399ef084705bdaf58c2"
+    },
+    {
+      "document_id": "D20",
+      "version_id": "D20@1.0",
+      "version": "1.0",
+      "path": "documents/D20.md",
+      "title": "会员身份关联与活动名单处理规范",
+      "family": "KB-08",
+      "production_mode": "expanded",
+      "semantic_type": "rule",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": "2023-01-01T21:00:00+08:00",
+      "business_time_basis": "source_document",
+      "historical_use": "source_facts_only_with_explicit_procedure_assumptions",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "original-identity-policy",
+        "definition-customer_identity",
+        "definition-customer_identity_link",
+        "definition-order_header"
+      ],
+      "derived_from": [
+        "original-identity-policy",
+        "definition-customer_identity",
+        "definition-customer_identity_link",
+        "definition-order_header"
+      ],
+      "origin_group": "KB-08:D20",
+      "story_ids": [
+        "S02",
+        "S03",
+        "S09",
+        "S12"
+      ],
+      "supports": [
+        "身份、历史快照与名单处理"
+      ],
+      "does_not_prove": [
+        "不保证全部跨平台识别；不回填未来身份"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04",
+          "s05"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、身份对象",
+          "source_ids": [
+            "original-identity-policy",
+            "definition-customer_identity",
+            "definition-customer_identity_link",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、历史订单",
+          "source_ids": [
+            "original-identity-policy",
+            "definition-customer_identity",
+            "definition-customer_identity_link",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、活动名单整理",
+          "source_ids": [
+            "original-identity-policy",
+            "definition-customer_identity",
+            "definition-customer_identity_link",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、关联结果核对",
+          "source_ids": [
+            "original-identity-policy",
+            "definition-customer_identity",
+            "definition-customer_identity_link",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s05",
+          "heading": "五、访问与留档",
+          "source_ids": [
+            "original-identity-policy",
+            "definition-customer_identity",
+            "definition-customer_identity_link",
+            "definition-order_header"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "aac9856d39f7dffde687c36d4fc921e69b81ad51bd36a650972fafcb17e9a8cf"
+    },
+    {
+      "document_id": "D21",
+      "version_id": "D21@1.0",
+      "version": "1.0",
+      "path": "documents/D21.md",
+      "title": "新老客、复购与留存队列口径说明",
+      "family": "KB-08",
+      "production_mode": "new",
+      "semantic_type": "reference_rule",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": null,
+      "business_time_basis": "undated_reference",
+      "historical_use": "current_reference_only_no_historical_publication_claim",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "original-identity-policy",
+        "method-retention",
+        "price-study"
+      ],
+      "derived_from": [
+        "original-identity-policy",
+        "method-retention",
+        "price-study"
+      ],
+      "origin_group": "KB-08:D21",
+      "story_ids": [
+        "S02",
+        "S09",
+        "S12"
+      ],
+      "supports": [
+        "交付事件留存、成熟窗和分母"
+      ],
+      "does_not_prove": [
+        "不等于终身首购或永久流失"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s04",
+          "s05"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、首购的观察边界",
+          "source_ids": [
+            "original-identity-policy",
+            "method-retention",
+            "price-study"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、队列与活跃",
+          "source_ids": [
+            "original-identity-policy",
+            "method-retention",
+            "price-study"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、成熟度与样本",
+          "source_ids": [
+            "original-identity-policy",
+            "method-retention",
+            "price-study"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、筛选一致性",
+          "source_ids": [
+            "original-identity-policy",
+            "method-retention",
+            "price-study"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s05",
+          "heading": "五、复购与流失表达",
+          "source_ids": [
+            "original-identity-policy",
+            "method-retention",
+            "price-study"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "24e0cdff9cfbfc6c623535142d6b68f1cc34b841bafa2eca642c841cb25c4c96"
+    },
+    {
+      "document_id": "D22",
+      "version_id": "D22@1.0",
+      "version": "1.0",
+      "path": "documents/D22.md",
+      "title": "平台流量与广告归因报告适用说明",
+      "family": "KB-12",
+      "production_mode": "new",
+      "semantic_type": "reference_rule",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": null,
+      "business_time_basis": "undated_reference",
+      "historical_use": "current_reference_only_no_historical_publication_claim",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "definition-channel_product_daily",
+        "definition-campaign_attribution_daily",
+        "definition-order_attribution",
+        "method-roas"
+      ],
+      "derived_from": [
+        "definition-channel_product_daily",
+        "definition-campaign_attribution_daily",
+        "definition-order_attribution",
+        "method-roas"
+      ],
+      "origin_group": "KB-12:D22",
+      "story_ids": [
+        "S02",
+        "S05",
+        "S06",
+        "S09"
+      ],
+      "supports": [
+        "平台分母、归因和未知覆盖边界"
+      ],
+      "does_not_prove": [
+        "不证明全渠道UV或因果增量利润"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s02",
+          "s05"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、商品流量的统计单位",
+          "source_ids": [
+            "definition-channel_product_daily",
+            "definition-campaign_attribution_daily",
+            "definition-order_attribution",
+            "method-roas"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、比较商品集合与版本",
+          "source_ids": [
+            "definition-channel_product_daily",
+            "definition-campaign_attribution_daily",
+            "definition-order_attribution",
+            "method-roas"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、广告归因与队列退款",
+          "source_ids": [
+            "definition-channel_product_daily",
+            "definition-campaign_attribution_daily",
+            "definition-order_attribution",
+            "method-roas"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、已知零与未知覆盖",
+          "source_ids": [
+            "definition-channel_product_daily",
+            "definition-campaign_attribution_daily",
+            "definition-order_attribution",
+            "method-roas"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s05",
+          "heading": "五、回报指标及限制",
+          "source_ids": [
+            "definition-channel_product_daily",
+            "definition-campaign_attribution_daily",
+            "definition-order_attribution",
+            "method-roas"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "b802bf845be8859c8fdfffe114e77445305fdd16c49c112bcc218697169385d7"
+    },
+    {
+      "document_id": "D23",
+      "version_id": "D23@1.0",
+      "version": "1.0",
+      "path": "documents/D23.md",
+      "title": "支付成功率口径与异常核查规程",
+      "family": "KB-11",
+      "production_mode": "new",
+      "semantic_type": "reference_rule",
+      "tenant_id": 101,
+      "release_id": "diagnostic-v3-20261019",
+      "profile": "diagnostic",
+      "authored_at": "2026-10-24T11:30:12Z",
+      "business_known_at": null,
+      "business_time_basis": "undated_reference",
+      "historical_use": "current_reference_only_no_historical_publication_claim",
+      "valid_from": null,
+      "valid_to": null,
+      "lifecycle_events": [],
+      "access": {
+        "tenant_id": 101,
+        "classification": "internal",
+        "regions": [],
+        "requires_cost_access": false
+      },
+      "source_ids": [
+        "definition-payment",
+        "method-payment"
+      ],
+      "derived_from": [
+        "definition-payment",
+        "method-payment"
+      ],
+      "origin_group": "KB-11:D23",
+      "story_ids": [
+        "S11"
+      ],
+      "supports": [
+        "支付尝试口径、样本与核查规则"
+      ],
+      "does_not_prove": [
+        "不证明故障发生或恢复"
+      ],
+      "requires_structured_queries": [
+        "按相同对象、业务窗口和知识截止查询实际数值；文档仅提供已标注的依据"
+      ],
+      "synthetic": true,
+      "source_fact_scope": "source_records_and_definitions_only",
+      "synthetic_procedure": {
+        "section_ids": [
+          "s03",
+          "s04",
+          "s05"
+        ],
+        "description": "责任岗位、核单顺序、留档、跟进及文体为本次合成业务设定；不证明既有业务曾执行或真实批准。"
+      },
+      "sections": [
+        {
+          "section_id": "s01",
+          "heading": "一、两个成功率口径",
+          "source_ids": [
+            "definition-payment",
+            "method-payment"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s02",
+          "heading": "二、样本条件",
+          "source_ids": [
+            "definition-payment",
+            "method-payment"
+          ],
+          "includes_simulated_procedure": false
+        },
+        {
+          "section_id": "s03",
+          "heading": "三、异常核查顺序",
+          "source_ids": [
+            "definition-payment",
+            "method-payment"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s04",
+          "heading": "四、升级与恢复",
+          "source_ids": [
+            "definition-payment",
+            "method-payment"
+          ],
+          "includes_simulated_procedure": true
+        },
+        {
+          "section_id": "s05",
+          "heading": "五、记录要求",
+          "source_ids": [
+            "definition-payment",
+            "method-payment"
+          ],
+          "includes_simulated_procedure": true
+        }
+      ],
+      "frozen_sha256": "cb7893af8f78f2db2790955df9ad4aaca484ea4f278efd6299d917bb6b12e589"
+    }
+  ],
+  "fact_assertions": [
+    {
+      "document_id": "D01",
+      "source_id": "spu-37",
+      "field": "spu_name",
+      "expected": "逐风·晨跑 R100 缓震跑鞋",
+      "quote": "逐风·晨跑 R100 缓震跑鞋"
+    },
+    {
+      "document_id": "D02",
+      "source_id": "spu-1",
+      "field": "launch_on",
+      "expected": "2021-08-14",
+      "quote": "2021-08-14"
+    },
+    {
+      "document_id": "D03",
+      "source_id": "spu-2",
+      "field": "discontinue_on",
+      "expected": "2025-11-01",
+      "quote": "2025-11-01"
+    },
+    {
+      "document_id": "D03",
+      "source_id": "spu-35",
+      "field": "launch_on",
+      "expected": "2024-03-18",
+      "quote": "2024-03-18"
+    },
+    {
+      "document_id": "D04",
+      "source_id": "procurement-line",
+      "field": "quantity",
+      "expected": "400",
+      "quote": "400"
+    },
+    {
+      "document_id": "D04",
+      "source_id": "procurement",
+      "field": "planned_at",
+      "expected": "2025-09-05T16:00:00+00:00",
+      "quote": "2025-09-06 00:00"
+    },
+    {
+      "document_id": "D05",
+      "source_id": "procurement-revision",
+      "field": "revised_due_at",
+      "expected": "2025-09-15T16:00:00+00:00",
+      "quote": "2025-09-16 00:00"
+    },
+    {
+      "document_id": "D05",
+      "source_id": "procurement-revision",
+      "field": "notice_text",
+      "expected": "供应商发运排期调整，预计到仓时间按本次通知更新，采购单原承诺日期保留。",
+      "quote": "供应商发运排期调整，预计到仓时间按本次通知更新，采购单原承诺日期保留。"
+    },
+    {
+      "document_id": "D06",
+      "source_id": "receipt",
+      "field": "sellable_delta",
+      "expected": "400",
+      "quote": "400"
+    },
+    {
+      "document_id": "D06",
+      "source_id": "receipt",
+      "field": "lot_id",
+      "expected": "22207",
+      "quote": "22207"
+    },
+    {
+      "document_id": "D07",
+      "source_id": "assortment-435",
+      "field": "min_stock",
+      "expected": "2",
+      "quote": "最低 2 件"
+    },
+    {
+      "document_id": "D07",
+      "source_id": "assortment-435",
+      "field": "target_stock",
+      "expected": "10",
+      "quote": "目标 10 件"
+    },
+    {
+      "document_id": "D08",
+      "source_id": "campaign-35",
+      "field": "starts_at",
+      "expected": "2025-11-04T16:00:00+00:00",
+      "quote": "2025-11-05 00:00"
+    },
+    {
+      "document_id": "D08",
+      "source_id": "campaign-35",
+      "field": "ends_at",
+      "expected": "2025-11-27T16:00:00+00:00",
+      "quote": "2025-11-28 00:00"
+    },
+    {
+      "document_id": "D09",
+      "source_id": "campaign-30",
+      "field": "target_channel_id",
+      "expected": "3",
+      "quote": "渠道编号 3"
+    },
+    {
+      "document_id": "D09",
+      "source_id": "campaign-30",
+      "field": "starts_at",
+      "expected": "2025-05-31T16:00:00+00:00",
+      "quote": "2025-06-01 00:00"
+    },
+    {
+      "document_id": "D10",
+      "source_id": "prices",
+      "field": "list_price_cent",
+      "expected": "55900",
+      "quote": "559.00"
+    },
+    {
+      "document_id": "D10",
+      "source_id": "prices",
+      "field": "list_price_cent",
+      "expected": "49900",
+      "quote": "499.00"
+    },
+    {
+      "document_id": "D11",
+      "source_id": "sites",
+      "field": "opened_on",
+      "expected": "2021-11-06",
+      "quote": "2021-11-06"
+    },
+    {
+      "document_id": "D12",
+      "source_id": "store-day",
+      "field": "open_minutes",
+      "expected": "660",
+      "quote": "660"
+    },
+    {
+      "document_id": "D14",
+      "source_id": "oms-delayed",
+      "field": "expected_batches",
+      "expected": "164",
+      "quote": "164"
+    },
+    {
+      "document_id": "D14",
+      "source_id": "asset-pending",
+      "field": "status",
+      "expected": "PENDING",
+      "quote": "PENDING"
+    },
+    {
+      "document_id": "D15",
+      "source_id": "asset-complete",
+      "field": "last_visible_report_version",
+      "expected": "2",
+      "quote": "报告版本为 2"
+    },
+    {
+      "document_id": "D15",
+      "source_id": "oms-complete",
+      "field": "arrived_batches",
+      "expected": "150",
+      "quote": "150"
+    },
+    {
+      "document_id": "D16",
+      "source_id": "experiment-1",
+      "field": "allocation_a",
+      "expected": "0.5",
+      "quote": "50%"
+    },
+    {
+      "document_id": "D16",
+      "source_id": "experiment-1",
+      "field": "outcome_window_days",
+      "expected": "7",
+      "quote": "7 天"
+    },
+    {
+      "document_id": "D16",
+      "source_id": "experiment-1",
+      "field": "guardrail_window_days",
+      "expected": "30",
+      "quote": "30 天"
+    },
+    {
+      "document_id": "D17",
+      "source_id": "experiment-2",
+      "field": "allocation_a",
+      "expected": "0.5",
+      "quote": "50%"
+    },
+    {
+      "document_id": "D17",
+      "source_id": "experiment-2",
+      "field": "ends_at",
+      "expected": "2025-09-30T16:00:00+00:00",
+      "quote": "2025-10-01 00:00"
+    }
+  ]
+}

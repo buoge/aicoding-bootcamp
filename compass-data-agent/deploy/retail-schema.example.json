@@ -1,0 +1,8 @@
+{
+  "environment_id": "local-retail-semantic",
+  "layout": "single-schema",
+  "database": "compass_retail_existing",
+  "schema": "retail_v2",
+  "admin_dsn_env": "COMPASS_RETAIL_ADMIN_URL",
+  "state_directory": "work/data-seed/semantic-state"
+}

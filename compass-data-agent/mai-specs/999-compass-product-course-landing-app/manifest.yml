@@ -1,0 +1,239 @@
+id: compass-product-course-landing-app
+feature_id: 999
+title: Compass 全渠道运动户外经营分析 DataAgent
+status: review
+version: 0.6.0
+updated: 2026-10-25
+scope: cross-course-learner-project
+
+depends_on:
+  curriculum: course/curriculum/v5/course_outline.md
+  database_governance: learner-kit/code/compass/docs/database-migrations.md
+  technology_review: research/shared/dataagent-technology-selection/reports/technology-review.md
+
+canonical:
+  control_page: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/README.md
+  product_definition: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/spec/product-definition.md
+  prd: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/spec/PRD.md
+  ui_ux_spec: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/ui-ux-design-spec.md
+  html_prototype: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/prototype/index.html
+  technical_architecture: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/TECH_DESIGN.md
+  data_model: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/data-model.md
+  scaffold_design: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/scaffold-design.md
+
+related:
+  feature: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/BRIEF.md
+  web_foundation: learner-kit/code/compass/mai-specs/995-web-management-foundation/README.md
+  static_demo_checks: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/test/static-demo-check.mjs
+  prototype_checks: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/test/prototype-check.mjs
+  test_guide: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/test/README.md
+  prototype_guide: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/prototype/README.md
+  prototype_verification: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/test/prototype-verification.md
+  learner_technology_page: marketing/copy/dataagent-tech-stack/index.html
+
+implementation:
+  status: active
+  product_name: Compass
+  repository_name: compass
+  local_path: learner-kit/code/compass
+  stage: m0-scaffold
+  verification: learner-kit/code/compass/docs/verification.md
+  repository_url: null
+  pinned_revision: null
+  scaffold_apps: [home, web, agent, memory, worker]
+  python_apps: [agent, memory, worker]
+  note: 已搭建五个 app 的工程脚手架；agent-api 已迁移为 agent，memory 提供 FastAPI 健康检查，worker 提供 asyncio 进程入口。分析执行、记忆业务与持久任务按后续里程碑实施。
+
+architecture_design:
+  updated: 2026-10-25
+  status: review
+  target_apps: [home, web, agent, memory]
+  optional_apps: [worker]
+  initial_apps: [home, web, agent]
+  memory_activation: future-file-or-memory-feature
+  embedded_agent_modules: [local-runner, dispatcher, sandbox-control]
+  durable_dependencies: [worker, temporal]
+  engineering_crud_owner: apps/web
+  inference_business_owner: apps/agent
+  database_ownership: per-app-and-logical-database
+  cross_app_data_access: owner-api-and-logical-references
+  web_persistence_implementation: pending
+  sql_delivery_tooling: pending
+  memory_owner: apps/memory
+  memory_access: runtime-tools-over-http
+  memory_storage: isolated-schema-and-migrations
+  file_business_owner: apps/memory
+  file_business_implementation: pending
+  file_model_revision: deferred-to-file-feature
+  current_backend_path: apps/agent
+  target_backend_path: apps/agent
+  implementation: active
+  scaffold_completed: [app-rename, python-workspace, app-entrypoints, container-entrypoints]
+  runtime_implementation: pending
+  tasks: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/scaffold-design.md
+
+prototype_assets:
+  - path: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/prototype/assets/data-organism-hero.webp
+    role: historical-landing-data-organism
+    source: generated
+    status: review
+
+deliverables:
+  - type: product-definition
+    path: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/spec/product-definition.md
+    status: review
+  - type: prd
+    path: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/spec/PRD.md
+    status: review
+  - type: ui-ux-spec
+    path: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/ui-ux-design-spec.md
+    status: review
+  - type: html-prototype
+    path: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/prototype/index.html
+    status: review
+  - type: technical-architecture
+    path: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/TECH_DESIGN.md
+    status: review
+  - type: scaffold-design
+    path: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/scaffold-design.md
+    status: review
+
+  - type: data-model
+    path: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/data-model.md
+    status: review
+
+data_design:
+  updated: 2026-10-25
+  status: review
+  prd_version: "1.6"
+  scope: compass-dataagent-system-only
+  domain_count: 12
+  target_table_count: 94
+  m0_table_count: 30
+  includes_industry_fact_tables: false
+  feature_mapping_count: 108
+  scenario_mapping_count: 12
+  scenario_contract: learner-kit/code/compass/mai-specs/998-business-data-seeding-tool/design/data-package-contract.md
+  implementation: pending
+  platform_scope: system-domains-er-fields-constraints-mvp-seed-query-gateway
+  platform_initialization: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/data-model.md
+  business_production_owner: feature-998
+  platform_implementation_deferred: true
+
+prototype:
+  updated: 2026-10-24
+  status: review
+  entry: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/prototype/index.html
+  runtime: browser-local-html-css-js
+  scenarios: 12
+  admin_domains: 10
+  admin_routes: 8
+  data: synthetic
+  backend_connected: false
+  technical_design_sync: pending
+  business_entries:
+    - analysis
+    - reports
+    - plugins
+    - automations
+    - boards
+  navigation:
+    primary: narrow-icon-rail
+    secondary_modes: [pinned, collapsed, hover-overlay]
+    rail_width_px: 60
+    secondary_width_px: 260
+    default_desktop_pinned: true
+    administration: grouped-eight-domain-secondary
+  conversations:
+    route: "#chat/<taskId>"
+    independent_task_id: true
+    complete_history_and_continue: true
+    search: title-and-transcript
+    search_entry: secondary-header-icon-left-of-collapse
+    search_ui: alfred-style-dialog
+    search_shortcut: Cmd-or-Ctrl-K
+    search_keyboard: [ArrowUp, ArrowDown, Enter, Escape]
+    list_layout: single-line
+    list_states: [running, awaiting-authorization, unread]
+    list_actions: [rename, soft-delete, undo]
+    deletion_preserves_artifacts: true
+    transcript: complete-central-conversation
+    transcript_max_width_px: 760
+    transcript_independent_scroll: true
+    composer_placement: conversation-column-bottom
+    process_disclosure: analysis-summary-and-tool-records
+    inline_artifacts: true
+    inline_authorization: required
+    ordering: [updated-time, topic]
+    legacy_state_migration: true
+  demo_tools:
+    scope: prototype-only
+    placement: right-collapsible-panel
+    width_px: 300
+    column_gap_px: 28
+    drawer_at_max_width_px: 1180
+    drawer_default_open: false
+    drawer_width_css: "min(340px, calc(100vw - 24px))"
+    drawer_trigger: conversation-top-right
+    drawer_close: [backdrop, Escape, close-button]
+    drawer_focus_trap_and_restore: true
+    case_information: true
+    primary_demo_mode: instant-complete-transcript
+    primary_demos: [simple, access, action, ppt, skill, chat]
+    primary_demo_count: 6
+    demo_download_formats: [pdf, docx, pptx]
+    demo_approval_branches: [example-approved, pending, approved, rejected]
+    legacy_controls: collapsed-in-ordinary-conversations
+    automatic_playback_and_pause: true
+    manual_scenarios: 12
+    manual_substates: true
+    automatic_authorization: local-synthetic-simulation-only
+    simulation_notice: required
+    production_included: false
+  login:
+    scope: prototype-only
+    built_in_roles: [executive, analyst, manager, admin, operator, auditor]
+    persistence: sessionStorage
+    credentials_required: false
+    logout: profile-dialog
+    preserves_business_records: true
+    backend_authentication: false
+    background: home-hero-GhostFibers
+    background_adapter: generated-from-home-source
+    background_pause_and_reduced_motion: true
+    background_webgl_fallback: static-gradient
+  routes:
+    login: "#login"
+    analysis: "#analysis"
+    reports: "#reports"
+    plugins: "#plugins"
+    automations: "#automations"
+    boards: "#boards"
+    legacy_compatible: ["#home", "#assets", "#tasks", "#scenario/Sxx"]
+  permission_transition:
+    current_aggregate_capability: assets
+    grouped_spaces: [reports, plugins, boards]
+    independent_space_permissions: pending
+    action_and_data_scope_checks: required
+  specification_versions:
+    product_definition: "1.6"
+    prd: "1.6"
+    ui_ux_spec: "2.2"
+
+home_app:
+  status: review
+  updated: 2026-10-21
+  source: learner-kit/code/compass/apps/home
+  design: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/design/home-app-design.md
+  verification: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/test/home-verification.md
+  runtime: nextjs-react-typescript
+  components: shadcn-ui-radix
+  routes: [/, /product, /architecture, /scaffold, /course, /learning]
+  local_port: 3001
+  hero: react-bits-GhostFibers-JS-CSS
+  course_task_inventory: proposed
+  site_project_id: appgprj_6ad71c71a4f08191a4bdad2407ab2562
+  preview_url: https://compass-home-20261020.guomeiqing1984.chatgpt.site
+  preview_audience: owner-private
+  preview_source_commit: 2cd684d1dacd3b3a57efa4067f0dd79fa33dfd54
+  architecture_image: learner-kit/code/compass/mai-specs/999-compass-product-course-landing-app/context/dataagent-tech-stack/visuals/system-architecture.png

@@ -1,0 +1,121 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": [
+    "uv.lock",
+    "pyproject.toml",
+    ".editorconfig",
+    ".prettierrc.json",
+    ".prettierignore",
+    ".python-version",
+    ".node-version",
+    "scripts/**"
+  ],
+  "globalEnv": ["CI_TOOLCHAIN_ID"],
+  "tasks": {
+    "//#contracts": {
+      "cache": false,
+      "inputs": [
+        "scripts/contracts.mjs",
+        "scripts/export-contracts.py",
+        "apps/agent/src/**",
+        "apps/agent/pyproject.toml"
+      ],
+      "env": ["PYTHON_TOOLCHAIN_ID"],
+      "outputs": ["contracts/**", "apps/web/src/generated/**"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**", "!.next/dev/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["^test"],
+      "outputs": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "passThroughEnv": [
+        "DATABASE_URL",
+        "AGENT_API_URL",
+        "COMPASS_DEMO_ENABLED",
+        "PORT",
+        "WEB_DATABASE_URL",
+        "WEB_PUBLIC_ORIGIN",
+        "WEB_AUTH_ALLOW_LOCAL_HTTP",
+        "WEB_SESSION_TTL_SECONDS"
+      ]
+    },
+    "db:migrate": {
+      "cache": false,
+      "passThroughEnv": ["DATABASE_URL", "WEB_MIGRATION_DATABASE_URL"]
+    },
+    "seed": {
+      "cache": false,
+      "passThroughEnv": ["DATABASE_URL", "WEB_MIGRATION_DATABASE_URL", "WEB_FIXTURE_PASSWORD"]
+    },
+    "db:sql": {
+      "cache": false
+    },
+    "db:sql:check": {
+      "cache": false
+    },
+    "db:apply-sql": {
+      "cache": false,
+      "passThroughEnv": ["WEB_MIGRATION_DATABASE_URL"]
+    },
+    "db:manage": {
+      "cache": false,
+      "passThroughEnv": ["WEB_MIGRATION_DATABASE_URL"],
+      "interactive": true
+    },
+    "db:provision": {
+      "cache": false,
+      "passThroughEnv": [
+        "WEB_DATABASE_URL",
+        "WEB_PUBLIC_ORIGIN",
+        "WEB_AUTH_ALLOW_LOCAL_HTTP",
+        "WEB_SESSION_TTL_SECONDS",
+        "WEB_MIGRATION_DATABASE_URL",
+        "WEB_PROVISION_DATABASE_URL"
+      ]
+    },
+    "test:integration": {
+      "cache": false,
+      "passThroughEnv": [
+        "WEB_TEST_DATABASE_URL",
+        "WEB_TEST_MIGRATION_DATABASE_URL",
+        "WEB_TEST_ADMIN_URL",
+        "WEB_TEST_PORT",
+        "WEB_TEST_PG_CONTAINER"
+      ]
+    },
+    "test:e2e": {
+      "cache": false,
+      "passThroughEnv": [
+        "WEB_TEST_DATABASE_URL",
+        "WEB_TEST_MIGRATION_DATABASE_URL",
+        "WEB_TEST_ADMIN_URL",
+        "WEB_TEST_PORT",
+        "WEB_TEST_EXTERNAL_SERVER",
+        "WEB_TEST_PASSWORD"
+      ]
+    },
+    "test:setup": {
+      "cache": false,
+      "passThroughEnv": [
+        "WEB_TEST_DATABASE_URL",
+        "WEB_TEST_MIGRATION_DATABASE_URL",
+        "WEB_TEST_ADMIN_URL",
+        "WEB_TEST_PASSWORD"
+      ]
+    }
+  }
+}

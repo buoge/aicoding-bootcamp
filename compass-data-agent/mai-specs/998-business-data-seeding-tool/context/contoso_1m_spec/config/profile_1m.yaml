@@ -1,0 +1,189 @@
+# Course design inputs, not measured industry statistics or an already-built generator CLI.
+contract_version: 1.0.0
+release_id: xingye-contoso-1m-v1
+master_seed: 20261019
+upstream:
+  repository: https://github.com/sql-bi/Contoso-Data-Generator-V2
+  commit: eaeb57a9eaa6ad0cdab4fb527552102685434ee0
+  target_framework: net8.0
+  mode: limited_fork_weights_and_proposals
+  source_archive_sha256: null  # Must be populated from acquired bytes before production.
+  fork_commit: null           # Blocking prerequisite, not a fabricated identifier.
+  build_image_digest: null    # Blocking prerequisite after a real build.
+time:
+  timezone: Asia/Shanghai
+  timestamp_storage: UTC_microseconds
+  order_start_inclusive: '2023-01-01T00:00:00+08:00'
+  order_end_exclusive: '2026-01-01T00:00:00+08:00'
+  simulation_end_exclusive: '2026-04-01T00:00:00+08:00'
+  order_days: 1096
+  tail_days: 90
+  daily_snapshot_days: 1186
+  calendar_is_course_scenario: true
+  reference_time_default: '2025-12-15T09:00:00+08:00'
+money:
+  currency: CNY
+  unit: fen
+  tax_mode: excluded_no_vat_model
+  customer_shipping_fee_cent: 0
+  platform_subsidies: false
+  free_gifts: false
+  minimum_order_payable_cent: 1
+  allocation: integer_largest_remainder_stable_line_then_unit
+  cost_method: FIFO_original_lot
+  revenue_recognition: DELIVERED
+  revenue_reversal: RETURN_ACCEPTED
+  cogs_recognition: DELIVERED
+  cogs_reversal: SELLABLE_RESTOCK_ONLY
+  damaged_return_asset_value_cent: 0
+  damaged_return_extra_cogs: false
+tenants:
+  - {tenant_id: 101, code: XINGYE, name: 行野运动集团, orders: 900000, brands: 3, spu: 600, sku: 4800, stores: 24, outlets_in_stores: 4, warehouses: 3, members: 200000, identities: 400000, average_store_skus: 500, average_dc_skus: 3200}
+  - {tenant_id: 102, code: YUELING, name: 越岭户外, orders: 50000, brands: 2, spu: 100, sku: 800, stores: 4, outlets_in_stores: 1, warehouses: 1, members: 15000, identities: 30000, average_store_skus: 200, average_dc_skus: 800}
+  - {tenant_id: 103, code: CHAOYUE, name: 潮跃运动, orders: 50000, brands: 2, spu: 100, sku: 800, stores: 4, outlets_in_stores: 1, warehouses: 1, members: 15000, identities: 30000, average_store_skus: 200, average_dc_skus: 800}
+regions:
+  - {id: 1, code: EAST, name: 华东, demand_weight: 0.29, stores_101: 6, dc_101: 1}
+  - {id: 2, code: SOUTH, name: 华南, demand_weight: 0.23, stores_101: 5, dc_101: 1}
+  - {id: 3, code: NORTH, name: 华北, demand_weight: 0.17, stores_101: 4, dc_101: 1}
+  - {id: 4, code: CENTRAL, name: 华中, demand_weight: 0.11, stores_101: 3, dc_101: 0}
+  - {id: 5, code: NORTHEAST, name: 东北, demand_weight: 0.06, stores_101: 2, dc_101: 0}
+  - {id: 6, code: SOUTHWEST, name: 西南, demand_weight: 0.09, stores_101: 2, dc_101: 0}
+  - {id: 7, code: NORTHWEST, name: 西北, demand_weight: 0.05, stores_101: 2, dc_101: 0}
+channels:
+  - {id: 1, code: TMALL, type: PLATFORM, demand_weight: 0.22, user_events: false}
+  - {id: 2, code: JD, type: PLATFORM, demand_weight: 0.12, user_events: false}
+  - {id: 3, code: DOUYIN, type: PLATFORM, demand_weight: 0.18, user_events: false}
+  - {id: 4, code: MINIAPP, type: OWNED, demand_weight: 0.18, user_events: true}
+  - {id: 5, code: APP, type: OWNED, demand_weight: 0.12, user_events: true}
+  - {id: 6, code: POS, type: OFFLINE, demand_weight: 0.14, user_events: false}
+  - {id: 7, code: OUTLET, type: OFFLINE, demand_weight: 0.04, user_events: false}
+categories:
+  - {code: APPAREL, name: 运动服饰, subcategories: [运动上装, 运动下装, 保暖外套], spu_101: 180, variants_per_spu_101: 12, spu_each_side: 30, variants_per_spu_side: 12, demand_weight: 0.27, price_range_cent: [3900, 59900], return_probability: 0.13}
+  - {code: FOOTWEAR, name: 运动鞋履, subcategories: [跑步鞋, 训练鞋, 徒步鞋], spu_101: 120, variants_per_spu_101: 12, spu_each_side: 20, variants_per_spu_side: 12, demand_weight: 0.26, price_range_cent: [19900, 129900], return_probability: 0.15}
+  - {code: CAMPING, name: 户外露营, subcategories: [帐篷天幕, 睡眠装备, 露营家具], spu_101: 60, variants_per_spu_101: 4, spu_each_side: 10, variants_per_spu_side: 4, demand_weight: 0.10, price_range_cent: [5900, 249900], return_probability: 0.06}
+  - {code: BAGS, name: 包袋配件, subcategories: [跑步腰包, 徒步背包, 运动行李], spu_101: 60, variants_per_spu_101: 4, spu_each_side: 10, variants_per_spu_side: 4, demand_weight: 0.08, price_range_cent: [3900, 69900], return_probability: 0.05}
+  - {code: FITNESS, name: 健身训练, subcategories: [力量训练, 瑜伽普拉提, 灵敏训练], spu_101: 60, variants_per_spu_101: 4, spu_each_side: 10, variants_per_spu_side: 4, demand_weight: 0.09, price_range_cent: [2900, 99900], return_probability: 0.05}
+  - {code: CYCLING, name: 骑行装备, subcategories: [骑行服饰, 安全头盔, 骑行配件], spu_101: 40, variants_per_spu_101: 6, spu_each_side: 6, variants_per_spu_side: 6, demand_weight: 0.07, price_range_cent: [3900, 129900], return_probability: 0.07}
+  - {code: WATER, name: 水上运动, subcategories: [泳装, 泳镜泳帽, 浮潜装备], spu_101: 40, variants_per_spu_101: 4, spu_each_side: 8, variants_per_spu_side: 4, demand_weight: 0.06, price_range_cent: [1900, 49900], return_probability: 0.07}
+  - {code: PROTECTION, name: 护具与运动小件, subcategories: [关节护具, 球类小件, 补水照明], spu_101: 40, variants_per_spu_101: 2, spu_each_side: 6, variants_per_spu_side: 2, demand_weight: 0.07, price_range_cent: [900, 39900], return_probability: 0.03}
+demand:
+  hard_quota_dimensions: [tenant_id]
+  daily_quota_method: largest_remainder_after_all_daily_weights
+  raw_order_line_weights: [0.60, 0.26, 0.10, 0.04]
+  quantity_weights: [0.88, 0.10, 0.02]
+  repeated_sku_policy: merge_if_same_price_and_promotion_context
+  monthly_weights: [0.85, 0.75, 0.95, 1.05, 1.10, 1.35, 1.00, 1.00, 1.05, 1.10, 1.55, 1.20]
+  annual_weights: {'2023': 0.85, '2024': 1.00, '2025': 1.15}
+  additional_day_randomness: 0
+  weekday_weights_iso: [0.92, 0.91, 0.95, 0.97, 1.05, 1.16, 1.12]
+  per_sku_popularity: normalized_lognormal_with_fixed_seed
+  per_sku_popularity_parameters: {mu: 0, sigma: 1, transform: Python_Box_Muller_then_exp, cross_language_policy: export_frozen_weights_to_CSharp}
+  category_month_multipliers:
+    APPAREL: [1.2, 1.0, 1.1, 1.0, 0.9, 0.9, 0.9, 0.9, 1.1, 1.2, 1.3, 1.3]
+    FOOTWEAR: [0.9, 0.9, 1.2, 1.2, 1.1, 1.0, 0.9, 0.9, 1.2, 1.2, 1.1, 0.9]
+    CAMPING: [0.5, 0.5, 1.0, 1.4, 1.5, 1.3, 1.1, 1.1, 1.4, 1.5, 0.7, 0.5]
+    BAGS: [1.0, 0.9, 1.1, 1.1, 1.1, 1.0, 1.1, 1.2, 1.2, 1.0, 1.0, 1.0]
+    FITNESS: [1.3, 1.2, 1.1, 1.0, 0.9, 0.9, 0.8, 0.8, 0.9, 1.0, 1.2, 1.3]
+    CYCLING: [0.5, 0.6, 1.2, 1.5, 1.4, 1.2, 1.0, 1.0, 1.4, 1.4, 0.8, 0.5]
+    WATER: [0.3, 0.3, 0.5, 0.8, 1.2, 1.7, 2.0, 1.8, 1.1, 0.6, 0.4, 0.3]
+    PROTECTION: [0.9, 0.9, 1.0, 1.1, 1.1, 1.0, 1.0, 1.0, 1.1, 1.1, 1.0, 0.9]
+  own_session_submit_probability_baseline: 0.12
+  owned_session_max_duration_minutes: 120
+  anonymous_session_share: 0.35
+  future_customer_link_backfill: false
+  stock_filter_during_proposals: false
+commerce:
+  create_before_reserve: true
+  reserve_atomicity: whole_order_all_sites
+  payment_deadline_minutes: 30
+  payment_success_probability_after_reserve: 0.94
+  payment_retry_probability_after_failure: 0.25
+  maximum_payment_attempts: 4
+  prepaid_only: true
+  split_payment_probability: 0.02
+  cancel_before_ship_probability: 0.02
+  rto_probability: 0.01
+  return_rejection_probability: 0.03
+  damaged_share_of_accepted_returns: 0.12
+  maximum_ship_delay_days: 7
+  maximum_delivery_delay_days: 14
+  maximum_return_request_after_delivery_days: 30
+  maximum_return_transport_days: 10
+  maximum_inspection_days: 3
+  maximum_restock_after_acceptance_days: 7
+  maximum_refund_after_acceptance_days: 14
+  late_data_maximum_days: 3
+  max_normal_path_days: 81
+  allow_explicit_unresolved_tail: false
+inventory:
+  buckets: [sellable, quarantine, damaged, reserved, in_transit]
+  available_formula: sellable_minus_reserved
+  opening_forecast_uses_realized_future_orders: false
+  store_target_cover_days: 21
+  dc_target_cover_days: 35
+  reorder_point_cover_days: 10
+  review_period_days: 1
+  purchase_lead_days_range: [4, 9]
+  transfer_lead_days_range: [1, 3]
+  fifo_tie_break: [received_at, lot_id]
+  zero_stock_rows_retained: true
+  discontinued_residual_stock_retained: true
+  snapshot_domain: active_assortment_or_nonzero_any_bucket
+  snapshots_knowledge_versions: [final_restated]
+  historical_knowledge_snapshots: replay_on_demand_and_cache_required_evaluation_cutoffs
+  base_pair_reference_count: 24800
+  single_version_snapshot_reference_rows_per_table: 29412800
+  valuation_scope: sellable_physical_at_original_lot_cost
+  sales_shipping_cost_region: original_order_region
+  inventory_operation_region: actual_site_region
+sources:
+  PIM: {normal_lag_minutes: [0, 30], schedule: on_change}
+  OMS: {normal_lag_minutes: [0, 5], schedule: five_minutes}
+  POS: {normal_lag_minutes: [5, 60], schedule: hourly}
+  WMS: {normal_lag_minutes: [1, 15], schedule: fifteen_minutes, preserve_per_site_transaction_order: true}
+  CRM: {normal_lag_minutes: [0, 30], schedule: thirty_minutes}
+  ADS: {normal_lag_minutes: [360, 720], schedule: next_day, report_versions: true}
+  WEB: {normal_lag_minutes: [0, 10], schedule: ten_minutes}
+  ERP: {normal_lag_minutes: [15, 120], schedule: hourly}
+  availability_rule: max_of_business_event_batch_arrival_and_required_parent_availability
+  completeness_watermark_rule: continuous_expected_batches_not_max_event_time
+attribution:
+  model_version: LAST_NON_DIRECT_7D_V1
+  window_days: 7
+  evidence_must_be_visible_at_order: true
+  platform_order_policy: UNATTRIBUTABLE
+  platform_daily_date: created_order_cohort_with_as_of_payment_revision
+  campaign_target_channel_required: true
+  ad_expected_grain: active_campaign_day_times_all_tenant_regions
+  unexposed_region_report: explicit_zero_row
+budgets:
+  grain: [tenant_id, target_month, channel_id, region_id, metric_code, plan_version]
+  metrics: [NET_SALES, CONTRIBUTION]
+  category_allocation: forbidden_without_new_explicit_plan_asset
+  first_version_approved_days_before_month: 10
+  budget_uses_realized_future_facts: false
+production:
+  random_spec_version: sha256_named_uniform52_v1
+  parallelism_unit: tenant
+  worker_count_maximum: 3
+  chronological_state_per_tenant: true
+  monthly_state_reset: false
+  event_order: [event_time_utc, phase_priority, stable_entity_id, event_sequence]
+  checkpoint_every_business_hours: 24
+  phase_priority: {SUPPLY_AND_RESTOCK: 10, CANCEL_AND_EXPIRY: 20, CREATE_AND_RESERVE: 30, PAYMENT: 40, SHIP: 50, DELIVER: 60, RETURN: 70, REPORT: 80}
+  payment_at_deadline: rejected_timeout_wins
+  output_format: parquet
+  compression: zstd
+  target_file_size_mib_range: [128, 256]
+  partition_keys_default: [release_id, tenant_id, business_month]
+  row_group_target_rows: 100000
+  logical_hash_requires_stable_sort: true
+  publication: manifest_commit_last_immutable_release
+  unresolved_source_or_build_locks_before_production_run: forbidden
+storage_profiles:
+  control: PostgreSQL_17
+  analytical: DuckDB_on_immutable_Parquet_via_trusted_query_broker
+  postgres_all_tables: optional_conformance_and_smoke_reference
+  facts_in_full_pg_load: false
+  credentials_exposed_to_agent: false
+  raw_files_exposed_to_agent: false

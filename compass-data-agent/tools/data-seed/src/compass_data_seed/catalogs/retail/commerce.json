@@ -1,0 +1,245 @@
+{
+  "campaign_themes": [
+    {
+      "name": "开春一起去徒步",
+      "months": [
+        3,
+        4
+      ],
+      "sports": [
+        "徒步",
+        "露营"
+      ],
+      "source": "SEARCH",
+      "channels": [
+        1,
+        4
+      ],
+      "objective": "ACQUISITION"
+    },
+    {
+      "name": "城市晨跑打卡季",
+      "months": [
+        4,
+        5
+      ],
+      "sports": [
+        "跑步"
+      ],
+      "source": "OWNED_MEDIA",
+      "channels": [
+        4,
+        5
+      ],
+      "objective": "RETENTION"
+    },
+    {
+      "name": "夏日轻汗训练节",
+      "months": [
+        6,
+        7
+      ],
+      "sports": [
+        "健身",
+        "瑜伽"
+      ],
+      "source": "FEED",
+      "channels": [
+        3,
+        4
+      ],
+      "objective": "ACQUISITION"
+    },
+    {
+      "name": "清凉泳池装备周",
+      "months": [
+        7,
+        8
+      ],
+      "sports": [
+        "游泳"
+      ],
+      "source": "SEARCH",
+      "channels": [
+        1,
+        2
+      ],
+      "objective": "ACQUISITION"
+    },
+    {
+      "name": "秋野露营出发计划",
+      "months": [
+        9,
+        10
+      ],
+      "sports": [
+        "露营",
+        "徒步"
+      ],
+      "source": "LIVE",
+      "channels": [
+        3,
+        4
+      ],
+      "objective": "ACQUISITION"
+    },
+    {
+      "name": "冬训保暖焕新季",
+      "months": [
+        11,
+        12
+      ],
+      "sports": [
+        "跑步",
+        "滑雪",
+        "徒步"
+      ],
+      "source": "FEED",
+      "channels": [
+        1,
+        3,
+        5
+      ],
+      "objective": "ACQUISITION"
+    },
+    {
+      "name": "旧款好物返场",
+      "months": [
+        2,
+        8,
+        11
+      ],
+      "sports": [
+        "通勤",
+        "健身",
+        "跑步"
+      ],
+      "source": "OWNED_MEDIA",
+      "channels": [
+        4,
+        7
+      ],
+      "objective": "CLEARANCE"
+    },
+    {
+      "name": "周末球场搭子节",
+      "months": [
+        3,
+        5,
+        9
+      ],
+      "sports": [
+        "篮球",
+        "足球",
+        "羽毛球",
+        "网球"
+      ],
+      "source": "LIVE",
+      "channels": [
+        3,
+        4
+      ],
+      "objective": "RETENTION"
+    }
+  ],
+  "complements": {
+    "tent": [
+      "sleeping_bag",
+      "sleeping_mat",
+      "camp_lamp",
+      "camp_chair"
+    ],
+    "road_shoe": [
+      "socks",
+      "bottle",
+      "insoles"
+    ],
+    "hiking_shoe": [
+      "trekking_pole",
+      "backpack",
+      "socks"
+    ],
+    "dumbbell": [
+      "yoga_mat",
+      "resistance_band"
+    ],
+    "city_bike": [
+      "helmet",
+      "bike_light",
+      "bike_bag"
+    ],
+    "road_bike": [
+      "helmet",
+      "bike_light",
+      "bottle"
+    ],
+    "badminton_racket": [
+      "shuttlecock",
+      "grip_tape"
+    ],
+    "tennis_racket": [
+      "tennis_ball",
+      "grip_tape"
+    ],
+    "swimsuit": [
+      "goggles",
+      "swim_cap",
+      "towel"
+    ],
+    "skis": [
+      "ski_goggles",
+      "ski_gloves"
+    ]
+  },
+  "price_channel_factors": [
+    1.0,
+    1.02,
+    0.96,
+    1.0,
+    1.0,
+    1.03,
+    0.83
+  ],
+  "payment_methods": {
+    "1": [
+      "ALIPAY",
+      "BANK_CARD"
+    ],
+    "2": [
+      "WALLET",
+      "BANK_CARD"
+    ],
+    "3": [
+      "WALLET",
+      "WECHAT"
+    ],
+    "4": [
+      "WECHAT",
+      "BANK_CARD"
+    ],
+    "5": [
+      "WALLET",
+      "WECHAT"
+    ],
+    "6": [
+      "WECHAT",
+      "ALIPAY",
+      "BANK_CARD",
+      "CASH"
+    ],
+    "7": [
+      "WECHAT",
+      "ALIPAY",
+      "BANK_CARD",
+      "CASH"
+    ]
+  },
+  "reasons": [
+    "SIZE",
+    "QUALITY",
+    "NOT_NEEDED",
+    "DESCRIPTION",
+    "OTHER"
+  ],
+  "policy_source": "Model-authored course assumptions, not estimated industry statistics."
+}

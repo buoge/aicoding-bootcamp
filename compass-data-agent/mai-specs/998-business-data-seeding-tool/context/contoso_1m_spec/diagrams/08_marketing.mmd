@@ -1,0 +1,89 @@
+erDiagram
+    direction TB
+    core_campaign {
+        smallint tenant_id PK
+        bigint campaign_id PK
+        bigint target_channel_id FK
+        bigint load_batch_id FK
+    }
+    core_campaign_daily {
+        smallint tenant_id PK
+        date report_date PK
+        bigint campaign_id PK
+        bigint channel_id PK
+        bigint region_id PK
+        integer report_version PK
+        bigint load_batch_id FK
+    }
+    core_order_header {
+        smallint tenant_id PK
+        bigint order_id PK
+        bigint channel_id FK
+        bigint org_unit_id FK
+        bigint region_id FK
+        bigint demand_geo_id FK
+        bigint selling_site_id FK
+        bigint identity_id FK
+        bigint customer_id FK
+        bigint load_batch_id FK
+    }
+    core_order_attribution {
+        smallint tenant_id PK
+        bigint attribution_id PK
+        bigint order_id FK
+        bigint region_id FK
+        bigint campaign_id FK
+        bigint session_id FK
+        bigint load_batch_id FK
+    }
+    core_web_session {
+        smallint tenant_id PK
+        bigint session_id PK
+        bigint channel_id FK
+        bigint region_id FK
+        bigint identity_id FK
+        bigint campaign_id FK
+        bigint load_batch_id FK
+    }
+    core_behavior_event {
+        smallint tenant_id PK
+        bigint behavior_event_id PK
+        bigint session_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint order_id FK
+        bigint load_batch_id FK
+    }
+    core_channel_product_daily {
+        smallint tenant_id PK
+        date report_date PK
+        bigint channel_id PK
+        bigint sku_id PK
+        bigint region_id PK
+        integer report_version PK
+        bigint load_batch_id FK
+    }
+    core_store_traffic_daily {
+        smallint tenant_id PK
+        date report_date PK
+        bigint site_id PK
+        bigint region_id FK
+        integer report_version PK
+        bigint load_batch_id FK
+    }
+    core_target_monthly {
+        smallint tenant_id PK
+        date target_month PK
+        bigint channel_id PK
+        bigint region_id PK
+        text metric_code PK
+        integer plan_version PK
+        bigint load_batch_id FK
+    }
+    core_campaign ||--o{ core_campaign_daily : "campaign_id"
+    core_order_header ||--o{ core_order_attribution : "order_id,region_id"
+    core_campaign |o--o{ core_order_attribution : "campaign_id"
+    core_web_session |o--o{ core_order_attribution : "session_id"
+    core_campaign |o--o{ core_web_session : "campaign_id"
+    core_web_session ||--o{ core_behavior_event : "session_id,region_id"
+    core_order_header |o--o{ core_behavior_event : "order_id,region_id"

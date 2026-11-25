@@ -1,0 +1,16 @@
+{
+  "name": "contoso-1m-data-preparation-specification",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Specification compiler, schema, and independent small-fixture validation. Not a production order generator.",
+  "scripts": {
+    "validate:schema": "node validation/validate_spec.mjs",
+    "validate:gold": "node validation/run_golden_fixture.mjs",
+    "render:er": "node tools/render_er.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.10",
+    "@viz-js/viz": "3.25.0",
+    "sharp": "0.35.5"
+  }
+}

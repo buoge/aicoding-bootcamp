@@ -1,0 +1,36 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/mai-specs/998-business-data-seeding-tool/design/TECH_DESIGN.md",
+        "$TURBO_ROOT$/mai-specs/998-business-data-seeding-tool/design/business-schema.sql",
+        "$TURBO_ROOT$/mai-specs/999-compass-product-course-landing-app/design/data-model.md",
+        "$TURBO_ROOT$/mai-specs/999-compass-product-course-landing-app/design/prototype/**",
+        "$TURBO_ROOT$/mai-specs/999-compass-product-course-landing-app/context/dataagent-tech-stack/visuals/system-architecture.png"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "!.next/dev/**",
+        "public/prototype/**",
+        "public/resources/system-architecture.png",
+        "public/resources/business-schema.json",
+        "public/resources/system-schema.json",
+        "public/resources/system-data-model.md"
+      ],
+      "env": ["HOME_STATIC_EXPORT", "HOME_STANDALONE"]
+    },
+    "test": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/mai-specs/998-business-data-seeding-tool/design/TECH_DESIGN.md",
+        "$TURBO_ROOT$/mai-specs/998-business-data-seeding-tool/design/business-schema.sql",
+        "$TURBO_ROOT$/mai-specs/999-compass-product-course-landing-app/design/data-model.md",
+        "$TURBO_ROOT$/mai-specs/999-compass-product-course-landing-app/design/prototype/**"
+      ],
+      "outputs": []
+    }
+  }
+}

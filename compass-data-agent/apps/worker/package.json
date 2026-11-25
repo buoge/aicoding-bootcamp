@@ -1,0 +1,12 @@
+{
+  "name": "@compass/worker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "uv run --locked --package compass-worker python -m compass_worker",
+    "build": "uv build --package compass-worker --out-dir dist",
+    "lint": "uv run --locked ruff check . && uv run --locked ruff format --check .",
+    "typecheck": "uv run --locked pyright --project ../../pyproject.toml src tests",
+    "test": "uv run --locked pytest tests"
+  }
+}

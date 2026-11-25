@@ -1,0 +1,12 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "//#contracts"]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck", "//#contracts"]
+    }
+  }
+}

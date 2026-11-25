@@ -1,0 +1,1604 @@
+{
+  "contract_name": "Contoso V2 中国运动户外百万订单候选生成补丁契约",
+  "contract_version": "1.0.0",
+  "implementation_status": "DESIGN_NOT_IMPLEMENTED",
+  "warning": "本文件定义拟实现 Contoso fork 接口与领域验收；新增 C# 类、fork 命令和领域生成器未实现。本轮只提供 tools/reference_algorithms.py 的协议参考校验，未下载或生成百万数据。",
+  "canonical_schema": {
+    "path": "config/schema_contract.json",
+    "schema_version": "1.0.0",
+    "dialect": "PostgreSQL 17",
+    "observed_table_count": 63,
+    "observed_column_count": 643,
+    "observed_sha256": "9196ff9f2921f28af0e5cce7678d600eba908b96390f88a7f534be3481b605ec",
+    "meaning": "此摘要记录编写时已审查的模型；正式运行必须重新冻结实际 schema，禁止在实现中默默接受不兼容变更。",
+    "observed_foreign_key_count": 219
+  },
+  "upstream": {
+    "repository": "https://github.com/sql-bi/Contoso-Data-Generator-V2",
+    "commit": "eaeb57a9eaa6ad0cdab4fb527552102685434ee0",
+    "archive_url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/archive/eaeb57a9eaa6ad0cdab4fb527552102685434ee0.tar.gz",
+    "license": "MIT",
+    "license_url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/LICENSE",
+    "target_framework": "net8.0",
+    "csproj_url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/DatabaseGenerator.csproj",
+    "package_versions": {
+      "CsvHelper": "31.0.3",
+      "ExcelDataReader.DataSet": "3.6.0",
+      "MathNet.Numerics": "5.0.0",
+      "Parquet.Net": "4.23.5"
+    },
+    "archive_sha256": null,
+    "archive_sha256_rule": "首次取得固定归档后实际计算并锁定，不能填造一个未测哈希",
+    "sdk_patch_and_container_digest": "实现构建验证后冻结，不由本设计虚构",
+    "observed_random_behavior": [
+      "Engine.Exec 使用方法局部 new Random(0)，并注释不要使用静态全局 RNG",
+      "CreateDayOrders 使用按日期 new Random(today.Year*1000+today.DayOfYear)",
+      "Engine_Setup 客户洗牌另有局部 new Random(0)",
+      "MyRnd 静态方法接收 RNG 参数，不持有静态共享随机状态"
+    ]
+  },
+  "scope": {
+    "reuse": [
+      "Contoso 日历和日期权重计算",
+      "OrderRowsWeights 的 1+weighted_index 行数语义",
+      "OrderQuantityWeights 的 1+weighted_index 数量语义",
+      "category/subcategory/product 分层时间权重与累积权重选择内核"
+    ],
+    "python_authorities": [
+      "独立租户及中国运动户外主数据",
+      "精确配额和创建前业务上下文",
+      "原始候选行合并及逻辑单件映射",
+      "整数分定价、优惠、支付、退款与费用",
+      "FIFO、跨仓原子预留、库存五桶与供应事件",
+      "出库、物流、售后、收入及成本",
+      "源可见时间、快照、独立验收与发布"
+    ],
+    "legacy_outputs_not_authoritative": [
+      "Sales",
+      "Orders",
+      "OrderRows",
+      "UnitPrice",
+      "NetPrice",
+      "UnitCost",
+      "DeliveryDate"
+    ],
+    "no_runtime_inventory_input_to_candidate": true
+  },
+  "production_invariants": {
+    "tenant_quotas": {
+      "101": 900000,
+      "102": 50000,
+      "103": 50000
+    },
+    "order_count_definition": "持久化创建成功的 order_header；后续失败或取消仍计入；未提交 intent 不计",
+    "order_start_local_inclusive": "2023-01-01",
+    "order_end_local_exclusive": "2026-01-01",
+    "simulation_end_local_exclusive": "2026-04-01",
+    "timezone": "Asia/Shanghai",
+    "currency": "CNY",
+    "money_unit": "integer_fen",
+    "tax_model": "NO_TAX",
+    "customer_shipping_charge": "NONE",
+    "zero_payable_orders": "FORBIDDEN_IN_V1",
+    "inventory_lock_timing": "AFTER_ORDER_CREATED",
+    "stock_failure_reason": "STOCK_LOCK_FAILED",
+    "reservation_atomic_scope": "WHOLE_ORDER_ALL_FULFILLMENT_SITES",
+    "cost_method": "FIFO_LOT_COST_RECOGNIZED_ON_DELIVERY",
+    "shipment_payment_gate": "SUCCESSFUL_PAYMENTS_SUM_EQUALS_ORIGINAL_PAYABLE",
+    "canonical_line_uniqueness": [
+      "tenant_id",
+      "order_id",
+      "sku_id"
+    ],
+    "platform_attribution": "UNATTRIBUTABLE",
+    "platform_daily_report_date": "ORDER_CREATION_DATE_COHORT",
+    "payment_and_refund_completion": "即时完成尝试；SUCCEEDED 在 attempted_at 即现金成功；available_at 只表采集可见；异步成功未来需扩 completed_at 或结果事件"
+  },
+  "files_to_modify": [
+    {
+      "path": "DatabaseGenerator/DatabaseGenerator.csproj",
+      "change_type": "modify",
+      "purpose": "保持已核验 net8.0；修补跨平台构建；冻结依赖",
+      "changes": [
+        "将 Windows cmd PreBuild 换成跨平台构建元数据步骤，或由包装器输出 manifest",
+        "为 fork 生成并提交依赖锁；SDK 精确补丁和容器 digest 由实际构建后冻结",
+        "复用既有 CSV/Parquet 依赖，不为了领域逻辑引入第二套 ORM"
+      ],
+      "acceptance_ids": [
+        "BUILD-01",
+        "SOURCE-01"
+      ],
+      "upstream_url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/DatabaseGenerator.csproj"
+    },
+    {
+      "path": "DatabaseGenerator/Program.cs",
+      "change_type": "modify",
+      "purpose": "增加明确隔离的 course weights / course proposals 入口",
+      "changes": [
+        "在旧位置参数解析前识别新增 course 子命令",
+        "读取固定输入 manifest、分区范围、seed 和协议版本",
+        "新入口失败时返回非零状态并写结构化失败报告；不静默回退旧生成路径",
+        "保留旧 CLI 为 legacy 兼容路径，不能把两种接口混称上游现有能力"
+      ],
+      "acceptance_ids": [
+        "API-01",
+        "OFFLINE-01"
+      ],
+      "upstream_url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/Program.cs"
+    },
+    {
+      "path": "DatabaseGenerator/Config.cs",
+      "change_type": "modify",
+      "purpose": "接入候选模式配置与显式随机协议",
+      "changes": [
+        "引用新的 CourseProposalConfig，并保留上游行数/数量/时间权重配置",
+        "禁止 proposal 模式通过 OrdersCount 或 CutDateBefore/CutDateAfter 改变 context 行数",
+        "原折扣、售价、单位成本、交付时间只留 legacy 模式，不作为新模式输出",
+        "将 profile ISO 周一首位星期权重显式旋转为上游 WeekDaysFactor 周日首位；v1 额外日随机浮动为 0"
+      ],
+      "acceptance_ids": [
+        "QUOTA-01",
+        "MONEY-01"
+      ],
+      "upstream_url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/Config.cs"
+    },
+    {
+      "path": "DatabaseGenerator/Engine.cs",
+      "change_type": "modify",
+      "purpose": "抽出共享的行数、数量和分层商品抽样内核",
+      "changes": [
+        "让 legacy BuildOrder/BuildOrderRow 与新 ProposalEngine 复用共享加权选择方法",
+        "proposal 路径直接消费 context，不重新选租户、客户、地区、店铺或下单渠道",
+        "接收 Python 编译的可售 profile，先裁掉不合格/零权重项，再复用 category/subcategory/product 日期权重和 CDF 选择",
+        "不调用旧 BuildOrder 的外国客户/单一线上门店选择、金额或 DeliveryDate 生成路径",
+        "保留原始 proposal 行，不在 C# 合并 SKU、不在 C# 做库存补抽"
+      ],
+      "acceptance_ids": [
+        "REUSE-01",
+        "CONTEXT-01",
+        "ASSORTMENT-01",
+        "STOCK-01"
+      ],
+      "upstream_url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/Engine.cs"
+    },
+    {
+      "path": "DatabaseGenerator/Engine_Setup.cs",
+      "change_type": "modify",
+      "purpose": "分离纯权重初始化与默认外部客户/汇率初始化",
+      "changes": [
+        "把可复用的日期权重计算抽为由冻结投影和规则驱动的路径",
+        "新权重/proposal 模式仅加载 manifest 中本地输入，不进入默认国家客户文件、客户缓存或 ECB 下载",
+        "初始化共享分类/商品加速索引，但不建立不需要的默认客户/门店业务状态",
+        "相同输入权重必须可被独立导出并在 proposal 阶段复用或一致重建"
+      ],
+      "acceptance_ids": [
+        "REUSE-01",
+        "OFFLINE-01"
+      ],
+      "upstream_url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/Engine_Setup.cs"
+    },
+    {
+      "path": "DatabaseGenerator/MyRnd.cs",
+      "change_type": "modify",
+      "purpose": "新增接受显式命名随机源的加权采样重载",
+      "changes": [
+        "保留原有接收 System.Random 的 legacy 重载",
+        "新路径通过固定 random_spec 取得 uniform(0,1) 并执行相同累积权重选择语义",
+        "数组稳定排序、非法权重显式拒绝；不可使用线程共享全局可变 RNG",
+        "新路径执行 random_spec.weighted_cdf 的固定 float64 求和顺序、strict > 边界与 nextafter 钳制；对齐 Python 参考向量"
+      ],
+      "acceptance_ids": [
+        "RNG-01",
+        "RNG-02",
+        "REUSE-01"
+      ],
+      "upstream_url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/MyRnd.cs"
+    }
+  ],
+  "files_to_add": [
+    {
+      "path": "DatabaseGenerator/Proposal/CourseProposalConfig.cs",
+      "change_type": "add",
+      "purpose": "新增版本化运行配置；仅输入、权重、seed、分区与输出选项",
+      "status": "PROPOSED"
+    },
+    {
+      "path": "DatabaseGenerator/Proposal/Contracts.cs",
+      "change_type": "add",
+      "purpose": "新增 context/proposal/投影 DTO，字段与本契约一致",
+      "status": "PROPOSED"
+    },
+    {
+      "path": "DatabaseGenerator/Proposal/ProjectionReader.cs",
+      "change_type": "add",
+      "purpose": "读取规范 CSV/Parquet 投影并建立上游分类/商品模型；不扩展完整电商领域",
+      "status": "PROPOSED"
+    },
+    {
+      "path": "DatabaseGenerator/Proposal/WeightExport.cs",
+      "change_type": "add",
+      "purpose": "导出复用上游算法的 calendar_weights 与相关元数据",
+      "status": "PROPOSED"
+    },
+    {
+      "path": "DatabaseGenerator/Proposal/ProposalEngine.cs",
+      "change_type": "add",
+      "purpose": "遍历输入槽位，复用共享抽样内核，生成原始购物篮",
+      "status": "PROPOSED"
+    },
+    {
+      "path": "DatabaseGenerator/Proposal/ProposalWriter.cs",
+      "change_type": "add",
+      "purpose": "按稳定分区写临时 CSV/Parquet，校验后提交 manifest；不用 Sales writer 输出权威事实",
+      "status": "PROPOSED"
+    },
+    {
+      "path": "DatabaseGenerator/Proposal/ProposalJsonContext.cs",
+      "change_type": "add",
+      "purpose": "为使用源生成 JSON 序列化的新增 DTO 提供显式上下文",
+      "status": "PROPOSED"
+    },
+    {
+      "path": "DatabaseGenerator/Random/INamedRandomSource.cs",
+      "change_type": "add",
+      "purpose": "定义命名随机取值接口",
+      "status": "PROPOSED"
+    },
+    {
+      "path": "DatabaseGenerator/Random/HashNamedRandomSource.cs",
+      "change_type": "add",
+      "purpose": "实现本契约的 SHA256 命名取值规范；不执行 Python 领域状态机",
+      "status": "PROPOSED"
+    }
+  ],
+  "read_only_reuse": [
+    {
+      "path": "DatabaseGenerator/Models/Product.cs",
+      "url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/Models/Product.cs",
+      "rule": "保持轻量商品投影，不在此扩展完整 SPU/尺码/库存领域"
+    },
+    {
+      "path": "DatabaseGenerator/ExcelReader.cs",
+      "url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/ExcelReader.cs",
+      "rule": "旧工作簿读取保留给 legacy；新规范 CSV/Parquet 投影由新增 reader 解析，不能声称增加任意 Excel 列就会自动生成领域字段"
+    },
+    {
+      "path": "DatabaseGenerator/Models/Order.cs",
+      "url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/Models/Order.cs",
+      "rule": "原交易模型仅作上游语义参照，新 proposal 使用独立 DTO"
+    },
+    {
+      "path": "DatabaseGenerator/Models/OrderRow.cs",
+      "url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/blob/eaeb57a9eaa6ad0cdab4fb527552102685434ee0/DatabaseGenerator/Models/OrderRow.cs",
+      "rule": "候选行数量语义共享，最终金额和规范合并仍归 Python"
+    }
+  ],
+  "proposed_interfaces": [
+    {
+      "name": "WEIGHTS",
+      "status": "PROPOSED_NOT_EXISTING_UPSTREAM_CLI",
+      "owner": "C# fork",
+      "command_shape": "dotnet DatabaseGenerator.dll course weights --input-manifest <locked-input.json> --output <stage-prefix>",
+      "inputs": [
+        "固定上游兼容权重配置",
+        "category_projection.csv",
+        "subcategory_projection.csv",
+        "product_projection.csv",
+        "run_manifest.json"
+      ],
+      "outputs": [
+        "calendar_weights.parquet",
+        "阶段输入/输出哈希清单"
+      ],
+      "guarantees": [
+        "不下载默认客户和汇率",
+        "可重复导出非负日期权重",
+        "不创建订单或领域事实"
+      ]
+    },
+    {
+      "name": "CONTEXT",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "owner": "Python wrapper",
+      "command_shape": "python -m course_data context --input-manifest <locked-input.json> --output <stage-prefix>",
+      "inputs": [
+        "calendar_weights.parquet",
+        "冻结租户/渠道/客户身份与绑定配置",
+        "冻结场景参数"
+      ],
+      "outputs": [
+        "context_plan.parquet",
+        "assortment_profiles.parquet"
+      ],
+      "guarantees": [
+        "最大余数法守恒配额",
+        "渠道客户等上下文先于商品候选",
+        "不按可用库存挑选订单槽位"
+      ]
+    },
+    {
+      "name": "PROPOSAL",
+      "status": "PROPOSED_NOT_EXISTING_UPSTREAM_CLI",
+      "owner": "C# fork",
+      "command_shape": "dotnet DatabaseGenerator.dll course proposals --input-manifest <locked-input.json> --partition <stable-key> --output <stage-prefix>",
+      "inputs": [
+        "context_plan.parquet",
+        "assortment_profiles.parquet",
+        "分类/商品投影",
+        "product_id_map.parquet",
+        "冻结时间与抽样配置"
+      ],
+      "outputs": [
+        "order_proposals.parquet",
+        "order_proposal_lines.parquet",
+        "阶段输出清单"
+      ],
+      "guarantees": [
+        "逐 context 一头",
+        "条件商品与数量抽样",
+        "不生成金额和成功交易状态",
+        "失败不补抽有货商品"
+      ]
+    },
+    {
+      "name": "SIMULATE",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "owner": "Python wrapper",
+      "command_shape": "python -m course_data simulate --input-manifest <locked-input.json> --tenant <id> --resume <checkpoint-or-none>",
+      "inputs": [
+        "context/proposals",
+        "冻结主数据",
+        "期初/供应计划",
+        "随机协议及场景配置"
+      ],
+      "outputs": [
+        "source_to_order_line.parquet",
+        "规范业务事实分区",
+        "检查点与采集元数据"
+      ],
+      "guarantees": [
+        "每租户顺时推进",
+        "全订单原子 FIFO 预留",
+        "全额预付再发货",
+        "五桶与金额守恒",
+        "不修改规范 DDL"
+      ]
+    }
+  ],
+  "wire_format": {
+    "parquet": "原生 Parquet；int16/int32/int64、UTF-8 字符串、DATE、TIMESTAMP(MICROS,isAdjustedToUTC=true)；UTC 语义写入 manifest",
+    "csv": "UTF-8 无 BOM；LF；首行表头；RFC 4180 双引号转义；字段顺序按契约；NULL 使用反斜杠 N 标记并在 reader/writer 对字符串冲突作显式转义",
+    "csv_timestamps": "ISO 8601 UTC，固定六位小数与 Z；日期 YYYY-MM-DD",
+    "integers": "十进制无千位分隔；业务金额只用 int64 分",
+    "floating_point": "只用于有限非负权重；禁止 NaN/Infinity；不得作为成交金额输出",
+    "sort_order": "每个资产按 primary_key 稳定升序；权重候选按稳定分类/商品 ID 排序",
+    "partition_rule": "租户和固定业务日期/槽位范围；worker 数不改变分区边界",
+    "publication_rule": "临时写入→契约/计数/哈希校验→原子完成 manifest；不允许只写出部分已声明分区",
+    "csv_null_token": "\\N",
+    "csv_string_backslash_rule": "CSV 解引号后，字段恰为反斜杠 N 表示 NULL；非空字符串先把每个反斜杠双写，读取非 NULL 字段时再成对还原。空字符串与 NULL 不同。数值与日期字段不得使用字符串反斜杠转义。"
+  },
+  "assets": [
+    {
+      "asset_name": "category_projection.csv",
+      "format": "csv",
+      "producer": "Python compile",
+      "consumers": [
+        "C# WEIGHTS",
+        "C# PROPOSAL"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "101/102/103"
+        },
+        {
+          "name": "contoso_category_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "Contoso 一级分类代理 ID"
+        },
+        {
+          "name": "category_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "core.category 的一级分类 ID"
+        },
+        {
+          "name": "category_name",
+          "type": "utf8",
+          "nullable": false,
+          "description": "合成分类名称"
+        },
+        {
+          "name": "curve_profile_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "冻结的上游权重曲线配置引用"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "contoso_category_id"
+      ],
+      "assertions": [
+        "一级分类必须能映射到本租户 core.category",
+        "本文件不定义售价或库存"
+      ]
+    },
+    {
+      "asset_name": "subcategory_projection.csv",
+      "format": "csv",
+      "producer": "Python compile",
+      "consumers": [
+        "C# WEIGHTS",
+        "C# PROPOSAL"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "租户"
+        },
+        {
+          "name": "contoso_subcategory_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "Contoso 子分类代理 ID"
+        },
+        {
+          "name": "contoso_category_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "所属一级分类代理 ID"
+        },
+        {
+          "name": "category_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "core.category 的唯一叶子分类 ID"
+        },
+        {
+          "name": "subcategory_name",
+          "type": "utf8",
+          "nullable": false,
+          "description": "合成子分类名称"
+        },
+        {
+          "name": "curve_profile_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "冻结权重曲线引用"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "contoso_subcategory_id"
+      ],
+      "assertions": [
+        "父类在 category_projection 中存在",
+        "叶子分类与上层分类关系正确"
+      ]
+    },
+    {
+      "asset_name": "product_projection.csv",
+      "format": "csv",
+      "producer": "Python compile",
+      "consumers": [
+        "C# WEIGHTS",
+        "C# PROPOSAL"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "租户"
+        },
+        {
+          "name": "contoso_product_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "Contoso 商品代理 ID；每个统一 SKU 一个投影"
+        },
+        {
+          "name": "sku_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "core.sku ID"
+        },
+        {
+          "name": "contoso_subcategory_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "所属 Contoso 子分类"
+        },
+        {
+          "name": "product_name",
+          "type": "utf8",
+          "nullable": false,
+          "description": "合成商品规格名称"
+        },
+        {
+          "name": "brand",
+          "type": "utf8",
+          "nullable": false,
+          "description": "品牌名称供投影使用"
+        },
+        {
+          "name": "color",
+          "type": "utf8",
+          "nullable": false,
+          "description": "不适用为 NA"
+        },
+        {
+          "name": "launch_on",
+          "type": "date32",
+          "nullable": false,
+          "description": "上市业务日期，包含"
+        },
+        {
+          "name": "discontinue_on",
+          "type": "date32",
+          "nullable": true,
+          "description": "停止新销售日期，不含"
+        },
+        {
+          "name": "curve_profile_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "商品日期权重曲线引用"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "contoso_product_id"
+      ],
+      "assertions": [
+        "tenant_id + sku_id 也唯一",
+        "投影只携带抽样必要属性；完整 SPU/SKU 模型仍归 Python",
+        "若复用旧 Product 对象必须给其 Price/Cost 占位零值且禁止从该值写生产金额"
+      ]
+    },
+    {
+      "asset_name": "product_id_map.parquet",
+      "format": "parquet",
+      "producer": "Python compile",
+      "consumers": [
+        "C# PROPOSAL",
+        "Python canonicalize"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "租户"
+        },
+        {
+          "name": "contoso_product_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "Contoso 商品 ID"
+        },
+        {
+          "name": "sku_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "统一 SKU ID"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "contoso_product_id"
+      ],
+      "assertions": [
+        "映射双向唯一",
+        "与 product_projection.csv 一致",
+        "同一整数代理 ID 可以在不同租户复用，但全部查询必须带 tenant_id"
+      ]
+    },
+    {
+      "asset_name": "calendar_weights.parquet",
+      "format": "parquet",
+      "producer": "C# WEIGHTS",
+      "consumers": [
+        "Python CONTEXT"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "租户"
+        },
+        {
+          "name": "business_date",
+          "type": "date32",
+          "nullable": false,
+          "description": "Asia/Shanghai 下单日期"
+        },
+        {
+          "name": "raw_weight",
+          "type": "float64",
+          "nullable": false,
+          "description": "复用 Contoso 日历计算的非负有限权重"
+        },
+        {
+          "name": "weight_version",
+          "type": "utf8",
+          "nullable": false,
+          "description": "权重配置与实现版本"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "business_date"
+      ],
+      "assertions": [
+        "覆盖 2023-01-01 至 2025-12-31 共 1096 天",
+        "每租户总权重大于零",
+        "日扰动若启用，只作为归一化前的权重；不得在生成订单后改变配额"
+      ]
+    },
+    {
+      "asset_name": "assortment_profiles.parquet",
+      "format": "parquet",
+      "producer": "Python compile",
+      "consumers": [
+        "C# PROPOSAL"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "租户"
+        },
+        {
+          "name": "profile_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "上下文可售集合 ID"
+        },
+        {
+          "name": "contoso_product_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "允许抽样的商品"
+        },
+        {
+          "name": "contoso_category_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "用于层级抽样"
+        },
+        {
+          "name": "contoso_subcategory_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "用于层级抽样"
+        },
+        {
+          "name": "valid_from",
+          "type": "timestamp_us_utc",
+          "nullable": false,
+          "description": "区间起点包含"
+        },
+        {
+          "name": "valid_to",
+          "type": "timestamp_us_utc",
+          "nullable": false,
+          "description": "区间终点不含"
+        },
+        {
+          "name": "selection_weight",
+          "type": "float64",
+          "nullable": false,
+          "description": "SKU 选择乘数；不是库存数量"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "profile_id",
+        "contoso_product_id",
+        "valid_from"
+      ],
+      "assertions": [
+        "按上市、渠道 listing、地区服务范围、地点经营区间及客群/规格条件编译",
+        "不使用实时库存过滤",
+        "零权重先移除；无有效候选时报配置错误，不能跳过订单",
+        "同一 profile 的类别与子类别乘数在规则配置中单独冻结，原层级时间权重仍由 Contoso 计算"
+      ]
+    },
+    {
+      "asset_name": "context_plan.parquet",
+      "format": "parquet",
+      "producer": "Python CONTEXT",
+      "consumers": [
+        "C# PROPOSAL",
+        "Python SIMULATE"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "租户"
+        },
+        {
+          "name": "order_slot_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "稳定下单槽位 ID"
+        },
+        {
+          "name": "order_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "预先分配的规范订单 ID"
+        },
+        {
+          "name": "created_at_utc",
+          "type": "timestamp_us_utc",
+          "nullable": false,
+          "description": "服务器创建时刻"
+        },
+        {
+          "name": "business_date",
+          "type": "date32",
+          "nullable": false,
+          "description": "创建时刻的 Asia/Shanghai 日期"
+        },
+        {
+          "name": "identity_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "core.customer_identity ID"
+        },
+        {
+          "name": "customer_id",
+          "type": "int64",
+          "nullable": true,
+          "description": "创建时业务已经确认的会员快照，可未知"
+        },
+        {
+          "name": "segment_code",
+          "type": "utf8",
+          "nullable": false,
+          "description": "创建前客群配置，不引用未来销量"
+        },
+        {
+          "name": "org_unit_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "销售归属组织"
+        },
+        {
+          "name": "region_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "销售归属区域"
+        },
+        {
+          "name": "demand_geo_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "需求城市"
+        },
+        {
+          "name": "channel_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "已选销售渠道"
+        },
+        {
+          "name": "selling_site_id",
+          "type": "int64",
+          "nullable": true,
+          "description": "线下下单地点，线上必须为空"
+        },
+        {
+          "name": "campaign_context_id",
+          "type": "int64",
+          "nullable": true,
+          "description": "创建前上下文中的活动，不代表已获可观察订单归因"
+        },
+        {
+          "name": "source_session_id",
+          "type": "int64",
+          "nullable": true,
+          "description": "只允许自有渠道的可观察会话"
+        },
+        {
+          "name": "assortment_profile_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "候选商品集合"
+        },
+        {
+          "name": "pricing_context_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "Python 价格与优惠上下文"
+        },
+        {
+          "name": "fulfillment_policy_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "先验履约路由策略"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "order_slot_id"
+      ],
+      "assertions": [
+        "tenant_id + order_id 唯一",
+        "总行数 1000000；租户 101/102/103 分别 900000/50000/50000",
+        "identity 的渠道必须匹配 context.channel_id",
+        "customer_id 来自创建时已确认的 customer_identity_link；未来绑定不回填",
+        "PLATFORM 与 OFFLINE 不提供伪造 source_session_id",
+        "不读取实时库存决定商品或槽位是否存在"
+      ]
+    },
+    {
+      "asset_name": "order_proposals.parquet",
+      "format": "parquet",
+      "producer": "C# PROPOSAL",
+      "consumers": [
+        "Python canonicalize"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "租户"
+        },
+        {
+          "name": "order_slot_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "输入槽位"
+        },
+        {
+          "name": "proposal_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "固定协议产生的候选订单追踪 ID"
+        },
+        {
+          "name": "line_count",
+          "type": "int32",
+          "nullable": false,
+          "description": "Contoso 原始抽样行数，规范合并后可变小"
+        },
+        {
+          "name": "contract_version",
+          "type": "utf8",
+          "nullable": false,
+          "description": "本 proposal 协议版本"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "proposal_id"
+      ],
+      "assertions": [
+        "与 context_plan 逐槽位一一对应",
+        "不含金额、支付、库存、出库或退款状态",
+        "不能沿用上游 OrdersCount 的近似计数来代替上下文精确计数"
+      ]
+    },
+    {
+      "asset_name": "order_proposal_lines.parquet",
+      "format": "parquet",
+      "producer": "C# PROPOSAL",
+      "consumers": [
+        "Python canonicalize"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "租户"
+        },
+        {
+          "name": "proposal_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "原始候选头"
+        },
+        {
+          "name": "proposal_line_no",
+          "type": "int32",
+          "nullable": false,
+          "description": "从 1 开始的原始行号"
+        },
+        {
+          "name": "contoso_product_id",
+          "type": "int32",
+          "nullable": false,
+          "description": "条件集合内的商品"
+        },
+        {
+          "name": "quantity",
+          "type": "int32",
+          "nullable": false,
+          "description": "1 + Contoso 加权索引的购买数量"
+        },
+        {
+          "name": "draw_profile_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "实际抽样配置血缘"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "proposal_id",
+        "proposal_line_no"
+      ],
+      "assertions": [
+        "原始行号连续且与头 line_count 相等",
+        "数量大于零",
+        "商品在槽位有效区间与条件集合内",
+        "重复 SKU 原始行不丢弃；之后由 Python 做规范化合并"
+      ]
+    },
+    {
+      "asset_name": "source_to_order_line.parquet",
+      "format": "parquet",
+      "producer": "Python canonicalize",
+      "consumers": [
+        "Python VALIDATE",
+        "血缘审计"
+      ],
+      "fields": [
+        {
+          "name": "tenant_id",
+          "type": "int16",
+          "nullable": false,
+          "description": "租户"
+        },
+        {
+          "name": "proposal_id",
+          "type": "utf8",
+          "nullable": false,
+          "description": "原始候选头"
+        },
+        {
+          "name": "proposal_line_no",
+          "type": "int32",
+          "nullable": false,
+          "description": "原始候选行"
+        },
+        {
+          "name": "order_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "规范订单头"
+        },
+        {
+          "name": "order_line_id",
+          "type": "int64",
+          "nullable": false,
+          "description": "合并后的规范行"
+        },
+        {
+          "name": "source_quantity",
+          "type": "int32",
+          "nullable": false,
+          "description": "此源行贡献数量"
+        },
+        {
+          "name": "canonical_unit_no_from",
+          "type": "int32",
+          "nullable": false,
+          "description": "归入规范行的首个单件序号，包含"
+        },
+        {
+          "name": "canonical_unit_no_to",
+          "type": "int32",
+          "nullable": false,
+          "description": "归入规范行的最后单件序号，包含"
+        }
+      ],
+      "primary_key": [
+        "tenant_id",
+        "proposal_id",
+        "proposal_line_no"
+      ],
+      "assertions": [
+        "每原始行恰好一条映射",
+        "区间长度等于 source_quantity",
+        "同规范行的区间连续不重叠、覆盖 order_line.quantity",
+        "只有同 SKU、同 price_id、同 listing_id、同优惠适用性才合并；v1 保证该一致性，否则报错"
+      ]
+    }
+  ],
+  "random_spec": {
+    "version": "sha256_named_uniform52_v1",
+    "purpose": "确定性抽样协议；附 Python 参考实现及已知向量，Contoso fork/C# 实现仍待完成",
+    "key_fields": [
+      "random_spec_version",
+      "master_seed_decimal_string",
+      "tenant_id_decimal_string",
+      "stage",
+      "entity_id",
+      "draw_name",
+      "draw_counter_decimal_string"
+    ],
+    "encoding": "7 个字段均为字符串；无额外空白的 UTF-8 JSON 数组。version/stage/entity_id/draw_name 匹配 [A-Za-z0-9_.:/-]+；seed 为规范有符号十进制整数串，tenant_id 为正整数字符串，counter 为非负整数字符串；不允许前导零、+ 号或 -0。",
+    "digest": "SHA-256(key_bytes)",
+    "uniform_rule": "取摘要前 8 字节按 big-endian 解为 uint64，右移 12 位得到 k（52 位）；u=(k+0.5)*2^-52。此构造在 float64 中严格大于 0 且小于 1。",
+    "excluded_from_key": [
+      "attempt_id",
+      "run_id",
+      "worker_id",
+      "wall_clock_time",
+      "process_id"
+    ],
+    "draw_names": [
+      "line_count",
+      "line_0001.category",
+      "line_0001.subcategory",
+      "line_0001.sku",
+      "line_0001.quantity",
+      "sku_popularity.normal_u1",
+      "sku_popularity.normal_u2"
+    ],
+    "note": "改变规则需升级协议；保留分布语义，不要求逐行复刻原 System.Random(0) 输出。Python 的支付/供应/售后使用独立 stage 和 draw_name。",
+    "known_answer_vectors": [
+      {
+        "key": [
+          "sha256_named_uniform52_v1",
+          "42",
+          "101",
+          "PROPOSAL",
+          "2023-01-01/0000000000",
+          "line_count",
+          "0"
+        ],
+        "sha256": "56d4fe44052f4abf2bb21f018409f00120d94ad36a65ba538a0a25774a3b2ccf",
+        "k52": 1527564782818036,
+        "uniform_float64_hex": "0x1.5b53f91014bd2p-2",
+        "uniform_ieee754_binary64_hex": "3fd5b53f91014bd2"
+      },
+      {
+        "key": [
+          "sha256_named_uniform52_v1",
+          "42",
+          "101",
+          "PROPOSAL",
+          "2023-01-01/0000000000",
+          "line_0001.quantity",
+          "0"
+        ],
+        "sha256": "c2531b1cfd62fe66530fb4b06ae4001f810fe154816ef86f1b5438c3beb8f6bb",
+        "k52": 3418595087341103,
+        "uniform_float64_hex": "0x1.84a63639fac5fp-1",
+        "uniform_ieee754_binary64_hex": "3fe84a63639fac5f"
+      },
+      {
+        "key": [
+          "sha256_named_uniform52_v1",
+          "42",
+          "102",
+          "PROPOSAL",
+          "2023-01-01/0000000000",
+          "line_count",
+          "0"
+        ],
+        "sha256": "d708d3b60c8767fd03c63f2059acd9dcfc5e803e11aa5bc61fcc74ba1f51e445",
+        "k52": 3782926586136694,
+        "uniform_float64_hex": "0x1.ae11a76c190edp-1",
+        "uniform_ieee754_binary64_hex": "3feae11a76c190ed"
+      }
+    ],
+    "identifier_pattern": "[A-Za-z0-9_.:/-]+",
+    "disabled_draws_in_1m_profile": [
+      "calendar.day_jitter"
+    ],
+    "weighted_cdf": {
+      "version": "stable_numeric_id_left_to_right_binary64_strict_upper_v1",
+      "candidate_order": "稳定数值 ID 升序；ID 唯一；数量/行数数组的 ID 为原数组下标",
+      "weight_input": "已冻结 IEEE-754 binary64；有限、非负；先移除零权重；正权重总和有限且 > 0",
+      "sum": "按候选顺序从 0.0 开始左到右逐项 float64 相加，每步保留 binary64；禁止并行归约、重排和融合乘加",
+      "threshold": "x = min(u*S, nextafter(S, -infinity))；u 必须严格位于 (0,1)",
+      "select": "同顺序从 0.0 重新逐项累计，选首个 cumulative > x；恰好等于边界时取下一候选",
+      "no_fallback": "非法权重、重复 ID 或非法 u 必须报错，不能随机兜底或返回最后一项掩盖错误"
+    },
+    "sku_popularity": {
+      "owner": "Python only; C# consumes frozen weights",
+      "stage": "MASTERDATA",
+      "entity_id": "canonical decimal sku_id",
+      "draw_names": [
+        "sku_popularity.normal_u1",
+        "sku_popularity.normal_u2"
+      ],
+      "draw_counter": "0 for each named draw",
+      "mu": 0,
+      "sigma": 1,
+      "normal_transform": "z = sqrt(-2*ln(u1))*cos(2*pi*u2); w = exp(mu + sigma*z)",
+      "branch": "cos branch per SKU; no cached or reused sin branch",
+      "normalization": "在租户及叶子品类内按 sku_id 升序左到右求和后归一化；结合冻结 profile 中 8 品类各自 12 月乘数",
+      "runtime_lock": "所有 log/cos/exp 只在实际冻结的 Python 工具链运行；不要求 C# 数学库逐位复现超越函数",
+      "export": "Parquet double; CSV 使用 invariant culture 与至少 17 位有效数字实现 binary64 往返"
+    }
+  },
+  "domain_binding": {
+    "identity_tables": [
+      "core.customer_identity",
+      "core.customer_identity_link"
+    ],
+    "order_tables": [
+      "core.order_header",
+      "core.order_line",
+      "core.order_unit",
+      "core.discount_allocation",
+      "core.order_status_event",
+      "core.order_unit_event"
+    ],
+    "allocation_evidence_table": "core.stock_allocation_attempt",
+    "inventory_movement_table": "core.inventory_movement",
+    "inventory_movement_required_fields": [
+      "damaged_delta",
+      "business_txn_id",
+      "source_kind",
+      "source_event_id",
+      "source_leg_no"
+    ],
+    "inventory_source_key": [
+      "tenant_id",
+      "source_kind",
+      "source_event_id",
+      "source_leg_no"
+    ],
+    "inventory_buckets": [
+      "sellable",
+      "quarantine",
+      "damaged",
+      "reserved",
+      "in_transit"
+    ],
+    "inventory_snapshot_tables": [
+      "core.inventory_snapshot",
+      "core.inventory_valuation_snapshot"
+    ],
+    "return_damage_event_map": {
+      "DAMAGED": "DAMAGE",
+      "SCRAPPED": "SCRAP"
+    },
+    "rto_movement": "RTO_RECEIPT",
+    "schema_map_document": "docs/generation_mapping.md",
+    "reservation_transaction_id_rule": "成功锁库时 business_txn_id = allocation_group_id，全部分仓预留腿同组提交；失败组保留 attempts，但没有 RESERVE 事务。",
+    "fee_idempotency_key": [
+      "tenant_id",
+      "source_system",
+      "source_fee_no"
+    ],
+    "fee_direct_source_fields": [
+      "source_event_kind",
+      "source_event_id"
+    ],
+    "fee_source_event_kinds": [
+      "PAYMENT",
+      "SHIPMENT",
+      "RETURN",
+      "REFUND"
+    ],
+    "fee_reversal_rule": "负费用通过 reversal_of_fee_id 回指同订单、同区域的原正费用；累计冲回不能超原额；重复回调不生成新 source_fee_no",
+    "fee_source_event_table_map": {
+      "PAYMENT": "core.payment.payment_id",
+      "SHIPMENT": "core.shipment_event.shipment_event_id",
+      "RETURN": "core.return_event.return_event_id",
+      "REFUND": "core.refund.refund_id"
+    },
+    "quarantine_meaning": "隔离实物，含待检与已接受退货后待恢复可售；ACCEPTED 本身不转桶"
+  },
+  "acceptance": [
+    {
+      "id": "SOURCE-01",
+      "assertion": "固定上游提交、fork 提交、许可证与输入哈希完整",
+      "evidence": "保存 MIT 与 SQLBI 版权声明；能追踪每个 proposal 分区到构建摘要",
+      "stage_scope": "P0 固定来源与已取得输入；P1 实际构建后补齐 fork/build 哈希；正式生产前任何必需锁不得为空，不把待首次构建的值作为首次构建前置门禁",
+      "first_applicable_stage": "P0"
+    },
+    {
+      "id": "BUILD-01",
+      "assertion": "在冻结 .NET 8 工具链上实际构建成功",
+      "evidence": "Linux 目标必须处理原 Windows PreBuild；本文件未声称已构建",
+      "first_applicable_stage": "P1"
+    },
+    {
+      "id": "API-01",
+      "assertion": "新版接口独立可识别，结构化失败且无静默 legacy 回退",
+      "evidence": "缺字段/错误协议/哈希失配均非零退出",
+      "first_applicable_stage": "P1"
+    },
+    {
+      "id": "OFFLINE-01",
+      "assertion": "运行 WEIGHTS 与 PROPOSAL 时无隐式联网下载",
+      "evidence": "断网且仅提供冻结输入仍可完成最小样本",
+      "first_applicable_stage": "P1"
+    },
+    {
+      "id": "REUSE-01",
+      "assertion": "确实复用 Contoso 权重、行数、数量与加权采样逻辑",
+      "evidence": "小型已知权重 fixture 比较共享内核；记录源码调用路径，不能只复制表名；另验证 ISO→Sunday-first 投影及关闭额外日级扰动",
+      "first_applicable_stage": "P1"
+    },
+    {
+      "id": "QUOTA-01",
+      "assertion": "context/proposal/header 逐槽位 1:1 且租户配额精确",
+      "evidence": "不得靠截断、复制、反复补抽或最终改日期达到数量",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "CONTEXT-01",
+      "assertion": "租户、身份、渠道、销售门店、地区先于商品选择确定",
+      "evidence": "输入固定时 C# 不改写这些上下文",
+      "first_applicable_stage": "P1"
+    },
+    {
+      "id": "ASSORTMENT-01",
+      "assertion": "每条候选商品在对应有效可售集合中",
+      "evidence": "错误集合或空集合报错；不从全局商品池兜底",
+      "first_applicable_stage": "P1"
+    },
+    {
+      "id": "STOCK-01",
+      "assertion": "商品候选与实时库存解耦",
+      "evidence": "共享同一 context/proposals 的库存冲击运行，只改变取消、履约、库存等后续结果，不改候选 SKU/数量",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "MONEY-01",
+      "assertion": "C# proposal 不输出权威经营金额",
+      "evidence": "金额只在 Python 用整数分计算；含客户运费/税额的输入在本 v1 拒绝",
+      "first_applicable_stage": "P1"
+    },
+    {
+      "id": "RNG-01",
+      "assertion": "命名随机值符合协议与跨语言已知答案向量",
+      "evidence": "同一命名键的结果不受线程、分区、attempt_id 或 run_id 影响；必须比对 3 组 SHA/k/u 位模式及固定 CDF 边界；本轮只实际运行 Python 参考，C# 待实现",
+      "first_applicable_stage": "P1"
+    },
+    {
+      "id": "RNG-02",
+      "assertion": "变更 worker 数及恢复方式保持规范逻辑行相同",
+      "evidence": "input 排序和输出分区边界固定；不把 32 位种子当百万订单随机流唯一身份",
+      "stage_scope": "P1 只验证候选分区/worker；P2 起验证完整领域状态及检查点恢复",
+      "first_applicable_stage": "P1"
+    },
+    {
+      "id": "MERGE-01",
+      "assertion": "原始行→规范行→逻辑单件数量与金额守恒",
+      "evidence": "合并前验证同价、同 listing、同优惠适用性；保留多对一血缘；最终规范行数不锁死",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "OMS-01",
+      "assertion": "创建成功后锁库，失败取消可观察",
+      "evidence": "stock_allocation_attempt 有 INSUFFICIENT/ROLLED_BACK；失败组零 RESERVE；reason=STOCK_LOCK_FAILED",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "ATOMIC-01",
+      "assertion": "全订单所有分仓预留原子提交",
+      "evidence": "COMMITTED 尝试对应同一完整 business_txn_id；源事件腿唯一；崩溃不留下半组流水",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "FIFO-01",
+      "assertion": "按可用批次 received_at/lot_id 预留与履约",
+      "evidence": "shipment_item.lot_id 与预留一致；交付原成本、回库冲原成本；旧批次不重估",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "PREPAY-01",
+      "assertion": "所有 SHIP 前累计成功支付达到应付",
+      "evidence": "失败支付不计实收；无 COD；payable_cent>0",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "BUCKET-01",
+      "assertion": "五桶和来源腿守恒",
+      "evidence": "DAMAGE: quarantine-1/damaged+1；SCRAP: damaged-1；RTO_RECEIPT 不造交付 COGS",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "VISIBLE-01",
+      "assertion": "业务与知识时间分离，库存事务原子可见",
+      "evidence": "same business_txn 全腿原子可见；版本计划允许提前 available；仅 final_restated 全时期快照；历史知识库存必须重放当时可见流水并按 cutoff 缓存，不能过滤最终快照冒充历史",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "IDENTITY-01",
+      "assertion": "会员绑定独立且不泄漏未来关联",
+      "evidence": "identity 不含可变 customer_id；link 表保留 confirmed time；order_header.customer_id 不回填；成功创建订单的自有 session 在 started_at 已有同渠道 identity；匿名旧会话不可被未来回填",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "PLATFORM-01",
+      "assertion": "平台可见边界与 cohort 一致",
+      "evidence": "无平台逐用户行为；平台订单归因 UNATTRIBUTABLE；日表按下单 cohort 修订；活动唯一非空 target_channel_id，活跃日×所有租户 REGION 大区应到报告可枚举，未投放区显式零报告，缺报使 ads_complete=false",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "RECOVERY-01",
+      "assertion": "检查点恢复与完整运行一致",
+      "evidence": "保存五桶、FIFO 分配、未结单、支付余额、未来事件、源水位及提交 manifest，恢复不能重复事实",
+      "first_applicable_stage": "P2"
+    },
+    {
+      "id": "FEE-01",
+      "assertion": "经营费用来源幂等且冲回可追踪",
+      "evidence": "source_system/source_fee_no 唯一；多态 source_event_id 查到相应业务来源；同订单原正费用及累计冲回不超额；退款重试不重复冲费",
+      "first_applicable_stage": "P2"
+    }
+  ],
+  "non_goals_for_this_delivery": [
+    "不实现或运行生成器",
+    "不生成百万数据",
+    "不改 tools/build_contract.py",
+    "不修改最终 DDL",
+    "不创建真实用户账号或外部消息",
+    "不依赖未下载源归档的虚构 SHA-256"
+  ],
+  "reviewed_sources": [
+    {
+      "label": "上游代码与许可证",
+      "url": "https://github.com/sql-bi/Contoso-Data-Generator-V2/tree/eaeb57a9eaa6ad0cdab4fb527552102685434ee0"
+    },
+    {
+      "label": "官方详细说明",
+      "url": "https://docs.sqlbi.com/contoso-data-generator/details"
+    },
+    {
+      "label": "配置说明",
+      "url": "https://docs.sqlbi.com/contoso-data-generator/config-json"
+    },
+    {
+      "label": "工作簿输入说明",
+      "url": "https://docs.sqlbi.com/contoso-data-generator/config-data"
+    }
+  ],
+  "production_profile": {
+    "path": "config/profile_1m.yaml",
+    "observed_sha256": "83b82df2b78f63307010f1e1fb57a645cbcaaea3748ec2c4ffd21c02ee625c7c",
+    "master_seed": 20261019,
+    "maximum_normal_business_and_ingestion_path_days": 81,
+    "maximum_ship_delay_definition": "从订单创建到出库，包括支付窗口；不是支付结束后另计 7 天",
+    "unresolved_tail_allowed": false,
+    "storage": "PostgreSQL 17 控制信息；不可变 Parquet + 受信任 DuckDB 查询代理承载分析事实；全量 PG 装载可选",
+    "snapshot_policy": {
+      "full_period_versions": [
+        "final_restated"
+      ],
+      "historical_knowledge": "按 event time 与 available_at 条件重放完整原子库存事务，仅对实际评测 cutoff 缓存；不能只过滤最终快照 available_at",
+      "quantity_snapshot_reference_rows": 29412800,
+      "valuation_snapshot_reference_rows": 29412800,
+      "row_count_meaning": "容量参考，不是已经生成或必须精确达到的行数"
+    }
+  },
+  "allocation_spec": {
+    "version": "integer_largest_remainder_stable_line_then_unit",
+    "integer_rule": "对 total*weight 使用整数 divmod(sum(weights))；按余数降序、稳定键升序逐个分配剩余 1 单位；不使用 float 算金额",
+    "quota_tie_key": "ISO business_date ascending within tenant",
+    "money_tie_key": "canonical line_no, then unit_no ascending",
+    "float64_weight_conversion": "将每个冻结 float64 用精确 as_integer_ratio 分解；统一为最大二进制分母并按公因数等比约简，再进入整数配额；不另选十进制定点精度",
+    "money_sequence": "先按适用行金额权重分配各优惠到规范行，再将各行剩余净额等权分配给逻辑单件；单件优惠额取优惠前后单件净额之差",
+    "zero_sum_rule": "正 total 的全零权重报错；total=0 且全零权重返回全零"
+  },
+  "calendar_projection": {
+    "additional_day_randomness": 0,
+    "profile_weekday_order": "ISO Monday through Sunday",
+    "contoso_WeekDaysFactor_order": "Sunday through Saturday",
+    "rotation": "[iso[6], iso[0], iso[1], iso[2], iso[3], iso[4], iso[5]]",
+    "source_url": "https://docs.sqlbi.com/contoso-data-generator/config-json",
+    "scope": "保留 Contoso 时间权重；禁上游每日数量抖动改变已冻结的精确配额"
+  },
+  "marketing_and_session_contract": {
+    "campaign_target_channel": "v1 每个 core.campaign 恰有一个非空 target_channel_id；跨渠道拆活动记录",
+    "active_campaign_local_day": "starts_at < day_end AND ends_at > day_start; Asia/Shanghai half-open day",
+    "expected_ad_reports": "active campaign day x all tenant geo_area rows with geo_level=REGION; channel_id=campaign.target_channel_id",
+    "unexposed_regions": "必须输出显式零报告，不能省略",
+    "as_of_report": "source_updated_at 与 available_at 均早于知识截止；选最新可见 report_version；应到与已到集合必须匹配",
+    "incomplete_metrics": "ads_complete=false 时完整 ad_spend 和 contribution 为 NULL；保留 observed_spend；缺报不能当零花费",
+    "owned_order_session_identity": "成功创建订单来自同租户、同渠道、同 identity_id 会话；identity 在 session.started_at 已存在；customer_id 可未知",
+    "anonymous_session": "identity_id=NULL 仅浏览或未成功创建单；中途登录另开已识别会话，不回填旧 session",
+    "attribution": "同渠道同 identity_id，触点在订单创建前已可见；禁止未来会员绑定或平台日汇总制造订单触点"
+  },
+  "reference_fixtures": {
+    "scope": "协议测试资产；日期配额使用 profile 宏观日历权重的整数等比投影，只检验守恒算法，不冒充完整 Contoso 权重/场景实现，也不创建 order_header",
+    "money_net_amounts": [
+      {
+        "name": "net_100_three_units",
+        "total": 100,
+        "weights": [
+          1,
+          1,
+          1
+        ],
+        "stable_keys": [
+          1,
+          2,
+          3
+        ],
+        "expected": [
+          34,
+          33,
+          33
+        ]
+      },
+      {
+        "name": "net_501_two_units",
+        "total": 501,
+        "weights": [
+          1,
+          1
+        ],
+        "stable_keys": [
+          1,
+          2
+        ],
+        "expected": [
+          251,
+          250
+        ]
+      }
+    ],
+    "calendar_quota": {
+      "order_start_inclusive": "2023-01-01",
+      "order_end_exclusive": "2026-01-01",
+      "annual_weight_int": {
+        "2023": 85,
+        "2024": 100,
+        "2025": 115
+      },
+      "monthly_weight_int": [
+        85,
+        75,
+        95,
+        105,
+        110,
+        135,
+        100,
+        100,
+        105,
+        110,
+        155,
+        120
+      ],
+      "weekday_weight_iso_int": [
+        92,
+        91,
+        95,
+        97,
+        105,
+        116,
+        112
+      ],
+      "daily_weight_rule": "annual_weight_int[year] * monthly_weight_int[month-1] * weekday_weight_iso_int[date.weekday()]",
+      "tenant_quotas": {
+        "101": 900000,
+        "102": 50000,
+        "103": 50000
+      },
+      "expected_order_days": 1096,
+      "expected_date_buckets": 3288,
+      "expected_total": 1000000
+    },
+    "weekday_projection": {
+      "iso": [
+        92,
+        91,
+        95,
+        97,
+        105,
+        116,
+        112
+      ],
+      "expected_sunday_first": [
+        112,
+        92,
+        91,
+        95,
+        97,
+        105,
+        116
+      ]
+    },
+    "cdf": [
+      {
+        "name": "strict_equal_boundary",
+        "candidates": [
+          [
+            10,
+            "0x1.0000000000000p+0"
+          ],
+          [
+            20,
+            "0x1.0000000000000p+0"
+          ]
+        ],
+        "u_hex": "0x1.0000000000000p-1",
+        "expected_id": 20
+      },
+      {
+        "name": "sort_ids_and_remove_zero",
+        "candidates": [
+          [
+            30,
+            "0x1.8000000000000p+1"
+          ],
+          [
+            10,
+            "0x0.0p+0"
+          ],
+          [
+            20,
+            "0x1.0000000000000p+0"
+          ],
+          [
+            40,
+            "0x0.0p+0"
+          ]
+        ],
+        "u_hex": "0x1.0000000000000p-2",
+        "expected_id": 30
+      },
+      {
+        "name": "subnormal_total_product_rounds_up",
+        "candidates": [
+          [
+            5,
+            "0x0.0000000000001p-1022"
+          ]
+        ],
+        "u_hex": "0x1.8000000000000p-1",
+        "expected_id": 5
+      }
+    ]
+  },
+  "reference_implementation": {
+    "path": "tools/reference_algorithms.py",
+    "status": "PROTOCOL_REFERENCE_ONLY",
+    "command": "python tools/reference_algorithms.py",
+    "report_path": "validation/reference_algorithms_report.json",
+    "dependencies": "Python standard library only",
+    "actual_scope": [
+      "SHA-256/k52/u known-answer recomputation",
+      "fixed binary64 CDF boundary checks",
+      "ISO to Sunday-first weekday projection",
+      "integer largest remainder money and date quota checks"
+    ],
+    "not_implemented_by_this_script": [
+      "Contoso C# fork",
+      "domain generator",
+      "one million order records",
+      "cross-language C# execution"
+    ]
+  },
+  "id_spec": {
+    "version": "tenant_namespace_monotonic64_v1",
+    "status": "DESIGN_NOT_IMPLEMENTED",
+    "scope": "Only generated local BIGINT entity identifiers; natural keys and inherited FK identifiers retain their own contracts.",
+    "namespace_rule": "Canonical owner table name; independent business transaction groups use BUSINESS_TXN.",
+    "range_min": 1,
+    "range_max_inclusive": "9223372036854775807",
+    "static_order": "Frozen unambiguous semantic business key order within tenant and namespace.",
+    "dynamic_order": "Fixed per-tenant event queue and stable child order; queue tie uses semantic key, not unallocated ordinal.",
+    "idempotency": "Reuse ID for identical semantic key; reject changed payload.",
+    "transaction_alias": "allocation_group_id and business_txn_id use one BUSINESS_TXN identity for the same reservation transaction.",
+    "checkpoint": "Persist namespace counters and semantic-key/ID map atomically with checkpoint/output completion. Never reset at month boundaries.",
+    "random_key": "Stable semantic entity key; no dynamic ordinal, worker, wallclock or attempt_id.",
+    "version_scope": "Same input and recovery reproduce IDs; changed scenario may change derived ID allocation."
+  }
+}

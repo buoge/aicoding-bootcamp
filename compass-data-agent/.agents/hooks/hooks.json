@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "^(Edit|Write|MultiEdit|apply_patch)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "compass_hook_root=\"$PWD\"; while [ ! -f \"$compass_hook_root/.agents/hooks/format-edited.mjs\" ]; do if [ \"$compass_hook_root\" = / ]; then echo '[compass format hook] 找不到 Compass Hook 入口' >&2; exit 2; fi; compass_hook_root=$(dirname \"$compass_hook_root\"); done; exec node \"$compass_hook_root/.agents/hooks/format-edited.mjs\"",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}

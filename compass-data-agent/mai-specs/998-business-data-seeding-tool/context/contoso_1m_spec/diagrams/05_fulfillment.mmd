@@ -1,0 +1,61 @@
+erDiagram
+    direction TB
+    core_site {
+        smallint tenant_id PK
+        bigint site_id PK
+        bigint org_unit_id FK
+        bigint geo_id FK
+        bigint region_id FK
+    }
+    core_order_unit {
+        smallint tenant_id PK
+        bigint order_unit_id PK
+        bigint order_line_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint load_batch_id FK
+    }
+    core_shipment {
+        smallint tenant_id PK
+        bigint shipment_id PK
+        bigint order_id FK
+        bigint region_id FK
+        bigint from_site_id FK
+        bigint load_batch_id FK
+    }
+    core_shipment_item {
+        smallint tenant_id PK
+        bigint shipment_item_id PK
+        bigint shipment_id FK
+        bigint order_unit_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint from_site_id FK
+        bigint lot_id FK
+        bigint load_batch_id FK
+    }
+    core_shipment_event {
+        smallint tenant_id PK
+        bigint shipment_event_id PK
+        bigint shipment_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint from_site_id FK
+        bigint load_batch_id FK
+    }
+    core_stock_allocation_attempt {
+        smallint tenant_id PK
+        bigint allocation_attempt_id PK
+        bigint order_id FK
+        bigint region_id FK
+        bigint site_id FK
+        bigint sku_id FK
+        bigint load_batch_id FK
+    }
+    core_site ||--o{ core_shipment : "from_site_id"
+    core_shipment ||--o{ core_shipment_item : "shipment_id,order_id,region_id,from_site_id"
+    core_order_unit ||--o{ core_shipment_item : "order_unit_id,order_id,region_id,sku_id"
+    core_shipment ||--o{ core_shipment_event : "shipment_id,order_id,region_id,from_site_id"
+    core_site ||--o{ core_stock_allocation_attempt : "site_id"

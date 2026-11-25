@@ -1,0 +1,2414 @@
+{
+  "verifier_version": "1.0.0",
+  "fixture_name": "contoso_china_sports_8_orders",
+  "fixture_version": "1.0.0",
+  "fixture_sha256": "e8ceeb3d1ba8c26b4996be3c63824c95764ee1d42a38fc65a9f9828f7573d297",
+  "executed_at": "2026-10-19T16:57:34.543Z",
+  "scope": "Independent normalized fixture schema: financial arithmetic, integer allocation, callback idempotency, five inventory buckets, business time and knowledge time.",
+  "canonical_schema_loaded": false,
+  "limitations": [
+    "Does not load or certify the complete canonical 63-table schema, canonical FK constraints, RLS, or million-order generation.",
+    "The fixture contains no internal transfer or purchase-in-transit event; the transit bucket is checked at zero, not through a nontrivial transfer lifecycle.",
+    "Does not validate statistical realism, production query performance, or all natural-language questions."
+  ],
+  "checks": [
+    {
+      "id": "ALLOCATION_CONSERVATION",
+      "fields": [
+        {
+          "field": "violations",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "CALLBACK_IDEMPOTENCY_CONTENT",
+      "fields": [
+        {
+          "field": "violations",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "NO_FUTURE_AVAILABILITY",
+      "fields": [
+        {
+          "field": "violations",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "ONE_EVENT_PER_UNIT_PHASE",
+      "fields": [
+        {
+          "field": "violations",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "RECOGNITION_SOURCE_AND_AMOUNT",
+      "fields": [
+        {
+          "field": "violations",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "REFUND_PER_PAYMENT_CAP",
+      "fields": [
+        {
+          "field": "violations",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "INVENTORY_PREFIX_VALID",
+      "fields": [
+        {
+          "field": "violations",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "DAMAGE_DOES_NOT_REVERSE_COGS",
+      "fields": [
+        {
+          "field": "violations",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "FIXTURE_CARDINALITY",
+      "fields": [
+        {
+          "field": "orders",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "units",
+          "expected": 11,
+          "actual": "11",
+          "passed": true
+        },
+        {
+          "field": "raw_success_callbacks",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "deduplicated_success_payments",
+          "expected": 7,
+          "actual": "7",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_FINANCIAL",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "captured_cent",
+          "expected": 2501,
+          "actual": "2501",
+          "passed": true
+        },
+        {
+          "field": "refunded_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 2501,
+          "actual": "2501",
+          "passed": true
+        },
+        {
+          "field": "delivery_sales_cent",
+          "expected": 551,
+          "actual": "551",
+          "passed": true
+        },
+        {
+          "field": "return_sales_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_sales_cent",
+          "expected": 551,
+          "actual": "551",
+          "passed": true
+        },
+        {
+          "field": "delivery_cogs_cent",
+          "expected": 330,
+          "actual": "330",
+          "passed": true
+        },
+        {
+          "field": "restock_cogs_reversal_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 330,
+          "actual": "330",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 221,
+          "actual": "221",
+          "passed": true
+        },
+        {
+          "field": "orders_created",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "orders_ever_paid",
+          "expected": 6,
+          "actual": "6",
+          "passed": true
+        },
+        {
+          "field": "orders_with_visible_delivery",
+          "expected": 3,
+          "actual": "3",
+          "passed": true
+        },
+        {
+          "field": "orders_fully_delivered",
+          "expected": 2,
+          "actual": "2",
+          "passed": true
+        },
+        {
+          "field": "delivered_units",
+          "expected": 5,
+          "actual": "5",
+          "passed": true
+        },
+        {
+          "field": "accepted_return_units",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_SKU_1",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 7,
+          "actual": "7",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 7,
+          "actual": "7",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_SKU_2",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_SKU_3",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 3,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 2,
+          "actual": "2",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_SKU_4",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 4,
+          "actual": 4,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_SKU_5",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 5,
+          "actual": 5,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_SKU_6",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 6,
+          "actual": 6,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_SKU_7",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 7,
+          "actual": 7,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 2,
+          "actual": "2",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_SKU_8",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 8,
+          "actual": 8,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T0_INVENTORY_TOTAL",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sellable_qty",
+          "expected": 15,
+          "actual": "15",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 4,
+          "actual": "4",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 11,
+          "actual": "11",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "physical_on_site_qty",
+          "expected": 15,
+          "actual": "15",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_FINANCIAL",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "captured_cent",
+          "expected": 2501,
+          "actual": "2501",
+          "passed": true
+        },
+        {
+          "field": "refunded_cent",
+          "expected": 667,
+          "actual": "667",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 1834,
+          "actual": "1834",
+          "passed": true
+        },
+        {
+          "field": "delivery_sales_cent",
+          "expected": 1901,
+          "actual": "1901",
+          "passed": true
+        },
+        {
+          "field": "return_sales_cent",
+          "expected": 267,
+          "actual": "267",
+          "passed": true
+        },
+        {
+          "field": "net_sales_cent",
+          "expected": 1634,
+          "actual": "1634",
+          "passed": true
+        },
+        {
+          "field": "delivery_cogs_cent",
+          "expected": 1140,
+          "actual": "1140",
+          "passed": true
+        },
+        {
+          "field": "restock_cogs_reversal_cent",
+          "expected": 20,
+          "actual": "20",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 1120,
+          "actual": "1120",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 514,
+          "actual": "514",
+          "passed": true
+        },
+        {
+          "field": "orders_created",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "orders_ever_paid",
+          "expected": 6,
+          "actual": "6",
+          "passed": true
+        },
+        {
+          "field": "orders_with_visible_delivery",
+          "expected": 5,
+          "actual": "5",
+          "passed": true
+        },
+        {
+          "field": "orders_fully_delivered",
+          "expected": 5,
+          "actual": "5",
+          "passed": true
+        },
+        {
+          "field": "delivered_units",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "accepted_return_units",
+          "expected": 3,
+          "actual": "3",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_SKU_1",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_SKU_2",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_SKU_3",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 3,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_SKU_4",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 4,
+          "actual": 4,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_SKU_5",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 5,
+          "actual": 5,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_SKU_6",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 6,
+          "actual": 6,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_SKU_7",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 7,
+          "actual": 7,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_SKU_8",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 8,
+          "actual": 8,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T1_INVENTORY_TOTAL",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sellable_qty",
+          "expected": 14,
+          "actual": "14",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 14,
+          "actual": "14",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "physical_on_site_qty",
+          "expected": 16,
+          "actual": "16",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_FINANCIAL",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "captured_cent",
+          "expected": 2501,
+          "actual": "2501",
+          "passed": true
+        },
+        {
+          "field": "refunded_cent",
+          "expected": 867,
+          "actual": "867",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 1634,
+          "actual": "1634",
+          "passed": true
+        },
+        {
+          "field": "delivery_sales_cent",
+          "expected": 1901,
+          "actual": "1901",
+          "passed": true
+        },
+        {
+          "field": "return_sales_cent",
+          "expected": 267,
+          "actual": "267",
+          "passed": true
+        },
+        {
+          "field": "net_sales_cent",
+          "expected": 1634,
+          "actual": "1634",
+          "passed": true
+        },
+        {
+          "field": "delivery_cogs_cent",
+          "expected": 1140,
+          "actual": "1140",
+          "passed": true
+        },
+        {
+          "field": "restock_cogs_reversal_cent",
+          "expected": 140,
+          "actual": "140",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 1000,
+          "actual": "1000",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 634,
+          "actual": "634",
+          "passed": true
+        },
+        {
+          "field": "orders_created",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "orders_ever_paid",
+          "expected": 6,
+          "actual": "6",
+          "passed": true
+        },
+        {
+          "field": "orders_with_visible_delivery",
+          "expected": 5,
+          "actual": "5",
+          "passed": true
+        },
+        {
+          "field": "orders_fully_delivered",
+          "expected": 5,
+          "actual": "5",
+          "passed": true
+        },
+        {
+          "field": "delivered_units",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "accepted_return_units",
+          "expected": 3,
+          "actual": "3",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_SKU_1",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 8,
+          "actual": "8",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_SKU_2",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 2,
+          "actual": "2",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 2,
+          "actual": "2",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_SKU_3",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 3,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_SKU_4",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 4,
+          "actual": 4,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_SKU_5",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 5,
+          "actual": 5,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_SKU_6",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 6,
+          "actual": 6,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_SKU_7",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 7,
+          "actual": 7,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_SKU_8",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sku_id",
+          "expected": 8,
+          "actual": 8,
+          "passed": true
+        },
+        {
+          "field": "site_id",
+          "expected": 1,
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "field": "sellable_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "T2_INVENTORY_TOTAL",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "sellable_qty",
+          "expected": 15,
+          "actual": "15",
+          "passed": true
+        },
+        {
+          "field": "reserved_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "available_qty",
+          "expected": 15,
+          "actual": "15",
+          "passed": true
+        },
+        {
+          "field": "quarantine_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "damaged_qty",
+          "expected": 1,
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "field": "in_transit_qty",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "physical_on_site_qty",
+          "expected": 16,
+          "actual": "16",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "DEC_AT_T0",
+      "period_start": "2025-12-01T00:00:00+08:00",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-01-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 551,
+          "actual": "551",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 330,
+          "actual": "330",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 221,
+          "actual": "221",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "DEC_RESTATED_AT_T1",
+      "period_start": "2025-12-01T00:00:00+08:00",
+      "business_as_of": "2026-01-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-01-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 1351,
+          "actual": "1351",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 810,
+          "actual": "810",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 541,
+          "actual": "541",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "JAN_AT_T1",
+      "period_start": "2026-01-01T00:00:00+08:00",
+      "business_as_of": "2026-02-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-02-01T00:00:00+08:00",
+      "reference_time": "2026-02-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 283,
+          "actual": "283",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 310,
+          "actual": "310",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": -27,
+          "actual": "-27",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "FEB_AT_T2",
+      "period_start": "2026-02-01T00:00:00+08:00",
+      "business_as_of": "2026-03-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-03-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": -120,
+          "actual": "-120",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 120,
+          "actual": "120",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "MAR_AT_T2",
+      "period_start": "2026-03-01T00:00:00+08:00",
+      "business_as_of": "2026-04-01T00:00:00+08:00",
+      "knowledge_as_of": "2026-04-01T00:00:00+08:00",
+      "reference_time": "2026-04-01T00:00:00+08:00",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "refund_cash_cent",
+          "expected": 200,
+          "actual": "200",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "ORDER_1_T2",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 33,
+          "actual": "33",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 40,
+          "actual": "40",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": -7,
+          "actual": "-7",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 33,
+          "actual": "33",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "ORDER_2_T1",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 120,
+          "actual": "120",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": -120,
+          "actual": "-120",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 200,
+          "actual": "200",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "ORDER_2_T2",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "ORDER_4_T2",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "ORDER_5_T2",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "ORDER_6_T2",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 0,
+          "actual": "0",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "ORDER_7_T0",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 251,
+          "actual": "251",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 150,
+          "actual": "150",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 101,
+          "actual": "101",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 501,
+          "actual": "501",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "ORDER_7_T1",
+      "fields": [
+        {
+          "field": "net_sales_cent",
+          "expected": 501,
+          "actual": "501",
+          "passed": true
+        },
+        {
+          "field": "net_cogs_cent",
+          "expected": 300,
+          "actual": "300",
+          "passed": true
+        },
+        {
+          "field": "gross_profit_cent",
+          "expected": 201,
+          "actual": "201",
+          "passed": true
+        },
+        {
+          "field": "net_cash_cent",
+          "expected": 501,
+          "actual": "501",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "F001_UNIT_ALLOCATION",
+      "fields": [
+        {
+          "field": "unit_1",
+          "expected": 34,
+          "actual": "34",
+          "passed": true
+        },
+        {
+          "field": "unit_2",
+          "expected": 33,
+          "actual": "33",
+          "passed": true
+        },
+        {
+          "field": "unit_3",
+          "expected": 33,
+          "actual": "33",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "F007_UNIT_ALLOCATION",
+      "fields": [
+        {
+          "field": "unit_1",
+          "expected": 251,
+          "actual": "251",
+          "passed": true
+        },
+        {
+          "field": "unit_2",
+          "expected": 250,
+          "actual": "250",
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "engine": "PostgreSQL 17.5 on x86_64-pc-linux-gnu, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit",
+  "summary": {
+    "checks": 54,
+    "passed": 54,
+    "failed": 0,
+    "field_comparisons": 326
+  }
+}

@@ -1,0 +1,28 @@
+digraph process {
+graph [rankdir=TB, bgcolor="white", nodesep=0.3, ranksep=0.55, pad=0.25, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#eef4f8", color="#b5c9d8", fontname="DejaVu Sans", fontsize=12, margin="0.18,0.12"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#6b8296", arrowsize=0.6];
+A [label="Create order"];
+B [label="Atomic inventory reserve"];
+C [label="Cancel: STOCK_LOCK_FAILED"];
+D [label="Await payment"];
+E [label="Cancel and release reserve"];
+F [label="Ship by package"];
+G [label="Deliver: revenue and COGS"];
+H [label="RTO: restore original stock; refund"];
+I [label="Return request and inspection"];
+J [label="Accept: reverse revenue; refund later"];
+K [label="Sellable restock: reverse original COGS"];
+L [label="Damaged: keep original COGS"];
+A -> B;
+B -> C [label="Shortage"];
+B -> D [label="Reserved"];
+D -> E [label="Timeout / cancel"];
+D -> F [label="Fully paid"];
+F -> G;
+F -> H [label="Delivery failed"];
+G -> I;
+I -> J [label="Accepted"];
+J -> K [label="Sellable"];
+J -> L [label="Damaged"];
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@compass/agent",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "uv run --locked --package compass-agent uvicorn compass_agent.main:app --host 127.0.0.1 --port 8000 --reload",
+    "build": "uv build --package compass-agent --out-dir dist",
+    "lint": "uv run --locked ruff check . && uv run --locked ruff format --check .",
+    "typecheck": "uv run --locked pyright --project ../../pyproject.toml src tests",
+    "test": "uv run --locked pytest tests",
+    "db:migrate": "uv run --locked alembic upgrade head",
+    "seed": "uv run --locked python -m compass_agent.seed"
+  }
+}

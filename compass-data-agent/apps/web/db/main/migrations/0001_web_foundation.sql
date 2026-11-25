@@ -1,0 +1,153 @@
+-- Owner: web/main; Feature: 995; PostgreSQL 17; empty -> 0001_web_foundation
+-- Execute through db:migrate / db:apply-sql with target, lock and checksum checks.
+-- One transaction. Recovery: restore a verified backup into a new owned database.
+-- Up Migration
+CREATE SCHEMA web AUTHORIZATION compass_web_owner;
+REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA web FROM PUBLIC;
+REVOKE ALL ON SCHEMA web_meta FROM PUBLIC;
+
+CREATE TABLE web_meta.migration_source (
+  revision text PRIMARY KEY,
+  sha256 text NOT NULL CHECK (sha256 ~ '^[0-9a-f]{64}$')
+);
+
+CREATE TABLE web.app_user (
+  id uuid PRIMARY KEY,
+  login_name text NOT NULL UNIQUE CHECK (login_name ~ '^[a-z0-9][a-z0-9._-]{2,63}$'),
+  password_hash text NOT NULL,
+  display_name text NOT NULL CHECK (char_length(trim(display_name)) BETWEEN 1 AND 80),
+  status text NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'disabled')),
+  is_platform_admin boolean NOT NULL DEFAULT false,
+  preferences jsonb NOT NULL DEFAULT '{}' CHECK (jsonb_typeof(preferences) = 'object'),
+  version bigint NOT NULL DEFAULT 1 CHECK (version > 0),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE TABLE web.web_session (
+  id uuid PRIMARY KEY,
+  user_id uuid NOT NULL REFERENCES web.app_user(id),
+  token_hash bytea NOT NULL UNIQUE CHECK (octet_length(token_hash) = 32),
+  device_label text NOT NULL CHECK (char_length(device_label) <= 120),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  expires_at timestamptz NOT NULL,
+  revoked_at timestamptz,
+  CHECK (expires_at > created_at)
+);
+CREATE INDEX web_session_user_time ON web.web_session(user_id, created_at DESC, id);
+CREATE INDEX web_session_expiry ON web.web_session(expires_at);
+
+CREATE TABLE web.tenant (
+  id uuid PRIMARY KEY,
+  name text NOT NULL CHECK (char_length(trim(name)) BETWEEN 1 AND 80),
+  status text NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'disabled')),
+  timezone text NOT NULL,
+  authz_version bigint NOT NULL DEFAULT 1 CHECK (authz_version > 0),
+  version bigint NOT NULL DEFAULT 1 CHECK (version > 0),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE TABLE web.workspace (
+  id uuid PRIMARY KEY,
+  tenant_id uuid NOT NULL REFERENCES web.tenant(id),
+  name text NOT NULL CHECK (char_length(trim(name)) BETWEEN 1 AND 80),
+  description text NOT NULL DEFAULT '' CHECK (char_length(description) <= 500),
+  status text NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'archived')),
+  version bigint NOT NULL DEFAULT 1 CHECK (version > 0),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  UNIQUE (tenant_id, id)
+);
+CREATE UNIQUE INDEX workspace_name ON web.workspace(tenant_id, lower(trim(name)));
+CREATE INDEX workspace_tenant_status ON web.workspace(tenant_id, status, id);
+
+CREATE TABLE web.tenant_member (
+  id uuid PRIMARY KEY,
+  tenant_id uuid NOT NULL REFERENCES web.tenant(id),
+  user_id uuid NOT NULL REFERENCES web.app_user(id),
+  role_key text NOT NULL CHECK (role_key IN ('admin', 'member')),
+  permission_keys text[] NOT NULL DEFAULT '{}',
+  status text NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'disabled')),
+  version bigint NOT NULL DEFAULT 1 CHECK (version > 0),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  UNIQUE (tenant_id, user_id),
+  UNIQUE (tenant_id, id),
+  CHECK (role_key <> 'admin' OR cardinality(permission_keys) = 0),
+  CHECK (cardinality(permission_keys) <= 22 AND (cardinality(permission_keys) = 0 OR
+    (array_ndims(permission_keys) = 1 AND array_position(permission_keys, NULL) IS NULL))),
+  CHECK (permission_keys <@ ARRAY[
+    'module.analysis','module.reports','module.plugins','module.automations','module.boards',
+    'module.admin.overview','module.admin.data','module.admin.capabilities','module.admin.runs',
+    'module.admin.quality','module.admin.security','module.admin.memory','module.admin.organization',
+    'workspaces.read','workspaces.write','members.read','settings.read','settings.write','roles.read',
+    'overview.read','audit.read','audit.export'
+  ]::text[])
+);
+CREATE INDEX tenant_member_user_status ON web.tenant_member(user_id, status, tenant_id);
+CREATE TABLE web.workspace_member (
+  id uuid PRIMARY KEY,
+  tenant_id uuid NOT NULL,
+  workspace_id uuid NOT NULL,
+  tenant_member_id uuid NOT NULL,
+  role_key text NOT NULL CHECK (role_key IN ('analyst', 'viewer', 'auditor')),
+  permission_keys text[] NOT NULL DEFAULT '{}',
+  version bigint NOT NULL DEFAULT 1 CHECK (version > 0),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  FOREIGN KEY (tenant_id, workspace_id) REFERENCES web.workspace(tenant_id, id),
+  FOREIGN KEY (tenant_id, tenant_member_id) REFERENCES web.tenant_member(tenant_id, id),
+  UNIQUE (tenant_id, workspace_id, tenant_member_id),
+  CHECK (cardinality(permission_keys) <= 16 AND (cardinality(permission_keys) = 0 OR
+    (array_ndims(permission_keys) = 1 AND array_position(permission_keys, NULL) IS NULL))),
+  CHECK (permission_keys <@ ARRAY[
+    'module.analysis','module.reports','module.plugins','module.automations','module.boards',
+    'module.admin.overview','module.admin.data','module.admin.capabilities','module.admin.runs',
+    'module.admin.quality','module.admin.security','module.admin.memory','workspaces.read',
+    'overview.read','audit.read','audit.export'
+  ]::text[])
+);
+CREATE INDEX workspace_member_tenant_member ON web.workspace_member(tenant_id, tenant_member_id);
+
+CREATE TABLE web.audit_event (
+  id uuid PRIMARY KEY,
+  event_key text NOT NULL UNIQUE,
+  actor_user_id uuid REFERENCES web.app_user(id),
+  tenant_id uuid REFERENCES web.tenant(id),
+  workspace_id uuid,
+  action text NOT NULL,
+  target_type text NOT NULL,
+  target_id uuid,
+  outcome text NOT NULL CHECK (outcome IN ('success', 'denied', 'failed', 'generated')),
+  safe_summary jsonb NOT NULL DEFAULT '{}' CHECK (jsonb_typeof(safe_summary) = 'object'),
+  occurred_at timestamptz NOT NULL DEFAULT now(),
+  FOREIGN KEY (tenant_id, workspace_id) REFERENCES web.workspace(tenant_id, id),
+  CHECK (workspace_id IS NULL OR tenant_id IS NOT NULL)
+);
+CREATE INDEX audit_tenant_time ON web.audit_event(tenant_id, occurred_at DESC, id DESC);
+CREATE INDEX audit_actor_time ON web.audit_event(actor_user_id, occurred_at DESC, id DESC);
+CREATE TABLE web.notification (
+  id uuid PRIMARY KEY,
+  recipient_user_id uuid NOT NULL REFERENCES web.app_user(id),
+  tenant_id uuid REFERENCES web.tenant(id),
+  event_key text NOT NULL,
+  kind text NOT NULL,
+  safe_payload jsonb NOT NULL DEFAULT '{}' CHECK (jsonb_typeof(safe_payload) = 'object'),
+  read_at timestamptz,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  UNIQUE (event_key, recipient_user_id, kind)
+);
+CREATE INDEX notification_recipient_time ON web.notification(recipient_user_id, created_at DESC, id DESC);
+CREATE INDEX notification_unread ON web.notification(recipient_user_id, created_at DESC) WHERE read_at IS NULL;
+
+GRANT USAGE ON SCHEMA web, web_meta TO compass_web_runtime;
+GRANT SELECT ON ALL TABLES IN SCHEMA web, web_meta TO compass_web_runtime;
+GRANT UPDATE(display_name, preferences, version, updated_at) ON web.app_user TO compass_web_runtime;
+GRANT INSERT ON web.web_session TO compass_web_runtime;
+GRANT UPDATE(revoked_at) ON web.web_session TO compass_web_runtime;
+GRANT INSERT, UPDATE ON web.tenant, web.workspace, web.tenant_member, web.workspace_member TO compass_web_runtime;
+GRANT DELETE ON web.workspace_member TO compass_web_runtime;
+GRANT INSERT ON web.audit_event, web.notification TO compass_web_runtime;
+GRANT UPDATE(read_at) ON web.notification TO compass_web_runtime;
+-- Down Migration
+-- Deliberately irreversible in-place: restore a verified backup into a new database.

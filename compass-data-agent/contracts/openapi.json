@@ -1,0 +1,144 @@
+{
+  "components": {
+    "schemas": {
+      "DemoOverview": {
+        "additionalProperties": false,
+        "properties": {
+          "currency": {
+            "const": "CNY",
+            "default": "CNY",
+            "title": "Currency",
+            "type": "string"
+          },
+          "days": {
+            "minimum": 1.0,
+            "title": "Days",
+            "type": "integer"
+          },
+          "end_date": {
+            "format": "date",
+            "title": "End Date",
+            "type": "string"
+          },
+          "orders": {
+            "minimum": 0.0,
+            "title": "Orders",
+            "type": "integer"
+          },
+          "revenue_minor": {
+            "minimum": 0.0,
+            "title": "Revenue Minor",
+            "type": "integer"
+          },
+          "schema_version": {
+            "const": "1",
+            "default": "1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "source": {
+            "const": "synthetic-fixture",
+            "default": "synthetic-fixture",
+            "title": "Source",
+            "type": "string"
+          },
+          "start_date": {
+            "format": "date",
+            "title": "Start Date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "start_date",
+          "end_date",
+          "revenue_minor",
+          "orders",
+          "days"
+        ],
+        "title": "DemoOverview",
+        "type": "object"
+      },
+      "Health": {
+        "additionalProperties": false,
+        "properties": {
+          "service": {
+            "const": "compass-agent",
+            "default": "compass-agent",
+            "title": "Service",
+            "type": "string"
+          },
+          "status": {
+            "const": "ok",
+            "default": "ok",
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "title": "Health",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Commerce analysis scaffold",
+    "title": "Compass Agent",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/healthz": {
+      "get": {
+        "operationId": "health",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health"
+      }
+    },
+    "/readyz": {
+      "get": {
+        "operationId": "readiness",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Readiness"
+      }
+    },
+    "/v1/demo/overview": {
+      "get": {
+        "operationId": "demo_overview",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DemoOverview"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Demo Overview"
+      }
+    }
+  }
+}

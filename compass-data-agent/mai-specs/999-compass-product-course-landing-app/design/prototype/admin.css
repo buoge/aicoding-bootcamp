@@ -1,0 +1,53 @@
+.admin-page { max-width: 1440px; margin: 0 auto; }
+.admin-page .page-head { align-items: flex-start; gap: 24px; }
+.admin-page .page-head .toolbar { flex-shrink: 0; }
+.admin-page h2 { font-size: 17px; letter-spacing: -.02em; line-height: 1.4; margin: 0 0 14px; }
+.admin-page h3 { font-size: 14px; line-height: 1.5; margin: 6px 0; }
+.admin-page p { line-height: 1.7; }
+.admin-panel-head > .muted { margin-top: -6px; }
+.admin-page .panel { min-width: 0; margin-bottom: 20px; }
+.admin-page .tabs { flex-wrap: wrap; margin-bottom: 24px; gap: 5px; }
+.admin-page .tab { white-space: nowrap; min-height: 42px; padding: 9px 14px; }
+.admin-page .stat-grid { margin-bottom: 26px; }
+.admin-page .stat { display: flex; flex-direction: column; gap: 8px; }
+.admin-page .stat strong { font-size: clamp(26px, 2.5vw, 36px); font-weight: 550; letter-spacing: -.04em; }
+.admin-page .stat > .muted { font-size: 13px; }
+.admin-page .table td { vertical-align: top; }
+.admin-page .table td > .muted { font-size: 12px; max-width: 360px; margin-top: 5px; }
+.admin-page .table .btn { margin: 2px 5px 2px 0; white-space: nowrap; }
+.admin-page .field { max-width: 480px; margin: 16px 0; }
+.admin-details { margin: 18px 0; font-size: 14px; line-height: 1.65; }
+.admin-details > div { display: grid; grid-template-columns: minmax(90px, .32fr) minmax(0, 1fr); gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--border, #e5e9e3); }
+.admin-details dt { color: var(--muted, #65716b); }
+.admin-details dd { margin: 0; overflow-wrap: anywhere; }
+.admin-version { display: flex; align-items: center; gap: 15px; margin: 20px 0; flex-wrap: wrap; }
+.admin-version strong { font-size: 40px; font-weight: 500; letter-spacing: -.045em; }
+.admin-formula { font-size: 20px; font-weight: 550; letter-spacing: -.02em; padding: 22px 0; border-block: 1px solid var(--border, #e5e9e3); }
+.admin-checklist { padding-left: 24px; line-height: 1.8; color: var(--text, #202b27); }
+.admin-checklist li { margin: 10px 0; padding-left: 7px; }
+.admin-progress { height: 4px; width: 110px; border-radius: 6px; background: var(--border, #e5e9e3); margin-top: 10px; overflow: hidden; }
+.admin-progress > span { display: block; height: 100%; background: var(--primary, #1c5145); }
+.admin-code { font: 12px/1.8 ui-monospace, SFMono-Regular, Consolas, monospace; overflow: auto; background: #f2f5f0; border: 1px solid #e5e9e3; border-radius: 10px; padding: 18px; color: #1c5145; }
+.admin-permission-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 18px 0 24px; }
+.admin-check { display: flex; gap: 10px; align-items: center; padding: 10px; border: 1px solid var(--border, #e5e9e3); border-radius: 8px; min-height: 44px; cursor: pointer; font-size: 14px; }
+.admin-check:hover { background: #f3f6f1; }
+.admin-check input { width: 16px; height: 16px; accent-color: #1c5145; flex-shrink: 0; }
+.admin-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.admin-page .list-row { gap: 16px; padding-block: 16px; }
+.admin-page .list-row > div:first-child { flex: 1; min-width: 0; }
+.admin-page .list-row > .btn { flex-shrink: 0; }
+@media (max-width: 900px) {
+  .admin-page .page-head { flex-direction: column; gap: 12px; }
+  .admin-page .tabs { overflow: auto; flex-wrap: nowrap; padding-bottom: 8px; }
+  .admin-page .grid-2, .admin-page .grid-3 { grid-template-columns: minmax(0, 1fr); }
+  .admin-page .list-row { flex-wrap: wrap; }
+  .admin-page .table { min-width: 680px; }
+}
+@media (max-width: 480px) {
+  .admin-permission-grid { grid-template-columns: minmax(0, 1fr); }
+  .admin-details > div { grid-template-columns: 85px minmax(0, 1fr); gap: 12px; }
+  .admin-page .page-head .toolbar { width: 100%; flex-wrap: wrap; }
+  .admin-page .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.admin-readonly { margin-bottom: 22px; border-left: 3px solid var(--primary, #1c5145); }
+.admin-page [data-governance-denied="true"], #modal [data-governance-denied="true"] { opacity: .48; cursor: not-allowed; filter: saturate(.4); }

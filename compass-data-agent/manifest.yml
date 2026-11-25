@@ -1,0 +1,58 @@
+id: compass
+title: Compass 电商经营分析 Agent
+status: active
+version: 0.0.1
+updated: 2026-11-03
+scope: cross-course-learner-project
+implementation_stage: web-foundation
+repository_url: https://github.com/shanggqm/compass
+pinned_revision: v0.0.1
+canonical:
+  control_page: README.md
+  source: .
+  verification: docs/verification.md
+  database_migrations: docs/database-migrations.md
+  coding_style: docs/coding-style.md
+  format_hook: .agents/hooks/hooks.json
+  local_deployment: deploy/README.md
+  learner_data: data/retail/README.md
+  business_data_tool: tools/data-seed/README.md
+  business_data_operations: docs/data-seeding.md
+  implementation_decision: docs/adr/0001-workspace.md
+depends_on:
+  local_deployment: mai-specs/994-local-docker-deploy/design/TECH_DESIGN.md
+  web_foundation: mai-specs/995-web-management-foundation/design/TECH_DESIGN.md
+  product_definition: mai-specs/999-compass-product-course-landing-app/spec/product-definition.md
+  prd: mai-specs/999-compass-product-course-landing-app/spec/PRD.md
+  architecture: mai-specs/999-compass-product-course-landing-app/design/TECH_DESIGN.md
+  scaffold_design: mai-specs/999-compass-product-course-landing-app/design/scaffold-design.md
+deliverables:
+  - type: source-code
+    path: .
+    status: review
+
+  - type: synthetic-dataset
+    path: data/retail/compass-retail.sql.gz
+    status: review
+
+related_apps:
+  home:
+    path: apps/home
+    responsibility: product-and-course-website
+    status: review
+  web:
+    path: apps/web
+    responsibility: product-web-bff-and-engineering-crud
+    status: review
+  agent:
+    path: apps/agent
+    responsibility: agent-runtime-and-inference-business
+    status: review
+  memory:
+    path: apps/memory
+    responsibility: independent-python-memory-service-scaffold
+    status: review
+  worker:
+    path: apps/worker
+    responsibility: optional-python-background-process-scaffold
+    status: review

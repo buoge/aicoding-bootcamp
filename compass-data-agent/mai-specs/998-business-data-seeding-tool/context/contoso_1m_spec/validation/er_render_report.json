@@ -1,0 +1,56 @@
+[
+  {
+    "name": "01_organization",
+    "nodes": 7,
+    "svg": "diagrams/01_organization.svg",
+    "png": "diagrams/01_organization.png"
+  },
+  {
+    "name": "02_product",
+    "nodes": 10,
+    "svg": "diagrams/02_product.svg",
+    "png": "diagrams/02_product.png"
+  },
+  {
+    "name": "03_orders",
+    "nodes": 10,
+    "svg": "diagrams/03_orders.svg",
+    "png": "diagrams/03_orders.png"
+  },
+  {
+    "name": "04_payment_return",
+    "nodes": 8,
+    "svg": "diagrams/04_payment_return.svg",
+    "png": "diagrams/04_payment_return.png"
+  },
+  {
+    "name": "05_fulfillment",
+    "nodes": 6,
+    "svg": "diagrams/05_fulfillment.svg",
+    "png": "diagrams/05_fulfillment.png"
+  },
+  {
+    "name": "06_inventory",
+    "nodes": 8,
+    "svg": "diagrams/06_inventory.svg",
+    "png": "diagrams/06_inventory.png"
+  },
+  {
+    "name": "07_finance",
+    "nodes": 6,
+    "svg": "diagrams/07_finance.svg",
+    "png": "diagrams/07_finance.png"
+  },
+  {
+    "name": "08_marketing",
+    "nodes": 9,
+    "svg": "diagrams/08_marketing.svg",
+    "png": "diagrams/08_marketing.png"
+  },
+  {
+    "name": "09_governance",
+    "nodes": 9,
+    "svg": "diagrams/09_governance.svg",
+    "png": "diagrams/09_governance.png"
+  }
+]

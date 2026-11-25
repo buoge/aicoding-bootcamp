@@ -1,0 +1,1051 @@
+{
+  "softshell": {
+    "category": 0,
+    "leaf": "户外外套",
+    "product_type": "软壳夹克",
+    "material": "聚酯弹力软壳",
+    "sports": [
+      "徒步",
+      "通勤"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "防风",
+      "弹力"
+    ]
+  },
+  "running_top": {
+    "category": 0,
+    "leaf": "速干上装",
+    "product_type": "跑步上衣",
+    "material": "聚酯网眼速干面料",
+    "sports": [
+      "跑步"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "速干",
+      "透气"
+    ]
+  },
+  "training_pants": {
+    "category": 0,
+    "leaf": "运动下装",
+    "product_type": "训练长裤",
+    "material": "聚酯氨纶弹力针织",
+    "sports": [
+      "健身",
+      "通勤"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "弹力",
+      "吸湿"
+    ]
+  },
+  "running_jacket": {
+    "category": 0,
+    "leaf": "户外外套",
+    "product_type": "跑步外套",
+    "material": "轻量尼龙织物",
+    "sports": [
+      "跑步",
+      "通勤"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "防风",
+      "反光"
+    ]
+  },
+  "down_jacket": {
+    "category": 0,
+    "leaf": "户外外套",
+    "product_type": "羽绒服",
+    "material": "羽绒填充与尼龙面料",
+    "sports": [
+      "徒步",
+      "通勤"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "保暖",
+      "轻量"
+    ]
+  },
+  "yoga_top": {
+    "category": 0,
+    "leaf": "速干上装",
+    "product_type": "瑜伽上衣",
+    "material": "锦纶氨纶针织",
+    "sports": [
+      "瑜伽",
+      "健身"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "亲肤",
+      "弹力"
+    ]
+  },
+  "hiking_pants": {
+    "category": 0,
+    "leaf": "运动下装",
+    "product_type": "徒步裤",
+    "material": "耐磨尼龙弹力织物",
+    "sports": [
+      "徒步"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "耐磨",
+      "弹力"
+    ]
+  },
+  "running_shorts": {
+    "category": 0,
+    "leaf": "运动下装",
+    "product_type": "跑步短裤",
+    "material": "轻量聚酯织物",
+    "sports": [
+      "跑步"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "速干",
+      "轻量"
+    ]
+  },
+  "training_top": {
+    "category": 0,
+    "leaf": "速干上装",
+    "product_type": "训练上衣",
+    "material": "吸湿聚酯针织",
+    "sports": [
+      "健身",
+      "跑步"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "透气",
+      "吸湿"
+    ]
+  },
+  "shell_jacket": {
+    "category": 0,
+    "leaf": "户外外套",
+    "product_type": "冲锋衣",
+    "material": "防水透湿复合面料",
+    "sports": [
+      "徒步",
+      "露营"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "防水",
+      "防风"
+    ]
+  },
+  "sweatshirt": {
+    "category": 0,
+    "leaf": "速干上装",
+    "product_type": "运动卫衣",
+    "material": "棉聚酯混纺毛圈",
+    "sports": [
+      "通勤",
+      "健身"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "亲肤",
+      "保暖"
+    ]
+  },
+  "fleece": {
+    "category": 0,
+    "leaf": "户外外套",
+    "product_type": "抓绒中层",
+    "material": "聚酯抓绒",
+    "sports": [
+      "徒步",
+      "跑步"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "保暖",
+      "透气"
+    ]
+  },
+  "running_pants": {
+    "category": 0,
+    "leaf": "运动下装",
+    "product_type": "跑步长裤",
+    "material": "锦纶氨纶弹力面料",
+    "sports": [
+      "跑步"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "弹力",
+      "吸湿"
+    ]
+  },
+  "yoga_pants": {
+    "category": 0,
+    "leaf": "运动下装",
+    "product_type": "瑜伽紧身裤",
+    "material": "锦纶氨纶双面针织",
+    "sports": [
+      "瑜伽",
+      "健身"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "弹力",
+      "亲肤"
+    ]
+  },
+  "sun_jacket": {
+    "category": 0,
+    "leaf": "户外外套",
+    "product_type": "防晒衣",
+    "material": "轻薄锦纶织物",
+    "sports": [
+      "徒步",
+      "通勤"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "轻量",
+      "透气"
+    ]
+  },
+  "sports_bra": {
+    "category": 0,
+    "leaf": "速干上装",
+    "product_type": "运动内衣",
+    "material": "锦纶氨纶支撑面料",
+    "sports": [
+      "跑步",
+      "健身",
+      "瑜伽"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "支撑",
+      "吸湿"
+    ]
+  },
+  "hiking_shirt": {
+    "category": 0,
+    "leaf": "速干上装",
+    "product_type": "徒步衬衫",
+    "material": "聚酯尼龙速干织物",
+    "sports": [
+      "徒步",
+      "露营"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "速干",
+      "耐磨"
+    ]
+  },
+  "basketball_shorts": {
+    "category": 0,
+    "leaf": "运动下装",
+    "product_type": "篮球短裤",
+    "material": "聚酯网眼针织",
+    "sports": [
+      "篮球"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "透气",
+      "宽松"
+    ]
+  },
+  "training_shorts": {
+    "category": 0,
+    "leaf": "运动下装",
+    "product_type": "运动短裤",
+    "material": "棉弹力针织",
+    "sports": [
+      "健身",
+      "通勤"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "亲肤",
+      "弹力"
+    ]
+  },
+  "road_shoe": {
+    "category": 1,
+    "leaf": "公路跑鞋",
+    "product_type": "缓震跑鞋",
+    "material": "网布鞋面与弹性泡棉中底",
+    "sports": [
+      "跑步",
+      "通勤"
+    ],
+    "axis": "EU",
+    "features": [
+      "缓震",
+      "透气"
+    ]
+  },
+  "race_shoe": {
+    "category": 1,
+    "leaf": "公路跑鞋",
+    "product_type": "碳板竞速跑鞋",
+    "material": "网布鞋面与碳板复合中底",
+    "sports": [
+      "跑步"
+    ],
+    "axis": "EU",
+    "features": [
+      "轻量",
+      "回弹"
+    ]
+  },
+  "hiking_shoe": {
+    "category": 1,
+    "leaf": "徒步越野鞋",
+    "product_type": "徒步鞋",
+    "material": "耐磨合成革与橡胶外底",
+    "sports": [
+      "徒步"
+    ],
+    "axis": "EU",
+    "features": [
+      "抓地",
+      "支撑"
+    ]
+  },
+  "trail_shoe": {
+    "category": 1,
+    "leaf": "徒步越野鞋",
+    "product_type": "越野跑鞋",
+    "material": "耐磨网布与齿纹橡胶底",
+    "sports": [
+      "跑步",
+      "徒步"
+    ],
+    "axis": "EU",
+    "features": [
+      "抓地",
+      "防护"
+    ]
+  },
+  "basketball_shoe": {
+    "category": 1,
+    "leaf": "场地运动鞋",
+    "product_type": "篮球鞋",
+    "material": "复合鞋面与耐磨橡胶底",
+    "sports": [
+      "篮球"
+    ],
+    "axis": "EU",
+    "features": [
+      "支撑",
+      "耐磨"
+    ]
+  },
+  "court_shoe": {
+    "category": 1,
+    "leaf": "场地运动鞋",
+    "product_type": "场地训练鞋",
+    "material": "复合网布与无痕橡胶底",
+    "sports": [
+      "网球",
+      "羽毛球",
+      "健身"
+    ],
+    "axis": "EU",
+    "features": [
+      "侧向支撑",
+      "抓地"
+    ]
+  },
+  "tent": {
+    "category": 2,
+    "leaf": "帐篷与睡眠",
+    "product_type": "露营帐篷",
+    "material": "涂层聚酯帐布与铝合金杆",
+    "sports": [
+      "露营"
+    ],
+    "axis": "MODEL",
+    "features": [
+      "防雨",
+      "通风"
+    ]
+  },
+  "sleeping_bag": {
+    "category": 2,
+    "leaf": "帐篷与睡眠",
+    "product_type": "睡袋",
+    "material": "聚酯面料与保温棉",
+    "sports": [
+      "露营",
+      "徒步"
+    ],
+    "axis": "TEMPERATURE",
+    "features": [
+      "保暖",
+      "可压缩"
+    ]
+  },
+  "sleeping_mat": {
+    "category": 2,
+    "leaf": "帐篷与睡眠",
+    "product_type": "睡垫",
+    "material": "TPU复合面料与泡棉",
+    "sports": [
+      "露营"
+    ],
+    "axis": "THICKNESS",
+    "features": [
+      "隔潮",
+      "缓冲"
+    ]
+  },
+  "backpack": {
+    "category": 2,
+    "leaf": "徒步背包",
+    "product_type": "背包",
+    "material": "耐磨尼龙与透气背板",
+    "sports": [
+      "徒步",
+      "通勤"
+    ],
+    "axis": "CAPACITY",
+    "features": [
+      "收纳",
+      "负重背负"
+    ]
+  },
+  "dry_bag": {
+    "category": 2,
+    "leaf": "徒步背包",
+    "product_type": "防水卷口包",
+    "material": "TPU覆膜织物",
+    "sports": [
+      "徒步",
+      "划水"
+    ],
+    "axis": "CAPACITY",
+    "features": [
+      "防水",
+      "轻量"
+    ]
+  },
+  "trekking_pole": {
+    "category": 2,
+    "leaf": "登山与野炊",
+    "product_type": "登山杖",
+    "material": "铝合金杖身与聚合物握把",
+    "sports": [
+      "徒步"
+    ],
+    "axis": "LENGTH",
+    "features": [
+      "支撑",
+      "可收纳"
+    ]
+  },
+  "camp_cookware": {
+    "category": 2,
+    "leaf": "登山与野炊",
+    "product_type": "野炊锅组",
+    "material": "阳极氧化铝合金",
+    "sports": [
+      "露营"
+    ],
+    "axis": "CAPACITY",
+    "features": [
+      "轻量",
+      "可套叠"
+    ]
+  },
+  "camp_chair": {
+    "category": 2,
+    "leaf": "登山与野炊",
+    "product_type": "露营椅",
+    "material": "铝合金支架与涤纶座布",
+    "sports": [
+      "露营"
+    ],
+    "axis": "MODEL",
+    "features": [
+      "折叠",
+      "便携"
+    ]
+  },
+  "camp_table": {
+    "category": 2,
+    "leaf": "登山与野炊",
+    "product_type": "露营桌",
+    "material": "铝合金台面与支架",
+    "sports": [
+      "露营"
+    ],
+    "axis": "DIMENSION",
+    "features": [
+      "折叠",
+      "耐污"
+    ]
+  },
+  "camp_lamp": {
+    "category": 2,
+    "leaf": "登山与野炊",
+    "product_type": "营地灯",
+    "material": "ABS灯体与LED光源",
+    "sports": [
+      "露营"
+    ],
+    "axis": "BRIGHTNESS",
+    "features": [
+      "可充电",
+      "便携"
+    ]
+  },
+  "city_bike": {
+    "category": 3,
+    "leaf": "骑行整车",
+    "product_type": "城市自行车",
+    "material": "铝合金车架",
+    "sports": [
+      "骑行",
+      "通勤"
+    ],
+    "axis": "FRAME",
+    "features": [
+      "多档变速",
+      "通勤"
+    ]
+  },
+  "mountain_bike": {
+    "category": 3,
+    "leaf": "骑行整车",
+    "product_type": "山地自行车",
+    "material": "铝合金车架与减震前叉",
+    "sports": [
+      "骑行"
+    ],
+    "axis": "FRAME",
+    "features": [
+      "越野",
+      "多档变速"
+    ]
+  },
+  "road_bike": {
+    "category": 3,
+    "leaf": "骑行整车",
+    "product_type": "公路自行车",
+    "material": "铝合金车架与弯把",
+    "sports": [
+      "骑行"
+    ],
+    "axis": "FRAME",
+    "features": [
+      "轻量",
+      "公路"
+    ]
+  },
+  "helmet": {
+    "category": 3,
+    "leaf": "头盔与穿戴",
+    "product_type": "骑行头盔",
+    "material": "PC外壳与EPS缓冲层",
+    "sports": [
+      "骑行"
+    ],
+    "axis": "HEAD",
+    "features": [
+      "通风",
+      "防护"
+    ]
+  },
+  "bike_light": {
+    "category": 3,
+    "leaf": "车灯与车包",
+    "product_type": "骑行灯",
+    "material": "ABS外壳与LED光源",
+    "sports": [
+      "骑行"
+    ],
+    "axis": "BRIGHTNESS",
+    "features": [
+      "可充电",
+      "警示"
+    ]
+  },
+  "bike_bag": {
+    "category": 3,
+    "leaf": "车灯与车包",
+    "product_type": "骑行车包",
+    "material": "耐磨涂层聚酯织物",
+    "sports": [
+      "骑行"
+    ],
+    "axis": "CAPACITY",
+    "features": [
+      "收纳",
+      "防泼水"
+    ]
+  },
+  "dumbbell": {
+    "category": 4,
+    "leaf": "力量训练",
+    "product_type": "哑铃",
+    "material": "钢铁配重与包胶握持层",
+    "sports": [
+      "健身"
+    ],
+    "axis": "WEIGHT",
+    "features": [
+      "力量训练",
+      "稳固"
+    ]
+  },
+  "kettlebell": {
+    "category": 4,
+    "leaf": "力量训练",
+    "product_type": "壶铃",
+    "material": "铸铁与涂层",
+    "sports": [
+      "健身"
+    ],
+    "axis": "WEIGHT",
+    "features": [
+      "力量训练",
+      "单体成型"
+    ],
+    "variant_values": [
+      "4KG",
+      "8KG",
+      "12KG",
+      "16KG"
+    ]
+  },
+  "yoga_mat": {
+    "category": 4,
+    "leaf": "瑜伽拉伸",
+    "product_type": "瑜伽垫",
+    "material": "TPE弹性发泡材料",
+    "sports": [
+      "瑜伽",
+      "健身"
+    ],
+    "axis": "THICKNESS",
+    "features": [
+      "防滑",
+      "缓冲"
+    ]
+  },
+  "foam_roller": {
+    "category": 4,
+    "leaf": "瑜伽拉伸",
+    "product_type": "泡沫滚轴",
+    "material": "高密度EVA泡棉",
+    "sports": [
+      "健身",
+      "跑步"
+    ],
+    "axis": "LENGTH",
+    "features": [
+      "肌肉放松",
+      "支撑"
+    ]
+  },
+  "resistance_band": {
+    "category": 4,
+    "leaf": "力量训练",
+    "product_type": "阻力带",
+    "material": "弹性乳胶",
+    "sports": [
+      "健身",
+      "瑜伽"
+    ],
+    "axis": "RESISTANCE",
+    "features": [
+      "弹力训练",
+      "便携"
+    ]
+  },
+  "treadmill": {
+    "category": 4,
+    "leaf": "有氧器械",
+    "product_type": "走步机",
+    "material": "钢制机架与电机传动",
+    "sports": [
+      "健身",
+      "跑步"
+    ],
+    "axis": "MODEL",
+    "features": [
+      "折叠",
+      "有氧训练"
+    ]
+  },
+  "exercise_bike": {
+    "category": 4,
+    "leaf": "有氧器械",
+    "product_type": "磁控单车",
+    "material": "钢制机架与磁阻系统",
+    "sports": [
+      "健身",
+      "骑行"
+    ],
+    "axis": "MODEL",
+    "features": [
+      "阻力调节",
+      "有氧训练"
+    ]
+  },
+  "jump_rope": {
+    "category": 4,
+    "leaf": "有氧器械",
+    "product_type": "跳绳",
+    "material": "PVC绳体与轴承手柄",
+    "sports": [
+      "健身"
+    ],
+    "axis": "LENGTH",
+    "features": [
+      "轴承旋转",
+      "便携"
+    ]
+  },
+  "badminton_racket": {
+    "category": 5,
+    "leaf": "羽毛球用品",
+    "product_type": "羽毛球拍",
+    "material": "碳纤维复合拍框",
+    "sports": [
+      "羽毛球"
+    ],
+    "axis": "RACKET_WEIGHT",
+    "features": [
+      "挥拍",
+      "击球"
+    ]
+  },
+  "shuttlecock": {
+    "category": 5,
+    "leaf": "羽毛球用品",
+    "product_type": "羽毛球",
+    "material": "尼龙裙边与复合球头",
+    "sports": [
+      "羽毛球"
+    ],
+    "axis": "PACK",
+    "features": [
+      "耐用",
+      "训练"
+    ],
+    "variant_values": [
+      "6只装",
+      "12只装"
+    ]
+  },
+  "tennis_racket": {
+    "category": 5,
+    "leaf": "网球用品",
+    "product_type": "网球拍",
+    "material": "碳纤维复合拍框",
+    "sports": [
+      "网球"
+    ],
+    "axis": "GRIP",
+    "features": [
+      "击球",
+      "控球"
+    ]
+  },
+  "tennis_ball": {
+    "category": 5,
+    "leaf": "网球用品",
+    "product_type": "网球",
+    "material": "橡胶内胆与毛毡外层",
+    "sports": [
+      "网球"
+    ],
+    "axis": "PACK",
+    "features": [
+      "弹性",
+      "耐磨"
+    ]
+  },
+  "basketball": {
+    "category": 5,
+    "leaf": "团队球类",
+    "product_type": "篮球",
+    "material": "耐磨橡胶与橡胶内胆",
+    "sports": [
+      "篮球"
+    ],
+    "axis": "BALL",
+    "features": [
+      "抓握",
+      "耐磨"
+    ],
+    "variant_values": [
+      "6号",
+      "7号"
+    ],
+    "weight_by_size_grams": {
+      "6号": 550,
+      "7号": 620
+    }
+  },
+  "football": {
+    "category": 5,
+    "leaf": "团队球类",
+    "product_type": "足球",
+    "material": "合成革与橡胶内胆",
+    "sports": [
+      "足球"
+    ],
+    "axis": "BALL",
+    "features": [
+      "控球",
+      "耐磨"
+    ],
+    "variant_values": [
+      "2号",
+      "3号",
+      "4号",
+      "5号"
+    ],
+    "weight_by_size_grams": {
+      "2号": 200,
+      "3号": 300,
+      "4号": 370,
+      "5号": 430
+    }
+  },
+  "goggles": {
+    "category": 6,
+    "leaf": "游泳装备",
+    "product_type": "泳镜",
+    "material": "聚碳酸酯镜片与硅胶密封圈",
+    "sports": [
+      "游泳"
+    ],
+    "axis": "LENS",
+    "features": [
+      "防雾",
+      "密封"
+    ]
+  },
+  "swim_cap": {
+    "category": 6,
+    "leaf": "游泳装备",
+    "product_type": "泳帽",
+    "material": "硅胶",
+    "sports": [
+      "游泳"
+    ],
+    "axis": "MODEL",
+    "features": [
+      "弹性",
+      "贴合"
+    ]
+  },
+  "swimsuit": {
+    "category": 6,
+    "leaf": "游泳装备",
+    "product_type": "泳衣",
+    "material": "耐氯聚酯弹力面料",
+    "sports": [
+      "游泳"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "弹力",
+      "速干"
+    ]
+  },
+  "ski_goggles": {
+    "category": 6,
+    "leaf": "冰雪装备",
+    "product_type": "滑雪镜",
+    "material": "双层聚碳酸酯镜片",
+    "sports": [
+      "滑雪"
+    ],
+    "axis": "LENS",
+    "features": [
+      "防雾",
+      "防风"
+    ]
+  },
+  "skis": {
+    "category": 6,
+    "leaf": "冰雪装备",
+    "product_type": "滑雪板",
+    "material": "复合木芯与玻纤增强层",
+    "sports": [
+      "滑雪"
+    ],
+    "axis": "LENGTH",
+    "features": [
+      "全山滑行",
+      "稳定"
+    ]
+  },
+  "ski_gloves": {
+    "category": 6,
+    "leaf": "冰雪装备",
+    "product_type": "滑雪手套",
+    "material": "防水面料与保温棉",
+    "sports": [
+      "滑雪"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "保暖",
+      "防水"
+    ]
+  },
+  "paddleboard": {
+    "category": 6,
+    "leaf": "划水装备",
+    "product_type": "充气桨板",
+    "material": "PVC拉丝气垫结构",
+    "sports": [
+      "划水"
+    ],
+    "axis": "LENGTH",
+    "features": [
+      "可充气",
+      "便携"
+    ]
+  },
+  "kickboard": {
+    "category": 6,
+    "leaf": "游泳装备",
+    "product_type": "游泳训练板",
+    "material": "EVA泡棉",
+    "sports": [
+      "游泳"
+    ],
+    "axis": "DIMENSION",
+    "features": [
+      "浮力辅助",
+      "轻量"
+    ]
+  },
+  "socks": {
+    "category": 7,
+    "leaf": "运动袜与鞋垫",
+    "product_type": "运动袜",
+    "material": "棉聚酯混纺弹力针织",
+    "sports": [
+      "跑步",
+      "徒步",
+      "健身"
+    ],
+    "axis": "FOOT",
+    "features": [
+      "吸湿",
+      "缓冲"
+    ]
+  },
+  "insoles": {
+    "category": 7,
+    "leaf": "运动袜与鞋垫",
+    "product_type": "运动鞋垫",
+    "material": "EVA泡棉与织物面层",
+    "sports": [
+      "跑步",
+      "徒步"
+    ],
+    "axis": "FOOT",
+    "features": [
+      "缓震",
+      "支撑"
+    ]
+  },
+  "bottle": {
+    "category": 7,
+    "leaf": "水壶与补给",
+    "product_type": "运动水壶",
+    "material": "食品接触级塑料",
+    "sports": [
+      "跑步",
+      "健身",
+      "徒步"
+    ],
+    "axis": "CAPACITY_ML",
+    "features": [
+      "便携",
+      "饮水"
+    ]
+  },
+  "thermos": {
+    "category": 7,
+    "leaf": "水壶与补给",
+    "product_type": "保温杯",
+    "material": "不锈钢真空杯体",
+    "sports": [
+      "徒步",
+      "通勤"
+    ],
+    "axis": "CAPACITY_ML",
+    "features": [
+      "保温",
+      "饮水"
+    ]
+  },
+  "knee_support": {
+    "category": 7,
+    "leaf": "护具与耗材",
+    "product_type": "运动护膝",
+    "material": "弹力针织与支撑材料",
+    "sports": [
+      "跑步",
+      "篮球",
+      "健身"
+    ],
+    "axis": "ALPHA",
+    "features": [
+      "支撑",
+      "弹性"
+    ]
+  },
+  "grip_tape": {
+    "category": 7,
+    "leaf": "护具与耗材",
+    "product_type": "球拍手胶",
+    "material": "聚氨酯吸汗材料",
+    "sports": [
+      "网球",
+      "羽毛球"
+    ],
+    "axis": "PACK",
+    "features": [
+      "吸汗",
+      "防滑"
+    ]
+  },
+  "towel": {
+    "category": 7,
+    "leaf": "护具与耗材",
+    "product_type": "运动毛巾",
+    "material": "超细纤维织物",
+    "sports": [
+      "健身",
+      "游泳",
+      "跑步"
+    ],
+    "axis": "DIMENSION",
+    "features": [
+      "吸水",
+      "速干"
+    ]
+  }
+}

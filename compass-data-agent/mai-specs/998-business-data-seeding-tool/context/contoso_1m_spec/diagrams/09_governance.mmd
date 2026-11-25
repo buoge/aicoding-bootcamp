@@ -1,0 +1,53 @@
+erDiagram
+    direction TB
+    core_tenant {
+        smallint tenant_id PK
+        text release_id FK
+    }
+    ops_dataset_release {
+        text release_id PK
+    }
+    ops_ingestion_batch {
+        smallint tenant_id PK
+        bigint batch_id PK
+    }
+    ops_generation_run {
+        text run_id PK
+        text release_id FK
+    }
+    ops_file_manifest {
+        text file_id PK
+        text release_id FK
+        text run_id FK
+        smallint tenant_id FK
+    }
+    ops_source_watermark {
+        smallint tenant_id PK
+        text source_system PK
+        timestamptz observed_at PK
+    }
+    eval_scenario {
+        text scenario_id PK
+        smallint tenant_id FK
+    }
+    eval_question {
+        text question_id PK
+        text scenario_id FK
+        smallint tenant_id FK
+    }
+    eval_expected_result {
+        text question_id PK
+        text release_id PK
+    }
+    ops_dataset_release ||--o{ core_tenant : "release_id"
+    core_tenant ||--o{ ops_ingestion_batch : ""
+    ops_dataset_release ||--o{ ops_generation_run : "release_id"
+    ops_dataset_release ||--o{ ops_file_manifest : "release_id"
+    ops_generation_run ||--o{ ops_file_manifest : "run_id"
+    core_tenant |o--o{ ops_file_manifest : ""
+    core_tenant ||--o{ ops_source_watermark : ""
+    core_tenant ||--o{ eval_scenario : ""
+    eval_scenario |o--o{ eval_question : "scenario_id"
+    core_tenant ||--o{ eval_question : ""
+    eval_question ||--o{ eval_expected_result : "question_id"
+    ops_dataset_release ||--o{ eval_expected_result : "release_id"

@@ -1,0 +1,10 @@
+Project init:
+
+nvm use 24.12.0
+node -v    # v24.12.0
+pnpm -v    # 11.3.0
+做完 Compass 的事，或者去跑老项目时：
+
+
+nvm use default
+node -v    # v18.19.0

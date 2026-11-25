@@ -1,0 +1,7 @@
+{
+  "environment_id": "local-retail",
+  "layout": "single-source",
+  "database_prefix": "compass_retail_local",
+  "admin_dsn_env": "COMPASS_RETAIL_ADMIN_URL",
+  "state_directory": "work/data-seed/local-state"
+}

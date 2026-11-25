@@ -1,0 +1,175 @@
+[
+  {
+    "case_id": "C01",
+    "story_ids": ["S01"],
+    "question": "上周净销售额应按收款还是交付口径回答？退款怎样计入？",
+    "evidence": [
+      {"document_id": "D18", "quote": "如果用户需要净收款，采用成功支付减成功现金退款，并说明使用支付发生期或订单所属期。"},
+      {"document_id": "D19", "quote": "验收接受后，按对应订单单件登记收入冲减。"}
+    ],
+    "expected_behavior": "先固定用户需要的口径，再给出真实查询数值；答案同时保留查询来源和口径条款引用。",
+    "structured_checks": ["按区域、业务窗口、recognized_at 和 available_at 汇总 revenue_entry", "现金口径分别聚合成功 payment 与 refund，避免明细乘行"],
+    "forbidden_inferences": ["只按文档生成销售金额", "把现金退款日当成全部收入冲减日"]
+  },
+  {
+    "case_id": "C02",
+    "story_ids": ["S02"],
+    "question": "为什么华东全部门店增长，固定老店口径却可能下降？",
+    "evidence": [
+      {"document_id": "D11", "quote": "区域全部门店口径反映区域内当期实际经营规模；同店口径固定两期共同符合条件的门店集合。"},
+      {"document_id": "D12", "quote": "本店作为新增门店单列，不进入两期均存在的固定老店集合。"}
+    ],
+    "expected_behavior": "分别展示地点1/6固定老店和地点5新店，保留不同集合；把新店贡献与老店变化分开解释。",
+    "structured_checks": ["对比2023与2024交付净收入，销售归属地点分别取1/6与5", "核对site和store_operating_day的开业、营业覆盖"],
+    "forbidden_inferences": ["将全部门店增长写成每家老店都改善", "未核实就断言新店分流导致老店下降"]
+  },
+  {
+    "case_id": "C03",
+    "story_ids": ["S03"],
+    "question": "活动名单中重复、未匹配和后来绑定的会员怎样处理？",
+    "evidence": [
+      {"document_id": "D20", "quote": "后来完成绑定的渠道身份，不回填到当时会员为空的订单，以免把未来身份信息带入历史分群。"},
+      {"document_id": "D20", "quote": "格式清理不自动授权删除业务对象；影响结论的删行或身份归并须形成明确处理决定"}
+    ],
+    "expected_behavior": "保留原行号及未知身份，展示处理决定和输入输出差异；用截止前的关联，并尊重订单历史快照。",
+    "structured_checks": ["使用998的campaign-list.csv，保留source_row", "核对customer_identity、customer_identity_link与订单customer_id及available_at", "核对关联前后行数和金额"],
+    "forbidden_inferences": ["同名即同人", "未匹配即未购买", "用未来绑定增加历史留存分母"]
+  },
+  {
+    "case_id": "C04",
+    "story_ids": ["S04"],
+    "question": "9月财务净收款与经营交付净收入为什么不一致？",
+    "evidence": [
+      {"document_id": "D18", "quote": "因此收入冲减与现金退款不保证落在同一天。"},
+      {"document_id": "D18", "quote": "已解释项加未解释项应等于总差。"},
+      {"document_id": "D13", "quote": "一个来源显示恢复，不能推定所有资产已经齐备。"}
+    ],
+    "expected_behavior": "冻结两侧公式、业务窗口和知识截止，形成差异桥接并保留未解释项。",
+    "structured_checks": ["复算finance-snapshot.csv与operating-snapshot.csv对应窗口", "核对交付、退货接受、成功退款的时间差", "核对对应源与资产就绪状态"],
+    "forbidden_inferences": ["强改金额使两边相等", "把经营贡献称为完整净利润"]
+  },
+  {
+    "case_id": "C05-SUPPLY",
+    "story_ids": ["S05"],
+    "question": "R100墨黑EU42的采购为何晚到，何时真正收货，能否从其他仓调拨？",
+    "evidence": [
+      {"document_id": "D05", "quote": "供应商发运排期调整，预计到仓时间按本次通知更新，采购单原承诺日期保留。"},
+      {"document_id": "D06", "quote": "收货流水 300687 记录：可售库存增加 400 件，在途库存减少 400 件，形成库存批次 22207。"},
+      {"document_id": "D07", "quote": "R100 墨黑 EU42 的供应专项复核采用 50 件调出方保留量。"}
+    ],
+    "expected_behavior": "关联原预计、修订通知与收货事实；声明三者同源。用当时库存检查备选地点8，并明确50件属于模拟专项约束。",
+    "structured_checks": ["核对采购行13392及revision_no=1", "核对movement_id=300687的事件和可知时间", "按地点7/8、SKU435、同一截止计算可售、预留和在途，不能用款式总量代替"],
+    "forbidden_inferences": ["补写工厂停工或运输事故", "把预计到货写成实际到货", "把全部销售损失归给延期", "把50件说成已证实的历史签发或执行事实"]
+  },
+  {
+    "case_id": "C05-READINESS",
+    "story_ids": ["S05", "S10"],
+    "question": "9月30日能否把9月28日平台转化下降认定为经营异常？",
+    "evidence": [
+      {"document_id": "D14", "quote": "缺少报告的商品不得按零访客、零订单参与转化比较。"},
+      {"document_id": "D15", "quote": "9 月 30 日形成的报告如使用当时可知信息，仍应保留平台日表 PARTIAL 状态；不能因为本通知后来归档，就把旧报告改写成当时已齐。", "use": "later_audit_only"}
+    ],
+    "expected_behavior": "历史判断采用9月30日截止的PARTIAL记录，等待或限定范围。10月2日补齐通知只在更晚审计中解释修订。",
+    "structured_checks": ["按period_start=2025-09-28及available_at选择ops.asset_period_status", "分别核对OMS水位和平台商品日表资产", "用相同业务窗口比较初报与补报"],
+    "forbidden_inferences": ["OMS恢复等于全部报表齐备", "在9月30日引用10月2日才知道的完整状态"]
+  },
+  {
+    "case_id": "C06",
+    "story_ids": ["S06"],
+    "question": "研究半年转化变化时，如何将商品、渠道活动和数据完整性组织成证据分支？",
+    "evidence": [
+      {"document_id": "D22", "quote": "比较前后转化时，应固定共同可比的规格集合，另列新增、停售、下架与缺报告对象。"},
+      {"document_id": "D09", "quote": "分析可将本活动作为抖音同期经营背景，但不能凭其与其他渠道调价同期发生就认定存在因果联系。"},
+      {"document_id": "D13", "quote": "具体报表能否出数，还要检查对应资产、业务期间和知识截止下的完整度声明。"}
+    ],
+    "expected_behavior": "按完整性、流量结构、商品集合、供给及经营变更拆分问题；每个分支保留计算证据、文档依据及未解决原因。",
+    "structured_checks": ["使用同一半年窗口按渠道和规格分解漏斗", "固定可比SKU集合并检查源覆盖", "按分支追加采购、调价和实验记录，不能直接套入另一时期事件"],
+    "forbidden_inferences": ["把9月事件套到上半年", "相加不同维度贡献", "另造一篇写死半年结论的答案文档"]
+  },
+  {
+    "case_id": "C07",
+    "story_ids": ["S07"],
+    "question": "以2025年6月30日为知识截止预测未来12周，哪些计划资料不能提前使用？",
+    "evidence": [
+      {"document_id": "D03", "quote": "回答更早时点“当时已经知道哪些上市或停售安排”时，不引用本说明补齐事前证据。", "use": "exclusion_audit_only"},
+      {"document_id": "D08", "quote": "活动记录在 10 月 30 日可查。", "use": "exclusion_audit_only"}
+    ],
+    "expected_behavior": "排除未来可知材料，并检查适用预测窗口；允许历史、基线和明确的情景假设，保留完整事前12周计划缺口。",
+    "structured_checks": ["使用forecast-windows.csv与对应forecast-features-2025-06-30.csv", "核对文档business_known_at、资料类型及目标窗口", "回测跨度需覆盖12周；实际未来销量不进入预测输入"],
+    "forbidden_inferences": ["把2026年商品摘录倒签到2025年", "把11月活动方案充当7至9月已知计划", "把历史收货当作未来供货承诺"]
+  },
+  {
+    "case_id": "C08-EXP1",
+    "story_ids": ["S08"],
+    "question": "EXP1支付转化改善后，能否直接推广推荐方案？",
+    "evidence": [
+      {"document_id": "D16", "quote": "退款护栏使用“成功退款金额／原成功支付金额”。"},
+      {"document_id": "D16", "quote": "采纳条件须同时满足：分流检查通过；支付转化差的置信区间下界大于 0；退款金额比例增幅的区间上界不超过 3 个百分点。"}
+    ],
+    "expected_behavior": "按会员原分组计算7天主指标和30天金额护栏及区间；统计合格后仍形成单独采纳决定。",
+    "structured_checks": ["核对experiment_definition=1的事前阈值", "计算全部assignment会员、保留未购买者", "以会员聚类计算金额比率区间，核对观察窗成熟"],
+    "forbidden_inferences": ["只看转化点估计", "用退款人数率替代金额护栏", "分析完成即自动上线"]
+  },
+  {
+    "case_id": "C08-EXP2",
+    "story_ids": ["S08"],
+    "question": "EXP2实际分配人数与事前比例不符时，报告应怎样处理？",
+    "evidence": [
+      {"document_id": "D17", "quote": "随机单位为会员，预登记 A、B 各占 50%。"},
+      {"document_id": "D17", "quote": "未通过分流检查时，应核查资格过滤、分配日志和曝光链路，暂缓默认的实验有效性判断。"}
+    ],
+    "expected_behavior": "将事前50/50与实际分配查询对照；实际异常由数据发现，文档只提供事前规则和处置依据。",
+    "structured_checks": ["按experiment_id=2与variant统计全部分配单位", "核对SRM显著性水平0.001与每组最低100", "分流质量未通过时保留其他描述结果并标明限制"],
+    "forbidden_inferences": ["在预案中提前写实际异常比例", "按实际人数倒改事前分配标准"]
+  },
+  {
+    "case_id": "C09",
+    "story_ids": ["S09"],
+    "question": "小程序软壳夹克涨价后未复购，能否认定涨价造成永久流失？",
+    "evidence": [
+      {"document_id": "D10", "quote": "原标价 499.00 元，自生效时刻调整为 559.00 元，对应价格版本由 7 切换为 8。"},
+      {"document_id": "D10", "quote": "固定 60 日未成功支付仅是该窗口内结果，不等同永久流失。"},
+      {"document_id": "D09", "quote": "本安排覆盖上述抖音活动。"}
+    ],
+    "expected_behavior": "锁定SKU1、渠道4和实际价格暴露，保留原资格队列，检验趋势、替代及跨渠道迁移；平台活动只作为限定范围的同期背景。",
+    "structured_checks": ["比较price_id 7/8与对照20", "核对intervention_cohort及12周前/8周后观察", "检查price_exposure和固定60日未支付成熟窗"],
+    "forbidden_inferences": ["跨渠道活动直接证明调价因果", "同款不同尺码的人群完全可交换", "窗口内未支付等于永久流失"]
+  },
+  {
+    "case_id": "C10",
+    "story_ids": ["S10"],
+    "question": "周期报告遇到迟到数据，如何等待、重算和保留版本？",
+    "evidence": [
+      {"document_id": "D13", "quote": "关键来源未齐时，保留等待或部分数据说明"},
+      {"document_id": "D15", "quote": "分别保存旧结果、新结果和数据补齐导致的差异，其他口径差异另列。"}
+    ],
+    "expected_behavior": "保持本期窗口与指标，检查各资产就绪；补齐后形成新报告版本，投递结果独立处理。",
+    "structured_checks": ["使用weekly-windows.csv对应期间", "按期查询asset_period_status及source_watermark", "固定指标与筛选复算并记录新知识截止"],
+    "forbidden_inferences": ["用上期数冒充本期", "补齐后静默覆盖原报告", "数据齐备等于邮件已投递"]
+  },
+  {
+    "case_id": "C11",
+    "story_ids": ["S11"],
+    "question": "普通diagnostic包中，11月10日小程序分钟支付样本不足时如何展示？",
+    "evidence": [
+      {"document_id": "D23", "quote": "低于 100 次时保留尝试数及成功数，状态标记为样本不足；不能把缺失比率补成 100% 或认定业务健康。"},
+      {"document_id": "D23", "quote": "没有已确认事件时，不生成故障原因或恢复公告。"}
+    ],
+    "expected_behavior": "展示真实分母及样本不足，保留检测器与业务状态区别；不导入独立demo的故障情节。",
+    "structured_checks": ["按渠道4统计2025-11-10 10:00至11:30的支付尝试", "按分钟核对分母是否达到100", "对照订单最终支付与尝试成功率的不同分母"],
+    "forbidden_inferences": ["样本不足等于正常", "检测器无结果等于业务恢复", "为演示补造故障通知"]
+  },
+  {
+    "case_id": "C12",
+    "story_ids": ["S12"],
+    "question": "留存看板的未成熟、样本不足和零活跃应怎样区分？",
+    "evidence": [
+      {"document_id": "D21", "quote": "队列单元分母至少 100 才展示留存比例；不足时显示样本不足，尚未观察完整月时显示未成熟。"},
+      {"document_id": "D21", "quote": "渠道与区域筛选同时用于队列基数和后续活动。"},
+      {"document_id": "D21", "quote": "其后发生退款不抹去已经发生的首次交付或后续交付活跃；净收入和退款率作为独立指标展示。"}
+    ],
+    "expected_behavior": "固定交付事件留存口径、身份和成熟窗；筛选后重算分母与活跃，分别展示未成熟、样本不足和已知零值。",
+    "structured_checks": ["按订单历史customer_id及revenue_entry的DELIVERY确定首购月", "按相同区域/渠道过滤基数和活动，保留月龄", "检查当月结束时间、数据就绪和分母100条件"],
+    "forbidden_inferences": ["退款抹去交付事件", "未来绑定回填历史会员", "不同比例直接相加", "静态文档核验等于看板在线授权通过"]
+  }
+]

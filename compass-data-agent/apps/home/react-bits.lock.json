@@ -1,0 +1,16 @@
+{
+  "registry": "https://reactbits.dev/r/GhostFibers-JS-CSS.json",
+  "item": "@react-bits/GhostFibers-JS-CSS",
+  "installed": "2026-10-20",
+  "license": "MIT + Commons Clause License Condition v1.0",
+  "license_file": "licenses/react-bits.md",
+  "upstream_files": {
+    "GhostFibers.css": "7df10fe8eeaa2554b8b4f99ab776ff0ba2e6825fe048631939d0cff52015931d",
+    "GhostFibers.jsx": "16ee785d97cdb51428dbe282918685f39ad3365e3d54afb53c92ebc8b30e9c57"
+  },
+  "local_changes": [
+    "Synchronize settingsRef in an effect for React refs lint compatibility."
+  ],
+  "upstream_revision_observed": "e12c22192ac7b4b452c5e2feb9b586d74765d696",
+  "license_source": "https://github.com/DavidHDev/react-bits/blob/e12c22192ac7b4b452c5e2feb9b586d74765d696/LICENSE.md"
+}

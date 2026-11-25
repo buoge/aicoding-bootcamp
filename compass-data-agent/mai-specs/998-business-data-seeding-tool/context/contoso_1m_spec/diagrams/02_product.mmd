@@ -1,0 +1,68 @@
+erDiagram
+    direction TB
+    core_brand {
+        smallint tenant_id PK
+        bigint brand_id PK
+    }
+    core_category {
+        smallint tenant_id PK
+        bigint category_id PK
+        bigint parent_category_id FK
+    }
+    core_sport {
+        smallint tenant_id PK
+        bigint sport_id PK
+    }
+    core_spu {
+        smallint tenant_id PK
+        bigint spu_id PK
+        bigint brand_id FK
+        bigint category_id FK
+    }
+    core_spu_sport {
+        smallint tenant_id PK
+        bigint spu_id PK
+        bigint sport_id PK
+    }
+    core_sku {
+        smallint tenant_id PK
+        bigint sku_id PK
+        bigint spu_id FK
+    }
+    core_channel_listing {
+        smallint tenant_id PK
+        bigint listing_id PK
+        bigint channel_id FK
+        bigint sku_id FK
+        bigint load_batch_id FK
+    }
+    core_price_period {
+        smallint tenant_id PK
+        bigint price_id PK
+        bigint sku_id FK
+        bigint channel_id FK
+        bigint load_batch_id FK
+    }
+    core_cost_period {
+        smallint tenant_id PK
+        bigint cost_id PK
+        bigint sku_id FK
+        bigint load_batch_id FK
+    }
+    core_assortment {
+        smallint tenant_id PK
+        bigint assortment_id PK
+        bigint site_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint load_batch_id FK
+    }
+    core_brand ||--o{ core_spu : "brand_id"
+    core_category ||--o{ core_spu : "category_id"
+    core_spu ||--o{ core_spu_sport : "spu_id"
+    core_sport ||--o{ core_spu_sport : "sport_id"
+    core_spu ||--o{ core_sku : "spu_id"
+    core_sku ||--o{ core_channel_listing : "sku_id"
+    core_sku ||--o{ core_price_period : "sku_id"
+    core_sku ||--o{ core_cost_period : "sku_id"
+    core_sku ||--o{ core_assortment : "sku_id"

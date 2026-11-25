@@ -1,0 +1,464 @@
+[
+  {
+    "gate_id": "H01",
+    "title": "精确订单配额",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint AS violations FROM\n (VALUES (101::smallint,900000::bigint),(102::smallint,50000::bigint),(103::smallint,50000::bigint)) q(tenant_id,n)\n FULL JOIN (SELECT tenant_id,count(*) n FROM core.order_header GROUP BY tenant_id) a USING(tenant_id)\n WHERE q.n IS DISTINCT FROM a.n"
+  },
+  {
+    "gate_id": "H02",
+    "title": "订单日期与唯一活动发布版本",
+    "expected_violations": 0,
+    "sql": "SELECT (SELECT count(*) FROM core.order_header WHERE order_date < DATE '2023-01-01' OR order_date >= DATE '2026-01-01')\n + CASE WHEN (SELECT count(*) FROM ops.dataset_release)=1 THEN 0 ELSE 1 END AS violations"
+  },
+  {
+    "gate_id": "H03",
+    "title": "订单头与订单行数量金额守恒",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_header h LEFT JOIN\n (SELECT tenant_id,order_id,count(*) n,sum(gross_cent) gross,sum(discount_cent) discount,sum(net_cent) net\n FROM core.order_line GROUP BY tenant_id,order_id) l USING(tenant_id,order_id)\n WHERE l.n IS NULL OR h.gross_cent<>l.gross OR h.discount_cent<>l.discount OR h.payable_cent<>l.net"
+  },
+  {
+    "gate_id": "H04",
+    "title": "逻辑单件与行金额数量守恒",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_line l LEFT JOIN\n (SELECT tenant_id,order_line_id,count(*) n,min(unit_no) mn,max(unit_no) mx,sum(gross_cent) gross,sum(discount_cent) discount,sum(net_cent) net\n FROM core.order_unit GROUP BY tenant_id,order_line_id) u USING(tenant_id,order_line_id)\n WHERE u.n IS NULL OR l.quantity<>u.n OR u.mn<>1 OR u.mx<>u.n OR l.gross_cent<>u.gross OR l.discount_cent<>u.discount OR l.net_cent<>u.net"
+  },
+  {
+    "gate_id": "H05",
+    "title": "优惠核销分摊与单件优惠一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_unit u LEFT JOIN\n (SELECT tenant_id,order_unit_id,sum(discount_cent) d FROM core.discount_allocation GROUP BY tenant_id,order_unit_id) a USING(tenant_id,order_unit_id)\n WHERE u.discount_cent<>coalesce(a.d,0)"
+  },
+  {
+    "gate_id": "H06",
+    "title": "成功扣款不超过应付额",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_header h JOIN\n (SELECT tenant_id,order_id,sum(amount_cent) paid FROM core.payment WHERE status='SUCCEEDED' GROUP BY tenant_id,order_id) p USING(tenant_id,order_id)\n WHERE p.paid>h.payable_cent"
+  },
+  {
+    "gate_id": "H07",
+    "title": "每个出库单件必须预先足额收款",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.shipment_item s JOIN core.order_header h USING(tenant_id,order_id)\n WHERE coalesce((SELECT sum(p.amount_cent) FROM core.payment p WHERE p.tenant_id=s.tenant_id AND p.order_id=s.order_id AND p.status='SUCCEEDED' AND p.attempted_at<=s.shipped_at),0)<>h.payable_cent"
+  },
+  {
+    "gate_id": "H08",
+    "title": "退款只能引用成功支付且不能超额",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.payment p JOIN\n (SELECT tenant_id,payment_id,sum(amount_cent) r FROM core.refund WHERE status='SUCCEEDED' GROUP BY tenant_id,payment_id) r USING(tenant_id,payment_id)\n WHERE p.status<>'SUCCEEDED' OR r.r>p.amount_cent"
+  },
+  {
+    "gate_id": "H09",
+    "title": "每次退款分配和等于退款额",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.refund r LEFT JOIN\n (SELECT tenant_id,refund_id,sum(amount_cent) amount FROM core.refund_allocation GROUP BY tenant_id,refund_id) a USING(tenant_id,refund_id)\n WHERE r.amount_cent IS DISTINCT FROM a.amount"
+  },
+  {
+    "gate_id": "H10",
+    "title": "单件累计成功退款不超原净额",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_unit u JOIN\n (SELECT a.tenant_id,a.order_unit_id,sum(a.amount_cent) amount FROM core.refund_allocation a JOIN core.refund r USING(tenant_id,refund_id)\n WHERE r.status='SUCCEEDED' GROUP BY a.tenant_id,a.order_unit_id) a USING(tenant_id,order_unit_id)\n WHERE a.amount>u.net_cent"
+  },
+  {
+    "gate_id": "H11",
+    "title": "退款具备同单件有效业务原因",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.refund r JOIN core.refund_allocation a USING(tenant_id,refund_id)\n WHERE r.status='SUCCEEDED' AND (\n (r.refund_type='RETURN' AND NOT EXISTS(SELECT 1 FROM core.return_event e WHERE e.tenant_id=a.tenant_id AND e.order_unit_id=a.order_unit_id AND e.event_type='ACCEPTED' AND e.event_at<=r.attempted_at))\n OR (r.refund_type='CANCEL' AND NOT EXISTS(SELECT 1 FROM core.order_unit_event e WHERE e.tenant_id=a.tenant_id AND e.order_unit_id=a.order_unit_id AND e.event_type='CANCELLED' AND e.event_at<=r.attempted_at)))"
+  },
+  {
+    "gate_id": "H12",
+    "title": "每包裹物流关键事件幂等",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM (SELECT tenant_id,shipment_id,event_type FROM core.shipment_event\n GROUP BY tenant_id,shipment_id,event_type HAVING count(*)>1) x"
+  },
+  {
+    "gate_id": "H13",
+    "title": "收入交付来源及金额时间一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.revenue_entry r JOIN core.order_unit u USING(tenant_id,order_unit_id)\n LEFT JOIN core.shipment_item i ON i.tenant_id=r.tenant_id AND i.order_unit_id=r.order_unit_id\n LEFT JOIN core.shipment_event e ON e.tenant_id=r.tenant_id AND e.shipment_event_id=r.shipment_event_id\n WHERE r.entry_type='DELIVERY' AND (i.shipment_id IS NULL OR e.shipment_id IS DISTINCT FROM i.shipment_id OR e.event_type<>'DELIVERED' OR r.amount_cent<>u.net_cent OR r.recognized_at<>e.event_at OR r.available_at<greatest(e.available_at,u.available_at,i.available_at))"
+  },
+  {
+    "gate_id": "H14",
+    "title": "收入冲减来源及原单位净额一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.revenue_entry r JOIN core.order_unit u USING(tenant_id,order_unit_id)\n LEFT JOIN core.return_event e ON e.tenant_id=r.tenant_id AND e.return_event_id=r.return_event_id\n WHERE r.entry_type='RETURN_ACCEPTED' AND (e.order_unit_id IS DISTINCT FROM r.order_unit_id OR e.event_type<>'ACCEPTED' OR r.amount_cent<>-u.net_cent OR r.recognized_at<>e.event_at OR r.available_at<greatest(e.available_at,u.available_at))"
+  },
+  {
+    "gate_id": "H15",
+    "title": "每个已交付单件恰有正向收入和成本",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.shipment_item i JOIN core.shipment_event e USING(tenant_id,shipment_id)\n WHERE e.event_type='DELIVERED' AND (\n NOT EXISTS(SELECT 1 FROM core.revenue_entry r WHERE r.tenant_id=i.tenant_id AND r.order_unit_id=i.order_unit_id AND r.entry_type='DELIVERY') OR\n NOT EXISTS(SELECT 1 FROM core.cost_entry c WHERE c.tenant_id=i.tenant_id AND c.order_unit_id=i.order_unit_id AND c.entry_type='DELIVERY'))"
+  },
+  {
+    "gate_id": "H16",
+    "title": "成本必须沿袭同单件原出库批次与事件",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.cost_entry c\n LEFT JOIN core.shipment_item i ON i.tenant_id=c.tenant_id AND i.order_unit_id=c.order_unit_id\n LEFT JOIN core.inventory_lot l ON l.tenant_id=i.tenant_id AND l.lot_id=i.lot_id\n LEFT JOIN core.shipment_event s ON s.tenant_id=c.tenant_id AND s.shipment_event_id=c.shipment_event_id\n LEFT JOIN core.return_event r ON r.tenant_id=c.tenant_id AND r.return_event_id=c.return_event_id\n WHERE c.lot_id IS DISTINCT FROM i.lot_id OR\n (c.entry_type='DELIVERY' AND (c.amount_cent IS DISTINCT FROM l.unit_cost_cent OR s.shipment_id IS DISTINCT FROM i.shipment_id OR s.event_type<>'DELIVERED' OR c.recognized_at<>s.event_at OR c.available_at<greatest(s.available_at,l.available_at,i.available_at))) OR\n (c.entry_type='RESTOCK' AND (c.amount_cent IS DISTINCT FROM -l.unit_cost_cent OR r.order_unit_id IS DISTINCT FROM c.order_unit_id OR r.event_type<>'RESTOCKED' OR c.recognized_at<>r.event_at OR c.available_at<greatest(r.available_at,l.available_at)))"
+  },
+  {
+    "gate_id": "H17",
+    "title": "接受退货前必须已经交付",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.return_event r WHERE r.event_type='ACCEPTED' AND NOT EXISTS\n (SELECT 1 FROM core.shipment_item i JOIN core.shipment_event e USING(tenant_id,shipment_id)\n WHERE i.tenant_id=r.tenant_id AND i.order_unit_id=r.order_unit_id AND e.event_type='DELIVERED' AND e.event_at<=r.event_at)"
+  },
+  {
+    "gate_id": "H18",
+    "title": "退货接受与可售回库都有且仅有相应分录",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.return_event e WHERE\n (e.event_type='ACCEPTED' AND NOT EXISTS(SELECT 1 FROM core.revenue_entry r WHERE r.tenant_id=e.tenant_id AND r.return_event_id=e.return_event_id AND r.entry_type='RETURN_ACCEPTED')) OR\n (e.event_type='RESTOCKED' AND NOT EXISTS(SELECT 1 FROM core.cost_entry c WHERE c.tenant_id=e.tenant_id AND c.return_event_id=e.return_event_id AND c.entry_type='RESTOCK'))"
+  },
+  {
+    "gate_id": "H19",
+    "title": "退货回库沿袭原SKU原成本实际地点",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.return_event e JOIN core.shipment_item i ON i.tenant_id=e.tenant_id AND i.order_unit_id=e.order_unit_id\n JOIN core.inventory_lot old ON old.tenant_id=i.tenant_id AND old.lot_id=i.lot_id\n LEFT JOIN core.inventory_lot n ON n.tenant_id=e.tenant_id AND n.lot_id=e.restocked_lot_id\n WHERE e.event_type='RESTOCKED' AND (n.lot_id IS NULL OR n.parent_lot_id IS DISTINCT FROM i.lot_id OR n.sku_id<>i.sku_id OR n.site_id IS DISTINCT FROM e.site_id OR n.unit_cost_cent<>old.unit_cost_cent OR n.origin_type<>'RETURN')"
+  },
+  {
+    "gate_id": "H20",
+    "title": "调拨或退货新批次成本不重抽",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_lot n LEFT JOIN core.inventory_lot p ON p.tenant_id=n.tenant_id AND p.lot_id=n.parent_lot_id\n WHERE n.origin_type IN ('TRANSFER','RETURN') AND (p.lot_id IS NULL OR p.sku_id<>n.sku_id OR p.unit_cost_cent<>n.unit_cost_cent)"
+  },
+  {
+    "gate_id": "H21",
+    "title": "库存每次原子提交后全部桶非负",
+    "expected_violations": 0,
+    "sql": "WITH tx AS (SELECT tenant_id,site_id,sku_id,business_txn_id,min(event_at) at,min(event_seq) seq,\n sum(sellable_delta) s,sum(quarantine_delta) q,sum(damaged_delta) d,sum(reserved_delta) r,sum(in_transit_delta) t\n FROM core.inventory_movement GROUP BY tenant_id,site_id,sku_id,business_txn_id), b AS\n (SELECT *,sum(s) OVER w bs,sum(q) OVER w bq,sum(d) OVER w bd,sum(r) OVER w br,sum(t) OVER w bt\n FROM tx WINDOW w AS (PARTITION BY tenant_id,site_id,sku_id ORDER BY at,seq,business_txn_id ROWS UNBOUNDED PRECEDING))\n SELECT count(*)::bigint violations FROM b WHERE bs<0 OR bq<0 OR bd<0 OR br<0 OR bt<0 OR br>bs"
+  },
+  {
+    "gate_id": "H22",
+    "title": "库存桶模板与业务动作一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_movement WHERE NOT (\n (movement_type IN ('OPENING','RECEIPT','TRANSFER_IN','RTO_RECEIPT') AND sellable_delta>0 AND quarantine_delta=0 AND damaged_delta=0 AND reserved_delta=0 AND in_transit_delta=0) OR\n (movement_type='RESERVE' AND sellable_delta=0 AND reserved_delta>0 AND quarantine_delta=0 AND damaged_delta=0 AND in_transit_delta=0) OR\n (movement_type='RELEASE' AND sellable_delta=0 AND reserved_delta<0 AND quarantine_delta=0 AND damaged_delta=0 AND in_transit_delta=0) OR\n (movement_type='SHIP' AND sellable_delta=-1 AND reserved_delta=-1 AND quarantine_delta=0 AND damaged_delta=0 AND in_transit_delta=0) OR\n (movement_type='RETURN_RECEIVE' AND sellable_delta=0 AND quarantine_delta=1 AND reserved_delta=0 AND damaged_delta=0 AND in_transit_delta=0) OR\n (movement_type='RESTOCK' AND sellable_delta=1 AND quarantine_delta=-1 AND damaged_delta=0 AND reserved_delta=0 AND in_transit_delta=0) OR\n (movement_type='DAMAGE' AND sellable_delta=0 AND quarantine_delta=-1 AND damaged_delta=1 AND reserved_delta=0 AND in_transit_delta=0) OR\n (movement_type='SCRAP' AND sellable_delta=0 AND quarantine_delta=0 AND damaged_delta<0 AND reserved_delta=0 AND in_transit_delta=0) OR\n (movement_type='TRANSFER_OUT' AND sellable_delta<0 AND quarantine_delta=0 AND damaged_delta=0 AND reserved_delta=0 AND in_transit_delta=0) OR\n (movement_type='TRANSIT_IN' AND sellable_delta=0 AND quarantine_delta=0 AND damaged_delta=0 AND reserved_delta=0 AND in_transit_delta>0) OR\n (movement_type='TRANSIT_OUT' AND sellable_delta=0 AND quarantine_delta=0 AND damaged_delta=0 AND reserved_delta=0 AND in_transit_delta<0))"
+  },
+  {
+    "gate_id": "H23",
+    "title": "库存多态来源键存在且使用正确来源域",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_movement m WHERE\n (source_kind='UNIT_EVENT' AND NOT EXISTS(SELECT 1 FROM core.order_unit_event e WHERE e.tenant_id=m.tenant_id AND e.unit_event_id=m.source_event_id AND e.order_unit_id=m.order_unit_id)) OR\n (source_kind='SHIPMENT_EVENT' AND NOT EXISTS(SELECT 1 FROM core.shipment_event e JOIN core.shipment_item i USING(tenant_id,shipment_id) WHERE e.tenant_id=m.tenant_id AND e.shipment_event_id=m.source_event_id AND i.order_unit_id=m.order_unit_id AND i.sku_id=m.sku_id AND i.from_site_id=m.site_id)) OR\n (source_kind='RETURN_EVENT' AND NOT EXISTS(SELECT 1 FROM core.return_event e WHERE e.tenant_id=m.tenant_id AND e.return_event_id=m.source_event_id AND e.order_unit_id=m.order_unit_id AND e.return_item_id=m.return_item_id AND e.site_id=m.site_id)) OR\n (source_kind='DOCUMENT_LINE' AND NOT EXISTS(SELECT 1 FROM core.inventory_document_line d WHERE d.tenant_id=m.tenant_id AND d.inventory_doc_line_id=m.source_event_id AND d.inventory_doc_line_id=m.inventory_doc_line_id AND d.sku_id=m.sku_id))"
+  },
+  {
+    "gate_id": "H24",
+    "title": "出库库存与履约单件原批次完全一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.shipment_item i LEFT JOIN core.inventory_movement m\n ON m.tenant_id=i.tenant_id AND m.order_unit_id=i.order_unit_id AND m.movement_type='SHIP'\n WHERE m.movement_id IS NULL OR m.lot_id IS DISTINCT FROM i.lot_id OR m.site_id<>i.from_site_id OR m.sku_id<>i.sku_id OR m.event_at<>i.shipped_at"
+  },
+  {
+    "gate_id": "H25",
+    "title": "价格有效期与下单价格快照一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_line l JOIN core.order_header h USING(tenant_id,order_id)\n JOIN core.price_period p USING(tenant_id,price_id)\n LEFT JOIN core.channel_listing c ON c.tenant_id=l.tenant_id AND c.listing_id=l.listing_id\n WHERE h.ordered_at<p.valid_from OR h.ordered_at>=p.valid_to OR p.available_at>h.ordered_at OR l.list_unit_cent<>p.list_price_cent\n OR (c.listing_id IS NOT NULL AND (h.ordered_at<c.valid_from OR h.ordered_at>=c.valid_to OR c.available_at>h.ordered_at))"
+  },
+  {
+    "gate_id": "H26",
+    "title": "价格区间不得重叠",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.price_period a JOIN core.price_period b\n ON a.tenant_id=b.tenant_id AND a.sku_id=b.sku_id AND a.channel_id=b.channel_id AND a.price_id<b.price_id\n WHERE a.valid_from<b.valid_to AND b.valid_from<a.valid_to"
+  },
+  {
+    "gate_id": "H27",
+    "title": "会员下单快照没有未来绑定",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_header h WHERE h.customer_id IS NOT NULL AND NOT EXISTS\n (SELECT 1 FROM core.customer_identity_link l JOIN core.customer c USING(tenant_id,customer_id)\n WHERE l.tenant_id=h.tenant_id AND l.identity_id=h.identity_id AND l.customer_id=h.customer_id\n AND l.linked_at<=h.ordered_at AND l.available_at<=h.ordered_at AND c.joined_at<=h.ordered_at AND c.available_at<=h.ordered_at)"
+  },
+  {
+    "gate_id": "H28",
+    "title": "平台渠道不伪造用户级行为",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.web_session s JOIN core.channel c USING(tenant_id,channel_id)\n WHERE c.channel_type<>'OWNED' OR NOT c.has_user_events"
+  },
+  {
+    "gate_id": "H29",
+    "title": "同源结算行为只能链接同渠道同身份订单",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.behavior_event e JOIN core.web_session s USING(tenant_id,session_id)\n JOIN core.order_header h ON h.tenant_id=e.tenant_id AND h.order_id=e.order_id\n WHERE s.channel_id<>h.channel_id OR s.identity_id IS DISTINCT FROM h.identity_id OR e.event_at<>h.ordered_at"
+  },
+  {
+    "gate_id": "H30",
+    "title": "单触点归因满足身份渠道窗口和可知证据",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_attribution a JOIN core.order_header h USING(tenant_id,order_id)\n JOIN core.channel c ON c.tenant_id=h.tenant_id AND c.channel_id=h.channel_id\n LEFT JOIN core.web_session s ON s.tenant_id=a.tenant_id AND s.session_id=a.session_id\n WHERE (c.channel_type='PLATFORM' AND a.evidence_type<>'UNATTRIBUTABLE') OR\n (a.evidence_type='OWNED_TOUCH' AND (s.identity_id IS DISTINCT FROM h.identity_id OR s.channel_id<>h.channel_id OR s.campaign_id IS DISTINCT FROM a.campaign_id OR a.touch_at<>s.started_at OR a.touch_at>h.ordered_at OR a.touch_at<h.ordered_at-INTERVAL '7 days' OR s.available_at>h.ordered_at OR a.available_at<greatest(s.available_at,h.available_at)))"
+  },
+  {
+    "gate_id": "H31",
+    "title": "营业渠道与下单地点一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_header h JOIN core.channel c USING(tenant_id,channel_id)\n LEFT JOIN core.site s ON s.tenant_id=h.tenant_id AND s.site_id=h.selling_site_id\n WHERE (c.channel_type='OFFLINE' AND (s.site_id IS NULL OR s.site_type='WAREHOUSE' OR h.region_id<>s.region_id OR h.order_date<s.opened_on OR h.order_date>=s.closed_on))\n OR (c.channel_type<>'OFFLINE' AND h.selling_site_id IS NOT NULL)"
+  },
+  {
+    "gate_id": "H32",
+    "title": "失败锁库不能残留成功预留",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_status_event e WHERE e.status='CANCELLED' AND e.reason_code='STOCK_LOCK_FAILED' AND (\n NOT EXISTS(SELECT 1 FROM core.stock_allocation_attempt a WHERE a.tenant_id=e.tenant_id AND a.order_id=e.order_id AND a.outcome='INSUFFICIENT') OR\n EXISTS(SELECT 1 FROM core.order_unit u JOIN core.inventory_movement m USING(tenant_id,order_unit_id) WHERE u.tenant_id=e.tenant_id AND u.order_id=e.order_id AND m.movement_type='RESERVE'))"
+  },
+  {
+    "gate_id": "H33",
+    "title": "未交付退回原仓不生成售后收入或成本冲回",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.shipment_event e JOIN core.shipment_item i USING(tenant_id,shipment_id)\n WHERE e.event_type='RETURNED_TO_ORIGIN' AND (\n EXISTS(SELECT 1 FROM core.revenue_entry r WHERE r.tenant_id=i.tenant_id AND r.order_unit_id=i.order_unit_id) OR\n EXISTS(SELECT 1 FROM core.cost_entry c WHERE c.tenant_id=i.tenant_id AND c.order_unit_id=i.order_unit_id))"
+  },
+  {
+    "gate_id": "H34",
+    "title": "快照的业务日末与知识截止边界正确",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_snapshot\n WHERE as_of<((snapshot_date+1)::timestamp AT TIME ZONE 'Asia/Shanghai') OR available_at<as_of"
+  },
+  {
+    "gate_id": "H35",
+    "title": "费用冲回引用正费用且累计不得超过原金额",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_fee f JOIN\n (SELECT tenant_id,reversal_of_fee_id,min(fee_type) min_type,max(fee_type) max_type,-sum(amount_cent) reversal\n FROM core.order_fee WHERE reversal_of_fee_id IS NOT NULL GROUP BY tenant_id,reversal_of_fee_id) r\n ON r.tenant_id=f.tenant_id AND r.reversal_of_fee_id=f.fee_id\n WHERE f.amount_cent<=0 OR r.reversal>f.amount_cent OR r.min_type<>f.fee_type OR r.max_type<>f.fee_type"
+  },
+  {
+    "gate_id": "H36",
+    "title": "费用发生来源属于本单且不晚于确认时点",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_fee f WHERE\n (f.source_event_kind='PAYMENT' AND NOT EXISTS(SELECT 1 FROM core.payment p WHERE p.tenant_id=f.tenant_id AND p.payment_id=f.source_event_id AND p.order_id=f.order_id AND p.status='SUCCEEDED' AND p.attempted_at<=f.recognized_at AND p.available_at<=f.available_at)) OR\n (f.source_event_kind='SHIPMENT' AND NOT EXISTS(SELECT 1 FROM core.shipment_event e WHERE e.tenant_id=f.tenant_id AND e.shipment_event_id=f.source_event_id AND e.order_id=f.order_id AND e.event_at<=f.recognized_at AND e.available_at<=f.available_at)) OR\n (f.source_event_kind='RETURN' AND NOT EXISTS(SELECT 1 FROM core.return_event e JOIN core.return_item i USING(tenant_id,return_item_id) WHERE e.tenant_id=f.tenant_id AND e.return_event_id=f.source_event_id AND i.order_id=f.order_id AND e.event_at<=f.recognized_at AND e.available_at<=f.available_at)) OR\n (f.source_event_kind='REFUND' AND NOT EXISTS(SELECT 1 FROM core.refund r WHERE r.tenant_id=f.tenant_id AND r.refund_id=f.source_event_id AND r.order_id=f.order_id AND r.status='SUCCEEDED' AND r.attempted_at<=f.recognized_at AND r.available_at<=f.available_at))"
+  },
+  {
+    "gate_id": "B01",
+    "title": "core.channel_listing 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.channel_listing a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B02",
+    "title": "core.assortment 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.assortment a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B03",
+    "title": "core.price_period 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.price_period a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B04",
+    "title": "core.cost_period 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.cost_period a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B05",
+    "title": "core.customer 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.customer a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B06",
+    "title": "core.customer_identity 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.customer_identity a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B07",
+    "title": "core.campaign 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.campaign a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B08",
+    "title": "core.promotion 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.promotion a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B09",
+    "title": "core.order_header 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_header a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B10",
+    "title": "core.order_line 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_line a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B11",
+    "title": "core.order_unit 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_unit a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B12",
+    "title": "core.order_status_event 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_status_event a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B13",
+    "title": "core.discount_allocation 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.discount_allocation a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B14",
+    "title": "core.payment 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.payment a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B15",
+    "title": "core.refund 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.refund a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B16",
+    "title": "core.refund_allocation 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.refund_allocation a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B17",
+    "title": "core.inventory_lot 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_lot a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B18",
+    "title": "core.shipment 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.shipment a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B19",
+    "title": "core.shipment_item 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.shipment_item a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B20",
+    "title": "core.shipment_event 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.shipment_event a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B21",
+    "title": "core.return_header 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.return_header a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B22",
+    "title": "core.return_item 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.return_item a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B23",
+    "title": "core.return_event 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.return_event a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B24",
+    "title": "core.inventory_document 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_document a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B25",
+    "title": "core.inventory_document_line 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_document_line a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B26",
+    "title": "core.inventory_movement 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_movement a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B27",
+    "title": "core.inventory_snapshot 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_snapshot a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B28",
+    "title": "core.revenue_entry 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.revenue_entry a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B29",
+    "title": "core.cost_entry 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.cost_entry a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B30",
+    "title": "core.order_fee 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_fee a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B31",
+    "title": "core.order_unit_event 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_unit_event a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B32",
+    "title": "core.web_session 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.web_session a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B33",
+    "title": "core.behavior_event 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.behavior_event a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B34",
+    "title": "core.campaign_daily 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.campaign_daily a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B35",
+    "title": "core.channel_product_daily 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.channel_product_daily a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B36",
+    "title": "core.store_traffic_daily 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.store_traffic_daily a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B37",
+    "title": "core.order_attribution 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.order_attribution a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B38",
+    "title": "core.target_monthly 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.target_monthly a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B39",
+    "title": "core.customer_identity_link 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.customer_identity_link a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B40",
+    "title": "core.stock_allocation_attempt 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.stock_allocation_attempt a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  },
+  {
+    "gate_id": "B41",
+    "title": "core.inventory_valuation_snapshot 采集到达一致",
+    "expected_violations": 0,
+    "sql": "SELECT count(*)::bigint violations FROM core.inventory_valuation_snapshot a JOIN ops.ingestion_batch b\n ON b.tenant_id=a.tenant_id AND b.batch_id=a.load_batch_id\n WHERE a.available_at<b.received_at OR b.status='FAILED'"
+  }
+]

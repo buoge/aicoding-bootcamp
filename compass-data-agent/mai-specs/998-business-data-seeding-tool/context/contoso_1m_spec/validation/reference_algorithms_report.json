@@ -1,0 +1,211 @@
+{
+  "report_type": "PROTOCOL_REFERENCE_ONLY",
+  "generated_at_utc": "2026-10-19T17:02:58.830964+00:00",
+  "status": "PASS",
+  "checks_total": 14,
+  "checks_passed": 14,
+  "checks_failed": 0,
+  "input_contract_sha256": "d6bfd79e6200c8e3e491ae5e73abb79265e854e9f34988c7c138c0704154cd19",
+  "reference_script_sha256": "af7fca7ce14c51a06ee822e6b4fbb3e50e352ee1d337470510efa1341dc714c7",
+  "python_version": "3.12.14",
+  "cross_language_execution_performed": false,
+  "contoso_fork_executed": false,
+  "domain_generator_executed": false,
+  "order_records_created": 0,
+  "checks": [
+    {
+      "name": "input_schema_and_profile_hashes",
+      "status": "PASS",
+      "evidence": {
+        "config/schema_contract.json": "9196ff9f2921f28af0e5cce7678d600eba908b96390f88a7f534be3481b605ec",
+        "config/profile_1m.yaml": "83b82df2b78f63307010f1e1fb57a645cbcaaea3748ec2c4ffd21c02ee625c7c"
+      }
+    },
+    {
+      "name": "named_uniform52_vector_1",
+      "status": "PASS",
+      "evidence": {
+        "key_utf8": "[\"sha256_named_uniform52_v1\",\"42\",\"101\",\"PROPOSAL\",\"2023-01-01/0000000000\",\"line_count\",\"0\"]",
+        "sha256": "56d4fe44052f4abf2bb21f018409f00120d94ad36a65ba538a0a25774a3b2ccf",
+        "k52": 1527564782818036,
+        "uniform_float64_hex": "0x1.5b53f91014bd2p-2",
+        "uniform_ieee754_binary64_hex": "3fd5b53f91014bd2"
+      }
+    },
+    {
+      "name": "named_uniform52_vector_2",
+      "status": "PASS",
+      "evidence": {
+        "key_utf8": "[\"sha256_named_uniform52_v1\",\"42\",\"101\",\"PROPOSAL\",\"2023-01-01/0000000000\",\"line_0001.quantity\",\"0\"]",
+        "sha256": "c2531b1cfd62fe66530fb4b06ae4001f810fe154816ef86f1b5438c3beb8f6bb",
+        "k52": 3418595087341103,
+        "uniform_float64_hex": "0x1.84a63639fac5fp-1",
+        "uniform_ieee754_binary64_hex": "3fe84a63639fac5f"
+      }
+    },
+    {
+      "name": "named_uniform52_vector_3",
+      "status": "PASS",
+      "evidence": {
+        "key_utf8": "[\"sha256_named_uniform52_v1\",\"42\",\"102\",\"PROPOSAL\",\"2023-01-01/0000000000\",\"line_count\",\"0\"]",
+        "sha256": "d708d3b60c8767fd03c63f2059acd9dcfc5e803e11aa5bc61fcc74ba1f51e445",
+        "k52": 3782926586136694,
+        "uniform_float64_hex": "0x1.ae11a76c190edp-1",
+        "uniform_ieee754_binary64_hex": "3feae11a76c190ed"
+      }
+    },
+    {
+      "name": "cdf_strict_equal_boundary",
+      "status": "PASS",
+      "evidence": {
+        "selected_id": 20
+      }
+    },
+    {
+      "name": "cdf_sort_ids_and_remove_zero",
+      "status": "PASS",
+      "evidence": {
+        "selected_id": 30
+      }
+    },
+    {
+      "name": "cdf_subnormal_total_product_rounds_up",
+      "status": "PASS",
+      "evidence": {
+        "selected_id": 5
+      }
+    },
+    {
+      "name": "cdf_rejects_invalid_inputs",
+      "status": "PASS",
+      "evidence": {
+        "rejected_cases": [
+          "overflow_sum",
+          "all_zero",
+          "negative_weight",
+          "nan_weight",
+          "duplicate_id",
+          "zero_uniform",
+          "one_uniform"
+        ]
+      }
+    },
+    {
+      "name": "integer_money_net_100_three_units",
+      "status": "PASS",
+      "evidence": {
+        "total_cent": 100,
+        "net_unit_cents": [
+          34,
+          33,
+          33
+        ],
+        "sum_cent": 100
+      }
+    },
+    {
+      "name": "integer_money_net_501_two_units",
+      "status": "PASS",
+      "evidence": {
+        "total_cent": 501,
+        "net_unit_cents": [
+          251,
+          250
+        ],
+        "sum_cent": 501
+      }
+    },
+    {
+      "name": "float64_weights_preserve_exact_ratios",
+      "status": "PASS",
+      "evidence": {
+        "source_float64_hex": [
+          "0x1.999999999999ap-4",
+          "0x1.999999999999ap-3",
+          "0x1.3333333333333p-2"
+        ],
+        "exact_integer_weights": [
+          3602879701896397,
+          7205759403792794,
+          10808639105689190
+        ],
+        "allocation": [
+          166667,
+          333333,
+          500000
+        ]
+      }
+    },
+    {
+      "name": "largest_remainder_boundaries",
+      "status": "PASS",
+      "evidence": {
+        "zero_total": "PASS",
+        "stable_key_tie": "PASS",
+        "zero_weight_gets_no_allocation": "PASS",
+        "positive_total_zero_weight_rejected": "PASS"
+      }
+    },
+    {
+      "name": "iso_to_contoso_weekday_projection",
+      "status": "PASS",
+      "evidence": {
+        "iso_monday_first": [
+          92,
+          91,
+          95,
+          97,
+          105,
+          116,
+          112
+        ],
+        "contoso_sunday_first": [
+          112,
+          92,
+          91,
+          95,
+          97,
+          105,
+          116
+        ]
+      }
+    },
+    {
+      "name": "one_million_exact_date_slot_quotas",
+      "status": "PASS",
+      "evidence": {
+        "scope": "协议测试资产；日期配额使用 profile 宏观日历权重的整数等比投影，只检验守恒算法，不冒充完整 Contoso 权重/场景实现，也不创建 order_header",
+        "tenants": [
+          {
+            "tenant_id": 101,
+            "quota": 900000,
+            "actual_slot_sum": 900000,
+            "date_buckets": 1096,
+            "minimum_daily_slots": 436,
+            "maximum_daily_slots": 1555
+          },
+          {
+            "tenant_id": 102,
+            "quota": 50000,
+            "actual_slot_sum": 50000,
+            "date_buckets": 1096,
+            "minimum_daily_slots": 24,
+            "maximum_daily_slots": 86
+          },
+          {
+            "tenant_id": 103,
+            "quota": 50000,
+            "actual_slot_sum": 50000,
+            "date_buckets": 1096,
+            "minimum_daily_slots": 24,
+            "maximum_daily_slots": 86
+          }
+        ],
+        "actual_slot_sum": 1000000,
+        "date_buckets": 3288,
+        "order_records_created": 0,
+        "sorted_date_quota_fixture_sha256": "2c48d50e1b054e45a4e62efaab5e97a42db406ab3f5c06583cb49f76208b26c0"
+      }
+    }
+  ]
+}

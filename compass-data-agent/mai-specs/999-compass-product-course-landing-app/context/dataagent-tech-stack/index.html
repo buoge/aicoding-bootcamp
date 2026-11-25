@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006b46">
+  <meta name="description" content="DataAgent 课程项目技术方案：Turborepo 多语言 Monorepo，Next.js 前端与 BFF，Python Agent API 与 Worker。了解分层技术栈、共享包规范和部署方案。">
+  <title>DataAgent · 项目技术栈与工程架构</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="DataAgent 页面顶部"><span class="brand-mark" aria-hidden="true">D</span><strong>DataAgent</strong><span class="brand-caption">课程贯穿项目</span></a>
+    <nav aria-label="页面导航"><a href="#architecture">系统架构</a><a href="#stack">分层技术栈</a><a href="#scaffold">工程目录</a><a href="#deployment">部署方案</a></nav>
+    <span class="edition">V5 课程 · 技术方案</span>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="wrap hero-content">
+      <p class="hero-eyebrow">企业级 Agent 工程架构进阶营</p>
+      <h1 id="hero-title">DataAgent<br><span>项目技术栈与工程架构</span></h1>
+      <p class="hero-lead">从经营问题出发，完成数据查询、隔离计算与证据报告。<br class="desktop-break">在同一个项目里，学习 Agent 如何执行、恢复和验证。</p>
+      <div class="hero-points"><p>Next.js 承载前端与 BFF</p><p>Python 执行分析任务</p><p>Turborepo 组织多应用工程</p></div>
+      <a class="button button-orange" href="#architecture">查看系统架构 <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <div class="wrap foundation-strip" aria-label="技术方案概览">
+    <dl><dt>工程组织</dt><dd>Turborepo Monorepo</dd><dd class="foundation-detail">apps 独立部署 · packages 按需复用</dd></dl>
+    <dl><dt>Web 应用</dt><dd>Next.js 前端 + BFF</dd><dd class="foundation-detail">页面、会话、聚合 · 一个 Node 应用</dd></dl>
+    <dl><dt>任务执行</dt><dd>Python + Temporal</dd><dd class="foundation-detail">领域 API 与 Worker 分工 · 长任务可恢复</dd></dl>
+  </div>
+
+  <section class="section project-section" aria-labelledby="project-title">
+    <div class="wrap">
+      <div class="section-heading"><p class="overline">项目场景</p><h2 id="project-title">“华东区 GMV 为什么下降？”</h2><p>业务用户提出问题，DataAgent 给出可核对的分析过程与结论。</p></div>
+      <div class="case-sheet">
+        <div class="case-question"><span class="small-label">一次经营分析任务</span><h3>先确认口径，<br>再解释变化。</h3><p>地区、时间、指标与数据权限共同决定这次分析能回答什么。</p><span class="case-tag">零售经营分析</span></div>
+        <ol class="case-steps">
+          <li><span class="step-number">01</span><div><h4>确认问题</h4><p>明确 GMV 口径、对比周期和可访问的数据范围。</p></div></li>
+          <li><span class="step-number">02</span><div><h4>查询与计算</h4><p>使用只读数据源，分解地区、品类与渠道的变化。</p></div></li>
+          <li><span class="step-number">03</span><div><h4>核对证据</h4><p>保留查询、计算产物和指标版本，检查结论是否有依据。</p></div></li>
+          <li><span class="step-number">04</span><div><h4>提交报告</h4><p>展示结果、限制与调整草稿，供业务负责人复核。</p></div></li>
+        </ol>
+      </div>
+      <p class="scope-caption">起步版本（M0）只做只读分析和不可变调整草稿；真实业务写入属于后续候选能力。</p>
+    </div>
+  </section>
+
+  <section class="section mint-section" id="architecture" aria-labelledby="architecture-title">
+    <div class="wrap">
+      <div class="section-heading"><p class="overline">系统架构</p><h2 id="architecture-title">企业级 Agent 的完整分层架构</h2><p>从前端应用到部署基础设施，展开业务服务、执行组件、数据存储与跨层治理。</p></div>
+      <figure class="architecture-figure">
+        <div class="architecture-canvas" tabindex="0" role="region" aria-label="完整分层架构图，可横向滚动查看">
+          <a href="visuals/system-architecture.png" target="_blank" rel="noopener" aria-label="打开完整分层架构原图"><img src="visuals/system-architecture.png" width="1402" height="1122" loading="lazy" alt="DataAgent 八层完整架构：应用体验、接入与 BFF、FastAPI 领域服务、Outbox 与 Temporal 持久调度、Worker 内 Agent Runtime、模型工具接入与隔离 Sandbox、五类数据存储、容器与部署基础设施。右侧是安全治理和可观测评测；底栏是 Turborepo、pnpm、uv 工程组织。Next.js 前端与 BFF 同属 apps/web；各业务模块不等于独立微服务。"></a>
+        </div>
+        <figcaption><span>完整目标架构 · 后续能力按阶段引入</span><a href="visuals/system-architecture.png" target="_blank" rel="noopener">打开原图放大 ↗</a></figcaption>
+      </figure>
+      <p class="diagram-scroll-hint">图中内容较多，可横向滚动，或打开原图放大查看。</p>
+      <div class="architecture-notes"><p><strong>分层与部署分开理解</strong>Next.js UI 与 BFF 同属 apps/web。FastAPI 业务模块留在 API；Harness、Context、Knowledge、Memory 及模型与查询适配先在 Worker 内。Sandbox Gateway 与隔离执行器独立。</p><p><strong>数据与治理贯穿执行</strong>平台库、Web 会话、向量索引、证据产物和 Temporal 历史各有归属。身份、租户权限、执行策略、审计、遥测和评测贯穿各层。</p></div>
+      <p class="fine-print">本图展示 M0–M5 目标范围，逻辑模块不代表独立微服务。M0 只读分析；Action 写入、扩展应用与 Kubernetes 按后续阶段和实际需要引入。工程工具不属于线上请求链。</p>
+    </div>
+  </section>
+
+  <section class="section" id="stack" aria-labelledby="stack-title">
+    <div class="wrap">
+      <div class="section-heading"><p class="overline">分层技术栈</p><h2 id="stack-title">每一层都能找到对应的工程问题</h2><p>复用成熟基础设施，保留需要学习和验证的 Agent 机制。</p></div>
+      <div class="stack-table" role="region" aria-label="分层技术栈表" tabindex="0">
+        <table>
+          <thead><tr><th scope="col">层次</th><th scope="col">技术选择</th><th scope="col">在项目中负责什么</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><span class="layer-number">01</span>前端与 BFF</th><td><strong>Next.js · React · TypeScript</strong><small>Tailwind CSS · shadcn/ui · ECharts</small></td><td>工作台、会话、页面聚合与流式交互。前端和 BFF 位于同一个 app。</td></tr>
+            <tr><th scope="row"><span class="layer-number">02</span>领域 API</th><td><strong>FastAPI · Pydantic · HTTPX</strong><small>OpenAPI → TypeScript 类型与客户端</small></td><td>业务授权、任务命令、持久事件。所有操作在服务端检查租户与资源权限。</td></tr>
+            <tr><th scope="row"><span class="layer-number">03</span>Agent 执行</th><td><strong>Python 薄 Harness · LLM Runtime</strong><small>PydanticAI Direct / Provider Adapter</small></td><td>计划、工具调用、验证、预算与停止条件。模型适配不接管整个执行循环。</td></tr>
+            <tr><th scope="row"><span class="layer-number">04</span>可靠运行</th><td><strong>Temporal · Python Worker</strong><small>Outbox · 幂等 · 超时与取消</small></td><td>长任务恢复与等待。模型、数据库、工具 I/O 放在 Activity 边界。</td></tr>
+            <tr><th scope="row"><span class="layer-number">05</span>数据与计算</th><td><strong>PostgreSQL · pgvector · S3</strong><small>SQLAlchemy · SQLGlot · DuckDB · pandas</small></td><td>业务状态、检索与证据。只读查询受控，生成代码在独立 Sandbox 中运行。</td></tr>
+            <tr><th scope="row"><span class="layer-number">06</span>质量与工程</th><td><strong>Turborepo · pnpm · uv</strong><small>OpenTelemetry · pytest · Playwright · Eval</small></td><td>管理构建、依赖与回归。任务结果、过程、成本和故障恢复分别检验。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="scope-caption">按阶段引入依赖：M0 先跑通分析，M2 加入持久执行，后续完善知识、记忆与评测。</p>
+    </div>
+  </section>
+
+  <section class="section mint-section bff-section" id="bff" aria-labelledby="bff-title">
+    <div class="wrap bff-layout">
+      <div class="bff-intro"><p class="overline">Next.js 应用边界</p><h2 id="bff-title">前端与 BFF，<br>在一个 app 内交付。</h2><p>Next.js 面向页面和交互，Python 面向 Agent 业务。两者通过领域 API 协作，可分别构建与部署。</p><code class="path-label">apps/web</code><p class="subtle">SSR 按页面需要使用。聊天、图表和筛选保留客户端交互。</p></div>
+      <div class="responsibility-panel">
+        <div class="panel-heading"><span class="window-dot"></span><span>一次请求经过哪里</span><code>Node.js → Python</code></div>
+        <div class="request-route"><span>浏览器</span><b aria-hidden="true">→</b><span>Next.js BFF</span><b aria-hidden="true">→</b><span>Agent API</span></div>
+        <dl class="responsibility-list">
+          <div><dt>Next.js 处理</dt><dd>登录会话、页面数据聚合、输入初检、任务提交与 SSE 转发。</dd></div>
+          <div><dt>Agent API 检查</dt><dd>委托身份、租户成员关系、资源权限、业务状态与幂等键。</dd></div>
+          <div><dt>Worker 执行</dt><dd>长任务、模型调用、查询与计算。浏览器断开后，任务仍按其生命周期运行。</dd></div>
+        </dl>
+        <p class="panel-footnote">服务端组件直接调用内部 API client；客户端交互走同域 BFF。取消任务需要独立命令。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="scaffold" aria-labelledby="scaffold-title">
+    <div class="wrap">
+      <div class="section-heading"><p class="overline">Turborepo Monorepo</p><h2 id="scaffold-title">应用放 apps，共享资产放 packages</h2><p>增加应用时沿用同一工程约定，保留各自的配置、依赖和部署入口。</p></div>
+      <div class="scaffold-layout">
+        <div class="tree-panel"><div class="tree-heading"><strong>dataagent/</strong><span>可靠执行阶段 · 目标目录</span></div><pre aria-label="DataAgent 目标项目目录"><code><span class="tree-folder">apps/</span>
+  <em>web/</em>              Next.js 前端 + BFF
+  <em>agent-api/</em>        FastAPI 领域 API
+  <em>worker/</em>           Python / Temporal
+  <em>dispatcher/</em>       Outbox 投递
+  <em>sandbox-gateway/</em>  隔离作业控制
+<span class="tree-folder">packages/</span>
+  <em>agent-core/</em>       API + Worker 共用核心
+<span class="tree-folder">contracts/</span>          导出的 API / 事件契约
+<span class="tree-folder">evals/</span>              评测用例与数据
+<span class="tree-folder">deploy/</span>             容器与 Compose
+<span class="tree-folder">turbo.json</span>          任务图与缓存规则
+<span class="tree-folder">pnpm-workspace.yaml</span> Node 工作区
+<span class="tree-folder">pyproject.toml</span>      Python 工作区
+<span class="tree-folder">pnpm-lock.yaml · uv.lock</span></code></pre></div>
+        <div class="scaffold-explanation">
+          <article><span class="small-label">任务编排</span><h3>Turborepo 管构建，uv 管 Python。</h3><p>Python app 用私有 <code>package.json</code> 暴露构建和检查任务，运行依赖仍声明在 <code>pyproject.toml</code>。CI 校验两边的内部依赖关系。</p></article>
+          <article><span class="small-label">共享规则</span><h3>两个及以上 app 使用，才提取为包。</h3><p>API 与 Worker 共用 <code>agent-core</code>。只有 Web 使用的组件留在 Web；加入管理端后，再提取共同需要的 UI 和客户端。</p></article>
+          <article><span class="small-label">扩展方式</span><h3>新增 app，接入既有任务与契约。</h3><p>管理端可新增 <code>apps/admin</code>；独立服务建立自己的 API、镜像与数据职责。app 之间通过接口协作，不导入对方源码。</p></article>
+        </div>
+      </div>
+      <div class="package-example"><p><strong>第二个 Web app 出现后</strong><span>按实际复用提取，以下目录不提前占位。</span></p><div><code>packages/ui</code><span>web + admin</span><code>packages/api-client</code><span>web + admin</span><code>packages/typescript-config</code><span>两个 TS app</span></div></div>
+      <p class="fine-print">Next.js 的 UI 和 BFF 算同一个 app。M0 尚无 Worker 时，共用核心先留在 API；真实复用出现后再提取。</p>
+    </div>
+  </section>
+
+  <section class="section deployment-section" id="deployment" aria-labelledby="deployment-title">
+    <div class="wrap">
+      <div class="section-heading light-heading"><p class="overline">部署方案</p><h2 id="deployment-title">同仓开发，按应用部署</h2><p>Web、API 与 Worker 各有镜像；共享包变化触发相关应用的检查和构建。</p></div>
+      <div class="deployment-grid">
+        <article><span class="deployment-stage">M0 · 最小环境</span><h3>先跑通一条分析链路</h3><ul><li>Next.js Node 应用</li><li>FastAPI + 进程内 Runner</li><li>PostgreSQL + 本地产物</li><li>受控数据与隔离计算实验</li></ul><p>进程重启后，未完成任务标记为中断，需要明确重新发起。</p></article>
+        <article><span class="deployment-stage">M2 · 可靠执行</span><h3>把执行从 API 中分离</h3><ul><li>Next.js + API 独立进程</li><li>Temporal + Worker + Dispatcher</li><li>Sandbox Gateway + 执行器</li><li>S3 产物与持久数据库</li></ul><p>用 Docker Compose 复现环境，验证重复投递、失败恢复与等待。</p></article>
+        <article><span class="deployment-stage">后期 · 云端参考</span><h3>按负载与边界扩容</h3><ul><li>Ingress + Web / API 副本</li><li>按任务类型划分 Worker 池</li><li>独立隔离执行节点</li><li>数据库、S3 与 Temporal 运维</li></ul><p>容量、权限和恢复目标决定部署方式；Kubernetes 作为后期选项。</p></article>
+      </div>
+      <div class="deployment-foot"><strong>部署时重点验证</strong><span>SSE 全链路不缓冲</span><span>会话跨副本有效</span><span>迁移只执行一次</span><span>API 兼容滚动升级</span></div>
+    </div>
+  </section>
+
+  <section class="section questions-section" aria-labelledby="questions-title">
+    <div class="wrap narrow-wrap">
+      <div class="section-heading"><p class="overline">选型说明</p><h2 id="questions-title">几个容易混淆的决定</h2></div>
+      <details open><summary>用了 Monorepo，就等于用了微服务吗？</summary><p>仓库组织和运行架构是两个维度。API 与 Worker 共享领域包、数据库并协调发布时，仍属于模块化后端。拆为独立微服务还需要稳定契约、数据所有权和运维边界。</p></details>
+      <details><summary>所有公共代码都要马上放进 packages 吗？</summary><p>先记录真实消费者。单应用内可复用的代码仍留在 app；两个应用确实使用同一能力，再提取公开入口与兼容规则。跨语言共享依靠 API / Schema，Python 库不能直接成为浏览器依赖。</p></details>
+      <details><summary>哪些 Turbo 任务适合缓存？</summary><p>确定性的构建、静态检查和离线单测可以缓存。迁移、seed、部署、真实模型评测与外部状态测试不缓存。锁文件、工具链与构建环境变化必须使相关缓存失效。</p></details>
+      <details><summary>这张宣传页也需要 Next.js 吗？</summary><p>本页是独立的静态课程介绍，可直接打开或静态托管。Next.js 是 DataAgent 产品应用的技术选择，承担实际工作台和 BFF。</p></details>
+      <div class="reading"><h3>官方资料</h3><p><a href="https://turborepo.com/docs/crafting-your-repository/structuring-a-repository" target="_blank" rel="noopener">Turborepo 仓库结构 ↗</a><a href="https://nextjs.org/docs/app/guides/backend-for-frontend" target="_blank" rel="noopener">Next.js BFF ↗</a><a href="https://docs.astral.sh/uv/concepts/projects/workspaces/" target="_blank" rel="noopener">uv workspace ↗</a><a href="https://docs.temporal.io/develop/python" target="_blank" rel="noopener">Temporal Python ↗</a></p></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><div><strong>DataAgent</strong><p>企业级 Agent 工程架构进阶营 · V5 贯穿项目</p></div><p>技术方案评审稿 · 2026.09<br>依赖版本与运行工程将在实施阶段验证</p><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

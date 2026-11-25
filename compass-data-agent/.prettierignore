@@ -1,0 +1,40 @@
+# Dependencies, caches, build output, and generated contracts.
+node_modules/
+.venv/
+.next/
+.next-export/
+.turbo/
+.ruff_cache/
+.pytest_cache/
+__pycache__/
+dist/
+out/
+coverage/
+work/
+build/
+*.tsbuildinfo
+next-env.d.ts
+pnpm-lock.yaml
+uv.lock
+/contracts/
+/data/retail/compass-retail.sql
+/data/retail/.prepare-*/
+**/generated/
+
+# Inputs, copied assets, and separately managed AI infrastructure.
+/mai-specs/
+/.agents/
+/.cursor/
+/.codex/
+/.my-ai-infra*/
+/.my-ai-infra.json
+**/.openai/
+**/reference/
+**/public/
+/tools/data-seed/src/compass_data_seed/catalogs/
+
+# Preserve the imported React Bits source and its upstream provenance.
+/apps/home/src/components/GhostFibers.jsx
+/apps/home/src/components/GhostFibers.css
+/apps/home/react-bits.lock.json
+/apps/home/licenses/

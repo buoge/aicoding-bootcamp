@@ -1,0 +1,83 @@
+erDiagram
+    direction TB
+    core_site {
+        smallint tenant_id PK
+        bigint site_id PK
+        bigint org_unit_id FK
+        bigint geo_id FK
+        bigint region_id FK
+    }
+    core_sku {
+        smallint tenant_id PK
+        bigint sku_id PK
+        bigint spu_id FK
+    }
+    core_inventory_lot {
+        smallint tenant_id PK
+        bigint lot_id PK
+        bigint site_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint parent_lot_id FK
+        bigint cost_id FK
+        bigint load_batch_id FK
+    }
+    core_inventory_document {
+        smallint tenant_id PK
+        bigint inventory_doc_id PK
+        bigint from_site_id FK
+        bigint to_site_id FK
+        bigint region_id FK
+        bigint load_batch_id FK
+    }
+    core_inventory_document_line {
+        smallint tenant_id PK
+        bigint inventory_doc_line_id PK
+        bigint inventory_doc_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint load_batch_id FK
+    }
+    core_inventory_movement {
+        smallint tenant_id PK
+        bigint movement_id PK
+        bigint site_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint lot_id FK
+        bigint inventory_doc_line_id FK
+        bigint order_unit_id FK
+        bigint return_item_id FK
+        bigint load_batch_id FK
+    }
+    core_inventory_snapshot {
+        smallint tenant_id PK
+        date snapshot_date PK
+        bigint site_id PK
+        bigint region_id FK
+        bigint sku_id PK
+        timestamptz as_of PK
+        bigint load_batch_id FK
+    }
+    core_inventory_valuation_snapshot {
+        smallint tenant_id PK
+        date snapshot_date PK
+        bigint site_id PK
+        bigint region_id FK
+        bigint sku_id PK
+        timestamptz as_of PK
+        bigint load_batch_id FK
+    }
+    core_site ||--o{ core_inventory_lot : "site_id,region_id"
+    core_sku ||--o{ core_inventory_lot : "sku_id"
+    core_site |o--o{ core_inventory_document : "from_site_id"
+    core_sku ||--o{ core_inventory_document_line : "sku_id"
+    core_inventory_document ||--o{ core_inventory_document_line : "inventory_doc_id,region_id"
+    core_site ||--o{ core_inventory_movement : "site_id,region_id"
+    core_sku ||--o{ core_inventory_movement : "sku_id"
+    core_inventory_lot |o--o{ core_inventory_movement : "lot_id,site_id,sku_id"
+    core_inventory_document_line |o--o{ core_inventory_movement : "inventory_doc_line_id"
+    core_site ||--o{ core_inventory_snapshot : "site_id,region_id"
+    core_sku ||--o{ core_inventory_snapshot : "sku_id"
+    core_site ||--o{ core_inventory_valuation_snapshot : "site_id,region_id"
+    core_sku ||--o{ core_inventory_valuation_snapshot : "sku_id"

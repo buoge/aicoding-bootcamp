@@ -1,0 +1,65 @@
+erDiagram
+    direction TB
+    core_order_unit {
+        smallint tenant_id PK
+        bigint order_unit_id PK
+        bigint order_line_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint load_batch_id FK
+    }
+    core_shipment_event {
+        smallint tenant_id PK
+        bigint shipment_event_id PK
+        bigint shipment_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint from_site_id FK
+        bigint load_batch_id FK
+    }
+    core_return_event {
+        smallint tenant_id PK
+        bigint return_event_id PK
+        bigint return_item_id FK
+        bigint order_unit_id FK
+        bigint region_id FK
+        bigint site_id FK
+        bigint restocked_lot_id FK
+        bigint load_batch_id FK
+    }
+    core_revenue_entry {
+        smallint tenant_id PK
+        bigint revenue_entry_id PK
+        bigint order_unit_id FK
+        bigint region_id FK
+        bigint shipment_event_id FK
+        bigint return_event_id FK
+        bigint load_batch_id FK
+    }
+    core_cost_entry {
+        smallint tenant_id PK
+        bigint cost_entry_id PK
+        bigint order_unit_id FK
+        bigint region_id FK
+        bigint lot_id FK
+        bigint shipment_event_id FK
+        bigint return_event_id FK
+        bigint load_batch_id FK
+    }
+    core_order_fee {
+        smallint tenant_id PK
+        bigint fee_id PK
+        bigint order_id FK
+        bigint region_id FK
+        bigint order_unit_id FK
+        bigint load_batch_id FK
+        bigint reversal_of_fee_id FK
+    }
+    core_order_unit ||--o{ core_revenue_entry : "order_unit_id,region_id"
+    core_shipment_event |o--o{ core_revenue_entry : "shipment_event_id"
+    core_return_event |o--o{ core_revenue_entry : "return_event_id"
+    core_order_unit ||--o{ core_cost_entry : "order_unit_id,region_id"
+    core_shipment_event |o--o{ core_cost_entry : "shipment_event_id"
+    core_return_event |o--o{ core_cost_entry : "return_event_id"
+    core_order_unit |o--o{ core_order_fee : "order_unit_id,order_id,region_id"

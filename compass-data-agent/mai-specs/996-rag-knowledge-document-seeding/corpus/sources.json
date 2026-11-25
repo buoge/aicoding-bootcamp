@@ -1,0 +1,2237 @@
+{
+  "spu-1": {
+    "kind": "records",
+    "table": "core.spu",
+    "files": [
+      {
+        "path": "tables/core.spu/all.csv",
+        "sha256": "4c6a85e7c86bcaa247b83a992274a414afc21b1682dec5dc3d60a23ce3e2045b",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.spu/all.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "spu_id": "1"
+        },
+        "values": {
+          "tenant_id": "101",
+          "spu_id": "1",
+          "brand_id": "3",
+          "category_id": "100",
+          "spu_code": "101-P001",
+          "spu_name": "山野·岚行轻量软壳夹克",
+          "audience": "UNISEX",
+          "season_code": "SPRING_AUTUMN",
+          "launch_on": "2021-08-14",
+          "discontinue_on": "",
+          "attributes": "{\"synthetic\": true, \"product_type\": \"软壳夹克\", \"material\": \"聚酯弹力软壳\", \"features\": [\"防风\", \"弹力\"], \"family\": \"softshell\"}"
+        },
+        "row_sha256": "59962de1bfd62efdeee4c73662589964573b97aa816b64e83c905a89830f959d"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "spu-2": {
+    "kind": "records",
+    "table": "core.spu",
+    "files": [
+      {
+        "path": "tables/core.spu/all.csv",
+        "sha256": "4c6a85e7c86bcaa247b83a992274a414afc21b1682dec5dc3d60a23ce3e2045b",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.spu/all.csv",
+        "csv_row_number": 3,
+        "key": {
+          "tenant_id": "101",
+          "spu_id": "2"
+        },
+        "values": {
+          "tenant_id": "101",
+          "spu_id": "2",
+          "brand_id": "2",
+          "category_id": "101",
+          "spu_code": "101-P002",
+          "spu_name": "逐风·晨露网眼速干短袖",
+          "audience": "UNISEX",
+          "season_code": "SUMMER",
+          "launch_on": "2021-06-23",
+          "discontinue_on": "2025-11-01",
+          "attributes": "{\"synthetic\": true, \"product_type\": \"跑步上衣\", \"material\": \"聚酯网眼速干面料\", \"features\": [\"速干\", \"透气\"], \"family\": \"running_top\"}"
+        },
+        "row_sha256": "c7c1550137afee27b54fcee01bd4d7f2dc1015e2c4b76fefec350e4fc92499e8"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "spu-35": {
+    "kind": "records",
+    "table": "core.spu",
+    "files": [
+      {
+        "path": "tables/core.spu/all.csv",
+        "sha256": "4c6a85e7c86bcaa247b83a992274a414afc21b1682dec5dc3d60a23ce3e2045b",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.spu/all.csv",
+        "csv_row_number": 36,
+        "key": {
+          "tenant_id": "101",
+          "spu_id": "35"
+        },
+        "values": {
+          "tenant_id": "101",
+          "spu_id": "35",
+          "brand_id": "2",
+          "category_id": "101",
+          "spu_code": "101-P035",
+          "spu_name": "逐风·晨跑二代透气短袖",
+          "audience": "UNISEX",
+          "season_code": "SUMMER",
+          "launch_on": "2024-03-18",
+          "discontinue_on": "",
+          "attributes": "{\"synthetic\": true, \"product_type\": \"跑步上衣\", \"material\": \"聚酯网眼速干面料\", \"features\": [\"速干\", \"透气\"], \"family\": \"running_top\"}"
+        },
+        "row_sha256": "5e95370c3b5aee6079d034a3c9ae61b55a25f565f22c816a9b17eb9500a3aa51"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "spu-37": {
+    "kind": "records",
+    "table": "core.spu",
+    "files": [
+      {
+        "path": "tables/core.spu/all.csv",
+        "sha256": "4c6a85e7c86bcaa247b83a992274a414afc21b1682dec5dc3d60a23ce3e2045b",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.spu/all.csv",
+        "csv_row_number": 38,
+        "key": {
+          "tenant_id": "101",
+          "spu_id": "37"
+        },
+        "values": {
+          "tenant_id": "101",
+          "spu_id": "37",
+          "brand_id": "2",
+          "category_id": "200",
+          "spu_code": "101-P037",
+          "spu_name": "逐风·晨跑 R100 缓震跑鞋",
+          "audience": "UNISEX",
+          "season_code": "ALL",
+          "launch_on": "2022-07-29",
+          "discontinue_on": "",
+          "attributes": "{\"synthetic\": true, \"product_type\": \"缓震跑鞋\", \"material\": \"网布鞋面与弹性泡棉中底\", \"features\": [\"缓震\", \"透气\"], \"family\": \"road_shoe\"}"
+        },
+        "row_sha256": "3d32e09880a791c4326aa2ae5bf6f63c3578080d5eb2556bbdb53b04b0049338"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "skus-1": {
+    "kind": "records",
+    "table": "core.sku",
+    "files": [
+      {
+        "path": "tables/core.sku/all.csv",
+        "sha256": "1155b5e386e1e8822e3cfe79027e39bff2f5bffcce87c5c50df2027d5448171b",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "1"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "1",
+          "spu_id": "1",
+          "sku_code": "101-P001-1",
+          "color_code": "BLACK",
+          "size_system": "ALPHA",
+          "size_value": "S",
+          "spec_key": "{\"color\":\"BLACK\",\"size_system\":\"ALPHA\",\"size_value\":\"S\"}",
+          "spec_attributes": "{\"color\": \"BLACK\", \"size_system\": \"ALPHA\", \"size_value\": \"S\", \"weight_grams\": 430, \"color_name\": \"墨黑\"}",
+          "weight_grams": "430",
+          "launch_on": "2021-08-14",
+          "discontinue_on": ""
+        },
+        "row_sha256": "0ed342e400f322a6304a6a48ee38a96d991def731e947e64f32ea189e1dad703"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 3,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "2"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "2",
+          "spu_id": "1",
+          "sku_code": "101-P001-2",
+          "color_code": "BLACK",
+          "size_system": "ALPHA",
+          "size_value": "M",
+          "spec_key": "{\"color\":\"BLACK\",\"size_system\":\"ALPHA\",\"size_value\":\"M\"}",
+          "spec_attributes": "{\"color\": \"BLACK\", \"size_system\": \"ALPHA\", \"size_value\": \"M\", \"weight_grams\": 430, \"color_name\": \"墨黑\"}",
+          "weight_grams": "430",
+          "launch_on": "2021-08-14",
+          "discontinue_on": ""
+        },
+        "row_sha256": "c5d6f6701e9fac278823bbbcf530e2beeb6a86e7bb3c0a454f5e757e13a3075b"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 4,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "3"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "3",
+          "spu_id": "1",
+          "sku_code": "101-P001-3",
+          "color_code": "BLACK",
+          "size_system": "ALPHA",
+          "size_value": "L",
+          "spec_key": "{\"color\":\"BLACK\",\"size_system\":\"ALPHA\",\"size_value\":\"L\"}",
+          "spec_attributes": "{\"color\": \"BLACK\", \"size_system\": \"ALPHA\", \"size_value\": \"L\", \"weight_grams\": 430, \"color_name\": \"墨黑\"}",
+          "weight_grams": "430",
+          "launch_on": "2021-08-14",
+          "discontinue_on": ""
+        },
+        "row_sha256": "271da0dcc7b6ec9f83376bf977c72a97ac63d3c6bc60cf1c3a81d44d9407b99c"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 5,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "4"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "4",
+          "spu_id": "1",
+          "sku_code": "101-P001-4",
+          "color_code": "BLACK",
+          "size_system": "ALPHA",
+          "size_value": "XL",
+          "spec_key": "{\"color\":\"BLACK\",\"size_system\":\"ALPHA\",\"size_value\":\"XL\"}",
+          "spec_attributes": "{\"color\": \"BLACK\", \"size_system\": \"ALPHA\", \"size_value\": \"XL\", \"weight_grams\": 430, \"color_name\": \"墨黑\"}",
+          "weight_grams": "430",
+          "launch_on": "2021-08-14",
+          "discontinue_on": ""
+        },
+        "row_sha256": "098d0e8f4bda21d5ae00e284efc3366821bc981f2359c156c6e6dde3b64f68d6"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 6,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "5"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "5",
+          "spu_id": "1",
+          "sku_code": "101-P001-5",
+          "color_code": "MOSS_GREEN",
+          "size_system": "ALPHA",
+          "size_value": "S",
+          "spec_key": "{\"color\":\"MOSS_GREEN\",\"size_system\":\"ALPHA\",\"size_value\":\"S\"}",
+          "spec_attributes": "{\"color\": \"MOSS_GREEN\", \"size_system\": \"ALPHA\", \"size_value\": \"S\", \"weight_grams\": 430, \"color_name\": \"苔绿\"}",
+          "weight_grams": "430",
+          "launch_on": "2021-08-14",
+          "discontinue_on": ""
+        },
+        "row_sha256": "3000d8107031c823a87d43acbee122ff45eb1eeaec8caeee04592d1f555e29a2"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 7,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "6"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "6",
+          "spu_id": "1",
+          "sku_code": "101-P001-6",
+          "color_code": "MOSS_GREEN",
+          "size_system": "ALPHA",
+          "size_value": "M",
+          "spec_key": "{\"color\":\"MOSS_GREEN\",\"size_system\":\"ALPHA\",\"size_value\":\"M\"}",
+          "spec_attributes": "{\"color\": \"MOSS_GREEN\", \"size_system\": \"ALPHA\", \"size_value\": \"M\", \"weight_grams\": 430, \"color_name\": \"苔绿\"}",
+          "weight_grams": "430",
+          "launch_on": "2021-08-14",
+          "discontinue_on": ""
+        },
+        "row_sha256": "cffed3fce9e35494fd8f3958d644bb11124266e2bceab160a2e1c30e68e7b163"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 8,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "7"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "7",
+          "spu_id": "1",
+          "sku_code": "101-P001-7",
+          "color_code": "MOSS_GREEN",
+          "size_system": "ALPHA",
+          "size_value": "L",
+          "spec_key": "{\"color\":\"MOSS_GREEN\",\"size_system\":\"ALPHA\",\"size_value\":\"L\"}",
+          "spec_attributes": "{\"color\": \"MOSS_GREEN\", \"size_system\": \"ALPHA\", \"size_value\": \"L\", \"weight_grams\": 430, \"color_name\": \"苔绿\"}",
+          "weight_grams": "430",
+          "launch_on": "2021-08-14",
+          "discontinue_on": ""
+        },
+        "row_sha256": "bb170e1eae0e23984c2773ea120a9de73b5ea11ce08d83bf79886c4b8155a419"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 9,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "8"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "8",
+          "spu_id": "1",
+          "sku_code": "101-P001-8",
+          "color_code": "MOSS_GREEN",
+          "size_system": "ALPHA",
+          "size_value": "XL",
+          "spec_key": "{\"color\":\"MOSS_GREEN\",\"size_system\":\"ALPHA\",\"size_value\":\"XL\"}",
+          "spec_attributes": "{\"color\": \"MOSS_GREEN\", \"size_system\": \"ALPHA\", \"size_value\": \"XL\", \"weight_grams\": 430, \"color_name\": \"苔绿\"}",
+          "weight_grams": "430",
+          "launch_on": "2021-08-14",
+          "discontinue_on": ""
+        },
+        "row_sha256": "3b452826e54e806856213f2e282d56d0fb6f16a972605a84cb81c3ae63af4c36"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "skus-37": {
+    "kind": "records",
+    "table": "core.sku",
+    "files": [
+      {
+        "path": "tables/core.sku/all.csv",
+        "sha256": "1155b5e386e1e8822e3cfe79027e39bff2f5bffcce87c5c50df2027d5448171b",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 434,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "433"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "433",
+          "spu_id": "37",
+          "sku_code": "101-P037-433",
+          "color_code": "BLACK",
+          "size_system": "EU",
+          "size_value": "40",
+          "spec_key": "{\"color\":\"BLACK\",\"size_system\":\"EU\",\"size_value\":\"40\"}",
+          "spec_attributes": "{\"color\": \"BLACK\", \"size_system\": \"EU\", \"size_value\": \"40\", \"weight_grams\": 560, \"color_name\": \"墨黑\"}",
+          "weight_grams": "560",
+          "launch_on": "2022-07-29",
+          "discontinue_on": ""
+        },
+        "row_sha256": "3339cbd1da8a7f8a15dce80d7da4ff1341b76abbb114bc3f44d7075dd0d1182c"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 435,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "434"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "434",
+          "spu_id": "37",
+          "sku_code": "101-P037-434",
+          "color_code": "BLACK",
+          "size_system": "EU",
+          "size_value": "41",
+          "spec_key": "{\"color\":\"BLACK\",\"size_system\":\"EU\",\"size_value\":\"41\"}",
+          "spec_attributes": "{\"color\": \"BLACK\", \"size_system\": \"EU\", \"size_value\": \"41\", \"weight_grams\": 560, \"color_name\": \"墨黑\"}",
+          "weight_grams": "560",
+          "launch_on": "2022-07-29",
+          "discontinue_on": ""
+        },
+        "row_sha256": "ab08a33f6704abcc1756baf0acf22803585a1ebc707ff46a806c5fcfcbab283d"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 436,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "435"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "435",
+          "spu_id": "37",
+          "sku_code": "101-P037-435",
+          "color_code": "BLACK",
+          "size_system": "EU",
+          "size_value": "42",
+          "spec_key": "{\"color\":\"BLACK\",\"size_system\":\"EU\",\"size_value\":\"42\"}",
+          "spec_attributes": "{\"color\": \"BLACK\", \"size_system\": \"EU\", \"size_value\": \"42\", \"weight_grams\": 560, \"color_name\": \"墨黑\"}",
+          "weight_grams": "560",
+          "launch_on": "2022-07-29",
+          "discontinue_on": ""
+        },
+        "row_sha256": "2637716cde7b8aab88c409e64d8772b016c72023490426628066a0dc25b4474b"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 437,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "436"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "436",
+          "spu_id": "37",
+          "sku_code": "101-P037-436",
+          "color_code": "BLACK",
+          "size_system": "EU",
+          "size_value": "43",
+          "spec_key": "{\"color\":\"BLACK\",\"size_system\":\"EU\",\"size_value\":\"43\"}",
+          "spec_attributes": "{\"color\": \"BLACK\", \"size_system\": \"EU\", \"size_value\": \"43\", \"weight_grams\": 560, \"color_name\": \"墨黑\"}",
+          "weight_grams": "560",
+          "launch_on": "2022-07-29",
+          "discontinue_on": ""
+        },
+        "row_sha256": "a17efd30fb73584a8fffc002ecaaed4a67591ccff74998f1b9641820b024d0bd"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 438,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "437"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "437",
+          "spu_id": "37",
+          "sku_code": "101-P037-437",
+          "color_code": "WHITE",
+          "size_system": "EU",
+          "size_value": "40",
+          "spec_key": "{\"color\":\"WHITE\",\"size_system\":\"EU\",\"size_value\":\"40\"}",
+          "spec_attributes": "{\"color\": \"WHITE\", \"size_system\": \"EU\", \"size_value\": \"40\", \"weight_grams\": 560, \"color_name\": \"岩白\"}",
+          "weight_grams": "560",
+          "launch_on": "2022-07-29",
+          "discontinue_on": ""
+        },
+        "row_sha256": "98fe8946ab82b86ae69ef777fda0f1a320b8da2cda00ca6135b67c3b4fe470b6"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 439,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "438"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "438",
+          "spu_id": "37",
+          "sku_code": "101-P037-438",
+          "color_code": "WHITE",
+          "size_system": "EU",
+          "size_value": "41",
+          "spec_key": "{\"color\":\"WHITE\",\"size_system\":\"EU\",\"size_value\":\"41\"}",
+          "spec_attributes": "{\"color\": \"WHITE\", \"size_system\": \"EU\", \"size_value\": \"41\", \"weight_grams\": 560, \"color_name\": \"岩白\"}",
+          "weight_grams": "560",
+          "launch_on": "2022-07-29",
+          "discontinue_on": ""
+        },
+        "row_sha256": "74900f23d42a725b419736f96d8b29c00c1a537183590a2f932630dc94968c05"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 440,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "439"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "439",
+          "spu_id": "37",
+          "sku_code": "101-P037-439",
+          "color_code": "WHITE",
+          "size_system": "EU",
+          "size_value": "42",
+          "spec_key": "{\"color\":\"WHITE\",\"size_system\":\"EU\",\"size_value\":\"42\"}",
+          "spec_attributes": "{\"color\": \"WHITE\", \"size_system\": \"EU\", \"size_value\": \"42\", \"weight_grams\": 560, \"color_name\": \"岩白\"}",
+          "weight_grams": "560",
+          "launch_on": "2022-07-29",
+          "discontinue_on": ""
+        },
+        "row_sha256": "cbde911111c5e13a6d6c6711c870fb21d7c6eca8a927ec3db118dabb141db443"
+      },
+      {
+        "file": "tables/core.sku/all.csv",
+        "csv_row_number": 441,
+        "key": {
+          "tenant_id": "101",
+          "sku_id": "440"
+        },
+        "values": {
+          "tenant_id": "101",
+          "sku_id": "440",
+          "spu_id": "37",
+          "sku_code": "101-P037-440",
+          "color_code": "WHITE",
+          "size_system": "EU",
+          "size_value": "43",
+          "spec_key": "{\"color\":\"WHITE\",\"size_system\":\"EU\",\"size_value\":\"43\"}",
+          "spec_attributes": "{\"color\": \"WHITE\", \"size_system\": \"EU\", \"size_value\": \"43\", \"weight_grams\": 560, \"color_name\": \"岩白\"}",
+          "weight_grams": "560",
+          "launch_on": "2022-07-29",
+          "discontinue_on": ""
+        },
+        "row_sha256": "66c915093f7290f6f0db66b75e0da2a9ad568027f13de867cc9db09c5c35455f"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "sites": {
+    "kind": "records",
+    "table": "core.site",
+    "files": [
+      {
+        "path": "tables/core.site/all.csv",
+        "sha256": "be477f02411fe851a3073eb2a14f6c6bbbc9f3e473ab70ea8c6ca7c496cf3caa",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.site/all.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "site_id": "1"
+        },
+        "values": {
+          "tenant_id": "101",
+          "site_id": "1",
+          "site_code": "SITE1",
+          "site_name": "行野上海浦东滨江店",
+          "site_type": "STORE",
+          "org_unit_id": "11",
+          "geo_id": "201",
+          "region_id": "1",
+          "opened_on": "2019-05-18",
+          "closed_on": "",
+          "area_sqm": "465"
+        },
+        "row_sha256": "1cb73da5d7c80437ade7a8fedaec3b65b0fd335c5476397161fe3d073bd9a980"
+      },
+      {
+        "file": "tables/core.site/all.csv",
+        "csv_row_number": 6,
+        "key": {
+          "tenant_id": "101",
+          "site_id": "5"
+        },
+        "values": {
+          "tenant_id": "101",
+          "site_id": "5",
+          "site_code": "SITE5",
+          "site_name": "行野杭州城西体验店",
+          "site_type": "STORE",
+          "org_unit_id": "11",
+          "geo_id": "203",
+          "region_id": "1",
+          "opened_on": "2024-01-01",
+          "closed_on": "",
+          "area_sqm": "680"
+        },
+        "row_sha256": "053afcc4920b658512dc244dd03768fcc7b278b08795a597548182c318c70671"
+      },
+      {
+        "file": "tables/core.site/all.csv",
+        "csv_row_number": 7,
+        "key": {
+          "tenant_id": "101",
+          "site_id": "6"
+        },
+        "values": {
+          "tenant_id": "101",
+          "site_id": "6",
+          "site_code": "SITE6",
+          "site_name": "行野杭州西湖奥莱店",
+          "site_type": "OUTLET",
+          "org_unit_id": "11",
+          "geo_id": "203",
+          "region_id": "1",
+          "opened_on": "2021-11-06",
+          "closed_on": "",
+          "area_sqm": "680"
+        },
+        "row_sha256": "5f7142afbf05405daca883c66e628a287fda3f08c803d6c725c27c76f928ec52"
+      },
+      {
+        "file": "tables/core.site/all.csv",
+        "csv_row_number": 8,
+        "key": {
+          "tenant_id": "101",
+          "site_id": "7"
+        },
+        "values": {
+          "tenant_id": "101",
+          "site_id": "7",
+          "site_code": "SITE7",
+          "site_name": "行野苏州华东配送中心",
+          "site_type": "WAREHOUSE",
+          "org_unit_id": "11",
+          "geo_id": "204",
+          "region_id": "1",
+          "opened_on": "2018-07-01",
+          "closed_on": "",
+          "area_sqm": "12600"
+        },
+        "row_sha256": "cb741340721146fc40662be217a19a41fb5aabf4a63019371072b1b3d184d510"
+      },
+      {
+        "file": "tables/core.site/all.csv",
+        "csv_row_number": 9,
+        "key": {
+          "tenant_id": "101",
+          "site_id": "8"
+        },
+        "values": {
+          "tenant_id": "101",
+          "site_id": "8",
+          "site_code": "SITE8",
+          "site_name": "行野广州华南配送中心",
+          "site_type": "WAREHOUSE",
+          "org_unit_id": "12",
+          "geo_id": "205",
+          "region_id": "2",
+          "opened_on": "2020-08-15",
+          "closed_on": "",
+          "area_sqm": "9800"
+        },
+        "row_sha256": "9fcba08f7972fcfb752ec7f719a750be6e24844a55e18e9d4a67064ddb7cb8bb"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "channels": {
+    "kind": "records",
+    "table": "core.channel",
+    "files": [
+      {
+        "path": "tables/core.channel/all.csv",
+        "sha256": "fc910d548f4b02f1f5f5801efecfe96e2c3cbbc343c6407729c799cf688d8c43",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.channel/all.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "channel_id": "1"
+        },
+        "values": {
+          "tenant_id": "101",
+          "channel_id": "1",
+          "channel_code": "TMALL",
+          "channel_name": "天猫旗舰店",
+          "channel_type": "PLATFORM",
+          "has_user_events": "false",
+          "identity_scope": "MIXED"
+        },
+        "row_sha256": "211fca0f995ba0e4ac5c459ccd26d34df9c9041694ac39be7d03d67dbd1cd9cd"
+      },
+      {
+        "file": "tables/core.channel/all.csv",
+        "csv_row_number": 3,
+        "key": {
+          "tenant_id": "101",
+          "channel_id": "2"
+        },
+        "values": {
+          "tenant_id": "101",
+          "channel_id": "2",
+          "channel_code": "JD",
+          "channel_name": "京东旗舰店",
+          "channel_type": "PLATFORM",
+          "has_user_events": "false",
+          "identity_scope": "MIXED"
+        },
+        "row_sha256": "4ced395cf91413429ee3b2d9895176e611dafa8fae2cc9d073ac11e3d528b685"
+      },
+      {
+        "file": "tables/core.channel/all.csv",
+        "csv_row_number": 4,
+        "key": {
+          "tenant_id": "101",
+          "channel_id": "3"
+        },
+        "values": {
+          "tenant_id": "101",
+          "channel_id": "3",
+          "channel_code": "DOUYIN",
+          "channel_name": "抖音店铺",
+          "channel_type": "PLATFORM",
+          "has_user_events": "false",
+          "identity_scope": "MIXED"
+        },
+        "row_sha256": "66d846d22a05e589239ddb8d28b3e532a6fa1d6b8bedcaaf0f635814dded8547"
+      },
+      {
+        "file": "tables/core.channel/all.csv",
+        "csv_row_number": 5,
+        "key": {
+          "tenant_id": "101",
+          "channel_id": "4"
+        },
+        "values": {
+          "tenant_id": "101",
+          "channel_id": "4",
+          "channel_code": "MINIAPP",
+          "channel_name": "微信小程序",
+          "channel_type": "OWNED",
+          "has_user_events": "true",
+          "identity_scope": "MIXED"
+        },
+        "row_sha256": "121eb70354c59c2fae130235c6cb12a8c5afce06576d71a2aba6204742168f8a"
+      },
+      {
+        "file": "tables/core.channel/all.csv",
+        "csv_row_number": 6,
+        "key": {
+          "tenant_id": "101",
+          "channel_id": "5"
+        },
+        "values": {
+          "tenant_id": "101",
+          "channel_id": "5",
+          "channel_code": "APP",
+          "channel_name": "自有商城",
+          "channel_type": "OWNED",
+          "has_user_events": "true",
+          "identity_scope": "MIXED"
+        },
+        "row_sha256": "155a687db6c534b8f32dbcaa1cdfaa2a2cfc159bd012e0e3933a157451346c23"
+      },
+      {
+        "file": "tables/core.channel/all.csv",
+        "csv_row_number": 7,
+        "key": {
+          "tenant_id": "101",
+          "channel_id": "6"
+        },
+        "values": {
+          "tenant_id": "101",
+          "channel_id": "6",
+          "channel_code": "POS",
+          "channel_name": "标准门店",
+          "channel_type": "OFFLINE",
+          "has_user_events": "false",
+          "identity_scope": "MIXED"
+        },
+        "row_sha256": "5b5e6ff792542f0e6d07ee298d37514b6d1b0bf1747a0daabe20b265acd74abd"
+      },
+      {
+        "file": "tables/core.channel/all.csv",
+        "csv_row_number": 8,
+        "key": {
+          "tenant_id": "101",
+          "channel_id": "7"
+        },
+        "values": {
+          "tenant_id": "101",
+          "channel_id": "7",
+          "channel_code": "OUTLET",
+          "channel_name": "奥莱门店",
+          "channel_type": "OFFLINE",
+          "has_user_events": "false",
+          "identity_scope": "MIXED"
+        },
+        "row_sha256": "fb30ad01b54991282a53dbc339718ffc10d72f074a6397b3f2c0cf7b84272e4a"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "procurement": {
+    "kind": "records",
+    "table": "core.inventory_document",
+    "files": [
+      {
+        "path": "tables/core.inventory_document/2025-09.csv",
+        "sha256": "fd526f831c2ad256a1b14496d18547709130e6b24c63b58454466d1179cc3f2b",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.inventory_document/2025-09.csv",
+        "csv_row_number": 6,
+        "key": {
+          "tenant_id": "101",
+          "inventory_doc_id": "13392"
+        },
+        "values": {
+          "tenant_id": "101",
+          "inventory_doc_id": "13392",
+          "document_no": "DOC13392",
+          "doc_type": "PURCHASE",
+          "from_site_id": "",
+          "to_site_id": "7",
+          "region_id": "1",
+          "created_at": "2025-08-31T16:00:00+00:00",
+          "planned_at": "2025-09-05T16:00:00+00:00",
+          "reason_code": "FORECAST",
+          "available_at": "2025-08-31T16:15:00+00:00",
+          "load_batch_id": "20093505"
+        },
+        "row_sha256": "bc252c43c8f37dfb9a0763af2c3cf35041e1c3915697fab398f44c5943ae4957"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "procurement-line": {
+    "kind": "records",
+    "table": "core.inventory_document_line",
+    "files": [
+      {
+        "path": "tables/core.inventory_document_line/2025-09.csv",
+        "sha256": "45ebd61f7e3fabc359b03902c48c7c8b881d3a8b4f3e7a2eec2eeee92d1b1b90",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.inventory_document_line/2025-09.csv",
+        "csv_row_number": 6,
+        "key": {
+          "tenant_id": "101",
+          "inventory_doc_line_id": "13392"
+        },
+        "values": {
+          "tenant_id": "101",
+          "inventory_doc_line_id": "13392",
+          "inventory_doc_id": "13392",
+          "region_id": "1",
+          "sku_id": "435",
+          "quantity": "400",
+          "available_at": "2025-08-31T16:15:00+00:00",
+          "load_batch_id": "20093505"
+        },
+        "row_sha256": "aa9a8bf97fd5560dcc13b4873336e2dc14e9e89c7314a56b93902d0ad5459880"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "procurement-revision": {
+    "kind": "records",
+    "table": "core.procurement_revision",
+    "files": [
+      {
+        "path": "tables/core.procurement_revision/2025-09.csv",
+        "sha256": "cabb614474523351c441bf63d6a32c5a0425e5f7934166f8131bb5734a459d39",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.procurement_revision/2025-09.csv",
+        "csv_row_number": 12,
+        "key": {
+          "tenant_id": "101",
+          "inventory_doc_line_id": "13392",
+          "revision_no": "1"
+        },
+        "values": {
+          "tenant_id": "101",
+          "inventory_doc_line_id": "13392",
+          "revision_no": "1",
+          "region_id": "1",
+          "notified_at": "2025-09-03T16:00:00+00:00",
+          "revised_due_at": "2025-09-15T16:00:00+00:00",
+          "reason_code": "SUPPLIER_DELAY",
+          "notice_text": "供应商发运排期调整，预计到仓时间按本次通知更新，采购单原承诺日期保留。",
+          "available_at": "2025-09-03T16:15:00+00:00",
+          "load_batch_id": "20093793"
+        },
+        "row_sha256": "86ff319e495c9647e001a33987b68656c4ccde102b8a8aa62396df20e1472dec"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "transit": {
+    "kind": "records",
+    "table": "core.inventory_movement",
+    "files": [
+      {
+        "path": "tables/core.inventory_movement/2025-09.csv",
+        "sha256": "be7d2045e3dfff5d33a57511db907a24483e852a17bcdb672dd78d321a82f794",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.inventory_movement/2025-09.csv",
+        "csv_row_number": 8,
+        "key": {
+          "tenant_id": "101",
+          "movement_id": "294176"
+        },
+        "values": {
+          "tenant_id": "101",
+          "movement_id": "294176",
+          "site_id": "7",
+          "region_id": "1",
+          "sku_id": "435",
+          "lot_id": "",
+          "inventory_doc_line_id": "13392",
+          "order_unit_id": "",
+          "return_item_id": "",
+          "movement_type": "TRANSIT_IN",
+          "sellable_delta": "0",
+          "quarantine_delta": "0",
+          "reserved_delta": "0",
+          "in_transit_delta": "400",
+          "event_at": "2025-08-31T16:00:00+00:00",
+          "event_seq": "294176",
+          "available_at": "2025-08-31T16:15:00+00:00",
+          "load_batch_id": "20093505",
+          "damaged_delta": "0",
+          "business_txn_id": "13392",
+          "source_kind": "DOCUMENT_LINE",
+          "source_event_id": "13392",
+          "source_leg_no": "1"
+        },
+        "row_sha256": "941f07a7192a634595cb4eedd0b09908ee9c5a909232c684c2840b5f96d33e9b"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "receipt": {
+    "kind": "records",
+    "table": "core.inventory_movement",
+    "files": [
+      {
+        "path": "tables/core.inventory_movement/2025-09.csv",
+        "sha256": "be7d2045e3dfff5d33a57511db907a24483e852a17bcdb672dd78d321a82f794",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.inventory_movement/2025-09.csv",
+        "csv_row_number": 6519,
+        "key": {
+          "tenant_id": "101",
+          "movement_id": "300687"
+        },
+        "values": {
+          "tenant_id": "101",
+          "movement_id": "300687",
+          "site_id": "7",
+          "region_id": "1",
+          "sku_id": "435",
+          "lot_id": "22207",
+          "inventory_doc_line_id": "13392",
+          "order_unit_id": "",
+          "return_item_id": "",
+          "movement_type": "RECEIPT",
+          "sellable_delta": "400",
+          "quarantine_delta": "0",
+          "reserved_delta": "0",
+          "in_transit_delta": "-400",
+          "event_at": "2025-09-15T16:00:00+00:00",
+          "event_seq": "300687",
+          "available_at": "2025-09-15T16:15:00+00:00",
+          "load_batch_id": "20094945",
+          "damaged_delta": "0",
+          "business_txn_id": "13392",
+          "source_kind": "DOCUMENT_LINE",
+          "source_event_id": "13392",
+          "source_leg_no": "2"
+        },
+        "row_sha256": "31ce6e36b51f23866141e9ec0b85db31c6d167af237c3ccba92d40c921414def"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "assortment-435": {
+    "kind": "records",
+    "table": "core.assortment",
+    "files": [
+      {
+        "path": "tables/core.assortment/2022-12.csv",
+        "sha256": "78bafa4a65fa897f8ab05de9dbcf5586cbe6e740123f7a6cd5106b9e5a4554db",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.assortment/2022-12.csv",
+        "csv_row_number": 488,
+        "key": {
+          "tenant_id": "101",
+          "assortment_id": "1170"
+        },
+        "values": {
+          "tenant_id": "101",
+          "assortment_id": "1170",
+          "site_id": "7",
+          "region_id": "1",
+          "sku_id": "435",
+          "valid_from": "2023-01-01",
+          "valid_to": "2026-04-01",
+          "can_sell": "true",
+          "min_stock": "2",
+          "target_stock": "10",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "d41f29a3cb2b2828f6e94cf4a51cd2834fd7989197a0405ab13f4616d96cdca7"
+      },
+      {
+        "file": "tables/core.assortment/2022-12.csv",
+        "csv_row_number": 750,
+        "key": {
+          "tenant_id": "101",
+          "assortment_id": "1791"
+        },
+        "values": {
+          "tenant_id": "101",
+          "assortment_id": "1791",
+          "site_id": "8",
+          "region_id": "2",
+          "sku_id": "435",
+          "valid_from": "2023-01-01",
+          "valid_to": "2026-04-01",
+          "can_sell": "true",
+          "min_stock": "2",
+          "target_stock": "10",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "0ebbc4a4439d137ce56039b0fcc0d4dbaad45524cb3fc7f1caa7d3cce4fe758f"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "campaign-30": {
+    "kind": "records",
+    "table": "core.campaign",
+    "files": [
+      {
+        "path": "tables/core.campaign/2025-05.csv",
+        "sha256": "3360478808aa8accba1682d45a857188bb2d3bcb5f837fce7a0f26b54d9e5ec4",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.campaign/2025-05.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "campaign_id": "30"
+        },
+        "values": {
+          "tenant_id": "101",
+          "campaign_id": "30",
+          "campaign_code": "C30",
+          "campaign_name": "2025·夏日轻汗训练节",
+          "acquisition_source": "FEED",
+          "target_channel_id": "3",
+          "starts_at": "2025-05-31T16:00:00+00:00",
+          "ends_at": "2025-06-20T16:00:00+00:00",
+          "objective": "ACQUISITION",
+          "available_at": "2025-05-25T16:00:00+00:00",
+          "load_batch_id": "80000876"
+        },
+        "row_sha256": "15a0eab098f9b4058da7d82886aa1bdd1ab29ae041b206a80d5ff57171044afd"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "campaign-35": {
+    "kind": "records",
+    "table": "core.campaign",
+    "files": [
+      {
+        "path": "tables/core.campaign/2025-10.csv",
+        "sha256": "01b83cb094a8ba12062539a2b2dfc0394bd2d77d95256741315f34d463bc2637",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.campaign/2025-10.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "campaign_id": "35"
+        },
+        "values": {
+          "tenant_id": "101",
+          "campaign_id": "35",
+          "campaign_code": "C35",
+          "campaign_name": "2025·旧款好物返场",
+          "acquisition_source": "OWNED_MEDIA",
+          "target_channel_id": "4",
+          "starts_at": "2025-11-04T16:00:00+00:00",
+          "ends_at": "2025-11-27T16:00:00+00:00",
+          "objective": "CLEARANCE",
+          "available_at": "2025-10-29T16:00:00+00:00",
+          "load_batch_id": "80001033"
+        },
+        "row_sha256": "2d02a6bd3e84d89d1880583bcc5b83d20ea3d56a01306bbb52a3628b9e4fb7cb"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "promotion-25": {
+    "kind": "records",
+    "table": "core.promotion",
+    "files": [
+      {
+        "path": "tables/core.promotion/2022-12.csv",
+        "sha256": "52c8362f263917567f66efe98ab9a32885a11611b1f604e3166aaeb97f2474cd",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.promotion/2022-12.csv",
+        "csv_row_number": 7,
+        "key": {
+          "tenant_id": "101",
+          "promotion_id": "6"
+        },
+        "values": {
+          "tenant_id": "101",
+          "promotion_id": "6",
+          "promotion_code": "PROMO6",
+          "channel_id": "1",
+          "campaign_id": "",
+          "promotion_type": "PERCENT",
+          "discount_bps": "2500",
+          "threshold_cent": "0",
+          "discount_cent": "0",
+          "starts_at": "2022-12-31T16:00:00+00:00",
+          "ends_at": "2026-03-31T16:00:00+00:00",
+          "priority_no": "6",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "bd231cbfd157264e0dd3dc93ee91ac7732b571d1ba77461a433e2c63239726a0"
+      },
+      {
+        "file": "tables/core.promotion/2022-12.csv",
+        "csv_row_number": 14,
+        "key": {
+          "tenant_id": "101",
+          "promotion_id": "13"
+        },
+        "values": {
+          "tenant_id": "101",
+          "promotion_id": "13",
+          "promotion_code": "PROMO13",
+          "channel_id": "2",
+          "campaign_id": "",
+          "promotion_type": "PERCENT",
+          "discount_bps": "2500",
+          "threshold_cent": "0",
+          "discount_cent": "0",
+          "starts_at": "2022-12-31T16:00:00+00:00",
+          "ends_at": "2026-03-31T16:00:00+00:00",
+          "priority_no": "6",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "172491746a8767607891aeb931aa7002eba0a0801dabf48fa6e6c20e806eb87c"
+      },
+      {
+        "file": "tables/core.promotion/2022-12.csv",
+        "csv_row_number": 21,
+        "key": {
+          "tenant_id": "101",
+          "promotion_id": "20"
+        },
+        "values": {
+          "tenant_id": "101",
+          "promotion_id": "20",
+          "promotion_code": "PROMO20",
+          "channel_id": "3",
+          "campaign_id": "",
+          "promotion_type": "PERCENT",
+          "discount_bps": "2500",
+          "threshold_cent": "0",
+          "discount_cent": "0",
+          "starts_at": "2022-12-31T16:00:00+00:00",
+          "ends_at": "2026-03-31T16:00:00+00:00",
+          "priority_no": "6",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "cf35fc8b3214c569b93cee9b106df646b64d15e6ace7a5f768bfb11f623626e8"
+      },
+      {
+        "file": "tables/core.promotion/2022-12.csv",
+        "csv_row_number": 28,
+        "key": {
+          "tenant_id": "101",
+          "promotion_id": "27"
+        },
+        "values": {
+          "tenant_id": "101",
+          "promotion_id": "27",
+          "promotion_code": "PROMO27",
+          "channel_id": "4",
+          "campaign_id": "",
+          "promotion_type": "PERCENT",
+          "discount_bps": "2500",
+          "threshold_cent": "0",
+          "discount_cent": "0",
+          "starts_at": "2022-12-31T16:00:00+00:00",
+          "ends_at": "2026-03-31T16:00:00+00:00",
+          "priority_no": "6",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "9e279df3a3a9ef91c00d9a4a5c10fb4942679319657b1ea0844f892b5ecafe3b"
+      },
+      {
+        "file": "tables/core.promotion/2022-12.csv",
+        "csv_row_number": 35,
+        "key": {
+          "tenant_id": "101",
+          "promotion_id": "34"
+        },
+        "values": {
+          "tenant_id": "101",
+          "promotion_id": "34",
+          "promotion_code": "PROMO34",
+          "channel_id": "5",
+          "campaign_id": "",
+          "promotion_type": "PERCENT",
+          "discount_bps": "2500",
+          "threshold_cent": "0",
+          "discount_cent": "0",
+          "starts_at": "2022-12-31T16:00:00+00:00",
+          "ends_at": "2026-03-31T16:00:00+00:00",
+          "priority_no": "6",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "6899b28fb8469e560f2d05f37d72edf1f4b1784580dfaac91adb89e3e5a80fa9"
+      },
+      {
+        "file": "tables/core.promotion/2022-12.csv",
+        "csv_row_number": 42,
+        "key": {
+          "tenant_id": "101",
+          "promotion_id": "41"
+        },
+        "values": {
+          "tenant_id": "101",
+          "promotion_id": "41",
+          "promotion_code": "PROMO41",
+          "channel_id": "6",
+          "campaign_id": "",
+          "promotion_type": "PERCENT",
+          "discount_bps": "2500",
+          "threshold_cent": "0",
+          "discount_cent": "0",
+          "starts_at": "2022-12-31T16:00:00+00:00",
+          "ends_at": "2026-03-31T16:00:00+00:00",
+          "priority_no": "6",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "a2b11e293c79945863700ba8a007ca0edabcb8d9d3dbb39441f0ae61ae511048"
+      },
+      {
+        "file": "tables/core.promotion/2022-12.csv",
+        "csv_row_number": 49,
+        "key": {
+          "tenant_id": "101",
+          "promotion_id": "48"
+        },
+        "values": {
+          "tenant_id": "101",
+          "promotion_id": "48",
+          "promotion_code": "PROMO48",
+          "channel_id": "7",
+          "campaign_id": "",
+          "promotion_type": "PERCENT",
+          "discount_bps": "2500",
+          "threshold_cent": "0",
+          "discount_cent": "0",
+          "starts_at": "2022-12-31T16:00:00+00:00",
+          "ends_at": "2026-03-31T16:00:00+00:00",
+          "priority_no": "6",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "a22f3cf089d4507e606773e85ff53ba2cea4508b69012046531a28274b0af264"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "prices": {
+    "kind": "records",
+    "table": "core.price_period",
+    "files": [
+      {
+        "path": "tables/core.price_period/2022-12.csv",
+        "sha256": "ced86951833edfabfe953508f4cdfe4a208ef987fbe3079dd915420e01cc8696",
+        "source_visibility": "public"
+      },
+      {
+        "path": "tables/core.price_period/2025-05.csv",
+        "sha256": "68a3521392b8af03133856f1ca07c5e1daf767394b152f157161e88e0f9d79bd",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.price_period/2022-12.csv",
+        "csv_row_number": 5,
+        "key": {
+          "tenant_id": "101",
+          "price_id": "7"
+        },
+        "values": {
+          "tenant_id": "101",
+          "price_id": "7",
+          "sku_id": "1",
+          "channel_id": "4",
+          "valid_from": "2022-12-31T16:00:00+00:00",
+          "valid_to": "2025-06-01T16:00:00+00:00",
+          "list_price_cent": "49900",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "693871245913b59e94596eeef499311d2ddbb8cd2b9c4695988ef3a3e3771800"
+      },
+      {
+        "file": "tables/core.price_period/2022-12.csv",
+        "csv_row_number": 12,
+        "key": {
+          "tenant_id": "101",
+          "price_id": "20"
+        },
+        "values": {
+          "tenant_id": "101",
+          "price_id": "20",
+          "sku_id": "2",
+          "channel_id": "4",
+          "valid_from": "2022-12-31T16:00:00+00:00",
+          "valid_to": "2026-03-31T16:00:00+00:00",
+          "list_price_cent": "49900",
+          "available_at": "2022-12-31T16:00:00+00:00",
+          "load_batch_id": "80000000"
+        },
+        "row_sha256": "59c887a520004ff2cf7547d62ab9fa97be74d24aac8892a4f832f27e2aed6772"
+      },
+      {
+        "file": "tables/core.price_period/2025-05.csv",
+        "csv_row_number": 3,
+        "key": {
+          "tenant_id": "101",
+          "price_id": "8"
+        },
+        "values": {
+          "tenant_id": "101",
+          "price_id": "8",
+          "sku_id": "1",
+          "channel_id": "4",
+          "valid_from": "2025-06-01T16:00:00+00:00",
+          "valid_to": "2026-03-31T16:00:00+00:00",
+          "list_price_cent": "55900",
+          "available_at": "2025-05-26T16:00:00+00:00",
+          "load_batch_id": "80000877"
+        },
+        "row_sha256": "b0977ff7de39870429e270c0fa2c368b1bf81246a6581cded38e180945fabd27"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "price-study": {
+    "kind": "records",
+    "table": "core.intervention_definition",
+    "files": [
+      {
+        "path": "tables/core.intervention_definition/2025-03.csv",
+        "sha256": "a783eed596b4911c93506c6c123075c515dd9cefd60f045c9255238f4dc7631b",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.intervention_definition/2025-03.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "intervention_id": "PRICE_2025_SOFTSHELL"
+        },
+        "values": {
+          "tenant_id": "101",
+          "intervention_id": "PRICE_2025_SOFTSHELL",
+          "channel_id": "4",
+          "starts_at": "2025-06-01T16:00:00+00:00",
+          "registered_at": "2025-03-02T16:00:00+00:00",
+          "pre_weeks": "12",
+          "post_weeks": "8",
+          "outcome_definition": "ITT; paid conversion/week; no successful payment in fixed 60 days after 2025-06-02; maturity 2025-08-01",
+          "identification_limit": "Comparable SKU cohort; check pretrends, substitution and cross-channel migration. Observational evidence does not establish permanent churn or an isolated causal effect.",
+          "available_at": "2025-03-03T16:00:00+00:00",
+          "load_batch_id": "80000793"
+        },
+        "row_sha256": "d111cf31933b55139a7e617affbe7178f09529526e62d0875e449d42fcd0e81c"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "store-day": {
+    "kind": "records",
+    "table": "core.store_operating_day",
+    "files": [
+      {
+        "path": "tables/core.store_operating_day/2023-12.csv",
+        "sha256": "2b3a60f2da04bc757814f82f3d67e98a45083a86d098e5b4d64cad1e451f18d7",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.store_operating_day/2023-12.csv",
+        "csv_row_number": 126,
+        "key": {
+          "tenant_id": "101",
+          "site_id": "5",
+          "business_date": "2024-01-01"
+        },
+        "values": {
+          "tenant_id": "101",
+          "site_id": "5",
+          "region_id": "1",
+          "business_date": "2024-01-01",
+          "open_minutes": "660",
+          "reason_code": "REGULAR",
+          "available_at": "2023-12-24T17:00:00+00:00",
+          "load_batch_id": "30008593"
+        },
+        "row_sha256": "5da143d55baf9641ca72c70e2dd79a9439d45c7cd970cb95ce2a438f4bb37bd6"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "asset-pending": {
+    "kind": "records",
+    "table": "ops.asset_period_status",
+    "files": [
+      {
+        "path": "tables/ops.asset_period_status/2025-09.csv",
+        "sha256": "65e713b9564c59752c32cd1afab8372431c6699d06b5af44ea7714cea050ced6",
+        "source_visibility": "metadata"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/ops.asset_period_status/2025-09.csv",
+        "csv_row_number": 60,
+        "key": {
+          "tenant_id": "101",
+          "asset_id": "core.channel_product_daily",
+          "period_start": "2025-09-28",
+          "period_end": "2025-09-29",
+          "observed_at": "2025-09-28T16:00:00+00:00"
+        },
+        "values": {
+          "tenant_id": "101",
+          "asset_id": "core.channel_product_daily",
+          "period_start": "2025-09-28",
+          "period_end": "2025-09-29",
+          "observed_at": "2025-09-28T16:00:00+00:00",
+          "status": "PENDING",
+          "reason_code": "REPORT_NOT_RECEIVED",
+          "last_visible_report_version": "",
+          "source_coverage_end": "",
+          "reconciled_at": "",
+          "available_at": "2025-09-28T16:00:00+00:00"
+        },
+        "row_sha256": "a92862863f79d6b7af54e089abae0a9fb0bf5d5da69a8a7a82e638fd070d54d0"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "asset-partial": {
+    "kind": "records",
+    "table": "ops.asset_period_status",
+    "files": [
+      {
+        "path": "tables/ops.asset_period_status/2025-09.csv",
+        "sha256": "65e713b9564c59752c32cd1afab8372431c6699d06b5af44ea7714cea050ced6",
+        "source_visibility": "metadata"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/ops.asset_period_status/2025-09.csv",
+        "csv_row_number": 61,
+        "key": {
+          "tenant_id": "101",
+          "asset_id": "core.channel_product_daily",
+          "period_start": "2025-09-28",
+          "period_end": "2025-09-29",
+          "observed_at": "2025-09-29T16:00:00+00:00"
+        },
+        "values": {
+          "tenant_id": "101",
+          "asset_id": "core.channel_product_daily",
+          "period_start": "2025-09-28",
+          "period_end": "2025-09-29",
+          "observed_at": "2025-09-29T16:00:00+00:00",
+          "status": "PARTIAL",
+          "reason_code": "SOURCE_PERIOD_RECONCILIATION_PENDING",
+          "last_visible_report_version": "",
+          "source_coverage_end": "",
+          "reconciled_at": "",
+          "available_at": "2025-09-29T16:00:00+00:00"
+        },
+        "row_sha256": "ea0f217f6773fa2de8602f65843b3f976417d60db28dc4e25a6f43ab9a3de4e3"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "asset-complete": {
+    "kind": "records",
+    "table": "ops.asset_period_status",
+    "files": [
+      {
+        "path": "tables/ops.asset_period_status/2025-10.csv",
+        "sha256": "9d5bca00a345aeeab59f5c39597b30a85a48131f698823ba7214775105a0f9b0",
+        "source_visibility": "metadata"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/ops.asset_period_status/2025-10.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "asset_id": "core.channel_product_daily",
+          "period_start": "2025-09-28",
+          "period_end": "2025-09-29",
+          "observed_at": "2025-10-01T16:00:00+00:00"
+        },
+        "values": {
+          "tenant_id": "101",
+          "asset_id": "core.channel_product_daily",
+          "period_start": "2025-09-28",
+          "period_end": "2025-09-29",
+          "observed_at": "2025-10-01T16:00:00+00:00",
+          "status": "COMPLETE",
+          "reason_code": "SOURCE_CLOSED_AND_RECONCILED",
+          "last_visible_report_version": "2",
+          "source_coverage_end": "2025-09-28T16:00:00+00:00",
+          "reconciled_at": "2025-10-01T16:00:00+00:00",
+          "available_at": "2025-10-01T16:00:00+00:00"
+        },
+        "row_sha256": "8bb338817dd555a1be23169955e53ccba14b9f4ae4047539c382a4dc7e6f5bee"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "oms-delayed": {
+    "kind": "records",
+    "table": "ops.source_watermark",
+    "files": [
+      {
+        "path": "tables/ops.source_watermark/2025-09.csv",
+        "sha256": "6e5522ba762962ff72d8993b34052c433bdc3ed00964a5e7175e61289e962e74",
+        "source_visibility": "metadata"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/ops.source_watermark/2025-09.csv",
+        "csv_row_number": 30,
+        "key": {
+          "tenant_id": "101",
+          "source_system": "OMS",
+          "observed_at": "2025-09-28T16:00:00+00:00"
+        },
+        "values": {
+          "tenant_id": "101",
+          "source_system": "OMS",
+          "observed_at": "2025-09-28T16:00:00+00:00",
+          "complete_through": "2025-09-27T16:00:00+00:00",
+          "expected_batches": "164",
+          "arrived_batches": "0",
+          "status": "DELAYED",
+          "missing_batch_ids": "[10288289, 10288290, 10288294, 10288301, 10288302, 10288304, 10288305, 10288306, 10288308, 10288309, 10288310, 10288312, 10288316, 10288317, 10288318, 10288319, 10288322, 10288324, 10288326, 10288327, 10288330, 10288331, 10288332, 10288334, 10288335, 10288338, 10288340, 10288342, 10288350, 10288357, 10288360, 10288361, 10288364, 10288365, 10288368, 10288370, 10288371, 10288372, 10288375, 10288376, 10288379, 10288380, 10288381, 10288382, 10288383, 10288384, 10288388, 10288389, 10288390, 10288391, 10288396, 10288397, 10288398, 10288399, 10288404, 10288406, 10288409, 10288410, 10288411, 10288412, 10288413, 10288414, 10288415, 10288416, 10288418, 10288420, 10288421, 10288423, 10288424, 10288426, 10288427, 10288428, 10288430, 10288431, 10288432, 10288433, 10288434, 10288438, 10288439, 10288441, 10288442, 10288443, 10288444, 10288445, 10288446, 10288447, 10288449, 10288450, 10288451, 10288452, 10288453, 10288454, 10288455, 10288456, 10288458, 10288459, 10288463, 10288464, 10288465, 10288466, 10288467, 10288468, 10288470, 10288472, 10288473, 10288477, 10288478, 10288479, 10288480, 10288481, 10288484, 10288485, 10288486, 10288487, 10288488, 10288489, 10288490, 10288491, 10288492, 10288493, 10288494, 10288495, 10288497, 10288498, 10288499, 10288500, 10288501, 10288508, 10288509, 10288511, 10288512, 10288513, 10288514, 10288515, 10288516, 10288517, 10288518, 10288519, 10288520, 10288523, 10288524, 10288525, 10288528, 10288532, 10288533, 10288534, 10288535, 10288538, 10288539, 10288552, 10288553, 10288554, 10288557, 10288559, 10288562, 10288563, 10288566, 10288567, 10288569, 10288570, 10288571, 10288572, 10288573, 10288574]"
+        },
+        "row_sha256": "896a3342ab584c9bea30b541eae11f857bab440fb6b5f7fe9a1064b866eb31d7"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "oms-complete": {
+    "kind": "records",
+    "table": "ops.source_watermark",
+    "files": [
+      {
+        "path": "tables/ops.source_watermark/2025-09.csv",
+        "sha256": "6e5522ba762962ff72d8993b34052c433bdc3ed00964a5e7175e61289e962e74",
+        "source_visibility": "metadata"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/ops.source_watermark/2025-09.csv",
+        "csv_row_number": 31,
+        "key": {
+          "tenant_id": "101",
+          "source_system": "OMS",
+          "observed_at": "2025-09-29T16:00:00+00:00"
+        },
+        "values": {
+          "tenant_id": "101",
+          "source_system": "OMS",
+          "observed_at": "2025-09-29T16:00:00+00:00",
+          "complete_through": "2025-09-29T16:00:00+00:00",
+          "expected_batches": "150",
+          "arrived_batches": "150",
+          "status": "COMPLETE",
+          "missing_batch_ids": "[]"
+        },
+        "row_sha256": "d6c44b931669715e6f9ffffa3abe034e6bcd9719acca37ba62238e889a5b79e4"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "experiment-1": {
+    "kind": "records",
+    "table": "core.experiment_definition",
+    "files": [
+      {
+        "path": "tables/core.experiment_definition/2025-08.csv",
+        "sha256": "397f7015a099152d61ef478c1a5b9b2ef7fd38ef5ffbb0e6f36c826f5d8475eb",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.experiment_definition/2025-08.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "experiment_id": "1"
+        },
+        "values": {
+          "tenant_id": "101",
+          "experiment_id": "1",
+          "experiment_code": "EXP1",
+          "channel_id": "4",
+          "campaign_id": "",
+          "randomization_unit": "CUSTOMER",
+          "allocation_a": "0.5",
+          "starts_at": "2025-08-31T16:00:00+00:00",
+          "ends_at": "2025-09-14T16:00:00+00:00",
+          "primary_metric": "MEMBER_PAID_CONVERSION",
+          "outcome_window_days": "7",
+          "guardrail_window_days": "30",
+          "decision_rule": "{\"alpha\": 0.05, \"srm_alpha\": 0.001, \"analysis\": \"intention_to_treat\", \"mechanism\": \"B tests prominent recommendations with reduced size guidance; monitor conversion and refund harm among exposed members\", \"minimum_group_size\": 100, \"guardrail\": \"refund cents / original paid cents for orders submitted within 7 days of assignment; refunds within 30 days of assignment\", \"maximum_refund_rate_increase_pp\": 3, \"adopt\": \"SRM passes AND conversion CI lower bound > 0 AND refund-rate increase upper bound <= 3pp; otherwise hold\", \"maturity_anchor\": \"assignment\"}",
+          "registered_at": "2025-08-24T16:00:00+00:00",
+          "available_at": "2025-08-25T16:00:00+00:00",
+          "load_batch_id": "80000968"
+        },
+        "row_sha256": "0c80e1d30acc93bb3e2bef2a3183695326f903dad4ff6acd6e75176a37995776"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "experiment-2": {
+    "kind": "records",
+    "table": "core.experiment_definition",
+    "files": [
+      {
+        "path": "tables/core.experiment_definition/2025-09.csv",
+        "sha256": "7f4db9829855960bb0891414daeb0f23f431a53ed98ceaefbbe4aa76f75cdefb",
+        "source_visibility": "public"
+      }
+    ],
+    "records": [
+      {
+        "file": "tables/core.experiment_definition/2025-09.csv",
+        "csv_row_number": 2,
+        "key": {
+          "tenant_id": "101",
+          "experiment_id": "2"
+        },
+        "values": {
+          "tenant_id": "101",
+          "experiment_id": "2",
+          "experiment_code": "EXP2",
+          "channel_id": "4",
+          "campaign_id": "",
+          "randomization_unit": "CUSTOMER",
+          "allocation_a": "0.5",
+          "starts_at": "2025-09-14T16:00:00+00:00",
+          "ends_at": "2025-09-30T16:00:00+00:00",
+          "primary_metric": "MEMBER_PAID_CONVERSION",
+          "outcome_window_days": "7",
+          "guardrail_window_days": "30",
+          "decision_rule": "{\"alpha\": 0.05, \"srm_alpha\": 0.001, \"analysis\": \"intention_to_treat\", \"mechanism\": \"B tests prominent recommendations with reduced size guidance; monitor conversion and refund harm among exposed members\", \"minimum_group_size\": 100, \"guardrail\": \"refund cents / original paid cents for orders submitted within 7 days of assignment; refunds within 30 days of assignment\", \"maximum_refund_rate_increase_pp\": 3, \"adopt\": \"SRM passes AND conversion CI lower bound > 0 AND refund-rate increase upper bound <= 3pp; otherwise hold\", \"maturity_anchor\": \"assignment\"}",
+          "registered_at": "2025-09-07T16:00:00+00:00",
+          "available_at": "2025-09-08T16:00:00+00:00",
+          "load_batch_id": "80000982"
+        },
+        "row_sha256": "b427782ed7128e03afc2a416fb6520da6e8b182c43ac4754bd6e25ba826c1b07"
+      }
+    ],
+    "release_id": "diagnostic-v3-20261019",
+    "indexable": false
+  },
+  "original-inventory-policy": {
+    "kind": "source_text",
+    "files": [
+      {
+        "path": "scenarios/inventory-policy.md",
+        "sha256": "0934edd11b82fcae481eccb0e26fc69bca132ecb7439fda6c47871635dcf02b5",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "# 采购和库存规则\n\n来源：虚构企业运营公告（合成数据）。\n发布时间：2023-01-01 21:00 Asia/Shanghai；事件时刻以正文及业务表为准。\n有效范围：本合成数据 release；可信分类：业务材料，须与事实核对。\n\n仓库按35天预测覆盖备货，门店21天；补货提前期4至9天。库存数量以流水与地点SKU快照为准。\n",
+    "start_char": 0,
+    "end_char": 166,
+    "available_at": "2023-01-01T21:00:00+08:00",
+    "indexable": false
+  },
+  "original-promotion-plan": {
+    "kind": "source_text",
+    "files": [
+      {
+        "path": "scenarios/promotion-plan.md",
+        "sha256": "768696663499a2969e7301e6641e4f82fe457f2b8f98e61ea9f95ea7b2b56a5f",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "# 11月活动方案\n\n来源：虚构企业运营公告（合成数据）。\n发布时间：2025-10-20 21:00 Asia/Shanghai；事件时刻以正文及业务表为准。\n有效范围：本合成数据 release；可信分类：业务材料，须与事实核对。\n\n11月部分渠道采用25%折扣。投放、折扣与售后费用需分别核算，活动期间毛利可能下降。\n",
+    "start_char": 0,
+    "end_char": 161,
+    "available_at": "2025-10-20T21:00:00+08:00",
+    "indexable": false
+  },
+  "original-returns-sop": {
+    "kind": "source_text",
+    "files": [
+      {
+        "path": "scenarios/returns-sop.md",
+        "sha256": "4eab1ec3688080c00893c4f241357dd20fb3109054bc6bc26d51c2487201d73e",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "# 售后验收流程\n\n来源：虚构企业运营公告（合成数据）。\n发布时间：2023-01-01 21:00 Asia/Shanghai；事件时刻以正文及业务表为准。\n有效范围：本合成数据 release；可信分类：业务材料，须与事实核对。\n\n交付后30天内受理申请。验收拒绝继续隔离；接受冲收入，可售回库冲原成本，判损后报废。\n",
+    "start_char": 0,
+    "end_char": 160,
+    "available_at": "2023-01-01T21:00:00+08:00",
+    "indexable": false
+  },
+  "original-source-delay": {
+    "kind": "source_text",
+    "files": [
+      {
+        "path": "scenarios/source-delay.md",
+        "sha256": "8424c1d04c376798a02c1c91c264829921825c68650670f8da19e52502d98283",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "# OMS采集延迟通知\n\n来源：虚构企业运营公告（合成数据）。\n发布时间：2025-09-28 21:00 Asia/Shanghai；事件时刻以正文及业务表为准。\n有效范围：本合成数据 release；可信分类：业务材料，须与事实核对。\n\n9月28日的OMS批次延迟一天到达。请检查每期水位，后补报表产生新版本。\n",
+    "start_char": 0,
+    "end_char": 157,
+    "available_at": "2025-09-28T21:00:00+08:00",
+    "indexable": false
+  },
+  "original-source-recovery": {
+    "kind": "source_text",
+    "files": [
+      {
+        "path": "scenarios/source-recovery.md",
+        "sha256": "2184fd6e3b1db85442e3d16c09f388eb3f75a4dcd1b9f593006263cbadaf6c8c",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "# OMS恢复通知\n\n来源：虚构企业运营公告（合成数据）。\n发布时间：2025-09-30 21:00 Asia/Shanghai；事件时刻以正文及业务表为准。\n有效范围：本合成数据 release；可信分类：业务材料，须与事实核对。\n\n已补齐延迟批次；请按相同统计窗口和新的知识截止复算。\n",
+    "start_char": 0,
+    "end_char": 145,
+    "available_at": "2025-09-30T21:00:00+08:00",
+    "indexable": false
+  },
+  "original-store-opening": {
+    "kind": "source_text",
+    "files": [
+      {
+        "path": "scenarios/store-opening.md",
+        "sha256": "b7a2b0d51f60701890abded26e81d499f0bd878059a30ec80af07debab22160f",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "# 门店经营范围\n\n来源：虚构企业运营公告（合成数据）。\n发布时间：2024-01-01 21:00 Asia/Shanghai；事件时刻以正文及业务表为准。\n有效范围：本合成数据 release；可信分类：业务材料，须与事实核对。\n\n新店开业日期记录于site，比较同店增长时须固定门店集合，全部门店与同店分母分开。\n",
+    "start_char": 0,
+    "end_char": 159,
+    "available_at": "2024-01-01T21:00:00+08:00",
+    "indexable": false
+  },
+  "original-identity-policy": {
+    "kind": "source_text",
+    "files": [
+      {
+        "path": "scenarios/identity-policy.md",
+        "sha256": "cbcc659c58fa407ea5bf2f7e96145010632a04eac0d5668c5fe032e79f7ed8b8",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "# 会员识别规则\n\n来源：虚构企业运营公告（合成数据）。\n发布时间：2023-01-01 21:00 Asia/Shanghai；事件时刻以正文及业务表为准。\n有效范围：本合成数据 release；可信分类：业务材料，须与事实核对。\n\n历史订单保留当时身份快照，未知会员不回填；留存仅比较已成熟且分母至少100的队列单元。\n",
+    "start_char": 0,
+    "end_char": 161,
+    "available_at": "2023-01-01T21:00:00+08:00",
+    "indexable": false
+  },
+  "original-training-top-catalog-note": {
+    "kind": "source_text",
+    "files": [
+      {
+        "path": "scenarios/training-top-catalog-note.md",
+        "sha256": "34e21a57d8d681d0e809978683a42531c6260c3b5ae9fb3c0477b574acfea219",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "# 训练短袖商品档案摘录\n\n来源：虚构企业运营公告（合成数据）。\n发布时间：2026-03-31 21:00 Asia/Shanghai；事件时刻以正文及业务表为准。\n有效范围：本合成数据 release；可信分类：业务材料，须与事实核对。\n\n来源 core.spu 与当前冻结商品目录，观察截止2026-03-31。101-p002 逐风·晨露网眼速干短袖，上市2021-06-23，停售2025-11-01；101-p035 逐风·晨跑二代透气短袖，上市2024-03-18。新旧款并行期间应分别统计当时在售天数；替代关系属于经营计划，销量变化须查订单。\n",
+    "start_char": 0,
+    "end_char": 279,
+    "available_at": "2026-03-31T21:00:00+08:00",
+    "indexable": false
+  },
+  "definition-inventory_movement": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.inventory_movement\n\n一个地点 SKU 批次的一次库存桶变化。可售 待检 损坏 预留 在途分开；同一 business_txn_id 原子提交，流水是库存真值\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| movement_id | `bigint NOT NULL` | 库存事件 ID |\n| site_id | `bigint NOT NULL` | 地点 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| sku_id | `bigint NOT NULL` | SKU |\n| lot_id | `bigint` | 物理批次 预留事件可无 |\n| inventory_doc_line_id | `bigint` | 补货调拨等单据行 |\n| order_unit_id | `bigint` | 订单单件引用 |\n| return_item_id | `bigint` | 售后单件引用 |\n| movement_type | `text NOT NULL` | OPENING RECEIPT RESERVE RELEASE SHIP RETURN_RECEIVE RESTOCK SCRAP TRANSFER_OUT TRANSIT_IN TRANSIT_OUT TRANSFER_IN DAMAGE RTO_RECEIPT |\n| sellable_delta | `integer NOT NULL` | 可售物理库存变动 |\n| quarantine_delta | `integer NOT NULL` | 隔离实物变动；包含待检与已接受退货后待恢复可售 |\n| reserved_delta | `integer NOT NULL` | 预留量变动 |\n| in_transit_delta | `integer NOT NULL` | 归目的地点的在途量变动 |\n| event_at | `timestamptz NOT NULL` | 库存变动时刻 |\n| event_seq | `bigint NOT NULL` | 租户内同时间排序号 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n| damaged_delta | `integer NOT NULL` | 已判损坏尚未移出实物的数量变化 |\n| business_txn_id | `bigint NOT NULL` | 原子业务提交 ID |\n| source_kind | `text NOT NULL` | UNIT_EVENT SHIPMENT_EVENT RETURN_EVENT DOCUMENT_LINE |\n| source_event_id | `bigint NOT NULL` | 对应源业务事件或单据行 ID |\n| source_leg_no | `integer NOT NULL` | 同一来源拆出的稳定库存腿号 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, movement_id)\nUNIQUE (tenant_id, source_kind, source_event_id, source_leg_no)\nUNIQUE (tenant_id, event_seq)\nCHECK (movement_type IN ('OPENING','RECEIPT','RESERVE','RELEASE','SHIP','RETURN_RECEIVE','RESTOCK','DAMAGE','SCRAP','RTO_RECEIPT','TRANSFER_OUT','TRANSIT_IN','TRANSIT_OUT','TRANSFER_IN'))\nCHECK (sellable_delta <> 0 OR quarantine_delta <> 0 OR reserved_delta <> 0 OR in_transit_delta <> 0 OR damaged_delta <> 0)\nCHECK (available_at >= event_at)\nCHECK (source_kind IN ('UNIT_EVENT','SHIPMENT_EVENT','RETURN_EVENT','DOCUMENT_LINE'))\nCHECK (source_leg_no > 0)\nCHECK (event_seq > 0)\nALTER TABLE core.inventory_movement ADD CONSTRAINT fk_b38_00 FOREIGN KEY (tenant_id, site_id, region_id) REFERENCES core.site (tenant_id, site_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_movement ADD CONSTRAINT fk_b38_01 FOREIGN KEY (tenant_id, sku_id) REFERENCES core.sku (tenant_id, sku_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_movement ADD CONSTRAINT fk_b38_02 FOREIGN KEY (tenant_id, lot_id, site_id, sku_id) REFERENCES core.inventory_lot (tenant_id, lot_id, site_id, sku_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_movement ADD CONSTRAINT fk_b38_03 FOREIGN KEY (tenant_id, inventory_doc_line_id) REFERENCES core.inventory_document_line (tenant_id, inventory_doc_line_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_movement ADD CONSTRAINT fk_b38_04 FOREIGN KEY (tenant_id, order_unit_id) REFERENCES core.order_unit (tenant_id, order_unit_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_movement ADD CONSTRAINT fk_b38_05 FOREIGN KEY (tenant_id, return_item_id) REFERENCES core.return_item (tenant_id, return_item_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_movement ADD CONSTRAINT fk_b38_06 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_movement ADD CONSTRAINT fk_b38_07 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 54729,
+    "end_char": 58317,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-assortment": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.assortment\n\n一个地点 SKU 的经营有效区间。停售但有残余库存时仍需保留库存快照\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| assortment_id | `bigint NOT NULL` | 经营区间 ID |\n| site_id | `bigint NOT NULL` | 仓或店 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| sku_id | `bigint NOT NULL` | SKU |\n| valid_from | `date NOT NULL` | 经营起点 包含 |\n| valid_to | `date NOT NULL` | 经营终点 不含 |\n| can_sell | `boolean NOT NULL` | 允许销售出库 |\n| min_stock | `integer NOT NULL` | 补货点 单件 |\n| target_stock | `integer NOT NULL` | 目标库存 单件 |\n| available_at | `timestamptz NOT NULL` | 此计划或版本在源中首次发布可见时刻 |\n| load_batch_id | `bigint NOT NULL` | 来源采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, assortment_id)\nUNIQUE (tenant_id, site_id, sku_id, valid_from)\nCHECK (valid_from < valid_to)\nCHECK (min_stock >= 0)\nCHECK (target_stock >= min_stock)\nALTER TABLE core.assortment ADD CONSTRAINT fk_b13_00 FOREIGN KEY (tenant_id, site_id, region_id) REFERENCES core.site (tenant_id, site_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.assortment ADD CONSTRAINT fk_b13_01 FOREIGN KEY (tenant_id, sku_id) REFERENCES core.sku (tenant_id, sku_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.assortment ADD CONSTRAINT fk_b13_02 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.assortment ADD CONSTRAINT fk_b13_03 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 12330,
+    "end_char": 13845,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-channel_listing": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.channel_listing\n\n某渠道商品编码的一个有效版本。保留平台编码与统一 SKU 的多对一映射\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| listing_id | `bigint NOT NULL` | 映射版本 ID |\n| channel_id | `bigint NOT NULL` | 销售渠道 |\n| external_sku_code | `text NOT NULL` | 平台编码 |\n| sku_id | `bigint NOT NULL` | 统一 SKU |\n| valid_from | `timestamptz NOT NULL` | 有效开始 包含 |\n| valid_to | `timestamptz NOT NULL` | 有效结束 不含 |\n| available_at | `timestamptz NOT NULL` | 此计划或版本在源中首次发布可见时刻 |\n| load_batch_id | `bigint NOT NULL` | 来源采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, listing_id)\nUNIQUE (tenant_id, channel_id, external_sku_code, valid_from)\nUNIQUE (tenant_id, listing_id, sku_id, channel_id)\nCHECK (valid_from < valid_to)\nALTER TABLE core.channel_listing ADD CONSTRAINT fk_b12_00 FOREIGN KEY (tenant_id, channel_id) REFERENCES core.channel (tenant_id, channel_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.channel_listing ADD CONSTRAINT fk_b12_01 FOREIGN KEY (tenant_id, sku_id) REFERENCES core.sku (tenant_id, sku_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.channel_listing ADD CONSTRAINT fk_b12_02 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.channel_listing ADD CONSTRAINT fk_b12_03 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 10919,
+    "end_char": 12328,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-inventory_document_line": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.inventory_document_line\n\n库存业务单据中的一个 SKU。实际完成由库存流水决定，避免未来 actual_at 覆盖历史状态\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| inventory_doc_line_id | `bigint NOT NULL` | 单据行 |\n| inventory_doc_id | `bigint NOT NULL` | 单据 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| sku_id | `bigint NOT NULL` | SKU |\n| quantity | `integer NOT NULL` | 计划数量 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, inventory_doc_line_id)\nUNIQUE (tenant_id, inventory_doc_id, sku_id)\nCHECK (quantity > 0)\nALTER TABLE core.inventory_document_line ADD CONSTRAINT fk_b36_00 FOREIGN KEY (tenant_id, sku_id) REFERENCES core.sku (tenant_id, sku_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_document_line ADD CONSTRAINT fk_b36_01 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_document_line ADD CONSTRAINT fk_b36_02 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.inventory_document_line ADD CONSTRAINT fk_b36_03 FOREIGN KEY (tenant_id, inventory_doc_id, region_id) REFERENCES core.inventory_document (tenant_id, inventory_doc_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 51199,
+    "end_char": 52627,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-revenue_entry": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.revenue_entry\n\n一次单件收入确认或冲减。采用交付确认和退货接受口径；不替代法定总账\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| revenue_entry_id | `bigint NOT NULL` | 收入分录 |\n| order_unit_id | `bigint NOT NULL` | 订单单件 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| entry_type | `text NOT NULL` | DELIVERY RETURN_ACCEPTED |\n| shipment_event_id | `bigint` | 交付事件引用 |\n| return_event_id | `bigint` | 退货接受事件引用 |\n| quantity_delta | `smallint NOT NULL` | 销售 +1 退货 -1 |\n| amount_cent | `bigint NOT NULL` | 有符号收入变动；CNY 不含税整数分 |\n| recognized_at | `timestamptz NOT NULL` | 收入确认时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, revenue_entry_id)\nUNIQUE (tenant_id, order_unit_id, entry_type)\nCHECK ((entry_type = 'DELIVERY' AND quantity_delta = 1 AND amount_cent >= 0 AND shipment_event_id IS NOT NULL AND return_event_id IS NULL) OR (entry_type = 'RETURN_ACCEPTED' AND quantity_delta = -1 AND amount_cent <= 0 AND return_event_id IS NOT NULL AND shipment_event_id IS NULL))\nCHECK (available_at >= recognized_at)\nALTER TABLE core.revenue_entry ADD CONSTRAINT fk_b41_00 FOREIGN KEY (tenant_id, order_unit_id, region_id) REFERENCES core.order_unit (tenant_id, order_unit_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.revenue_entry ADD CONSTRAINT fk_b41_01 FOREIGN KEY (tenant_id, shipment_event_id) REFERENCES core.shipment_event (tenant_id, shipment_event_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.revenue_entry ADD CONSTRAINT fk_b41_02 FOREIGN KEY (tenant_id, return_event_id) REFERENCES core.return_event (tenant_id, return_event_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.revenue_entry ADD CONSTRAINT fk_b41_03 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.revenue_entry ADD CONSTRAINT fk_b41_04 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 61700,
+    "end_char": 63790,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-cost_entry": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.cost_entry\n\n一次单件销售成本确认或冲回。交付计原批次成本；可售回库冲回原成本；损坏不冲回不二次扣损\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| cost_entry_id | `bigint NOT NULL` | 成本分录 |\n| order_unit_id | `bigint NOT NULL` | 订单单件 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| entry_type | `text NOT NULL` | DELIVERY RESTOCK |\n| lot_id | `bigint NOT NULL` | 原出库批次 |\n| shipment_event_id | `bigint` | 交付事件 |\n| return_event_id | `bigint` | 可售回库事件 |\n| amount_cent | `bigint NOT NULL` | 有符号销售成本变动；增加成本为正；CNY 不含税整数分 |\n| recognized_at | `timestamptz NOT NULL` | 成本确认或冲回时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, cost_entry_id)\nUNIQUE (tenant_id, order_unit_id, entry_type)\nCHECK ((entry_type = 'DELIVERY' AND amount_cent >= 0 AND shipment_event_id IS NOT NULL AND return_event_id IS NULL) OR (entry_type = 'RESTOCK' AND amount_cent <= 0 AND return_event_id IS NOT NULL AND shipment_event_id IS NULL))\nCHECK (available_at >= recognized_at)\nALTER TABLE core.cost_entry ADD CONSTRAINT fk_b42_00 FOREIGN KEY (tenant_id, order_unit_id, region_id) REFERENCES core.order_unit (tenant_id, order_unit_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.cost_entry ADD CONSTRAINT fk_b42_01 FOREIGN KEY (tenant_id, lot_id) REFERENCES core.inventory_lot (tenant_id, lot_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.cost_entry ADD CONSTRAINT fk_b42_02 FOREIGN KEY (tenant_id, shipment_event_id) REFERENCES core.shipment_event (tenant_id, shipment_event_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.cost_entry ADD CONSTRAINT fk_b42_03 FOREIGN KEY (tenant_id, return_event_id) REFERENCES core.return_event (tenant_id, return_event_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.cost_entry ADD CONSTRAINT fk_b42_04 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.cost_entry ADD CONSTRAINT fk_b42_05 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 63792,
+    "end_char": 65964,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-order_fee": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.order_fee\n\n订单对应的一笔经营变动费用。不含固定租金人力；费用冲回用负数；投放费在 campaign_daily 独立计\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| fee_id | `bigint NOT NULL` | 费用 ID |\n| order_id | `bigint NOT NULL` | 订单 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| order_unit_id | `bigint` | 可以分配到单件；订单级费用为 NULL |\n| fee_type | `text NOT NULL` | COMMISSION OUTBOUND_LOGISTICS RETURN_LOGISTICS PAYMENT_SERVICE |\n| amount_cent | `bigint NOT NULL` | 有符号费用发生额；CNY 不含税整数分 |\n| recognized_at | `timestamptz NOT NULL` | 费用确认时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n| source_system | `text NOT NULL` | 费用来源系统 |\n| source_fee_no | `text NOT NULL` | 来源费用唯一号；回调重试不得变号 |\n| reversal_of_fee_id | `bigint` | 负费用冲回的原费用 ID，正费用为空 |\n| source_event_kind | `text NOT NULL` | PAYMENT SHIPMENT RETURN REFUND |\n| source_event_id | `bigint NOT NULL` | 费用发生依据的业务事件 ID |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, fee_id)\nUNIQUE (tenant_id, source_system, source_fee_no)\nUNIQUE (tenant_id, fee_id, order_id, region_id)\nCHECK (fee_type IN ('COMMISSION','OUTBOUND_LOGISTICS','RETURN_LOGISTICS','PAYMENT_SERVICE'))\nCHECK (available_at >= recognized_at)\nCHECK ((amount_cent >= 0 AND reversal_of_fee_id IS NULL) OR (amount_cent < 0 AND reversal_of_fee_id IS NOT NULL))\nCHECK (source_event_kind IN ('PAYMENT','SHIPMENT','RETURN','REFUND'))\nALTER TABLE core.order_fee ADD CONSTRAINT fk_b43_00 FOREIGN KEY (tenant_id, order_id, region_id) REFERENCES core.order_header (tenant_id, order_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_fee ADD CONSTRAINT fk_b43_01 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_fee ADD CONSTRAINT fk_b43_02 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_fee ADD CONSTRAINT fk_b43_03 FOREIGN KEY (tenant_id, order_unit_id, order_id, region_id) REFERENCES core.order_unit (tenant_id, order_unit_id, order_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_fee ADD CONSTRAINT fk_b43_04 FOREIGN KEY (tenant_id, reversal_of_fee_id, order_id, region_id) REFERENCES core.order_fee (tenant_id, fee_id, order_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 65966,
+    "end_char": 68361,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-return_event": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.return_event\n\n一个售后单件的一次状态事件。ACCEPTED 冲收入 RESTOCKED 冲原成本；现金退款另记\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| return_event_id | `bigint NOT NULL` | 售后事件 |\n| return_item_id | `bigint NOT NULL` | 售后单件 |\n| order_unit_id | `bigint NOT NULL` | 订单单件 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| event_seq | `integer NOT NULL` | 事件序号 |\n| event_type | `text NOT NULL` | REQUESTED RECEIVED ACCEPTED REJECTED RESTOCKED DAMAGED SCRAPPED |\n| site_id | `bigint` | 事件发生地点 无则 NULL |\n| restocked_lot_id | `bigint` | 重新入库批次 非回库事件为 NULL |\n| event_at | `timestamptz NOT NULL` | 业务事件时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, return_event_id)\nUNIQUE (tenant_id, return_item_id, event_seq)\nCHECK (event_type IN ('REQUESTED','RECEIVED','ACCEPTED','REJECTED','RESTOCKED','DAMAGED','SCRAPPED'))\nCHECK (event_seq > 0)\nCHECK (available_at >= event_at)\nCHECK ((event_type = 'RESTOCKED') = (restocked_lot_id IS NOT NULL))\nCHECK (event_type NOT IN ('RECEIVED','RESTOCKED','DAMAGED','SCRAPPED') OR site_id IS NOT NULL)\nALTER TABLE core.return_event ADD CONSTRAINT fk_b33_00 FOREIGN KEY (tenant_id, return_item_id, order_unit_id, region_id) REFERENCES core.return_item (tenant_id, return_item_id, order_unit_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.return_event ADD CONSTRAINT fk_b33_01 FOREIGN KEY (tenant_id, site_id) REFERENCES core.site (tenant_id, site_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.return_event ADD CONSTRAINT fk_b33_02 FOREIGN KEY (tenant_id, restocked_lot_id) REFERENCES core.inventory_lot (tenant_id, lot_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.return_event ADD CONSTRAINT fk_b33_03 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.return_event ADD CONSTRAINT fk_b33_04 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 45323,
+    "end_char": 47434,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-refund": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.refund\n\n一次现金退款尝试。与销售冲减和实物入库分离；一笔退款引用一笔成功支付\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| refund_id | `bigint NOT NULL` | 退款 ID |\n| payment_id | `bigint NOT NULL` | 原支付 |\n| order_id | `bigint NOT NULL` | 订单 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| refund_no | `text NOT NULL` | 退款单号 |\n| status | `text NOT NULL` | SUCCEEDED FAILED |\n| refund_type | `text NOT NULL` | CANCEL RETURN |\n| amount_cent | `bigint NOT NULL` | 退款尝试金额；CNY 不含税整数分 |\n| attempted_at | `timestamptz NOT NULL` | 现金退款尝试时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, refund_id)\nUNIQUE (tenant_id, refund_no)\nUNIQUE (tenant_id, refund_id, order_id, region_id)\nCHECK (status IN ('SUCCEEDED','FAILED'))\nCHECK (refund_type IN ('CANCEL','RETURN'))\nCHECK (amount_cent > 0)\nCHECK (available_at >= attempted_at)\nALTER TABLE core.refund ADD CONSTRAINT fk_b26_00 FOREIGN KEY (tenant_id, payment_id, order_id, region_id) REFERENCES core.payment (tenant_id, payment_id, order_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.refund ADD CONSTRAINT fk_b26_01 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.refund ADD CONSTRAINT fk_b26_02 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 33598,
+    "end_char": 35110,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-refund_allocation": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.refund_allocation\n\n一次退款分配到一个订单单件。可跨多笔原支付分拆退款；单件成功退款累计不得超过 net_cent\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| refund_allocation_id | `bigint NOT NULL` | 分摊 ID |\n| refund_id | `bigint NOT NULL` | 退款 |\n| order_id | `bigint NOT NULL` | 订单 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| order_unit_id | `bigint NOT NULL` | 单件 |\n| amount_cent | `bigint NOT NULL` | 本次分摊退款；CNY 不含税整数分 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, refund_allocation_id)\nUNIQUE (tenant_id, refund_id, order_unit_id)\nCHECK (amount_cent > 0)\nALTER TABLE core.refund_allocation ADD CONSTRAINT fk_b27_00 FOREIGN KEY (tenant_id, refund_id, order_id, region_id) REFERENCES core.refund (tenant_id, refund_id, order_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.refund_allocation ADD CONSTRAINT fk_b27_01 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.refund_allocation ADD CONSTRAINT fk_b27_02 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.refund_allocation ADD CONSTRAINT fk_b27_03 FOREIGN KEY (tenant_id, order_unit_id, order_id, region_id) REFERENCES core.order_unit (tenant_id, order_unit_id, order_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 35112,
+    "end_char": 36621,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-customer_identity": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.customer_identity\n\n一个渠道内的购买身份。不可变渠道内身份；会员绑定见 customer_identity_link，未识别用户不可合并成同一个客户\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| identity_id | `bigint NOT NULL` | 渠道身份 ID |\n| channel_id | `bigint NOT NULL` | 来源渠道 |\n| external_user_token | `text NOT NULL` | 不可逆合成令牌 |\n| first_seen_at | `timestamptz NOT NULL` | 首次可见时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, identity_id)\nUNIQUE (tenant_id, channel_id, external_user_token)\nUNIQUE (tenant_id, identity_id, channel_id)\nCHECK (available_at >= first_seen_at)\nALTER TABLE core.customer_identity ADD CONSTRAINT fk_b17_00 FOREIGN KEY (tenant_id, channel_id) REFERENCES core.channel (tenant_id, channel_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.customer_identity ADD CONSTRAINT fk_b17_01 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.customer_identity ADD CONSTRAINT fk_b17_02 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 17632,
+    "end_char": 18857,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-customer_identity_link": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.customer_identity_link\n\n一条渠道身份到会员的已验证绑定。身份本身保持不可变；绑定独立记录，禁止把未来会员关联回填到历史订单\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| identity_link_id | `bigint NOT NULL` | 绑定记录 |\n| identity_id | `bigint NOT NULL` | 渠道身份 |\n| customer_id | `bigint NOT NULL` | 企业会员 |\n| linked_at | `timestamptz NOT NULL` | 绑定确认时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, identity_link_id)\nUNIQUE (tenant_id, identity_id)\nCHECK (available_at >= linked_at)\nALTER TABLE core.customer_identity_link ADD CONSTRAINT fk_b18_00 FOREIGN KEY (tenant_id, identity_id) REFERENCES core.customer_identity (tenant_id, identity_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.customer_identity_link ADD CONSTRAINT fk_b18_01 FOREIGN KEY (tenant_id, customer_id) REFERENCES core.customer (tenant_id, customer_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.customer_identity_link ADD CONSTRAINT fk_b18_02 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.customer_identity_link ADD CONSTRAINT fk_b18_03 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 18859,
+    "end_char": 20212,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-order_header": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.order_header\n\n一个成功创建的订单头。精确百万配额包含支付失败和取消；无 mutable 当前状态\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| order_id | `bigint NOT NULL` | 订单 ID |\n| order_no | `text NOT NULL` | 企业业务订单号 |\n| contoso_proposal_id | `text NOT NULL` | 候选订单追踪 ID |\n| channel_id | `bigint NOT NULL` | 下单渠道 |\n| org_unit_id | `bigint NOT NULL` | 销售归属组织 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| demand_geo_id | `bigint NOT NULL` | 需求城市 |\n| selling_site_id | `bigint` | 线下下单门店 线上为 NULL |\n| identity_id | `bigint NOT NULL` | 渠道购买身份 |\n| customer_id | `bigint` | 下单时已知会员；不事后回填 |\n| ordered_at | `timestamptz NOT NULL` | 订单创建时刻 |\n| order_date | `date NOT NULL` | ordered_at 转 Asia/Shanghai 的自然日 |\n| currency | `char(3) NOT NULL` | 固定 CNY |\n| gross_cent | `bigint NOT NULL` | 商品原价总额；CNY 不含税整数分 |\n| discount_cent | `bigint NOT NULL` | 商品优惠总额；CNY 不含税整数分 |\n| payable_cent | `bigint NOT NULL` | 应付商品额；v1 无向客户收取的运费；CNY 不含税整数分 |\n| payment_deadline | `timestamptz NOT NULL` | 支付截止时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, order_id)\nUNIQUE (tenant_id, order_no)\nUNIQUE (tenant_id, contoso_proposal_id)\nUNIQUE (tenant_id, order_id, region_id)\nUNIQUE (tenant_id, order_id, region_id, channel_id)\nCHECK (currency = 'CNY')\nCHECK (gross_cent >= 0)\nCHECK (discount_cent BETWEEN 0 AND gross_cent)\nCHECK (payable_cent = gross_cent - discount_cent)\nCHECK (payment_deadline >= ordered_at)\nCHECK (order_date = (ordered_at AT TIME ZONE 'Asia/Shanghai')::date)\nCHECK (available_at >= ordered_at)\nCHECK (payable_cent > 0)\nALTER TABLE core.order_header ADD CONSTRAINT fk_b19_00 FOREIGN KEY (tenant_id, channel_id) REFERENCES core.channel (tenant_id, channel_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_header ADD CONSTRAINT fk_b19_01 FOREIGN KEY (tenant_id, org_unit_id) REFERENCES core.org_unit (tenant_id, org_unit_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_header ADD CONSTRAINT fk_b19_02 FOREIGN KEY (tenant_id, region_id) REFERENCES core.geo_area (tenant_id, geo_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_header ADD CONSTRAINT fk_b19_03 FOREIGN KEY (tenant_id, demand_geo_id) REFERENCES core.geo_area (tenant_id, geo_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_header ADD CONSTRAINT fk_b19_04 FOREIGN KEY (tenant_id, selling_site_id) REFERENCES core.site (tenant_id, site_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_header ADD CONSTRAINT fk_b19_05 FOREIGN KEY (tenant_id, customer_id) REFERENCES core.customer (tenant_id, customer_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_header ADD CONSTRAINT fk_b19_06 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_header ADD CONSTRAINT fk_b19_07 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_header ADD CONSTRAINT fk_b19_08 FOREIGN KEY (tenant_id, identity_id, channel_id) REFERENCES core.customer_identity (tenant_id, identity_id, channel_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 20214,
+    "end_char": 23460,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-channel_product_daily": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.channel_product_daily\n\n一个平台 日 渠道 SKU 区域的经营报表版本。只提供平台可见汇总；商品购买订单数不可跨 SKU 相加当独立订单数\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| report_date | `date NOT NULL` | 下单 cohort 的本地日期；支付随后到达则修订此日期版本 |\n| channel_id | `bigint NOT NULL` | 平台渠道 |\n| sku_id | `bigint NOT NULL` | SKU |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| product_views | `bigint NOT NULL` | 商品页访问事件数 PV |\n| product_visitors | `bigint NOT NULL` | 商品页独立访客 UV |\n| add_cart_users | `bigint NOT NULL` | 加购人数 |\n| submitted_orders | `bigint NOT NULL` | 含本 SKU 的创建订单数 |\n| paid_orders | `bigint NOT NULL` | 该创建日期 cohort 含本 SKU 的订单，截至版本可见时累计已足额支付单数 |\n| paid_amount_cent | `bigint NOT NULL` | 该创建日期 cohort 已足额支付订单分配到本 SKU 的净额 CNY整数分；不是当日现金流 |\n| report_version | `integer NOT NULL` | 源报表修订版本 |\n| source_updated_at | `timestamptz NOT NULL` | 来源修订时间 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, report_date, channel_id, sku_id, region_id, report_version)\nCHECK (product_views >= product_visitors)\nCHECK (product_visitors >= 0)\nCHECK (add_cart_users BETWEEN 0 AND product_visitors)\nCHECK (submitted_orders >= 0)\nCHECK (paid_orders BETWEEN 0 AND submitted_orders)\nCHECK (paid_amount_cent >= 0)\nCHECK (report_version > 0)\nCHECK (available_at >= source_updated_at)\nALTER TABLE core.channel_product_daily ADD CONSTRAINT fk_b50_00 FOREIGN KEY (tenant_id, channel_id) REFERENCES core.channel (tenant_id, channel_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.channel_product_daily ADD CONSTRAINT fk_b50_01 FOREIGN KEY (tenant_id, sku_id) REFERENCES core.sku (tenant_id, sku_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.channel_product_daily ADD CONSTRAINT fk_b50_02 FOREIGN KEY (tenant_id, region_id) REFERENCES core.geo_area (tenant_id, geo_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.channel_product_daily ADD CONSTRAINT fk_b50_03 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.channel_product_daily ADD CONSTRAINT fk_b50_04 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 78836,
+    "end_char": 81126,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-campaign_attribution_daily": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.campaign_attribution_daily\n\n平台按原获客日期聚合的归因报告；退款回溯原队列；首购仅指本模拟历史内平台首购\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` |  |\n| campaign_id | `bigint NOT NULL` |  |\n| channel_id | `bigint NOT NULL` |  |\n| cohort_date | `date NOT NULL` |  |\n| attribution_model | `text NOT NULL` |  |\n| model_version | `text NOT NULL` |  |\n| report_version | `integer NOT NULL` |  |\n| coverage_status | `text NOT NULL` |  |\n| attributed_paid_cent | `bigint` |  |\n| attributed_refund_cent | `bigint` |  |\n| new_buyer_count | `integer` |  |\n| new_buyer_definition | `text NOT NULL` |  |\n| observed_at | `timestamptz NOT NULL` |  |\n| available_at | `timestamptz NOT NULL` |  |\n| load_batch_id | `bigint NOT NULL` |  |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, campaign_id, cohort_date, report_version)\nCHECK (coverage_status IN ('KNOWN','UNKNOWN'))\nCHECK (coverage_status <> 'UNKNOWN' OR (attributed_paid_cent IS NULL AND attributed_refund_cent IS NULL AND new_buyer_count IS NULL))\nALTER TABLE core.campaign_attribution_daily ADD CONSTRAINT campaign_attribution_daily_tenant_id_campaign_id_fk FOREIGN KEY (tenant_id, campaign_id) REFERENCES core.campaign (tenant_id, campaign_id);\nALTER TABLE core.campaign_attribution_daily ADD CONSTRAINT campaign_attribution_daily_tenant_id_load_batch_id_fk FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id);\n```\n",
+    "start_char": 99926,
+    "end_char": 101318,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-order_attribution": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.order_attribution\n\n某归因模型版本对一张订单的一条触点归因。v1 LAST_NON_DIRECT_7D 最多一条每单；多触点扩展必须权重归一\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| attribution_id | `bigint NOT NULL` | 归因记录 ID |\n| order_id | `bigint NOT NULL` | 订单 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| campaign_id | `bigint` | 归因活动 无则自然或不可归因 |\n| session_id | `bigint` | 可观察自有会话 平台可无 |\n| touch_at | `timestamptz` | 触点时间 不可观测可空 |\n| model_version | `text NOT NULL` | 固定 LAST_NON_DIRECT_7D_V1 |\n| credit | `numeric(9,8) NOT NULL` | 归因权重 v1 固定1 |\n| evidence_type | `text NOT NULL` | OWNED_TOUCH ORGANIC UNATTRIBUTABLE；平台仅有日聚合报表时必须 UNATTRIBUTABLE |\n| computed_at | `timestamptz NOT NULL` | 归因计算时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, attribution_id)\nUNIQUE (tenant_id, order_id, model_version)\nCHECK (credit = 1)\nCHECK (model_version = 'LAST_NON_DIRECT_7D_V1')\nCHECK (evidence_type IN ('OWNED_TOUCH','ORGANIC','UNATTRIBUTABLE'))\nCHECK (available_at >= computed_at)\nCHECK ((evidence_type = 'OWNED_TOUCH' AND campaign_id IS NOT NULL AND session_id IS NOT NULL AND touch_at IS NOT NULL) OR (evidence_type IN ('ORGANIC','UNATTRIBUTABLE') AND campaign_id IS NULL AND session_id IS NULL AND touch_at IS NULL))\nALTER TABLE core.order_attribution ADD CONSTRAINT fk_b52_00 FOREIGN KEY (tenant_id, order_id, region_id) REFERENCES core.order_header (tenant_id, order_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_attribution ADD CONSTRAINT fk_b52_01 FOREIGN KEY (tenant_id, campaign_id) REFERENCES core.campaign (tenant_id, campaign_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_attribution ADD CONSTRAINT fk_b52_02 FOREIGN KEY (tenant_id, session_id) REFERENCES core.web_session (tenant_id, session_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_attribution ADD CONSTRAINT fk_b52_03 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.order_attribution ADD CONSTRAINT fk_b52_04 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 82401,
+    "end_char": 84669,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-payment": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## core.payment\n\n一次支付尝试。成功支付累计满足应付才产生 PAID；允许一次订单多笔支付\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| payment_id | `bigint NOT NULL` | 支付尝试 ID |\n| order_id | `bigint NOT NULL` | 订单 |\n| region_id | `bigint NOT NULL` | 经营归属大区；与所属订单或地点一致 |\n| payment_no | `text NOT NULL` | 来源支付单号 |\n| method | `text NOT NULL` | ALIPAY WECHAT BANK POS |\n| status | `text NOT NULL` | SUCCEEDED FAILED |\n| amount_cent | `bigint NOT NULL` | 本次尝试金额；CNY 不含税整数分 |\n| attempted_at | `timestamptz NOT NULL` | 支付尝试时刻 |\n| available_at | `timestamptz NOT NULL` | 源记录首次可见 UTC 时刻；事件不得早于发生，预先发布计划可以早于生效 |\n| load_batch_id | `bigint NOT NULL` | 模拟采集批次；引用本租户采集批次 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, payment_id)\nUNIQUE (tenant_id, payment_no)\nUNIQUE (tenant_id, payment_id, order_id, region_id)\nCHECK (status IN ('SUCCEEDED','FAILED'))\nCHECK (amount_cent > 0)\nCHECK (available_at >= attempted_at)\nALTER TABLE core.payment ADD CONSTRAINT fk_b25_00 FOREIGN KEY (tenant_id, order_id, region_id) REFERENCES core.order_header (tenant_id, order_id, region_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.payment ADD CONSTRAINT fk_b25_01 FOREIGN KEY (tenant_id, load_batch_id) REFERENCES ops.ingestion_batch (tenant_id, batch_id) DEFERRABLE INITIALLY IMMEDIATE;\nALTER TABLE core.payment ADD CONSTRAINT fk_b25_02 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 32170,
+    "end_char": 33596,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-asset_period_status": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## ops.asset_period_status\n\n全租户指定资产业务日的历史完整度声明；源watermark仍只表示采集状态\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` |  |\n| asset_id | `text NOT NULL` |  |\n| period_start | `date NOT NULL` |  |\n| period_end | `date NOT NULL` |  |\n| observed_at | `timestamptz NOT NULL` |  |\n| status | `text NOT NULL` |  |\n| reason_code | `text NOT NULL` |  |\n| last_visible_report_version | `integer` |  |\n| source_coverage_end | `timestamptz` |  |\n| reconciled_at | `timestamptz` |  |\n| available_at | `timestamptz NOT NULL` |  |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, asset_id, period_start, period_end, observed_at)\nCHECK (period_end > period_start)\nCHECK (status IN ('PENDING','PARTIAL','COMPLETE'))\nCHECK (available_at >= observed_at)\nCHECK (status <> 'COMPLETE' OR (source_coverage_end IS NOT NULL AND source_coverage_end >= (period_end::timestamp AT TIME ZONE 'Asia/Shanghai') AND reconciled_at IS NOT NULL AND reconciled_at <= observed_at))\nALTER TABLE ops.asset_period_status ADD CONSTRAINT asset_period_status_tenant_id_fk FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id);\n```\n",
+    "start_char": 101320,
+    "end_char": 102420,
+    "available_at": null,
+    "indexable": false
+  },
+  "definition-source_watermark": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "dictionary.md",
+        "sha256": "9994608e748fcb561de48afcaa002947c868c92978e692ee35d78cdf4fb7e231",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "## ops.source_watermark\n\n某源在一个已观察时点的完整性水位。complete_through 由批次连续覆盖得到，不能使用 MAX(event_at)\n\n| 字段 | SQL 定义 | 说明 |\n|---|---|---|\n| tenant_id | `smallint NOT NULL` | 企业租户；101 主租户，102 和 103 隔离租户 |\n| source_system | `text NOT NULL` | 源系统 |\n| observed_at | `timestamptz NOT NULL` | 检查时间 |\n| complete_through | `timestamptz NOT NULL` | 确认完整的业务时间截止 不含 |\n| expected_batches | `integer NOT NULL` | 应到批次数 |\n| arrived_batches | `integer NOT NULL` | 已到批次数 |\n| status | `text NOT NULL` | COMPLETE DELAYED FAILED |\n| missing_batch_ids | `jsonb NOT NULL DEFAULT '[]'::jsonb` | 缺失批次 ID数组 |\n\n约束与关联：\n\n```sql\nPRIMARY KEY (tenant_id, source_system, observed_at)\nCHECK (arrived_batches BETWEEN 0 AND expected_batches)\nCHECK (status IN ('COMPLETE','DELAYED','FAILED'))\nCHECK (complete_through <= observed_at)\nALTER TABLE ops.source_watermark ADD CONSTRAINT fk_b60_00 FOREIGN KEY (tenant_id) REFERENCES core.tenant (tenant_id) DEFERRABLE INITIALLY IMMEDIATE;\n```\n",
+    "start_char": 93750,
+    "end_char": 94685,
+    "available_at": null,
+    "indexable": false
+  },
+  "method-retention": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "reference.sql",
+        "sha256": "b31833f47091ae3860989ea73276ae3b781106ce137c94738821018d63c51f9f",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "-- S12: first delivered-purchase month, fixed filters, and explicit month ages.\n-- Refunds do not erase a delivered purchase or subsequent delivered activity in this\n-- event-based retention definition; net revenue/refund rate are separate guardrails.\n-- Unknown members are excluded; never backfill identities learned after the order.\n-- Change the two nullable filter values together for both cohort base and activity.\nWITH params AS (SELECT timestamptz '2025-12-15T09:00:00+08' cutoff,\n NULL::bigint channel_filter,NULL::bigint region_filter),\n purchases AS (\n SELECT o.tenant_id,o.customer_id,\n date_trunc('month',r.recognized_at AT TIME ZONE 'Asia/Shanghai')::date AS activity_month\n FROM core.revenue_entry r JOIN core.order_unit u USING(tenant_id,order_unit_id)\n JOIN core.order_header o USING(tenant_id,order_id) CROSS JOIN params p\n WHERE o.customer_id IS NOT NULL AND r.entry_type='DELIVERY' AND r.available_at<=p.cutoff\n AND (p.channel_filter IS NULL OR o.channel_id=p.channel_filter)\n AND (p.region_filter IS NULL OR o.region_id=p.region_filter) GROUP BY 1,2,3),\n first_purchase AS (SELECT tenant_id,customer_id,min(activity_month) cohort FROM purchases GROUP BY 1,2),\n bases AS (SELECT tenant_id,cohort,count(*) denominator FROM first_purchase GROUP BY 1,2),\n activity AS (SELECT f.tenant_id,f.cohort,p.activity_month,count(DISTINCT p.customer_id) active\n FROM first_purchase f JOIN purchases p USING(tenant_id,customer_id) GROUP BY 1,2,3),\n cells AS (SELECT b.*,n.age,(b.cohort+make_interval(months=>n.age))::date AS activity_month\n FROM bases b CROSS JOIN generate_series(0,12) n(age))\nSELECT c.tenant_id,c.cohort,c.age,c.activity_month,c.denominator,\n CASE WHEN c.activity_month+interval '1 month'<=p.cutoff AT TIME ZONE 'Asia/Shanghai'\n THEN coalesce(a.active,0) END active,\n CASE WHEN c.denominator>=100 AND c.activity_month+interval '1 month'<=p.cutoff AT TIME ZONE 'Asia/Shanghai'\n THEN coalesce(a.active,0)::numeric/c.denominator END retention,\n CASE WHEN c.activity_month+interval '1 month'>p.cutoff AT TIME ZONE 'Asia/Shanghai' THEN 'IMMATURE'\n WHEN c.denominator<100 THEN 'INSUFFICIENT_SAMPLE' ELSE 'MATURE' END sample_status\nFROM cells c CROSS JOIN params p LEFT JOIN activity a USING(tenant_id,cohort,activity_month)\nORDER BY 1,2,3;\n",
+    "start_char": 2782,
+    "end_char": 5040,
+    "available_at": null,
+    "indexable": false
+  },
+  "method-payment": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "reference.sql",
+        "sha256": "b31833f47091ae3860989ea73276ae3b781106ce137c94738821018d63c51f9f",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "-- S11: attempts per minute; exclude groups below 100 rather than treating them as healthy.\nSELECT date_trunc('minute',p.attempted_at) AS minute_bucket,count(*) AS attempts,\n count(*) FILTER(WHERE p.status='SUCCEEDED') AS successes,\n CASE WHEN count(*)>=100 THEN count(*) FILTER(WHERE p.status='SUCCEEDED')::numeric/count(*) END AS success_rate\nFROM core.payment p JOIN core.order_header o USING(tenant_id,order_id)\nWHERE o.channel_id=4 AND p.attempted_at>='2025-11-10T10:00:00+08' AND p.attempted_at<'2025-11-10T11:30:00+08'\nGROUP BY 1 ORDER BY 1;\n",
+    "start_char": 2232,
+    "end_char": 2780,
+    "available_at": null,
+    "indexable": false
+  },
+  "method-roas": {
+    "kind": "source_definition",
+    "files": [
+      {
+        "path": "reference.sql",
+        "sha256": "b31833f47091ae3860989ea73276ae3b781106ce137c94738821018d63c51f9f",
+        "source_visibility": "public"
+      }
+    ],
+    "excerpt": "-- Platform ROI is attributed net cash / complete cohort spend, not causal incremental profit.\nWITH spend AS (SELECT tenant_id,campaign_id,report_date,sum(spend_cent) spend_cent\n FROM core.campaign_daily WHERE report_version=1 GROUP BY 1,2,3)\nSELECT c.campaign_name,a.cohort_date,a.report_version,a.coverage_status,a.new_buyer_definition,\n s.spend_cent/100.0 spend_yuan,a.attributed_paid_cent/100.0 paid_yuan,\n a.attributed_refund_cent/100.0 refund_yuan,\n (a.attributed_paid_cent-a.attributed_refund_cent)::numeric/nullif(s.spend_cent,0) attributed_net_cash_roas\nFROM spend s JOIN core.campaign c USING(tenant_id,campaign_id)\nLEFT JOIN core.campaign_attribution_daily a ON a.tenant_id=s.tenant_id AND a.campaign_id=s.campaign_id\n AND a.cohort_date=s.report_date WHERE s.tenant_id=101 AND s.report_date BETWEEN '2025-06-01' AND '2025-06-20'\nORDER BY c.campaign_id,s.report_date,a.report_version;\n",
+    "start_char": 8101,
+    "end_char": 8995,
+    "available_at": null,
+    "indexable": false
+  },
+  "stock-case-constraint": {
+    "kind": "context_setting",
+    "files": [
+      {
+        "path": "scenarios/diagnostic-bindings.json",
+        "sha256": "d29010967d1a32f629d3e9974dec631bbd3b7ca2f40cffbfe00767f7e1427a4e",
+        "source_visibility": "public"
+      }
+    ],
+    "json_pointer": "/procurement/safety_stock",
+    "value": 50,
+    "available_at": null,
+    "indexable": false,
+    "use": "明确标识的模拟经营约束，不作为历史签发或执行事实"
+  }
+}

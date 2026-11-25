@@ -1,0 +1,17 @@
+[project]
+name = "compass-data-seed"
+version = "0.1.0"
+description = "Compass offline synthetic retail data preparation and publication"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "sqlalchemy>=2.0,<3",
+  "psycopg[binary]>=3.2,<4",
+  "alembic>=1.15,<2",
+]
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/compass_data_seed"]

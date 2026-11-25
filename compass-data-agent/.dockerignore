@@ -1,0 +1,17 @@
+**/node_modules
+**/.venv
+**/.next
+**/.turbo
+**/.git
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+**/dist
+**/.env
+**/.env.*
+!**/.env.example
+work/
+data/
+.agents/
+.cursor/
+mai-specs/

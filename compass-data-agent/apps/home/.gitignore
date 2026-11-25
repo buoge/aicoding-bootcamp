@@ -1,0 +1,7 @@
+public/prototype/
+public/resources/
+out/
+.next/
+next-env.d.ts
+.next-export/
+reference/

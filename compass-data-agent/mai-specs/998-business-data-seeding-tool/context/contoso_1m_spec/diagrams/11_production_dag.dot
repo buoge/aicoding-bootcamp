@@ -1,0 +1,26 @@
+digraph process {
+graph [rankdir=TB, bgcolor="white", nodesep=0.3, ranksep=0.55, pad=0.25, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#eef4f8", color="#b5c9d8", fontname="DejaVu Sans", fontsize=12, margin="0.18,0.12"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#6b8296", arrowsize=0.6];
+A [label="Freeze source and master data"];
+B [label="Contoso: export weights"];
+C [label="Compile assortment and price context"];
+D [label="Allocate exact order slots"];
+E [label="Contoso: propose baskets"];
+F [label="Opening stock and supply plans"];
+G [label="Simulate business events in time order"];
+H [label="Canonical facts and source arrivals"];
+I [label="Snapshots, metrics and independent gates"];
+J [label="Commit immutable release manifest"];
+A -> B;
+A -> C;
+B -> D;
+C -> D;
+D -> E;
+A -> F;
+E -> G;
+F -> G;
+G -> H;
+H -> I;
+I -> J;
+}

@@ -1,0 +1,45 @@
+[project]
+name = "compass-workspace"
+version = "0.1.0"
+requires-python = ">=3.13,<3.14"
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["apps/agent", "apps/memory", "apps/worker", "tools/data-seed"]
+
+[dependency-groups]
+dev = ["ruff>=0.14,<1", "pyright>=1.1.400,<2", "pytest>=8,<10", "httpx>=0.28,<1"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+indent-width = 4
+force-exclude = true
+extend-exclude = [".agents", ".cursor", "mai-specs", "work", "**/reference", "**/public", "**/generated"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+skip-magic-trailing-comma = false
+
+[tool.pyright]
+pythonVersion = "3.13"
+typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"
+include = [
+  "apps/agent/src", "apps/agent/tests",
+  "apps/memory/src", "apps/memory/tests",
+  "apps/worker/src", "apps/worker/tests",
+  "tools/data-seed/src", "tools/data-seed/tests",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["apps/agent/tests", "apps/memory/tests", "apps/worker/tests", "tools/data-seed/tests"]
+addopts = "--import-mode=importlib"

@@ -1,0 +1,84 @@
+erDiagram
+    direction TB
+    core_order_header {
+        smallint tenant_id PK
+        bigint order_id PK
+        bigint channel_id FK
+        bigint org_unit_id FK
+        bigint region_id FK
+        bigint demand_geo_id FK
+        bigint selling_site_id FK
+        bigint identity_id FK
+        bigint customer_id FK
+        bigint load_batch_id FK
+    }
+    core_order_unit {
+        smallint tenant_id PK
+        bigint order_unit_id PK
+        bigint order_line_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint sku_id FK
+        bigint load_batch_id FK
+    }
+    core_payment {
+        smallint tenant_id PK
+        bigint payment_id PK
+        bigint order_id FK
+        bigint region_id FK
+        bigint load_batch_id FK
+    }
+    core_refund {
+        smallint tenant_id PK
+        bigint refund_id PK
+        bigint payment_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint load_batch_id FK
+    }
+    core_refund_allocation {
+        smallint tenant_id PK
+        bigint refund_allocation_id PK
+        bigint refund_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint order_unit_id FK
+        bigint load_batch_id FK
+    }
+    core_return_header {
+        smallint tenant_id PK
+        bigint return_id PK
+        bigint order_id FK
+        bigint region_id FK
+        bigint request_channel_id FK
+        bigint receiving_site_id FK
+        bigint load_batch_id FK
+    }
+    core_return_item {
+        smallint tenant_id PK
+        bigint return_item_id PK
+        bigint return_id FK
+        bigint order_id FK
+        bigint region_id FK
+        bigint order_unit_id FK
+        bigint shipment_item_id FK
+        bigint load_batch_id FK
+    }
+    core_return_event {
+        smallint tenant_id PK
+        bigint return_event_id PK
+        bigint return_item_id FK
+        bigint order_unit_id FK
+        bigint region_id FK
+        bigint site_id FK
+        bigint restocked_lot_id FK
+        bigint load_batch_id FK
+    }
+    core_order_header ||--o{ core_payment : "order_id,region_id"
+    core_payment ||--o{ core_refund : "payment_id,order_id,region_id"
+    core_refund ||--o{ core_refund_allocation : "refund_id,order_id,region_id"
+    core_order_unit ||--o{ core_refund_allocation : "order_unit_id,order_id,region_id"
+    core_order_header ||--o{ core_return_header : "order_id,region_id"
+    core_return_header ||--o{ core_return_item : "return_id,order_id,region_id"
+    core_order_unit ||--o{ core_return_item : "order_unit_id,order_id,region_id"
+    core_return_item ||--o{ core_return_event : "return_item_id,order_unit_id,region_id"

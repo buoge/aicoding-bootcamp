@@ -1,0 +1,541 @@
+{
+  "scope": "Specification DDL, SQL compilation, and adversarial constraint checks. No million-row production run.",
+  "engine": "PostgreSQL 17.5 on x86_64-pc-linux-gnu, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit",
+  "tables": 63,
+  "columns": 643,
+  "checks": [
+    {
+      "name": "canonical_ddl_executes",
+      "passed": true,
+      "tables": 63
+    },
+    {
+      "name": "sql_compiles_H01",
+      "passed": true,
+      "empty_schema_violations": 3
+    },
+    {
+      "name": "sql_compiles_H02",
+      "passed": true,
+      "empty_schema_violations": 1
+    },
+    {
+      "name": "sql_compiles_H03",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H04",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H05",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H06",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H07",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H08",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H09",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H10",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H11",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H12",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H13",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H14",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H15",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H16",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H17",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H18",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H19",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H20",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H21",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H22",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H23",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H24",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H25",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H26",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H27",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H28",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H29",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H30",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H31",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H32",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H33",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H34",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H35",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_H36",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B01",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B02",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B03",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B04",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B05",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B06",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B07",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B08",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B09",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B10",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B11",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B12",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B13",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B14",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B15",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B16",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B17",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B18",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B19",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B20",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B21",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B22",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B23",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B24",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B25",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B26",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B27",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B28",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B29",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B30",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B31",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B32",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B33",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B34",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B35",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B36",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B37",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B38",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B39",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B40",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "sql_compiles_B41",
+      "passed": true,
+      "empty_schema_violations": 0
+    },
+    {
+      "name": "cross_tenant_fk_rejected",
+      "passed": true,
+      "expected_code": "23503",
+      "observed_code": "23503"
+    },
+    {
+      "name": "wrong_sku_price_fk_rejected",
+      "passed": true,
+      "expected_code": "23503",
+      "observed_code": "23503"
+    },
+    {
+      "name": "broken_money_check_rejected",
+      "passed": true,
+      "expected_code": "23514",
+      "observed_code": "23514"
+    },
+    {
+      "name": "negative_inventory_snapshot_rejected",
+      "passed": true,
+      "expected_code": "23514",
+      "observed_code": "23514"
+    },
+    {
+      "name": "security_ddl_executes",
+      "passed": true
+    },
+    {
+      "name": "metric_functions_deploy",
+      "passed": true
+    },
+    {
+      "name": "tenant_101_isolation",
+      "passed": true
+    },
+    {
+      "name": "tenant_guc_cannot_override_identity",
+      "passed": true
+    },
+    {
+      "name": "set_role_keeps_authenticated_subject",
+      "passed": true
+    },
+    {
+      "name": "authorized_cost_visible",
+      "passed": true
+    },
+    {
+      "name": "eval_direct_read_denied",
+      "passed": true,
+      "expected_code": "42501",
+      "observed_code": "42501"
+    },
+    {
+      "name": "permission_map_read_denied",
+      "passed": true,
+      "expected_code": "42501",
+      "observed_code": "42501"
+    },
+    {
+      "name": "business_update_denied",
+      "passed": true,
+      "expected_code": "42501",
+      "observed_code": "42501"
+    },
+    {
+      "name": "assume_another_tenant_login_denied",
+      "passed": true,
+      "expected_code": "42501",
+      "observed_code": "42501"
+    },
+    {
+      "name": "assume_security_owner_denied",
+      "passed": true,
+      "expected_code": "42501",
+      "observed_code": "42501"
+    },
+    {
+      "name": "missing_ads_produces_null_contribution",
+      "passed": true
+    },
+    {
+      "name": "metric_aggregates_independent_facts",
+      "passed": true
+    },
+    {
+      "name": "ad_version_is_selected_after_knowledge_filter",
+      "passed": true
+    },
+    {
+      "name": "split_payments_sum_without_fanout",
+      "passed": true
+    },
+    {
+      "name": "daily_metric_rejects_partial_day",
+      "passed": true,
+      "expected_code": "22023",
+      "observed_code": "22023"
+    },
+    {
+      "name": "late_state_event_does_not_leak_into_history",
+      "passed": true
+    },
+    {
+      "name": "tenant_102_isolation",
+      "passed": true
+    },
+    {
+      "name": "region_scope_filters_same_tenant",
+      "passed": true
+    },
+    {
+      "name": "region_cost_denied_by_policy",
+      "passed": true
+    },
+    {
+      "name": "regional_customer_source_denied",
+      "passed": true,
+      "expected_code": "42501",
+      "observed_code": "42501"
+    },
+    {
+      "name": "regional_customer_profile_view_accessible",
+      "passed": true
+    },
+    {
+      "name": "marketing_cost_denied_by_policy",
+      "passed": true
+    },
+    {
+      "name": "hidden_cost_never_becomes_zero_margin",
+      "passed": true
+    },
+    {
+      "name": "unmapped_login_default_deny",
+      "passed": true
+    },
+    {
+      "name": "security_deployment_idempotent",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

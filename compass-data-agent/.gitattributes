@@ -1,0 +1,2 @@
+# The accepted learner dataset is distributed through Git LFS.
+/data/retail/compass-retail.sql.gz filter=lfs diff=lfs merge=lfs -text

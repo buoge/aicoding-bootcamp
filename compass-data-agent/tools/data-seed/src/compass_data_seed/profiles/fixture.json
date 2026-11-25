@@ -1,0 +1,39 @@
+{
+  "name": "fixture",
+  "seed": 20261019,
+  "tenants": [
+    {
+      "tenant_id": 101,
+      "orders": 13,
+      "spus": 2,
+      "skus": 4,
+      "stores": 2,
+      "warehouses": 1,
+      "customers": 20,
+      "identities": 40
+    },
+    {
+      "tenant_id": 102,
+      "orders": 2,
+      "spus": 2,
+      "skus": 4,
+      "stores": 1,
+      "warehouses": 1,
+      "customers": 10,
+      "identities": 20
+    },
+    {
+      "tenant_id": 103,
+      "orders": 2,
+      "spus": 2,
+      "skus": 4,
+      "stores": 1,
+      "warehouses": 1,
+      "customers": 10,
+      "identities": 20
+    }
+  ],
+  "snapshot_start": "2025-10-01",
+  "scenarios": ["S01", "S02", "S04", "S05", "S06", "S07", "S10", "S12"],
+  "ingestion_mode": "referenced-batches"
+}

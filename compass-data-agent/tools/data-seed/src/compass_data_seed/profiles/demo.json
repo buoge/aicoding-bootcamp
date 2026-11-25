@@ -1,0 +1,38 @@
+{
+  "name": "demo",
+  "seed": 20261019,
+  "tenants": [
+    {
+      "tenant_id": 101,
+      "orders": 90000,
+      "spus": 120,
+      "skus": 960,
+      "stores": 6,
+      "warehouses": 2,
+      "customers": 30000,
+      "identities": 60000
+    },
+    {
+      "tenant_id": 102,
+      "orders": 5000,
+      "spus": 20,
+      "skus": 160,
+      "stores": 2,
+      "warehouses": 1,
+      "customers": 3000,
+      "identities": 6000
+    },
+    {
+      "tenant_id": 103,
+      "orders": 5000,
+      "spus": 20,
+      "skus": 160,
+      "stores": 2,
+      "warehouses": 1,
+      "customers": 3000,
+      "identities": 6000
+    }
+  ],
+  "snapshot_start": "2025-10-01",
+  "scenarios": ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12"]
+}

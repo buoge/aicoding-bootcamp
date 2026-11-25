@@ -1,0 +1,47 @@
+erDiagram
+    direction TB
+    core_tenant {
+        smallint tenant_id PK
+        text release_id FK
+    }
+    core_geo_area {
+        smallint tenant_id PK
+        bigint geo_id PK
+        bigint parent_geo_id FK
+        bigint region_id FK
+    }
+    core_org_unit {
+        smallint tenant_id PK
+        bigint org_unit_id PK
+        bigint parent_org_unit_id FK
+    }
+    core_site {
+        smallint tenant_id PK
+        bigint site_id PK
+        bigint org_unit_id FK
+        bigint geo_id FK
+        bigint region_id FK
+    }
+    core_channel {
+        smallint tenant_id PK
+        bigint channel_id PK
+    }
+    sec_principal {
+        name db_role PK
+        smallint tenant_id FK
+    }
+    sec_principal_region {
+        name db_role PK
+        smallint tenant_id PK
+        bigint region_id PK
+    }
+    core_tenant ||--o{ core_geo_area : ""
+    core_tenant ||--o{ core_org_unit : ""
+    core_org_unit ||--o{ core_site : "org_unit_id"
+    core_geo_area ||--o{ core_site : "geo_id"
+    core_tenant ||--o{ core_site : ""
+    core_tenant ||--o{ core_channel : ""
+    core_tenant ||--o{ sec_principal : ""
+    core_geo_area ||--o{ sec_principal_region : "region_id"
+    core_tenant ||--o{ sec_principal_region : ""
+    sec_principal ||--o{ sec_principal_region : "db_role"

@@ -1,0 +1,93 @@
+{
+  "01_organization": [
+    "core.tenant",
+    "core.geo_area",
+    "core.org_unit",
+    "core.site",
+    "core.channel",
+    "sec.principal",
+    "sec.principal_region"
+  ],
+  "02_product": [
+    "core.brand",
+    "core.category",
+    "core.sport",
+    "core.spu",
+    "core.spu_sport",
+    "core.sku",
+    "core.channel_listing",
+    "core.price_period",
+    "core.cost_period",
+    "core.assortment"
+  ],
+  "03_orders": [
+    "core.customer",
+    "core.customer_identity",
+    "core.customer_identity_link",
+    "core.order_header",
+    "core.order_line",
+    "core.order_unit",
+    "core.order_status_event",
+    "core.order_unit_event",
+    "core.discount_allocation",
+    "core.promotion"
+  ],
+  "04_payment_return": [
+    "core.order_header",
+    "core.order_unit",
+    "core.payment",
+    "core.refund",
+    "core.refund_allocation",
+    "core.return_header",
+    "core.return_item",
+    "core.return_event"
+  ],
+  "05_fulfillment": [
+    "core.site",
+    "core.order_unit",
+    "core.shipment",
+    "core.shipment_item",
+    "core.shipment_event",
+    "core.stock_allocation_attempt"
+  ],
+  "06_inventory": [
+    "core.site",
+    "core.sku",
+    "core.inventory_lot",
+    "core.inventory_document",
+    "core.inventory_document_line",
+    "core.inventory_movement",
+    "core.inventory_snapshot",
+    "core.inventory_valuation_snapshot"
+  ],
+  "07_finance": [
+    "core.order_unit",
+    "core.shipment_event",
+    "core.return_event",
+    "core.revenue_entry",
+    "core.cost_entry",
+    "core.order_fee"
+  ],
+  "08_marketing": [
+    "core.campaign",
+    "core.campaign_daily",
+    "core.order_header",
+    "core.order_attribution",
+    "core.web_session",
+    "core.behavior_event",
+    "core.channel_product_daily",
+    "core.store_traffic_daily",
+    "core.target_monthly"
+  ],
+  "09_governance": [
+    "core.tenant",
+    "ops.dataset_release",
+    "ops.ingestion_batch",
+    "ops.generation_run",
+    "ops.file_manifest",
+    "ops.source_watermark",
+    "eval.scenario",
+    "eval.question",
+    "eval.expected_result"
+  ]
+}

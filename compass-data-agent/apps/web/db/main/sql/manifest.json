@@ -1,0 +1,29 @@
+{
+  "owner": "web",
+  "databaseKey": "main",
+  "feature": "995",
+  "from": "empty",
+  "to": "0002_readable_routes",
+  "engine": "PostgreSQL 17",
+  "tool": "node-pg-migrate 9.0.0",
+  "sourceRevision": "working-tree; fixed by source SHA-256",
+  "sources": [
+    {
+      "source": "migrations/0001_web_foundation.sql",
+      "sha256": "3d9c4e530c5416ceb3d89273ab32145912d379637f7b8b2076dab5163c25956f"
+    },
+    {
+      "source": "migrations/0002_readable_routes.sql",
+      "sha256": "51566f95c5614a60cac4b24735928a7451b0aa98f7ace723d0503175407d4133"
+    }
+  ],
+  "bootstrap": "sql/bootstrap.sql",
+  "bootstrapSha256": "e502d7f524c7e684c17bf8ec58b8f2c877dabd6bd44ec351ddcbf77b370739ee",
+  "incremental": "sql/upgrades/0001_web_foundation__0002_readable_routes.sql",
+  "generate": "pnpm db:sql -F web",
+  "apply": "pnpm db:apply-sql -F web -- --from empty --to 0002_readable_routes",
+  "prerequisites": "Provisioned owned empty web/main database, owner/migrator/runtime roles; managed target checks and lock",
+  "transaction": "single transaction",
+  "dataImpact": "Creates Web schema and stable tenant/workspace slugs; no users or new business rows",
+  "recovery": "Restore verified backup into a new owned database; verify permissions/revision; revoke sessions before switching"
+}
